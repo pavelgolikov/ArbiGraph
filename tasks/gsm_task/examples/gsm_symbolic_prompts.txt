@@ -1,0 +1,329 @@
+Total templates processed: 41
+Good templates written: 41
+Done. Generated examples in /home/golikovp/Antigravity/Context-Management-Benchmark/tasks/gsm_task/gsm_symbolic_prompts.txt
+of the remoras?
+--- Answer ---
+5
+
+================================================================================
+
+=== Template: 0003.json ===
+--- Example Problem ---
+A class of 75 students has various hobbies. 13 like to play video games, 15 like to play soccer, and the rest like to either bake or paint. How many like to bake if the number that like to paint is twice the number that prefer playing soccer?
+--- Answer ---
+17
+
+================================================================================
+
+=== Template: 0004.json ===
+--- Example Problem ---
+Theodore is popping popcorn for a snack. As the pan of kernels heats up, the kernels start popping faster. 100 pop in the first 18 seconds of cooking, then 2 times that amount in the next 18 seconds. The kernels increase to 4 times the initial popping rate in the next 18 seconds, but in the final 18 seconds, the popping slows down to half the rate as the past 18 seconds. After Theodore takes the pan off the heat, a quarter of the number of kernels that popped in the final 18 seconds of cooking also pop from the residual heat. How many pieces of popcorn does Theodore have to eat?
+--- Answer ---
+950
+
+================================================================================
+
+=== Template: 0007.json ===
+--- Example Problem ---
+A farmer is buying feed for his alpacas. He buys a variety of corns, hay, beets and apples. Since apples are a rare treat, he only buys 7 6-pound boxes of them for the whole stable. He only wants enough beets to feed the alpacas while the vegetables are fresh, so he buys 15 6-pound bags. corns are the main diet of his alpacas, so he buys 35 42-pound packs. hay are a staple to supplement the corns, so he buys 18 16-pound sacks. If his farm truck can carry 210 pounds at a time, how many trips does the farmer need to transport all the feed?
+--- Answer ---
+9
+
+================================================================================
+
+=== Template: 0010.json ===
+--- Example Problem ---
+To make a call from a phone booth, you must pay £0.5 for each minute of your call. After 16 minutes, that price drops to £0.333 per minute. How much would a 58-minute call cost, rounded to the nearest whole number?
+--- Answer ---
+22
+
+================================================================================
+
+=== Template: 0015.json ===
+--- Example Problem ---
+Jack's dog has 1015 puppies, 240 of which have spots. Henry's dog has 585 puppies, 160 of which have spots. What percentage of all the puppies have spots?
+--- Answer ---
+25
+
+================================================================================
+
+=== Template: 0016.json ===
+--- Example Problem ---
+Omar is selling cupcake and mangoes pie for a fundraiser. On Wednesday, he sold 21 boxes of cupcake and 18 fewer boxes of mangoes pie, than on Thursday. On Thursday, he sold 12 more boxes of cupcakes than on Wednesday and 28 boxes of mangoes pie. If the cupcake cost €7 and the mangoes pie cost €26, how much did Omar earn in total over Wednesday and Thursday?
+--- Answer ---
+1366
+
+================================================================================
+
+=== Template: 0018.json ===
+--- Example Problem ---
+Ryan went to buy some school supplies. He bought 16 notebooks which cost £2.25 each, 14 folders which cost £19 each, and a rim of bond paper which cost £18. How much did Ryan spend on everything?
+--- Answer ---
+320
+
+================================================================================
+
+=== Template: 0019.json ===
+--- Example Problem ---
+In a 20-item quiz, 60% of the questions are chemistry, and the rest are equally divided as economics and physics questions. If Haruka is sure to get 100% of the chemistry questions, and 3/8 of the economics and physics questions correctly, how many points is she sure to get?
+--- Answer ---
+15
+
+================================================================================
+
+=== Template: 0024.json ===
+--- Example Problem ---
+According to its nutritional info, a bag of popcorn has 200 calories per serving. If a 100 ounces bag has 4 servings, assuming enough bags are available and servings can be split, how many ounces can you eat if your daily calorie target is 2025 and you have already consumed 1025 calories?
+--- Answer ---
+125
+
+================================================================================
+
+=== Template: 0027.json ===
+--- Example Problem ---
+Evelyn receives 156 emails a day. 25% of those emails don't require any response. Evelyn responds to the rest of them. How many emails does Evelyn respond to in a 3 day work week?
+--- Answer ---
+351
+
+================================================================================
+
+=== Template: 0028.json ===
+--- Example Problem ---
+A medical center has a capacity of 1200 beds with 3/8 occupied. Due to the major accident, 40 patients are admitted into the medical center each day. Calculate the total number of unoccupied beds in the medical center after 2 weeks.
+--- Answer ---
+190
+
+================================================================================
+
+=== Template: 0032.json ===
+--- Example Problem ---
+Ms. Johnson is looking for a house that will not go beyond her $400000 budget. She saw a property that has a selling price of $370000. On top of that, the buyer has to pay a brokerage fee which is 3% of the selling price, and also the transfer fee that is 13% of the selling price. How much more is the total price of the house than Ms. Johnson's budget?
+--- Answer ---
+29200
+
+================================================================================
+
+=== Template: 0034.json ===
+--- Example Problem ---
+Prof. Rodriguez sold his condo for $670000. He paid the transfer fees that amount to 4% of the selling price and also paid a realtor fee that is 5% of the selling price. If he also paid $120000 for the remaining loan amount of the condo, how much is Prof. Rodriguez's net proceeds from selling the condo?
+--- Answer ---
+489700
+
+================================================================================
+
+=== Template: 0036.json ===
+--- Example Problem ---
+Evelyn went to the patisserie and bought various types of desserts. She bought 9 dozen donuts which cost $12 per dozen, 8 dozen mini cupcakes which cost $79 per dozen, and 2 dozen brownies for $115 per dozen. How much was the total cost?
+--- Answer ---
+970
+
+================================================================================
+
+=== Template: 0039.json ===
+--- Example Problem ---
+A janitor has to clean a office building with 105 floors. They have 5 days to get it done. It takes them 30 minutes per floor. If they work 15 hours each day, what percentage of their working time, on average, is spent cleaning floors?
+--- Answer ---
+70
+
+================================================================================
+
+=== Template: 0042.json ===
+--- Example Problem ---
+Henry goes to the store to buy some tea. The normal brand of tea he buys costs £5 per kg. He had to buy a more expensive brand that costs 40% more since his favorite brand was sold out. He decides to buy a week's worth of tea and he uses 1 kg of tea per day. He also decided to buy himself a cookie for £4. How much did everything cost?
+--- Answer ---
+53
+
+================================================================================
+
+=== Template: 0047.json ===
+--- Example Problem ---
+Yuki hid 9 dozen eggs in the yard for the Easter egg hunt. Samuel finds 5 eggs. Sophia finds twice as many as Samuel. Tariq finds 2 less than Sophia, and William finds 1/4 as many as Tariq. How many eggs are still hidden in the yard?
+--- Answer ---
+83
+
+================================================================================
+
+=== Template: 0048.json ===
+--- Example Problem ---
+Hannah can peel 4 clams a minute and saute 20 clams in 10 minutes. If she peels all the clams first and then sautes them, how long will it take her to peel and saute 120 clams?
+--- Answer ---
+90
+
+================================================================================
+
+=== Template: 0050.json ===
+--- Example Problem ---
+The area of Carlos's rectangular study is 570 square feet. If the length of his  room is 5 yards, what is the perimeter of the room in feet?
+--- Answer ---
+106
+
+================================================================================
+
+=== Template: 0051.json ===
+--- Example Problem ---
+Henry has a vegetable stand at the street bazaar. He sells three kinds of vegetables: sunflowers, lilies and daisies. He usually sells sunflowers for $1.92 per bunch, lilies for $3.57 per bunch and daisies for $5.16 per bunch. Henry has no change today, so he has decided to round all his prices to the nearest dollar. If Henry sells 14 bunchs of sunflowers, 29 bunchs of lilies and 36 bunchs of daisies, how much will he make?
+--- Answer ---
+324
+
+================================================================================
+
+=== Template: 0054.json ===
+--- Example Problem ---
+Harper sliced a whole kiwi into 32 pieces. She ate 4 slices, her friend ate 5 more than her, and her sister ate 7 more than her friend. How many slices of kiwi did they all eat?
+--- Answer ---
+29
+
+================================================================================
+
+=== Template: 0058.json ===
+--- Example Problem ---
+One miner can mine 5 kgs of ore per day with basic shovel. He can mine twice as much with a silver pickaxe and 70% more with a titanium pickaxe than with a silver pickaxe. How many kgs of ore can 20 miners with titanium pickaxes mine in a month with 28 days?
+--- Answer ---
+9520
+
+================================================================================
+
+=== Template: 0059.json ===
+--- Example Problem ---
+I have 14 liters of mango drink that are half water and I wish to add it to 20 liters of lemon drink that is half water. But as I pour it, I spill 6 liters of the mango drink. How much water is in the remaining 28 liters?
+--- Answer ---
+14
+
+================================================================================
+
+=== Template: 0060.json ===
+--- Example Problem ---
+Theodore works a 8-hour shift each day, 6 days a week. He earns £18 per hour and gets a £478 bonus each week if the company performs well. How much money did Theodore make over four weeks if the company performed very well for the whole month?
+--- Answer ---
+5368
+
+================================================================================
+
+=== Template: 0062.json ===
+--- Example Problem ---
+In a set of scientist's cards, there are 75 blue cards, and 88% more red cards. orange cards are as many as the sum of blue and red cards. How many cards of all mentioned colors are there?
+--- Answer ---
+432
+
+================================================================================
+
+=== Template: 0066.json ===
+--- Example Problem ---
+Kenji has 79 light blue spools of thread, 128 dark blue spools of thread, 52 light green spools of thread, and 86 dark green spools of thread. What percent of the spools are blue?
+--- Answer ---
+60
+
+================================================================================
+
+=== Template: 0067.json ===
+--- Example Problem ---
+Liam's truck breaks down. The truck weighs 2400 kilograms and he has equipment in it weighing 150 kilograms. He also has his 2 young colleagues who weigh 75 kilograms each in it. If the force to move the truck is 1% of the weight, how much force does he need to push the truck?
+--- Answer ---
+27
+
+================================================================================
+
+=== Template: 0071.json ===
+--- Example Problem ---
+Samuel is feeding his livestock silage. Each pig needs 4 kilograms, and each duck needs 2 kilograms less than twice the amount each pig needs. If there are 10 pigs and 35 ducks, how many kilograms of silage does Samuel need?
+--- Answer ---
+250
+
+================================================================================
+
+=== Template: 0072.json ===
+--- Example Problem ---
+Benjamin was a pen pal with 14 people. He stopped being penpals with 4 of them. They each send 2 letters a week that are 9 pages long. He responds in kind. He can write a page every 13 minutes. How many hours does he spend writing a week?
+--- Answer ---
+39
+
+================================================================================
+
+=== Template: 0075.json ===
+--- Example Problem ---
+There are currently 16 green balls, 22 purple balls, and 27 blue balls in the store. green balls cost ¥9, blue balls cost ¥3, and purple balls cost ¥7. How much will the store have received after all the balls are sold?
+--- Answer ---
+379
+
+================================================================================
+
+=== Template: 0078.json ===
+--- Example Problem ---
+There are 9 periods in the day for a normal student but Logan has to take 1 extra classes. Each class is 40 minutes long. He goes to class for 4 days a week. He then spends a tenth of his weekly minutes each on Saturday and Sunday as extra learning time. How many hours a week does he spend learning?
+--- Answer ---
+32
+
+================================================================================
+
+=== Template: 0082.json ===
+--- Example Problem ---
+At the beginning of the party, there were 43 engineers and 27 teachers. After an hour, two-fifths of the total number of people left. How many teachers are left if 17 engineers stayed at the party?
+--- Answer ---
+25
+
+================================================================================
+
+=== Template: 0084.json ===
+--- Example Problem ---
+Aisha buys 18 shares of a stock for €64 each. The stock price increases 25% the first year Aisha holds it, then decreases 10% in the second year. What is the final value of all Aisha's shares?
+--- Answer ---
+1296
+
+================================================================================
+
+=== Template: 0086.json ===
+--- Example Problem ---
+Olivia qualified for a spot on the swimming team, so she went shopping for some athletic gear. She bought a jersey for £8, a pair of swimming shorts for £10 more than the jersey cost, and a pair of cleats that were originally £46 but were on sale for half price. She had a coupon for £3 off the package of £6 athletic wristbands that she also bought. How much did she spend on athletic gear?
+--- Answer ---
+52
+
+================================================================================
+
+=== Template: 0088.json ===
+--- Example Problem ---
+Sophia can run twice faster than she can walk, but she can skip at a rate of speed that is three-quarters as fast as she can run. If she can skip at 3 miles per hour, how many miles can she travel in 6 hours if she spends two-thirds of the time running and a third of the time walking?
+--- Answer ---
+20
+
+================================================================================
+
+=== Template: 0093.json ===
+--- Example Problem ---
+When the water is cold Grace swims a kilometer in 18 minutes. When the water is warm Grace swims a kilometer in 3 minutes more than twice as long. How much longer does Grace take to swim 5 kilometers on a hot day than a cold day?
+--- Answer ---
+105
+
+================================================================================
+
+=== Template: 0094.json ===
+--- Example Problem ---
+1000 people apply for a job at Facebook. Of the people that apply, only 24% receive interviews. Of those who receive interviews, 25% receive a job offer. Of those who receive a job offer, half of the people accept the position. How many people accept the position?
+--- Answer ---
+30
+
+================================================================================
+
+=== Template: 0095.json ===
+--- Example Problem ---
+There are 8 students playing badminton and three times that number playing volleyball. There are 16 boys and 17 girls playing basketball. If each student only participates in one group, how many students are there in total?
+--- Answer ---
+65
+
+================================================================================
+
+=== Template: 0096.json ===
+--- Example Problem ---
+Emma's mom said that she had $200 budgeted for her birthday party. She wants to make sure that she and every invited friend each get to play one round of bowling, each have $3 in game room tokens, and each get to ride the roller coaster four times. A round of bowling is $7. The roller coaster cost $10 a ride. How many friends can she invite?
+--- Answer ---
+3
+
+================================================================================
+
+=== Template: 0099.json ===
+--- Example Problem ---
+If Owen eats 3 eggs a day for 34 days and then increases it to 5 eggs a day for 102 days, how many dozens of eggs will Owen need for 136 days?
+--- Answer ---
+51
+
+================================================================================
+

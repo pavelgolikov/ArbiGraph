@@ -1,0 +1,1274 @@
+======================================================================
+  GSM CHAIN DATASET  |  samples=41
+======================================================================
+
+======================================================================
+  Sample 0  |  GSM_0000.json  |  sample_idx=0
+  Output: 10
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -59
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -35 to it.
+Elijah went to buy some school supplies. He bought val_1 colored pencils which cost £6 each, 4 notebooks which cost £14 each, and a rim of bond paper which cost £11. How much did Elijah spend on everything?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 34 to it.
+James has val_2 light green spools of thread, 87 dark green spools of thread, 49 light red spools of thread, and 83 dark red spools of thread. What percent of the spools are green?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 450 to it.
+A clinic has a capacity of val_3 beds with 1/10 occupied. Due to the natural disaster, 20 patients are admitted into the clinic each day. Calculate the total number of unoccupied beds in the clinic after 2 weeks.
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Lucas saw a val_4-foot dolphin with 3 28-inch remoras attached to it. What percentage of the dolphin's body length is the combined length of the remoras?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 1  |  GSM_0003.json  |  sample_idx=0
+  Output: 35
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -47
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 53 to it.
+Yuki finished three-quarters of a val_1 piece puzzle, and then started and finished another 672 piece puzzle within an hour. How many puzzle pieces did Yuki place during that hour?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 3 to it.
+Matthew slew val_2 goblins with his mighty mace, while William, using a halberd, slew three-fifths as many goblins as Matthew. Using a bone dagger, Diego slew six times as many goblins as William. But James, having forgotten his mace at home, slew two-thirds as many goblins as Diego using a butter knife. How many goblins has James slain?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+On Sunday, Charlotte wants to exercise for four times the amount of time he did on Saturday and Friday combined. On Friday he exercised for val_3 minutes. On Saturday he exercised for 28 minutes. How many minutes does he have to exercise on Sunday to reach his goal?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+A group of val_4 students has various hobbies. 24 like to paint, 11 like to play tennis, and the rest like to either hike or dance. How many like to hike if the number that like to dance is twice the number that prefer playing tennis?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 2  |  GSM_0004.json  |  sample_idx=0
+  Output: 765
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 24
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 26 to it.
+There are val_1 fourth-graders at Pine Valley School. 39 of them are girls. On Tuesday, 4 fourth-grade girls and 9 fourth-grade boys were absent. How many fourth grade boys were at Pine Valley School on Tuesday?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 18 to it.
+In a set of scientist's cards, there are val_2 orange cards, and 35% more purple cards. red cards are as many as the sum of orange and purple cards. How many cards of all mentioned colors are there?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+James went to their allotment to pick some strawberries and found six times as many caterpillars as grasshoppers in the plot. If there were val_3 grasshoppers, calculate the total number of insects in the plot.
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 2 to it.
+Elijah is popping popcorn for a snack. As the pot of kernels heats up, the kernels start popping faster. val_4 pop in the first 24 seconds of cooking, then 2 times that amount in the next 24 seconds. The kernels increase to 6 times the initial popping rate in the next 24 seconds, but in the final 24 seconds, the popping slows down to half the rate as the past 24 seconds. After Elijah takes the pot off the heat, a quarter of the number of kernels that popped in the final 24 seconds of cooking also pop from the residual heat. How many pieces of popcorn does Elijah have to eat?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 3  |  GSM_0007.json  |  sample_idx=0
+  Output: 7
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -68
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -48 to it.
+A student has val_1 pencils. His brother has 8 fewer pencils than he has. How many pencils do they have together?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -18 to it.
+Lucas was a pen pal with val_2 people. He stopped being penpals with 2 of them. They each send 3 letters a week that are 6 pages long. He responds in kind. He can write a page every 5 minutes. How many hours does he spend writing a week?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 32 to it.
+Theodore receives val_3 emails a day. 8% of those emails don't require any response. Theodore responds to the rest of them. How many emails does Theodore respond to in a 3 day work week?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -30 to it.
+A farmer is buying feed for his horses. He buys a variety of wheats, hay, carrots and oats. Since oats are a rare treat, he only buys val_4 7-kilogram boxes of them for the whole stable. He only wants enough carrots to feed the horses while the vegetables are fresh, so he buys 13 8-kilogram bags. wheats are the main diet of his horses, so he buys 32 38-kilogram packs. hay are a staple to supplement the wheats, so he buys 19 16-kilogram sacks. If his farm truck can carry 240 kilograms at a time, how many trips does the farmer need to transport all the feed?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 4  |  GSM_0010.json  |  sample_idx=0
+  Output: 10
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 17
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 199983 to it.
+Dr. Rodriguez sold his villa for $val_1. He paid the registration fees that amount to 1% of the selling price and also paid a agent fee that is 4% of the selling price. If he also paid $130000 for the remaining loan amount of the villa, how much is Dr. Rodriguez's net proceeds from selling the villa?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 5 to it.
+It takes Mei val_2 minutes to finish a chess puzzle and 3 minutes to finish a riddle. Over the free time she solved 3 chess puzzles and 8 riddles. How much time did she spend playing these games?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -20 to it.
+Tariq has 12 tubes of red paint and val_3 tubes of purple paint. William has a quarter as many tubes of red paint as Tariq, and triple as many tubes of purple paint as Tariq. How many tubes of paint does William have?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+To make a call from a phone booth, you must pay ¥0.333 for each minute of your call. After 12 minutes, that price drops to ¥0.125 per minute. How much would a val_4-minute call cost, rounded to the nearest whole number?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 5  |  GSM_0015.json  |  sample_idx=0
+  Output: 20
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -7
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+A fog bank rolls in from the ocean to cover a city. It takes val_1 minutes to cover every 34 miles of the city. If the city is 68 miles across from the oceanfront to the opposite inland edge, how many minutes will it take for the fog bank to cover the whole city?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Jack was a pen pal with val_2 people. He stopped being penpals with 4 of them. They each send 3 letters a week that are 6 pages long. He responds in kind. He can write a page every 10 minutes. How many hours does he spend writing a week?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -22 to it.
+A farmer is buying feed for his alpacas. He buys a variety of hay, wheats, carrots and corns. Since corns are a rare treat, he only buys val_3 6-pound boxes of them for the whole stable. He only wants enough carrots to feed the alpacas while the vegetables are fresh, so he buys 11 7-pound bags. hay are the main diet of his alpacas, so he buys 34 35-pound packs. wheats are a staple to supplement the hay, so he buys 15 15-pound sacks. If his farm truck can carry 220 pounds at a time, how many trips does the farmer need to transport all the feed?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 943 to it.
+Ryan's dog has val_4 puppies, 180 of which have spots. Arjun's dog has 600 puppies, 130 of which have spots. What percentage of all the puppies have spots?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 6  |  GSM_0016.json  |  sample_idx=0
+  Output: 1766
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 78
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 2 to it.
+The Scavenger hunt team hid val_1 eggs. The Garcia twins each found 17 eggs. All the other eggs except 12 were found by their friends. How many eggs did the friends find?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -10 to it.
+Sophia qualified for a spot on the basketball team, so she went shopping for some athletic gear. She bought a t-shirt for €val_2, a pair of basketball leggings for €9 more than the t-shirt cost, and a pair of athletic shoes that were originally €50 but were on sale for two-fifths price. She had a coupon for €2 off the package of €9 athletic wristbands that she also bought. How much did she spend on athletic gear?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+At Matthew's house, there are four times as many corns as kiwis. He has a total of val_3 kiwis in his house. Matthew bought 89 more kiwis at the store and 10 fewer corns than the number of kiwis. Find the combined total of the number of corns and kiwis Matthew has in the house?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -59 to it.
+Jack is selling brownie and watermelons pie for a fundraiser. On Monday, he sold val_4 boxes of brownie and 12 fewer boxes of watermelons pie, than on Tuesday. On Tuesday, he sold 13 more boxes of brownies than on Monday and 28 boxes of watermelons pie. If the brownie cost £10 and the watermelons pie cost £24, how much did Jack earn in total over Monday and Tuesday?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 7  |  GSM_0018.json  |  sample_idx=0
+  Output: 276
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -75
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -62 to it.
+Yuki is trying to decide whether to do her taxes herself or hire one tax consultant. If she does it herself, she'll be able to do val_1 fewer hours of part-time work, losing £87/hour in missed income. The tax consultant charges £80. How much more money will she have if she hires the tax consultant?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -1 to it.
+The vending machines sell crackers for val_2 cents and pretzels for 75 cents. Alexander spent £700 and got 6 bags of crackers and had 1% of his money left in change. How many pretzels did he buy?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Diego saw a val_3-foot dolphin with 3 16-inch remoras attached to it. What percentage of the dolphin's body length is the combined length of the remoras?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Matthew went to buy some school supplies. He bought val_4 pencils which cost €10 each, 4 colored pencils which cost €15.75 each, and a rim of bond paper which cost €13. How much did Matthew spend on everything?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 8  |  GSM_0019.json  |  sample_idx=0
+  Output: 70
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 51
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -41 to it.
+Aisha's uncle said that she had $290 budgeted for her birthday party. She wants to make sure that she and every invited friend each get to play one round of bowling, each have $val_1 in game room tokens, and each get to ride the roller coaster four times. A round of bowling is $8. The roller coaster cost $10 a ride. How many friends can she invite?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 299996 to it.
+Mrs. Smith is looking for a apartment that will not go beyond her $val_2 budget. She saw a property that has a selling price of $270000. On top of that, the buyer has to pay a brokerage fee which is 5% of the selling price, and also the transfer fee that is 10% of the selling price. How much more is the total price of the apartment than Mrs. Smith's budget?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 20 to it.
+Sophia went to their allotment to pick some cherries and found six times as many bees as wasps in the field. If there were val_3 wasps, calculate the total number of insects in the field.
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+In a 140-item quiz, val_4% of the questions are biology, and the rest are equally divided as chemistry and economics questions. If Yuki is sure to get 100% of the biology questions, and 1/6 of the chemistry and economics questions correctly, how many points is she sure to get?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 9  |  GSM_0024.json  |  sample_idx=0
+  Output: 100
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 39
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+A juggler can juggle val_1 balls. 3/5 of the balls are tennis balls, and 1/4 of the tennis balls are orange. How many orange tennis balls are there?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 44 to it.
+Samuel slew val_2 trolls with his mighty mace, while Alexander, using a javelin, slew three-fifths as many trolls as Samuel. Using a rusty iron axe, Chen slew twice as many trolls as Alexander. But Kenji, having forgotten his sword at home, slew a third as many trolls as Chen using a nail file. How many trolls has Kenji slain?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+David goes to the store to buy some sugar. The normal brand of sugar he buys costs ¥val_3 per kg. He had to buy a more expensive brand that costs 30% more since his favorite brand was sold out. He decides to buy a week's worth of sugar and he uses 1 kg of sugar per day. He also decided to buy himself a cookie for ¥3. How much did everything cost?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1815 to it.
+According to its nutritional info, a bag of popcorn has 475 calories per serving. If a 200 ounces bag has 4 servings, assuming enough bags are available and servings can be split, how many ounces can you eat if your daily calorie target is val_4 and you have already consumed 950 calories?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 10  |  GSM_0027.json  |  sample_idx=0
+  Output: 228
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -87
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -73 to it.
+Benjamin was a pen pal with val_1 people. He stopped being penpals with 4 of them. They each send 2 letters a week that are 6 pages long. He responds in kind. He can write a page every 9 minutes. How many hours does he spend writing a week?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Omar went to buy some school supplies. He bought val_2 crayons which cost €6.5 each, 4 pencils which cost €16.75 each, and a rim of bond paper which cost €22. How much did Omar spend on everything?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Tariq and Fatima are currently val_3 years apart in age. If Tariq, who is younger than Fatima, is 43 years old, what's the average of their ages?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 4 to it.
+Lucas receives val_4 emails a day. 24% of those emails don't require any response. Lucas responds to the rest of them. How many emails does Lucas respond to in a 6 day work week?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 11  |  GSM_0028.json  |  sample_idx=0
+  Output: 30
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 7
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 943 to it.
+Samuel's dog has val_1 puppies, 170 of which have spots. Haruka's dog has 550 puppies, 130 of which have spots. What percentage of all the puppies have spots?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 30 to it.
+Alexander slew val_2 orcs with his mighty battle axe, while Omar, using a javelin, slew a tenth as many orcs as Alexander. Using a rusty iron axe, Jamal slew four times as many orcs as Omar. But Chen, having forgotten his sword at home, slew a quarter as many orcs as Jamal using a wooden spoon. How many orcs has Chen slain?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+A loaf of sourdough at the cafe costs £val_3. muffins cost £4 each. How much more do 4 loaves of sourdough cost than 4 muffins?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 496 to it.
+A hospital has a capacity of val_4 wards with 1/10 occupied. Due to the flu season, 20 patients are admitted into the hospital each day. Calculate the total number of unoccupied wards in the hospital after 3 weeks.
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 12  |  GSM_0032.json  |  sample_idx=0
+  Output: 13200
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -54
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -40 to it.
+Henry was a pen pal with val_1 people. He stopped being penpals with 1 of them. They each send 4 letters a week that are 5 pages long. He responds in kind. He can write a page every 9 minutes. How many hours does he spend writing a week?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Lily went to their allotment to pick some blueberries and found six times as many caterpillars as beetles in the garden. If there were val_2 beetles, calculate the total number of insects in the garden.
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -59 to it.
+Theodore is feeding his livestock feed. Each llama needs val_3 pounds, and each alpaca needs 4 pounds less than twice the amount each llama needs. If there are 49 llamas and 30 alpacas, how many pounds of feed does Theodore need?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 299994 to it.
+Dr. Patel is looking for a condo that will not go beyond her $val_4 budget. She saw a property that has a selling price of $270000. On top of that, the buyer has to pay a brokerage fee which is 3% of the selling price, and also the transfer fee that is 13% of the selling price. How much more is the total price of the condo than Dr. Patel's budget?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 13  |  GSM_0034.json  |  sample_idx=0
+  Output: 54000
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -71
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -57 to it.
+William was a pen pal with val_1 people. He stopped being penpals with 4 of them. They each send 4 letters a week that are 11 pages long. He responds in kind. He can write a page every 9 minutes. How many hours does he spend writing a week?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 34 to it.
+Isabella finished three-quarters of a val_2 piece puzzle, and then started and finished another 527 piece puzzle within an hour. How many puzzle pieces did Isabella place during that hour?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+A father eats val_3 tacos per day, his partner eats 2 tacos per day, and their grandchild eats 2 tacos per day. How many tacos does this family eat in one month?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 199920 to it.
+Dr. Smith sold his apartment for $val_4. He paid the transfer fees that amount to 2% of the selling price and also paid a agent fee that is 6% of the selling price. If he also paid $130000 for the remaining loan amount of the apartment, how much is Dr. Smith's net proceeds from selling the apartment?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 14  |  GSM_0036.json  |  sample_idx=0
+  Output: 1840
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -19
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 11 to it.
+Theodore picks val_1 mangoess on Tuesday. Then he picks 282 mangoess on Wednesday. On Thursday, he picks seven times the number of mangoess he did on Tuesday. How many mangoess does Theodore have?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Oliver is selling brownie and grapes pie for a fundraiser. On Thursday, he sold val_2 boxes of brownie and 11 fewer boxes of grapes pie, than on Friday. On Friday, he sold 11 more boxes of brownies than on Thursday and 21 boxes of grapes pie. If the brownie cost €8 and the grapes pie cost €30, how much did Oliver earn in total over Thursday and Friday?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Sakura operates the cash register exactly eight times as fast as her less-experienced colleague Zoe. Daily, Zoe processes val_3 customers. What is the total weekly production for the two if they work all days of the week?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -1 to it.
+Emma went to the patisserie and bought various types of baked goods. She bought val_4 dozen danishes which cost $17 per dozen, 7 dozen cookies which cost $88 per dozen, and 9 dozen mini cheesecakes for $119 per dozen. How much was the total cost?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 15  |  GSM_0039.json  |  sample_idx=0
+  Output: 20
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 84
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Diego has a flower stand at the local fair. He sells three kinds of flowers: daisies, sunflowers and lilies. He usually sells daisies for €val_1 per basket, sunflowers for €3.57 per basket and lilies for €6.4 per basket. Diego has no change today, so he has decided to round all his prices to the nearest dollar. If Diego sells 11 baskets of daisies, 24 baskets of sunflowers and 35 baskets of lilies, how much will he make?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -23 to it.
+Carlos hires a boat from val_2 PM to 11 PM. He gets 2 hours free. The first paid hour is €18 and each hour after that is double the cost. How much did he pay?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -50 to it.
+A carpenter works for val_3 weeks every month and for 6 days every week. If he gets paid €50 every day, how much does he earn if he works for a year?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 10 to it.
+A janitor has to clean a hospital with 90 rooms. They have 5 days to get it done. It takes them val_4 minutes per room. If they work 15 hours each day, what percentage of their working time, on average, is spent cleaning rooms?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 16  |  GSM_0042.json  |  sample_idx=0
+  Output: 422
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -43
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -24 to it.
+Evelyn buys val_1 shares of a stock for $40 each. The stock price increases 30% the first year Evelyn holds it, then decreases 25% in the second year. What is the final value of all Evelyn's shares?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -17 to it.
+Grace qualified for a spot on the soccer team, so she went shopping for some athletic gear. She bought a jersey for ¥val_2, a pair of soccer shorts for ¥4 more than the jersey cost, and a pair of cleats that were originally ¥44 but were on sale for half price. She had a coupon for ¥2 off the package of ¥8 athletic wristbands that she also bought. How much did she spend on athletic gear?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -66 to it.
+Zoe has val_3 jars of chocolate chips in her kitchen cabinet. Each jar of chocolate chips can decorate 15 cupcakes. Zoe wants to bake enough cupcakes to use up all of her chocolate chips. If each tray holds 6 cupcakes, how many trays worth of cupcakes should she bake?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -11 to it.
+Jamal goes to the store to buy some sugar. The normal brand of sugar he buys costs ¥val_4 per kilogram. He had to buy a more expensive brand that costs 25% more since his favorite brand was sold out. He decides to buy a week's worth of sugar and he uses 2 kilogram of sugar per day. He also decided to buy himself a bagel for ¥2. How much did everything cost?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 17  |  GSM_0047.json  |  sample_idx=0
+  Output: 36
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -82
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -53 to it.
+Jamal and Chen have 126 minutes to walk to the mall together. It takes them val_1 minutes to get to the corner where the park is. It takes them another 69 minutes to get to the gym. How much longer do they have to get to mall without being late?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 2 to it.
+The vending machines sell cookies for val_2 cents and popcorn for 50 cents. Jamal spent £1100 and got 5 bags of cookies and had 8% of his money left in change. How many popcorn did he buy?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -12 to it.
+A stack is made out of val_3 orange cubes, double as many green cubes, and an unknown number of pink cubes. If there are 40 cubes in the stack in total, how many pink cubes are there?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -4 to it.
+Elijah hid val_4 dozen eggs in the yard for the Easter egg hunt. Haruka finds 14 eggs. Chen finds double as many as Haruka. Scarlett finds 3 less than Chen, and Luna finds 1/5 as many as Scarlett. How many eggs are still hidden in the yard?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 18  |  GSM_0048.json  |  sample_idx=0
+  Output: 183
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 32
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 299968 to it.
+Mrs. Lee is looking for a condo that will not go beyond her $val_1 budget. She saw a property that has a selling price of $290000. On top of that, the buyer has to pay a brokerage fee which is 6% of the selling price, and also the transfer fee that is 14% of the selling price. How much more is the total price of the condo than Mrs. Lee's budget?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 150 to it.
+According to its nutritional info, a bag of popcorn has val_2 calories per serving. If a 200 oz bag has 4 servings, assuming enough bags are available and servings can be split, how many oz can you eat if your daily calorie target is 2425 and you have already consumed 1675 calories?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -26 to it.
+Theodore goes to the store to buy some rice. The normal brand of rice he buys costs $val_3 per kg. He had to buy a more expensive brand that costs 25% more since his favorite brand was sold out. He decides to buy a week's worth of rice and he uses 1 kg of rice per day. He also decided to buy himself a muffin for $1. How much did everything cost?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 9 to it.
+Sophia can peel 6 carrots a minute and saute val_4 carrots in 17 minutes. If she peels all the carrots first and then sautes them, how long will it take her to peel and saute 180 carrots?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 19  |  GSM_0050.json  |  sample_idx=0
+  Output: 104
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -80
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+To make a call from a phone booth, you must pay €0.667 for each minute of your call. After 48 minutes, that price drops to €0.375 per minute. How much would a val_1-minute call cost, rounded to the nearest whole number?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -20 to it.
+Ryan is val_2 years old. In 8 years his sister Emma will be 2 times as old as Ryan is now. How old is Emma right now?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+A juggler can juggle val_3 balls. 2/5 of the balls are golf balls, and 1/4 of the golf balls are orange. How many orange golf balls are there?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+The area of William's rectangular kitchen is 555 square feet. If the length of his  room is val_4 yards, what is the perimeter of the room in feet?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 20  |  GSM_0051.json  |  sample_idx=0
+  Output: 1840
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -12
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 13 to it.
+Ella makes tea using teaspoons of sugar and cups of water in the ratio of val_1:9. If she used a total of 1054 teaspoons of sugar and cups of water, calculate the number of teaspoonfuls of sugar she used.
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -63 to it.
+Daniel works a val_2-hour shift each day, 4 days a week. He earns €16 per hour and gets a €358 bonus each week if the company performs well. How much money did Daniel make over four weeks if the company performed very well for the whole month?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Victoria is trying to decide whether to do her taxes herself or hire one financial advisor. If she does it herself, she'll be able to do val_3 fewer hours of contract work, losing $90/hour in missed income. The financial advisor charges $74. How much more money will she have if she hires the financial advisor?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Carlos has a plant stand at the town square. He sells three kinds of plants: daisies, tulips and lilies. He usually sells daisies for ¥val_4 per bundle, tulips for ¥4.09 per bundle and lilies for ¥6.4 per bundle. Carlos has no change today, so he has decided to round all his prices to the nearest dollar. If Carlos sells 18 bundles of daisies, 16 bundles of tulips and 38 bundles of lilies, how much will he make?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 21  |  GSM_0054.json  |  sample_idx=0
+  Output: 32
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -40
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 10 to it.
+Samuel slew val_1 ogres with his mighty battle axe, while Carlos, using a lance, slew a fifth as many ogres as Samuel. Using a bone dagger, Arjun slew four times as many ogres as Carlos. But David, having forgotten his sword at home, slew three-quarters as many ogres as Arjun using a feather. How many ogres has David slain?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Jamal places crackers on some tables. Each table can hold val_2 crackers. If he has 325 crackers and 8 tables, how many crackers won't he be able to place on the table?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Mei is required to submit a val_3-page dissertation. She already finished writing a fifth of the dissertation. How many pages does she have left to write?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -36 to it.
+Mei sliced a whole mango into val_4 pieces. She ate 3 slices, her brother ate 8 more than her, and her sister ate 7 more than her brother. How many slices of mango did they all eat?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 22  |  GSM_0058.json  |  sample_idx=0
+  Output: 8866
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -51
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -43 to it.
+A farmer is buying feed for his sheep. He buys a variety of apples, wheats, cucumbers and oats. Since oats are a rare treat, he only buys val_1 5-kilogram boxes of them for the whole stable. He only wants enough cucumbers to feed the sheep while the vegetables are fresh, so he buys 15 6-kilogram bags. apples are the main diet of his sheep, so he buys 33 40-kilogram packs. wheats are a staple to supplement the apples, so he buys 16 15-kilogram sacks. If his farm truck can carry 130 kilograms at a time, how many trips does the farmer need to transport all the feed?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -5 to it.
+An uncle eats val_2 hamburgers per day, his partner eats 5 hamburgers per day, and their grandchild eats 3 hamburgers per day. How many hamburgers does this family eat in one month?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 170 to it.
+The biggest waterslide at Splash World is val_3 meters long, and people slide down at 50 meters/minute. The second biggest waterslide is 200 meters long, but steeper, so people slide down at 100 meters/minute. How much longer does it take to ride the biggest slide compared to the second biggest slide?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 2 to it.
+One gnome can mine val_4 kgs of ore per day with basic shovel. He can mine double as much with a silver pickaxe and 30% more with a diamond pickaxe than with a silver pickaxe. How many kgs of ore can 22 gnomes with diamond pickaxes mine in a month with 31 days?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 23  |  GSM_0059.json  |  sample_idx=0
+  Output: 20
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 37
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 299963 to it.
+Ms. Johnson is looking for a apartment that will not go beyond her $val_1 budget. She saw a property that has a selling price of $270000. On top of that, the buyer has to pay a brokerage fee which is 4% of the selling price, and also the transfer fee that is 11% of the selling price. How much more is the total price of the apartment than Ms. Johnson's budget?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 10 to it.
+On Thursday, Theodore wants to exercise for six times the amount of time he did on Wednesday and Tuesday combined. On Tuesday he exercised for val_2 minutes. On Wednesday he exercised for 48 minutes. How many minutes does he have to exercise on Thursday to reach his goal?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Scarlett went to their backyard to pick some blueberries and found half as many beetles as caterpillars in the patch. If there were val_3 caterpillars, calculate the total number of insects in the patch.
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -42 to it.
+I have 14 liters of mango drink that are a quarter water and I wish to add it to val_4 liters of peach drink that is three-fifths water. But as I pour it, I spill 6 liters of the mango drink. How much water is in the remaining 38 liters?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 24  |  GSM_0060.json  |  sample_idx=0
+  Output: 8640
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -70
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -51 to it.
+Theodore has 18 tubes of white paint and val_1 tubes of yellow paint. Aiden has a sixth as many tubes of white paint as Theodore, and twice as many tubes of yellow paint as Theodore. How many tubes of paint does Aiden have?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -32 to it.
+There are val_2 periods in the day for a normal student but Matthew has to take 1 extra classes. Each class is 60 minutes long. He goes to class for 6 days a week. He then spends two-thirds of his weekly minutes each on Saturday and Sunday as extra learning time. How many hours a week does he spend learning?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 910 to it.
+Haruka's dog has val_3 puppies, 230 of which have spots. Carlos's dog has 530 puppies, 140 of which have spots. What percentage of all the puppies have spots?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -13 to it.
+Theodore works a val_4-hour shift each day, 6 days a week. He earns ¥27 per hour and gets a ¥216 bonus each week if the company performs well. How much money did Theodore make over four weeks if the company performed very well for the whole month?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 25  |  GSM_0062.json  |  sample_idx=0
+  Output: 90
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 19
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+In a 60-item quiz, val_1% of the questions are chemistry, and the rest are equally divided as algebra and economics questions. If Ava is sure to get 50% of the chemistry questions, and 1/8 of the algebra and economics questions correctly, how many points is she sure to get?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 299988 to it.
+Mrs. Lee is looking for a house that will not go beyond her $val_2 budget. She saw a property that has a selling price of $290000. On top of that, the buyer has to pay a brokerage fee which is 7% of the selling price, and also the transfer fee that is 10% of the selling price. How much more is the total price of the house than Mrs. Lee's budget?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 100 to it.
+If Omar and Diego have val_3 yards of fence between them, and they agree to split it with Diego getting 80 yards more than Omar, how much is left over for Omar?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 10 to it.
+In a set of chef's cards, there are val_4 green cards, and 25% more yellow cards. purple cards are as many as the sum of green and yellow cards. How many cards of all mentioned colors are there?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 26  |  GSM_0066.json  |  sample_idx=0
+  Output: 50
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 68
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+A fog bank rolls in from the ocean to cover a city. It takes val_1 minutes to cover every 35 miles of the city. If the city is 70 miles across from the oceanfront to the opposite inland edge, how many minutes will it take for the fog bank to cover the whole city?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Yuki has double as many Snapchat friends as Aisha. Liam has five times as many friends on Snapchat as Aisha. If Yuki has val_2 friends on Snapchat, how many Snapchat friends does Liam have?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -76 to it.
+Daniel was a pen pal with val_3 people. He stopped being penpals with 4 of them. They each send 2 letters a week that are 9 pages long. He responds in kind. He can write a page every 6 minutes. How many hours does he spend writing a week?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 27 to it.
+Chen has val_4 light black spools of thread, 93 dark black spools of thread, 64 light white spools of thread, and 74 dark white spools of thread. What percent of the spools are black?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 27  |  GSM_0067.json  |  sample_idx=0
+  Output: 65
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -84
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Mia makes tea using teaspoons of sugar and cups of water in the ratio of val_1:39. If she used a total of 1476 teaspoons of sugar and cups of water, calculate the number of teaspoonfuls of sugar she used.
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Ella's aunt said that she had €190 budgeted for her birthday party. She wants to make sure that she and every invited friend each get to play one round of mini-golf, each have €val_2 in pinball tokens, and each get to ride the go-karts three times. A round of mini-golf is €3. The go-karts cost €9 a ride. How many friends can she invite?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Lucas goes to the store to buy some flour. The normal brand of flour he buys costs £val_3 per kg. He had to buy a more expensive brand that costs 25% more since his favorite brand was sold out. He decides to buy a week's worth of flour and he uses 2 kg of flour per day. He also decided to buy himself a cookie for £3. How much did everything cost?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 927 to it.
+William's car breaks down. The car weighs val_4 kilograms and he has groceries in it weighing 400 kilograms. He also has his 3 young children who weigh 75 kilograms each in it. If the force to move the car is 4% of the weight, how much force does he need to push the car?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 28  |  GSM_0071.json  |  sample_idx=0
+  Output: 1168
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -69
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -40 to it.
+David is selling cupcake and peaches pie for a fundraiser. On Tuesday, he sold val_1 boxes of cupcake and 16 fewer boxes of peaches pie, than on Wednesday. On Wednesday, he sold 12 more boxes of cupcakes than on Tuesday and 28 boxes of peaches pie. If the cupcake cost €9 and the peaches pie cost €27, how much did David earn in total over Tuesday and Wednesday?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 15 to it.
+The vending machines sell crackers for val_2 cents and popcorn for 100 cents. James spent $1100 and got 4 bags of crackers and had 4% of his money left in change. How many popcorn did he buy?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+At the beginning of the celebration, there were val_3 teachers and 71 lawyers. After 45 minutes, two-thirds of the total number of people left. How many lawyers are left if 21 teachers stayed at the celebration?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -7 to it.
+Chen is feeding his livestock hay. Each alpaca needs val_4 kilograms, and each turkey needs 9 kilograms less than twice the amount each alpaca needs. If there are 21 alpacas and 46 turkeys, how many kilograms of hay does Chen need?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 29  |  GSM_0072.json  |  sample_idx=0
+  Output: 40
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 75
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 25 to it.
+Oliver finished a tenth of a val_1 piece puzzle, and then started and finished another 931 piece puzzle within an hour. How many puzzle pieces did Oliver place during that hour?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -1 to it.
+Emma saw a val_2-foot whale with 4 60-inch remoras attached to it. What percentage of the whale's body length is the combined length of the remoras?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+To make a call from a hotel room phone, you must pay ¥0.667 for each minute of your call. After 18 minutes, that price drops to ¥0.125 per minute. How much would a val_3-minute call cost, rounded to the nearest whole number?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -2 to it.
+Tariq was a pen pal with val_4 people. He stopped being penpals with 2 of them. They each send 4 letters a week that are 5 pages long. He responds in kind. He can write a page every 10 minutes. How many hours does he spend writing a week?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 30  |  GSM_0075.json  |  sample_idx=0
+  Output: 521
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -19
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Samuel went to their allotment to pick some blueberries and found three-fifths as many ladybugs as wasps in the plot. If there were val_1 wasps, calculate the total number of insects in the plot.
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+At Mason's house, there are six times as many bananas as pears. He has a total of val_2 pears in his house. Mason bought 64 more pears at the store and 18 fewer bananas than the number of pears. Find the combined total of the number of bananas and pears Mason has in the house?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 116 to it.
+According to its nutritional info, a bag of breads has val_3 calories per serving. If a 275 ounces bag has 5 servings, assuming enough bags are available and servings can be split, how many ounces can you eat if your daily calorie target is 2005 and you have already consumed 1675 calories?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -2 to it.
+There are currently val_4 blue balls, 23 yellow balls, and 39 pink balls in the market. blue balls cost ¥14, pink balls cost ¥3, and yellow balls cost ¥6. How much will the market have received after all the balls are sold?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 31  |  GSM_0078.json  |  sample_idx=0
+  Output: 48
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 40
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -16 to it.
+Oliver is val_1 years old. In 9 years his sister Rania will be 4 times as old as Oliver is now. How old is Rania right now?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -13 to it.
+Mei and Evelyn are currently 24 years apart in age. If Mei, who is younger than Evelyn, is val_2 years old, what's the average of their ages?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Lucas picks val_3 watermelonss on Thursday. Then he picks 253 watermelonss on Friday. On Saturday, he picks seven times the number of watermelonss he did on Thursday. How many watermelonss does Lucas have?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -32 to it.
+There are val_4 periods in the day for a normal student but Daniel has to take 3 extra classes. Each class is 45 minutes long. He goes to class for 4 days a week. He then spends a sixth of his weekly minutes each on Saturday and Sunday as extra learning time. How many hours a week does he spend learning?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 32  |  GSM_0082.json  |  sample_idx=0
+  Output: 17
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 39
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -25 to it.
+Nora can peel val_1 mushrooms a minute and saute 35 mushrooms in 6 minutes. If she peels all the mushrooms first and then sautes them, how long will it take her to peel and saute 70 mushrooms?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Mason has 18 tubes of orange paint and val_2 tubes of black paint. Benjamin has two-thirds as many tubes of orange paint as Mason, and five times as many tubes of black paint as Mason. How many tubes of paint does Benjamin have?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 3 to it.
+The Treasure hunt team hid val_3 coins. The Mirzakhani twins each found 41 coins. All the other coins except 16 were found by their friends. How many coins did the friends find?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 18 to it.
+At the beginning of the conference, there were val_4 artists and 24 nurses. After half an hour, a quarter of the total number of people left. How many nurses are left if 16 artists stayed at the conference?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 33  |  GSM_0084.json  |  sample_idx=0
+  Output: 912
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -9
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 191 to it.
+Luna scored val_1 points in one game of darts. Ryan scored 26 points more than two-fifths as many as Luna. How many points did Luna and Ryan have in total?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+David was a pen pal with val_2 people. He stopped being penpals with 2 of them. They each send 4 letters a week that are 10 pages long. He responds in kind. He can write a page every 9 minutes. How many hours does he spend writing a week?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Benjamin has four times as many Snapchat friends as Isabella. Omar has nine times as many friends on Snapchat as Isabella. If Benjamin has val_3 friends on Snapchat, how many Snapchat friends does Omar have?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -35 to it.
+Victoria buys val_4 shares of a stock for €64 each. The stock price increases 25% the first year Victoria holds it, then decreases 40% in the second year. What is the final value of all Victoria's shares?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 34  |  GSM_0086.json  |  sample_idx=0
+  Output: 89
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 8
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 42 to it.
+Kenji slew val_1 giants with his mighty mace, while Jamal, using a lance, slew three-fifths as many giants as Kenji. Using a rusty iron axe, Lucas slew twice as many giants as Jamal. But Benjamin, having forgotten his axe at home, slew three-fifths as many giants as Lucas using a nail file. How many giants has Benjamin slain?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -17 to it.
+Grace buys val_2 shares of a stock for $40 each. The stock price increases 40% the first year Grace holds it, then decreases 25% in the second year. What is the final value of all Grace's shares?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+If Rania eats 3 eggs a day for 56 days and then increases it to 6 eggs a day for val_3 days, how many dozens of eggs will Rania need for 154 days?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -39 to it.
+Mei qualified for a spot on the cycling team, so she went shopping for some athletic gear. She bought a jersey for ¥val_4, a pair of cycling leggings for ¥9 more than the jersey cost, and a pair of sneakers that were originally ¥70 but were on sale for two-fifths price. She had a coupon for ¥3 off the package of ¥7 athletic headbands that she also bought. How much did she spend on athletic gear?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 35  |  GSM_0088.json  |  sample_idx=0
+  Output: 56
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 71
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -41 to it.
+I have 9 liters of lemon drink that are a third water and I wish to add it to val_1 liters of apple drink that is a fifth water. But as I pour it, I spill 3 liters of the lemon drink. How much water is in the remaining 36 liters?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Amelia was preparing for a potluck party at her house, where she intended to serve creme brulee. She noticed that she was out of plastic plates, so she bought a new package of plates. Later, her husband also bought a package of val_2 new plates and gave them to Amelia. While Amelia was making the creme brulee, she used 10 of the plates to sample her creme brulee. Later, when she went to set the table, she had a total of 24 plates. How many plates were in the package that Amelia bought?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Grace makes tea using teaspoons of sugar and cups of water in the ratio of val_3:38. If she used a total of 960 teaspoons of sugar and cups of water, calculate the number of teaspoonfuls of sugar she used.
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -81 to it.
+Ella can run nine times faster than she can walk, but she can skip at a rate of speed that is three-quarters as fast as she can run. If she can skip at val_4 miles per hour, how many miles can she travel in 10 hours if she spends two-fifths of the time running and three-fifths of the time walking?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 36  |  GSM_0093.json  |  sample_idx=0
+  Output: 162
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -78
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+At Omar's house, there are nine times as many oranges as corns. He has a total of val_1 corns in his house. Omar bought 42 more corns at the store and 23 fewer oranges than the number of corns. Find the combined total of the number of oranges and corns Omar has in the house?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 199959 to it.
+Prof. Smith sold his house for $val_2. He paid the registration fees that amount to 3% of the selling price and also paid a brokerage fee that is 4% of the selling price. If he also paid $150000 for the remaining loan amount of the house, how much is Prof. Smith's net proceeds from selling the house?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 20 to it.
+A juggler can juggle val_3 balls. 1/2 of the balls are tennis balls, and 1/2 of the tennis balls are pink. How many pink tennis balls are there?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 5 to it.
+When the water is cold Rania swims a mile in val_4 minutes. When the water is warm Rania swims a mile in 8 minutes more than twice as long. How much longer does Rania take to swim 9 miles on a hot day than a cold day?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 37  |  GSM_0094.json  |  sample_idx=0
+  Output: 15
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 17
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 83 to it.
+Noah finished three-fifths of a val_1 piece puzzle, and then started and finished another 522 piece puzzle within an hour. How many puzzle pieces did Noah place during that hour?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -68 to it.
+Owen was a pen pal with val_2 people. He stopped being penpals with 2 of them. They each send 4 letters a week that are 5 pages long. He responds in kind. He can write a page every 6 minutes. How many hours does he spend writing a week?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+In a set of artist's cards, there are val_3 orange cards, and 50% more green cards. purple cards are as many as the sum of orange and green cards. How many cards of all mentioned colors are there?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+625 people apply for a job at Facebook. Of the people that apply, only 20% receive interviews. Of those who receive interviews, val_4% receive a job offer. Of those who receive a job offer, three-fifths of the people accept the position. How many people accept the position?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 38  |  GSM_0095.json  |  sample_idx=0
+  Output: 58
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -10
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 15 to it.
+Ella makes tea using teaspoons of sugar and cups of water in the ratio of val_1:8. If she used a total of 1122 teaspoons of sugar and cups of water, calculate the number of teaspoonfuls of sugar she used.
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Owen saw a val_2-foot dolphin with 4 6-inch remoras attached to it. What percentage of the dolphin's body length is the combined length of the remoras?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 26 to it.
+Riley operates the cash register exactly nine times as fast as her less-experienced colleague Fatima. Daily, Fatima processes val_3 customers. What is the total weekly production for the two if they work all days of the week?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 4 to it.
+There are val_4 students playing volleyball and double that number playing football. There are 30 boys and 16 girls playing badminton. If each student only participates in one group, how many students are there in total?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 39  |  GSM_0096.json  |  sample_idx=0
+  Output: 3
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -90
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+A maintenance worker has to clean a office building with val_1 rooms. They have 5 days to get it done. It takes them 20 minutes per room. If they work 10 hours each day, what percentage of their working time, on average, is spent cleaning rooms?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -51 to it.
+A pyramid is made out of val_2 white tiles, twice as many black tiles, and an unknown number of green tiles. If there are 42 tiles in the pyramid in total, how many green tiles are there?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+A kid has val_3 marbles. His cousin has 2 fewer marbles than he has. How many marbles do they have together?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -18 to it.
+Amelia's aunt said that she had ¥120 budgeted for her birthday party. She wants to make sure that she and every invited friend each get to play one round of bowling, each have ¥val_4 in arcade tokens, and each get to ride the bumper cars twice. A round of bowling is ¥6. The bumper cars cost ¥7 a ride. How many friends can she invite?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 40  |  GSM_0099.json  |  sample_idx=0
+  Output: 35
+======================================================================
+Solve all tasks below in order. Each task after the first uses the preceding task's output. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 94
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -85 to it.
+When the water is cold Isabella swims a kilometer in 12 minutes. When the water is warm Isabella swims a kilometer in val_1 minutes more than triple as long. How much longer does Isabella take to swim 2 kilometers on a hot day than a cold day?
+Save the final numerical answer in task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+A fog bank rolls in from the ocean to cover a city. It takes val_2 minutes to cover every 2 miles of the city. If the city is 28 miles across from the oceanfront to the opposite inland edge, how many minutes will it take for the fog bank to cover the whole city?
+Save the final numerical answer in task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 26 to it.
+Haruka receives val_3 emails a day. 20% of those emails don't require any response. Haruka responds to the rest of them. How many emails does Haruka respond to in a 4 day work week?
+Save the final numerical answer in task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+If Elijah eats 2 eggs a day for val_4 days and then increases it to 5 eggs a day for 60 days, how many dozens of eggs will Elijah need for 120 days?
+Save the final numerical answer in task_4_out.
+
+----------------------------------------------------------------------

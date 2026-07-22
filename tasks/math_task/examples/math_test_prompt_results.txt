@@ -1,0 +1,501 @@
+======================================================================
+  MATH TASK PROMPT TEST  |  scalar_max_mag=100  list_len_max=20
+======================================================================
+
+======================================================================
+  MatrixMulTask (list->list)
+  Output: [-4074, 9395, 5294, -3993, 6130, 4918, 693, -3080, -7733]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, take modulo 100 of its absolute value, and then re-apply its original sign.
+If list_3 has more than 20 elements, keep only the first 20 elements.
+Reshape list list_3 into matrix M1_3 of size 3x3 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_3 or truncate it.
+Define M2_3 = Matrix([[-74, 73, 89], [39, -78, 51], [8, -92, -93]]).
+Compute the matrix product of M1_3 and M2_3 and call the result mat_task_3_out.
+Convert matrix mat_task_3_out into a list task_3_out by concatenating matrix rows starting from the top row, then second row, etc...
+
+----------------------------------------------------------------------
+
+======================================================================
+  FWHTTask (list->list)
+  Output: [-93, 69, -71, 47, -45, -171, -39, -9]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1) and then take modulo 100 of its absolute value, and then re-apply its original sign.
+If list_3 has more than 20 elements, keep only the first 20 elements.
+If the length of list_3 is not a power of 2, update list_3 by padding it with zeros to the next power of 2.
+Let list_3 = [a_0, a_1, ..., a_{N-1}].
+Compute the unnormalized Walsh-Hadamard transform in Sylvester order. That is, for each j = 0, 1, ..., N-1, define
+H_j = sum_{k=0}^{N-1} ((-1) ** popcount(j & k)) * a_k, where `&` is bitwise AND and popcount counts the number of 1-bits.
+Return the sequence [H_0, H_1, ..., H_{N-1}] and call it task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  NTTTask (list->list)
+  Output: [9, 9, 11, 2, 1, 15, 2, 7]
+======================================================================
+Task 3:
+Define p_03 = 17.
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1) and then take modulo 100 of its absolute value, and then re-apply its original sign.
+If list_3 has more than 20 elements, keep only the first 20 elements.
+If the length of list_3 is not a power of 2, update list_3 by padding it with zeros to the next power of 2.
+Let list_3 = [a_0, a_1, ..., a_{N-1}], and let p = 17.
+All arithmetic in this transform is modulo p. Let g be the smallest positive primitive root modulo p, and define omega = g**((p - 1) // N) mod p. By construction, (N) divides (p-1), so (\omega) has exact order (N) modulo (p).
+Compute the number theoretic transform A = [A_0, A_1, ..., A_{N-1}], where for each j = 0, 1, ..., N-1, A_j = sum_{k=0}^{N-1} a_k * omega**(j*k) mod p.
+Return each A_j as its least nonnegative residue in {0, 1, ..., p-1}. Call the resulting sequence task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  SubsetZetaTransformTask (list->list)
+  Output: [-15, -65, 32, -48, 24, -22, 64, -27]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1) and then take modulo 100 of its absolute value, and then re-apply its original sign.
+If list_3 has more than 20 elements, keep only the first 20 elements.
+If the length of list_3 is not a power of 2, update list_3 by padding it with zeros to the next power of 2.
+Let list_3 be a sequence of length 2^m. Index its entries by bitmasks S = 0, 1, ..., 2^m - 1.
+Compute the subset-sum/zeta transform B, where for each bitmask S, B[S] = sum of list_3[T] over all bitmasks T such that T is a subset of S.
+Here, T is a subset of S means every 1-bit of T is also a 1-bit of S, equivalently (T & S) = T.
+Return the values B[0], B[1], ..., B[2^m - 1] in increasing bitmask order and call the resulting sequence task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  KroneckerProductTask (list->list)
+  Output: [2294, 2387, 1702, 1771, 93, 2356, 69, 1748, -3478, -3619, 518, 539, -141, -3572, 21, 532]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1) and then take modulo 100 of its absolute value, and then re-apply its original sign.
+If list_3 has more than 20 elements, keep only the first 20 elements.
+Reshape list list_3 into matrix M1_3 of size 2x2 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_3 or truncate it.
+Define M2_3 = Matrix([[-74, -77], [-3, -76]]).
+Compute the Kronecker product of M1_3 and M2_3 and call the result mat_task_3_out.
+Convert matrix mat_task_3_out into a list task_3_out by concatenating matrix rows starting from the top row, then second row, etc...
+
+----------------------------------------------------------------------
+
+======================================================================
+  ConvolutionTask (list->list)
+  Output: [-10, -27, 56, 66, -235, 55, 166, -68, 172, -307, 129]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1) and then take modulo 100 of its absolute value, and then re-apply its original sign.
+If list_3 has more than 20 elements, keep only the first 20 elements.
+Define seq2_3 = [2, 3, -4, 1, -4, 3].
+Compute the linear discrete convolution of list_3 and seq2_3. Call the result task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  PolyRemainderTask (list->list)
+  Output: [-13, 30, 29, -4, 23, -26]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1) and then take modulo 100 of its absolute value, and then re-apply its original sign.
+If list_3 has more than 20 elements, keep only the first 20 elements.
+Let poly_1_3(x) be a polynomial whose coefficients are the elements of the list list_3 in order, starting from the highest degree.
+Define poly_2_3 = x**6 - 4*x**5 - 5*x**4 + 5*x**3 - 2*x**2 - x - 4.
+Compute the polynomial remainder of poly_1_3 divided by poly_2_3. Call the result poly_task_3_out.
+Convert poly_task_3_out into a list task_3_out by extracting its coefficients starting from the highest degree to the constant term, including zero coefficients for missing intermediate powers. Omit leading zero coefficients. Represent the zero polynomial as [0].
+
+----------------------------------------------------------------------
+
+======================================================================
+  PolyQuotientTask (list->list)
+  Output: [-21, -17, 36, -34]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1) and then take modulo 100 of its absolute value, and then re-apply its original sign.
+If list_3 has more than 20 elements, keep only the first 20 elements.
+Let P_3(x) be a polynomial whose coefficients are the elements of the list list_3 in order, starting from the highest degree.
+Compute the polynomial quotient when P_3(x) is divided by the monic polynomial x**2 + x + 1. Call the result poly_task_3_out.
+Convert poly_task_3_out into a list task_3_out by extracting its coefficients starting from the highest degree to the constant term, including zero coefficients for missing intermediate powers. Omit leading zero coefficients. Represent the zero polynomial as [0].
+
+----------------------------------------------------------------------
+
+======================================================================
+  MatrixPolynomialTask (list->list)
+  Output: [14123, -67890, -19002, -16720, -17187, 92340, -47294, 107526, 142467]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1) and then take modulo 100 of its absolute value, and then re-apply its original sign.
+If list_3 has more than 20 elements, keep only the first 20 elements.
+Reshape list list_3 into matrix matrix_1_3 of size 3x3 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_3 or truncate it.
+Compute the matrix polynomial matrix_1_3**3 + matrix_1_3**2 + matrix_1_3. Call the result mat_task_3_out.
+Convert matrix mat_task_3_out into a list task_3_out by concatenating matrix rows starting from the top row, then second row, etc...
+
+----------------------------------------------------------------------
+
+======================================================================
+  SortByDivisorCountTask (list->list)
+  Output: [-41, 31, -29, 43, -19, 27, 32, 18]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1) and then take modulo 100 of its absolute value, and then re-apply its original sign.
+If list_3 has more than 20 elements, keep only the first 20 elements.
+Sort list_3 based on the number of divisors of their absolute values in ascending order. If an element is 0, treat its divisor count as 0. Maintain stable sorting for ties. Call the result task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  MatrixFrobeniusSqTask (list->scalar)
+  Output: 5940
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1) and then take modulo 100 of its absolute value, and then re-apply its original sign.
+If list_3 has more than 20 elements, keep only the first 20 elements.
+Reshape list list_3 into matrix mat_1_3 of size 3x3 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_3 or truncate it.
+Compute the Frobenius norm squared (sum of squares of all elements) of mat_1_3 and call the result task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  ConvexHullAreaTask (list->scalar)
+  Output: 810
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1) and then take modulo 100 of its absolute value, and then re-apply its original sign.
+If list_3 has more than 20 elements, keep only the first 20 elements.
+Consider list_3 as a sequence of y-coordinates with x-coordinates being their indices (0, 1, 2, ...).
+Compute the area of the convex hull of these 2D points, multiply the area by 2, and call the result task_3_out. If there are fewer than 3 points, or if all points are collinear, define the area to be 0.
+
+----------------------------------------------------------------------
+
+======================================================================
+  MatrixNorm1Task (list->scalar)
+  Output: 116
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1) and then take modulo 100 of its absolute value, and then re-apply its original sign.
+If list_3 has more than 20 elements, keep only the first 20 elements.
+Reshape list list_3 into matrix matrix_1_3 of size 3x3 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_3 or truncate it.
+Compute the 1-norm of matrix_1_3 (the maximum absolute column sum) and call the result task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  MatrixTraceCubeTask (list->scalar)
+  Output: 54808
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1) and then take modulo 100 of its absolute value, and then re-apply its original sign.
+If list_3 has more than 20 elements, keep only the first 20 elements.
+Reshape list list_3 into matrix mat_1_3 of size 3x3 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_3 or truncate it.
+Compute the trace of mat_1_3**3 and call the result task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  PermutationInversionsTask (list->scalar)
+  Output: 17
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1) and then take modulo 100 of its absolute value, and then re-apply its original sign.
+If list_3 has more than 20 elements, keep only the first 20 elements.
+Let list_3 = [a_0, a_1, ..., a_{N-1}].
+Sort the indices 0, 1, ..., N-1 in ascending order by the pair (a_i, i).
+In other words, sort by the corresponding sequence value, and break ties by the smaller original index.
+Let the resulting index list be pi = [pi_0, pi_1, ..., pi_{N-1}].
+Compute the number of inversions in pi, meaning the number of pairs (r, s) such that 0 <= r < s < N and pi_r > pi_s.
+Call this result task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  PermutationOrderTask (list->scalar)
+  Output: 8
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1) and then take modulo 100 of its absolute value, and then re-apply its original sign.
+If list_3 has more than 20 elements, keep only the first 20 elements.
+Let list_3 = [a_0, a_1, ..., a_{N-1}].
+Sort the indices 0, 1, ..., N-1 in ascending order by the pair (a_i, i).
+In other words, sort by the corresponding sequence value, and break ties by the smaller original index.
+Let the resulting index list be pi = [pi_0, pi_1, ..., pi_{N-1}].
+Treat pi as the array form of a permutation of {0, 1, ..., N-1}, meaning pi maps r to pi_r.
+Compute the order of this permutation: the smallest positive integer m such that applying pi exactly m times gives the identity permutation.
+If N = 0, define the order to be 1.
+Call the result task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  PolySquareFreeEvalTask (list->scalar)
+  Output: -570
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1) and then take modulo 100 of its absolute value, and then re-apply its original sign.
+If list_3 has more than 20 elements, keep only the first 20 elements.
+Let P_3(x) be a polynomial whose coefficients are the elements of the list list_3 in order, starting from the highest degree.
+If P_3(x) is the zero polynomial, define task_3_out = 0. For a nonzero constant polynomial, use gcd(P_3, P_3') = 1.
+Otherwise, let S_3(x) = P_3(x) / gcd(P_3(x), P_3'(x)), where the gcd is taken over Q[x] and made monic.
+Do not further normalize S_3(x): keep any scalar coefficient remaining after division by the monic gcd.Evaluate S_3(2) and call the result task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  PolyResultantFixedTask (list->scalar)
+  Output: 793
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1) and then take modulo 100 of its absolute value, and then re-apply its original sign.
+If list_3 has more than 20 elements, keep only the first 20 elements.
+Let P_3(x) be a polynomial whose coefficients are the elements of the list list_3 in order, starting from the highest degree.
+Compute the resultant of P_3(x) and the polynomial x**2 + x + 1 and call the result task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  InterpolateEvalTask (list->scalar)
+  Output: -317878910
+======================================================================
+Task 3:
+Let points_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1) and then take modulo 100 of its absolute value, and then re-apply its original sign.
+If points_3 has more than 20 elements, keep only the first 20 elements.
+Construct the unique interpolating polynomial through the points (0, points_3[0]), (1, points_3[1]), ..., (4, points_3[4]).
+Evaluate that polynomial at x = 92 and call the result task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  PairwiseGcdSumTask (list->scalar)
+  Output: 77
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1) and then take modulo 100 of its absolute value.
+If list_3 has more than 20 elements, keep only the first 20 elements.
+For every pair of indices i, j with 0 <= i < j < len(list_3), compute gcd(|list_3[i]|, |list_3[j]|). Use the convention gcd(0, 0) = 0.
+Compute the sum of all these GCD values and call the result task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  SummatoryTotientTask (scalar->scalar)
+  Output: 542
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1), then take modulo 100 of its absolute value, and then add 30 to it.
+For each integer k = 1, 2, ..., val_3, compute Euler's totient function phi(k), the number of integers m with 1 <= m <= k such that gcd(m, k) = 1.
+Compute the sum phi(1) + phi(2) + ... + phi(val_3) and call the result task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  DivisorSumTask (scalar->scalar)
+  Output: 14
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1), then take modulo 100 of its absolute value, and then add 1 to it.
+Compute the sum of all positive divisors of val_3 and call the result task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  PrimeOmegaSumTask (scalar->scalar)
+  Output: 14
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1), then take modulo 100 of its absolute value, and then add 2 to it.
+For each integer i from 2 to val_3, compute omega(i), the number of distinct prime factors of i.
+Compute the sum of all these omega values and call the result task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  SumDivisorCountsTask (scalar->scalar)
+  Output: 29
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1), then take modulo 100 of its absolute value, and then add 1 to it.
+For each integer i from 1 to val_3, compute the number of positive divisors of i.
+Compute the sum of all these divisor counts and call the result task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  PrimitiveRootCountTask (scalar->scalar)
+  Output: 10
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1), then take modulo 100 of its absolute value, and then add 1 to it.
+Find the val_3-th prime number p.
+Compute Euler's totient phi(p-1), which equals the count of primitive roots modulo p. Call the result task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  LegendreResidueWeightTask (scalar->scalar)
+  Output: 460
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1), then take modulo 100 of its absolute value, and then add 25 to it.
+Let p be the smallest prime number strictly greater than val_3 + 2.
+For each integer a = 1, 2, ..., val_3, compute the Legendre symbol Legendre(a, p). This value is 1 if there exists an integer x such that x**2 is congruent to a modulo p, and -1 otherwise.
+For each a, compute a * (Legendre(a, p) + 1). Then compute the sum of these values over all a = 1, 2, ..., val_3.
+Call the result task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  ScaledStirlingFirstKindTask (scalar->scalar)
+  Output: 546
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1) and then take modulo 100 of its absolute value.
+Define m = floor(sqrt(val_3)) + 7.
+Compute the unsigned Stirling number of the first kind c(m, m - 2), which counts the number of permutations of m elements with exactly m - 2 disjoint cycles.
+Call the result task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  DivisorSigmaSquareTask (scalar->scalar)
+  Output: 170
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1), then take modulo 100 of its absolute value, and then add 1 to it.
+Compute the sum of the squares of all positive divisors of val_3 and call the result task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  MultiplicativeOrderTask (scalar->scalar)
+  Output: 8
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1), then take modulo 100 of its absolute value, and then add 1 to it.
+Compute the multiplicative order of 2 modulo (2*val_3 + 1) and call the result task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  UnitaryDivisorSumTask (scalar->scalar)
+  Output: 12
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1), then take modulo 100 of its absolute value, and then add 1 to it.
+Compute the sum of the unitary divisors of val_3 (divisors d where gcd(d, val_3/d) == 1) and call the result task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  ModularMultiplicationSequenceTask (scalar->list)
+  Output: [9, 18, 4, 13, 22, 8, 17, 3, 12]
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1), then take modulo 100 of its absolute value, and then add 1 to it.
+For each integer i from 1 to val_3, compute (i * val_3) modulo the val_3-th prime number.
+Compute the sequence of these values and call that sequence task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  WeightedDivisorCountPrefixSequenceTask (scalar->list)
+  Output: [4, 8, 20, 32, 52]
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1), then take modulo 100 of its absolute value, and then add 1 to it.
+For each integer i = 1, 2, ..., val_3, define A_i to be the sum over k = 1, 2, ..., i of k times the number of positive divisors of val_3 + k.
+Return the list [A_1, A_2, ..., A_{val_3}] in increasing order of i, so the first element corresponds to i = 1, the second element corresponds to i = 2, and so on.
+Call the resulting list task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  GrayCodeSequenceTask (scalar->list)
+  Output: [15, 14, 10, 11, 9, 8, 24, 25, 27]
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1), then take modulo 100 of its absolute value, and then add 1 to it.
+For each integer i from 1 to val_3, let x = i + val_3.
+Compute the standard reflected binary Gray code of x, defined as gray(x) = x XOR floor(x / 2), where XOR is bitwise exclusive OR.
+Return these Gray code values as ordinary decimal integers, not as binary strings, in the order i = 1, 2, ..., val_3. Call the resulting sequence task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  TotientShiftSequenceTask (scalar->list)
+  Output: [4, 10, 4, 12, 6, 8, 8, 16, 6]
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1), then take modulo 100 of its absolute value, and then add 1 to it.
+For each integer i from 1 to val_3, compute Euler's totient function phi(i + val_3).
+Compute the sequence of these values and call that sequence task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  SmallestFactorQuadraticTask (scalar->list)
+  Output: [2, 13, 2, 5, 2, 3, 2, 73, 2]
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1), then take modulo 100 of its absolute value, and then add 1 to it.
+For each integer i from 1 to val_3, compute the smallest prime factor of i**2 + val_3.
+Compute the sequence of these values and call that sequence task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  TotientProductSequenceTask (scalar->list)
+  Output: [6, 6, 18, 12, 24, 18, 36, 24, 54]
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1), then take modulo 100 of its absolute value, and then add 1 to it.
+For each integer i from 1 to val_3, compute Euler's totient function of i * val_3.
+Compute the sequence of these values and call that sequence task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  PolygonDiagonalsSequenceTask (scalar->list)
+  Output: [54, 65, 77, 90, 104, 119, 135, 152, 170, 189, 209]
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1), then take modulo 100 of its absolute value, and then add 3 to it.
+For each integer i from 1 to val_3, compute the number of diagonals in a convex polygon with i + val_3 vertices.
+Compute the sequence of these values and call that sequence task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  PrimesBetweenSquaresTask (scalar->list)
+  Output: [37, 41, 43, 47]
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1), then take modulo 100 of its absolute value, and then add 1 to it.
+List all prime numbers strictly between val_3**2 and (val_3+1)**2 in increasing order and call the result task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  CentralBinomialPrimeValuationVectorTask (scalar->list)
+  Output: [6, 3, 5, 14, 11, 26, 17, 38, 46, 29, 31, 74, 82, 86, 94, 106, 118, 122, 134, 142]
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1), then take modulo 100 of its absolute value, and then add 30 to it.
+For each prime number p with p <= 2*val_3, define e_p as follows.
+For every positive integer j such that p**j <= 2*val_3, compute floor((2*val_3) / p**j) - 2*floor(val_3 / p**j), and let e_p be the sum of these values over all such j.
+For each prime p with p <= 2*val_3, compute p * (e_p + 1).
+Return these values as a list in increasing order of p and call the resulting list task_3_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  QuadraticResiduesPrimeTask (scalar->list)
+  Output: [0, 1, 3, 4, 9, 10, 12]
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1), then take modulo 100 of its absolute value, and then add 1 to it.
+Let p be the val_3-th prime number, using the convention that the 1st prime is 2.
+Find all distinct residues r in {0, 1, ..., p-1} for which there exists an integer x such that x^2 ≡ r mod p.
+Include 0 as a quadratic residue. Return the residues in increasing order and call the resulting list task_3_out.
+
+----------------------------------------------------------------------

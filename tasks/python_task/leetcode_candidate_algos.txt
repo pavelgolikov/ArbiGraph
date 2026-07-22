@@ -1,0 +1,1484 @@
+largestDivisibleSubset -> ID: 368 | Difficulty: Medium
+class Solution:
+
+    def largestDivisibleSubset(self, nums: List[int]) -> List[int]:
+        nums.sort()
+        n = len(nums)
+        f = [1] * n
+        k = 0
+        for i in range(n):
+            for j in range(i):
+                if nums[i] % nums[j] == 0:
+                    f[i] = max(f[i], f[j] + 1)
+            if f[k] < f[i]:
+                k = i
+        m = f[k]
+        i = k
+        ans = []
+        while m:
+            if nums[k] % nums[i] == 0 and f[i] == m:
+                ans.append(nums[i])
+                (k, m) = (i, m - 1)
+            i -= 1
+        return ans
+--------------------------------------------------------------------------------
+longestWPI -> ID: 1124 | Difficulty: Medium
+class Solution:
+
+    def longestWPI(self, hours: List[int]) -> int:
+        ans = s = 0
+        pos = {}
+        for (i, x) in enumerate(hours):
+            s += 1 if x > 8 else -1
+            if s > 0:
+                ans = i + 1
+            elif s - 1 in pos:
+                ans = max(ans, i - pos[s - 1])
+            if s not in pos:
+                pos[s] = i
+        return ans
+--------------------------------------------------------------------------------
+latestTimeCatchTheBus -> ID: 2332 | Difficulty: Medium
+class Solution:
+
+    def latestTimeCatchTheBus(self, buses: List[int], passengers: List[int], capacity: int) -> int:
+        buses.sort()
+        passengers.sort()
+        j = 0
+        for t in buses:
+            c = capacity
+            while c and j < len(passengers) and (passengers[j] <= t):
+                (c, j) = (c - 1, j + 1)
+        j -= 1
+        ans = buses[-1] if c else passengers[j]
+        while ~j and passengers[j] == ans:
+            (ans, j) = (ans - 1, j - 1)
+        return ans
+--------------------------------------------------------------------------------
+findMin -> ID: 154 | Difficulty: Hard
+class Solution:
+
+    def findMin(self, nums: List[int]) -> int:
+        (left, right) = (0, len(nums) - 1)
+        while left < right:
+            mid = left + right >> 1
+            if nums[mid] > nums[right]:
+                left = mid + 1
+            elif nums[mid] < nums[right]:
+                right = mid
+            else:
+                right -= 1
+        return nums[left]
+--------------------------------------------------------------------------------
+minimumOperations -> ID: 2422 | Difficulty: Medium
+class Solution:
+
+    def minimumOperations(self, nums: List[int]) -> int:
+        (i, j) = (0, len(nums) - 1)
+        (a, b) = (nums[i], nums[j])
+        ans = 0
+        while i < j:
+            if a < b:
+                i += 1
+                a += nums[i]
+                ans += 1
+            elif b < a:
+                j -= 1
+                b += nums[j]
+                ans += 1
+            else:
+                (i, j) = (i + 1, j - 1)
+                (a, b) = (nums[i], nums[j])
+        return ans
+--------------------------------------------------------------------------------
+maximumProcessableQueries -> ID: 3018 | Difficulty: Hard
+class Solution:
+
+    def maximumProcessableQueries(self, nums: List[int], queries: List[int]) -> int:
+        n = len(nums)
+        f = [[0] * n for _ in range(n)]
+        m = len(queries)
+        for i in range(n):
+            for j in range(n - 1, i - 1, -1):
+                if i:
+                    f[i][j] = max(f[i][j], f[i - 1][j] + (nums[i - 1] >= queries[f[i - 1][j]]))
+                if j + 1 < n:
+                    f[i][j] = max(f[i][j], f[i][j + 1] + (nums[j + 1] >= queries[f[i][j + 1]]))
+                if f[i][j] == m:
+                    return m
+        return max((f[i][i] + (nums[i] >= queries[f[i][i]]) for i in range(n)))
+--------------------------------------------------------------------------------
+lexicographicallySmallestArray -> ID: 2948 | Difficulty: Medium
+class Solution:
+
+    def lexicographicallySmallestArray(self, nums: List[int], limit: int) -> List[int]:
+        n = len(nums)
+        arr = sorted(zip(nums, range(n)))
+        ans = [0] * n
+        i = 0
+        while i < n:
+            j = i + 1
+            while j < n and arr[j][0] - arr[j - 1][0] <= limit:
+                j += 1
+            idx = sorted((k for (_, k) in arr[i:j]))
+            for (k, (x, _)) in zip(idx, arr[i:j]):
+                ans[k] = x
+            i = j
+        return ans
+--------------------------------------------------------------------------------
+numberOfSubarrays -> ID: 3113 | Difficulty: Hard
+class Solution:
+
+    def numberOfSubarrays(self, nums: List[int]) -> int:
+        stk = []
+        ans = 0
+        for x in nums:
+            while stk and stk[-1][0] < x:
+                stk.pop()
+            if not stk or stk[-1][0] > x:
+                stk.append([x, 1])
+            else:
+                stk[-1][1] += 1
+            ans += stk[-1][1]
+        return ans
+--------------------------------------------------------------------------------
+movesToMakeZigzag -> ID: 1144 | Difficulty: Medium
+class Solution:
+
+    def movesToMakeZigzag(self, nums: List[int]) -> int:
+        ans = [0, 0]
+        n = len(nums)
+        for i in range(2):
+            for j in range(i, n, 2):
+                d = 0
+                if j:
+                    d = max(d, nums[j] - nums[j - 1] + 1)
+                if j < n - 1:
+                    d = max(d, nums[j] - nums[j + 1] + 1)
+                ans[i] += d
+        return min(ans)
+--------------------------------------------------------------------------------
+findMaximums -> ID: 1950 | Difficulty: Medium
+class Solution:
+
+    def findMaximums(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        left = [-1] * n
+        right = [n] * n
+        stk = []
+        for (i, x) in enumerate(nums):
+            while stk and nums[stk[-1]] >= x:
+                stk.pop()
+            if stk:
+                left[i] = stk[-1]
+            stk.append(i)
+        stk = []
+        for i in range(n - 1, -1, -1):
+            while stk and nums[stk[-1]] >= nums[i]:
+                stk.pop()
+            if stk:
+                right[i] = stk[-1]
+            stk.append(i)
+        ans = [0] * n
+        for i in range(n):
+            m = right[i] - left[i] - 1
+            ans[m - 1] = max(ans[m - 1], nums[i])
+        for i in range(n - 2, -1, -1):
+            ans[i] = max(ans[i], ans[i + 1])
+        return ans
+--------------------------------------------------------------------------------
+countHillValley -> ID: 2210 | Difficulty: Easy
+class Solution:
+
+    def countHillValley(self, nums: List[int]) -> int:
+        ans = j = 0
+        for i in range(1, len(nums) - 1):
+            if nums[i] == nums[i + 1]:
+                continue
+            if nums[i] > nums[j] and nums[i] > nums[i + 1]:
+                ans += 1
+            if nums[i] < nums[j] and nums[i] < nums[i + 1]:
+                ans += 1
+            j = i
+        return ans
+--------------------------------------------------------------------------------
+minOperations -> ID: 1775 | Difficulty: Medium
+class Solution:
+
+    def minOperations(self, nums1: List[int], nums2: List[int]) -> int:
+        (s1, s2) = (sum(nums1), sum(nums2))
+        if s1 == s2:
+            return 0
+        if s1 > s2:
+            return self.minOperations(nums2, nums1)
+        arr = [6 - v for v in nums1] + [v - 1 for v in nums2]
+        d = s2 - s1
+        for (i, v) in enumerate(sorted(arr, reverse=True), 1):
+            d -= v
+            if d <= 0:
+                return i
+        return -1
+
+    def minOperations(self, nums1: List[int], nums2: List[int]) -> int:
+        (s1, s2) = (sum(nums1), sum(nums2))
+        if s1 == s2:
+            return 0
+        if s1 > s2:
+            return self.minOperations(nums2, nums1)
+        arr = [6 - v for v in nums1] + [v - 1 for v in nums2]
+        d = s2 - s1
+        for (i, v) in enumerate(sorted(arr, reverse=True), 1):
+            d -= v
+            if d <= 0:
+                return i
+        return -1
+--------------------------------------------------------------------------------
+maximumSum -> ID: 2862 | Difficulty: Hard
+class Solution:
+
+    def maximumSum(self, nums: List[int]) -> int:
+        n = len(nums)
+        ans = 0
+        for k in range(1, n + 1):
+            t = 0
+            j = 1
+            while k * j * j <= n:
+                t += nums[k * j * j - 1]
+                j += 1
+            ans = max(ans, t)
+        return ans
+--------------------------------------------------------------------------------
+candy -> ID: 135 | Difficulty: Hard
+class Solution:
+
+    def candy(self, ratings: List[int]) -> int:
+        n = len(ratings)
+        left = [1] * n
+        right = [1] * n
+        for i in range(1, n):
+            if ratings[i] > ratings[i - 1]:
+                left[i] = left[i - 1] + 1
+        for i in range(n - 2, -1, -1):
+            if ratings[i] > ratings[i + 1]:
+                right[i] = right[i + 1] + 1
+        return sum((max(a, b) for (a, b) in zip(left, right)))
+--------------------------------------------------------------------------------
+asteroidCollision -> ID: 735 | Difficulty: Medium
+class Solution:
+
+    def asteroidCollision(self, asteroids: List[int]) -> List[int]:
+        stk = []
+        for x in asteroids:
+            if x > 0:
+                stk.append(x)
+            else:
+                while stk and stk[-1] > 0 and (stk[-1] < -x):
+                    stk.pop()
+                if stk and stk[-1] == -x:
+                    stk.pop()
+                elif not stk or stk[-1] < 0:
+                    stk.append(x)
+        return stk
+--------------------------------------------------------------------------------
+maxWidthRamp -> ID: 962 | Difficulty: Medium
+class Solution:
+
+    def maxWidthRamp(self, nums: List[int]) -> int:
+        stk = []
+        for (i, v) in enumerate(nums):
+            if not stk or nums[stk[-1]] > v:
+                stk.append(i)
+        ans = 0
+        for i in range(len(nums) - 1, -1, -1):
+            while stk and nums[stk[-1]] <= nums[i]:
+                ans = max(ans, i - stk.pop())
+            if not stk:
+                break
+        return ans
+--------------------------------------------------------------------------------
+transformArray -> ID: 1243 | Difficulty: Easy
+class Solution:
+
+    def transformArray(self, arr: List[int]) -> List[int]:
+        f = True
+        while f:
+            f = False
+            t = arr[:]
+            for i in range(1, len(t) - 1):
+                if t[i] > t[i - 1] and t[i] > t[i + 1]:
+                    arr[i] -= 1
+                    f = True
+                if t[i] < t[i - 1] and t[i] < t[i + 1]:
+                    arr[i] += 1
+                    f = True
+        return arr
+--------------------------------------------------------------------------------
+longestSubarray -> ID: 1493 | Difficulty: Medium
+class Solution:
+
+    def longestSubarray(self, nums: List[int]) -> int:
+        n = len(nums)
+        left = [0] * (n + 1)
+        right = [0] * (n + 1)
+        for (i, x) in enumerate(nums, 1):
+            if x:
+                left[i] = left[i - 1] + 1
+        for i in range(n - 1, -1, -1):
+            if nums[i]:
+                right[i] = right[i + 1] + 1
+        return max((left[i] + right[i + 1] for i in range(n)))
+--------------------------------------------------------------------------------
+simulationResult -> ID: 3237 | Difficulty: Medium
+class Solution:
+
+    def simulationResult(self, windows: List[int], queries: List[int]) -> List[int]:
+        s = set()
+        ans = []
+        for q in queries[::-1]:
+            if q not in s:
+                ans.append(q)
+                s.add(q)
+        for w in windows:
+            if w not in s:
+                ans.append(w)
+        return ans
+--------------------------------------------------------------------------------
+longestMountain -> ID: 845 | Difficulty: Medium
+class Solution:
+
+    def longestMountain(self, arr: List[int]) -> int:
+        n = len(arr)
+        f = [1] * n
+        g = [1] * n
+        for i in range(1, n):
+            if arr[i] > arr[i - 1]:
+                f[i] = f[i - 1] + 1
+        ans = 0
+        for i in range(n - 2, -1, -1):
+            if arr[i] > arr[i + 1]:
+                g[i] = g[i + 1] + 1
+                if f[i] > 1:
+                    ans = max(ans, f[i] + g[i] - 1)
+        return ans
+--------------------------------------------------------------------------------
+sortArrayByParity -> ID: 905 | Difficulty: Easy
+class Solution:
+
+    def sortArrayByParity(self, nums: List[int]) -> List[int]:
+        (i, j) = (0, len(nums) - 1)
+        while i < j:
+            if nums[i] % 2 == 0:
+                i += 1
+            elif nums[j] % 2 == 1:
+                j -= 1
+            else:
+                (nums[i], nums[j]) = (nums[j], nums[i])
+                (i, j) = (i + 1, j - 1)
+        return nums
+--------------------------------------------------------------------------------
+monotoneIncreasingDigits -> ID: 738 | Difficulty: Medium
+class Solution:
+
+    def monotoneIncreasingDigits(self, n: int) -> int:
+        s = list(str(n))
+        i = 1
+        while i < len(s) and s[i - 1] <= s[i]:
+            i += 1
+        if i < len(s):
+            while i and s[i - 1] > s[i]:
+                s[i - 1] = str(int(s[i - 1]) - 1)
+                i -= 1
+            i += 1
+            while i < len(s):
+                s[i] = '9'
+                i += 1
+        return int(''.join(s))
+--------------------------------------------------------------------------------
+wiggleMaxLength -> ID: 376 | Difficulty: Medium
+class Solution:
+
+    def wiggleMaxLength(self, nums: List[int]) -> int:
+        n = len(nums)
+        ans = 1
+        f = [1] * n
+        g = [1] * n
+        for i in range(1, n):
+            for j in range(i):
+                if nums[j] < nums[i]:
+                    f[i] = max(f[i], g[j] + 1)
+                elif nums[j] > nums[i]:
+                    g[i] = max(g[i], f[j] + 1)
+            ans = max(ans, f[i], g[i])
+        return ans
+--------------------------------------------------------------------------------
+minArrayLength -> ID: 2892 | Difficulty: Medium
+class Solution:
+
+    def minArrayLength(self, nums: List[int], k: int) -> int:
+        (ans, y) = (1, nums[0])
+        for x in nums[1:]:
+            if x == 0:
+                return 1
+            if x * y <= k:
+                y *= x
+            else:
+                y = x
+                ans += 1
+        return ans
+--------------------------------------------------------------------------------
+sumFourDivisors -> ID: 1390 | Difficulty: Medium
+class Solution:
+
+    def sumFourDivisors(self, nums: List[int]) -> int:
+
+        def f(x: int) -> int:
+            i = 2
+            (cnt, s) = (2, x + 1)
+            while i <= x // i:
+                if x % i == 0:
+                    cnt += 1
+                    s += i
+                    if i * i != x:
+                        cnt += 1
+                        s += x // i
+                i += 1
+            return s if cnt == 4 else 0
+        return sum((f(x) for x in nums))
+--------------------------------------------------------------------------------
+pancakeSort -> ID: 969 | Difficulty: Medium
+class Solution:
+
+    def pancakeSort(self, arr: List[int]) -> List[int]:
+
+        def reverse(arr, j):
+            i = 0
+            while i < j:
+                (arr[i], arr[j]) = (arr[j], arr[i])
+                (i, j) = (i + 1, j - 1)
+        n = len(arr)
+        ans = []
+        for i in range(n - 1, 0, -1):
+            j = i
+            while j > 0 and arr[j] != i + 1:
+                j -= 1
+            if j < i:
+                if j > 0:
+                    ans.append(j + 1)
+                    reverse(arr, j)
+                ans.append(i + 1)
+                reverse(arr, i)
+        return ans
+--------------------------------------------------------------------------------
+findMin -> ID: 153 | Difficulty: Medium
+class Solution:
+
+    def findMin(self, nums: List[int]) -> int:
+        if nums[0] <= nums[-1]:
+            return nums[0]
+        (left, right) = (0, len(nums) - 1)
+        while left < right:
+            mid = left + right >> 1
+            if nums[0] <= nums[mid]:
+                left = mid + 1
+            else:
+                right = mid
+        return nums[left]
+--------------------------------------------------------------------------------
+maxArea -> ID: 11 | Difficulty: Medium
+class Solution:
+
+    def maxArea(self, height: List[int]) -> int:
+        (l, r) = (0, len(height) - 1)
+        ans = 0
+        while l < r:
+            t = min(height[l], height[r]) * (r - l)
+            ans = max(ans, t)
+            if height[l] < height[r]:
+                l += 1
+            else:
+                r -= 1
+        return ans
+--------------------------------------------------------------------------------
+maximumSum -> ID: 1186 | Difficulty: Medium
+class Solution:
+
+    def maximumSum(self, arr: List[int]) -> int:
+        n = len(arr)
+        left = [0] * n
+        right = [0] * n
+        s = 0
+        for (i, x) in enumerate(arr):
+            s = max(s, 0) + x
+            left[i] = s
+        s = 0
+        for i in range(n - 1, -1, -1):
+            s = max(s, 0) + arr[i]
+            right[i] = s
+        ans = max(left)
+        for i in range(1, n - 1):
+            ans = max(ans, left[i - 1] + right[i + 1])
+        return ans
+--------------------------------------------------------------------------------
+largestRectangleArea -> ID: 84 | Difficulty: Hard
+class Solution:
+
+    def largestRectangleArea(self, heights: List[int]) -> int:
+        n = len(heights)
+        stk = []
+        left = [-1] * n
+        right = [n] * n
+        for (i, h) in enumerate(heights):
+            while stk and heights[stk[-1]] >= h:
+                right[stk[-1]] = i
+                stk.pop()
+            if stk:
+                left[i] = stk[-1]
+            stk.append(i)
+        return max((h * (right[i] - left[i] - 1) for (i, h) in enumerate(heights)))
+--------------------------------------------------------------------------------
+findWinningPlayer -> ID: 3175 | Difficulty: Medium
+class Solution:
+
+    def findWinningPlayer(self, skills: List[int], k: int) -> int:
+        n = len(skills)
+        k = min(k, n - 1)
+        i = cnt = 0
+        for j in range(1, n):
+            if skills[i] < skills[j]:
+                i = j
+                cnt = 1
+            else:
+                cnt += 1
+            if cnt == k:
+                break
+        return i
+--------------------------------------------------------------------------------
+kConcatenationMaxSum -> ID: 1191 | Difficulty: Medium
+class Solution:
+
+    def kConcatenationMaxSum(self, arr: List[int], k: int) -> int:
+        s = mx_pre = mi_pre = mx_sub = 0
+        for x in arr:
+            s += x
+            mx_pre = max(mx_pre, s)
+            mi_pre = min(mi_pre, s)
+            mx_sub = max(mx_sub, s - mi_pre)
+        ans = mx_sub
+        mod = 10 ** 9 + 7
+        if k == 1:
+            return ans % mod
+        mx_suf = s - mi_pre
+        ans = max(ans, mx_pre + mx_suf)
+        if s > 0:
+            ans = max(ans, (k - 2) * s + mx_pre + mx_suf)
+        return ans % mod
+--------------------------------------------------------------------------------
+minimumRefill -> ID: 2105 | Difficulty: Medium
+class Solution:
+
+    def minimumRefill(self, plants: List[int], capacityA: int, capacityB: int) -> int:
+        (a, b) = (capacityA, capacityB)
+        ans = 0
+        (i, j) = (0, len(plants) - 1)
+        while i < j:
+            if a < plants[i]:
+                ans += 1
+                a = capacityA
+            a -= plants[i]
+            if b < plants[j]:
+                ans += 1
+                b = capacityB
+            b -= plants[j]
+            (i, j) = (i + 1, j - 1)
+        ans += i == j and max(a, b) < plants[i]
+        return ans
+--------------------------------------------------------------------------------
+getDescentPeriods -> ID: 2110 | Difficulty: Medium
+class Solution:
+
+    def getDescentPeriods(self, prices: List[int]) -> int:
+        ans = 0
+        (i, n) = (0, len(prices))
+        while i < n:
+            j = i + 1
+            while j < n and prices[j - 1] - prices[j] == 1:
+                j += 1
+            cnt = j - i
+            ans += (1 + cnt) * cnt // 2
+            i = j
+        return ans
+--------------------------------------------------------------------------------
+countPairs -> ID: 1885 | Difficulty: Medium
+class Solution:
+
+    def countPairs(self, nums1: List[int], nums2: List[int]) -> int:
+        nums = [a - b for (a, b) in zip(nums1, nums2)]
+        nums.sort()
+        (l, r) = (0, len(nums) - 1)
+        ans = 0
+        while l < r:
+            while l < r and nums[l] + nums[r] <= 0:
+                l += 1
+            ans += r - l
+            r -= 1
+        return ans
+--------------------------------------------------------------------------------
+validSubarrays -> ID: 1063 | Difficulty: Hard
+class Solution:
+
+    def validSubarrays(self, nums: List[int]) -> int:
+        n = len(nums)
+        right = [n] * n
+        stk = []
+        for i in range(n - 1, -1, -1):
+            while stk and nums[stk[-1]] >= nums[i]:
+                stk.pop()
+            if stk:
+                right[i] = stk[-1]
+            stk.append(i)
+        return sum((j - i for (i, j) in enumerate(right)))
+--------------------------------------------------------------------------------
+threeSumSmaller -> ID: 259 | Difficulty: Medium
+class Solution:
+
+    def threeSumSmaller(self, nums: List[int], target: int) -> int:
+        nums.sort()
+        (ans, n) = (0, len(nums))
+        for i in range(n - 2):
+            (j, k) = (i + 1, n - 1)
+            while j < k:
+                x = nums[i] + nums[j] + nums[k]
+                if x < target:
+                    ans += k - j
+                    j += 1
+                else:
+                    k -= 1
+        return ans
+--------------------------------------------------------------------------------
+maximumLengthOfRanges -> ID: 2832 | Difficulty: Medium
+class Solution:
+
+    def maximumLengthOfRanges(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        left = [-1] * n
+        right = [n] * n
+        stk = []
+        for (i, x) in enumerate(nums):
+            while stk and nums[stk[-1]] <= x:
+                stk.pop()
+            if stk:
+                left[i] = stk[-1]
+            stk.append(i)
+        stk = []
+        for i in range(n - 1, -1, -1):
+            while stk and nums[stk[-1]] <= nums[i]:
+                stk.pop()
+            if stk:
+                right[i] = stk[-1]
+            stk.append(i)
+        return [r - l - 1 for (l, r) in zip(left, right)]
+--------------------------------------------------------------------------------
+maxSum -> ID: 1537 | Difficulty: Hard
+class Solution:
+
+    def maxSum(self, nums1: List[int], nums2: List[int]) -> int:
+        mod = 10 ** 9 + 7
+        (m, n) = (len(nums1), len(nums2))
+        i = j = 0
+        f = g = 0
+        while i < m or j < n:
+            if i == m:
+                g += nums2[j]
+                j += 1
+            elif j == n:
+                f += nums1[i]
+                i += 1
+            elif nums1[i] < nums2[j]:
+                f += nums1[i]
+                i += 1
+            elif nums1[i] > nums2[j]:
+                g += nums2[j]
+                j += 1
+            else:
+                f = g = max(f, g) + nums1[i]
+                i += 1
+                j += 1
+        return max(f, g) % mod
+--------------------------------------------------------------------------------
+findContentChildren -> ID: 455 | Difficulty: Easy
+class Solution:
+
+    def findContentChildren(self, g: List[int], s: List[int]) -> int:
+        g.sort()
+        s.sort()
+        j = 0
+        for (i, x) in enumerate(g):
+            while j < len(s) and s[j] < g[i]:
+                j += 1
+            if j >= len(s):
+                return i
+            j += 1
+        return len(g)
+--------------------------------------------------------------------------------
+getWinner -> ID: 1535 | Difficulty: Medium
+class Solution:
+
+    def getWinner(self, arr: List[int], k: int) -> int:
+        mx = arr[0]
+        cnt = 0
+        for x in arr[1:]:
+            if mx < x:
+                mx = x
+                cnt = 1
+            else:
+                cnt += 1
+            if cnt == k:
+                break
+        return mx
+--------------------------------------------------------------------------------
+canSeePersonsCount -> ID: 1944 | Difficulty: Hard
+class Solution:
+
+    def canSeePersonsCount(self, heights: List[int]) -> List[int]:
+        n = len(heights)
+        ans = [0] * n
+        stk = []
+        for i in range(n - 1, -1, -1):
+            while stk and stk[-1] < heights[i]:
+                ans[i] += 1
+                stk.pop()
+            if stk:
+                ans[i] += 1
+            stk.append(heights[i])
+        return ans
+--------------------------------------------------------------------------------
+leftRightDifference -> ID: 2574 | Difficulty: Easy
+class Solution:
+
+    def leftRightDifference(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        leftSum = [0] * n
+        for i in range(1, n):
+            leftSum[i] = leftSum[i - 1] + nums[i - 1]
+        total = sum(nums)
+        answer = []
+        for i in range(n):
+            rightSum_i = total - nums[i] - leftSum[i]
+            answer.append(abs(leftSum[i] - rightSum_i))
+        return answer
+--------------------------------------------------------------------------------
+incremovableSubarrayCount -> ID: 2970 | Difficulty: Easy
+class Solution:
+
+    def incremovableSubarrayCount(self, nums: List[int]) -> int:
+        (i, n) = (0, len(nums))
+        while i + 1 < n and nums[i] < nums[i + 1]:
+            i += 1
+        if i == n - 1:
+            return n * (n + 1) // 2
+        ans = i + 2
+        j = n - 1
+        while j:
+            while i >= 0 and nums[i] >= nums[j]:
+                i -= 1
+            ans += i + 2
+            if nums[j - 1] >= nums[j]:
+                break
+            j -= 1
+        return ans
+--------------------------------------------------------------------------------
+minimumBoxes -> ID: 1739 | Difficulty: Hard
+class Solution:
+
+    def minimumBoxes(self, n: int) -> int:
+        (s, k) = (0, 1)
+        while s + k * (k + 1) // 2 <= n:
+            s += k * (k + 1) // 2
+            k += 1
+        k -= 1
+        ans = k * (k + 1) // 2
+        k = 1
+        while s < n:
+            ans += 1
+            s += k
+            k += 1
+        return ans
+--------------------------------------------------------------------------------
+lenLongestFibSubseq -> ID: 873 | Difficulty: Medium
+class Solution:
+
+    def lenLongestFibSubseq(self, arr: List[int]) -> int:
+        n = len(arr)
+        f = [[0] * n for _ in range(n)]
+        d = {x: i for (i, x) in enumerate(arr)}
+        for i in range(n):
+            for j in range(i):
+                f[i][j] = 2
+        ans = 0
+        for i in range(2, n):
+            for j in range(1, i):
+                t = arr[i] - arr[j]
+                if t in d and (k := d[t]) < j:
+                    f[i][j] = max(f[i][j], f[j][k] + 1)
+                    ans = max(ans, f[i][j])
+        return ans
+--------------------------------------------------------------------------------
+matchPlayersAndTrainers -> ID: 2410 | Difficulty: Medium
+class Solution:
+
+    def matchPlayersAndTrainers(self, players: List[int], trainers: List[int]) -> int:
+        players.sort()
+        trainers.sort()
+        (j, n) = (0, len(trainers))
+        for (i, p) in enumerate(players):
+            while j < n and trainers[j] < p:
+                j += 1
+            if j == n:
+                return i
+            j += 1
+        return len(players)
+--------------------------------------------------------------------------------
+maximumSumOfHeights -> ID: 2865 | Difficulty: Medium
+class Solution:
+
+    def maximumSumOfHeights(self, heights: List[int]) -> int:
+        n = len(heights)
+        max_total = 0
+        for i in range(n):
+            left = [0] * (i + 1)
+            left[i] = heights[i]
+            for j in range(i - 1, -1, -1):
+                left[j] = min(heights[j], left[j + 1])
+            left_sum = sum(left)
+            right_length = n - i
+            right = [0] * right_length
+            right[0] = heights[i]
+            for j in range(i + 1, n):
+                pos_in_right = j - i
+                right[pos_in_right] = min(heights[j], right[pos_in_right - 1])
+            right_sum = sum(right)
+            current_total = left_sum + right_sum - heights[i]
+            if current_total > max_total:
+                max_total = current_total
+        return max_total
+--------------------------------------------------------------------------------
+largestRectangleArea -> ID: 85 | Difficulty: Hard
+class Solution:
+
+    def largestRectangleArea(self, heights: List[int]) -> int:
+        n = len(heights)
+        stk = []
+        left = [-1] * n
+        right = [n] * n
+        for (i, h) in enumerate(heights):
+            while stk and heights[stk[-1]] >= h:
+                stk.pop()
+            if stk:
+                left[i] = stk[-1]
+            stk.append(i)
+        stk = []
+        for i in range(n - 1, -1, -1):
+            h = heights[i]
+            while stk and heights[stk[-1]] >= h:
+                stk.pop()
+            if stk:
+                right[i] = stk[-1]
+            stk.append(i)
+        return max((h * (right[i] - left[i] - 1) for (i, h) in enumerate(heights)))
+--------------------------------------------------------------------------------
+maxScore -> ID: 3221 | Difficulty: Medium
+class Solution:
+
+    def maxScore(self, nums: List[int]) -> int:
+        stk = []
+        for (i, x) in enumerate(nums):
+            while stk and nums[stk[-1]] <= x:
+                stk.pop()
+            stk.append(i)
+        ans = i = 0
+        for j in stk:
+            ans += nums[j] * (j - i)
+            i = j
+        return ans
+--------------------------------------------------------------------------------
+findKthPositive -> ID: 1539 | Difficulty: Easy
+class Solution:
+
+    def findKthPositive(self, arr: List[int], k: int) -> int:
+        if arr[0] > k:
+            return k
+        (left, right) = (0, len(arr))
+        while left < right:
+            mid = left + right >> 1
+            if arr[mid] - mid - 1 >= k:
+                right = mid
+            else:
+                left = mid + 1
+        return arr[left - 1] + k - (arr[left - 1] - (left - 1) - 1)
+--------------------------------------------------------------------------------
+countQuadruplets -> ID: 2552 | Difficulty: Hard
+class Solution:
+
+    def countQuadruplets(self, nums: List[int]) -> int:
+        n = len(nums)
+        f = [[0] * n for _ in range(n)]
+        g = [[0] * n for _ in range(n)]
+        for j in range(1, n - 2):
+            cnt = sum((nums[l] > nums[j] for l in range(j + 1, n)))
+            for k in range(j + 1, n - 1):
+                if nums[j] > nums[k]:
+                    f[j][k] = cnt
+                else:
+                    cnt -= 1
+        for k in range(2, n - 1):
+            cnt = sum((nums[i] < nums[k] for i in range(k)))
+            for j in range(k - 1, 0, -1):
+                if nums[j] > nums[k]:
+                    g[j][k] = cnt
+                else:
+                    cnt -= 1
+        return sum((f[j][k] * g[j][k] for j in range(1, n - 2) for k in range(j + 1, n - 1)))
+--------------------------------------------------------------------------------
+sumSubarrayMins -> ID: 907 | Difficulty: Medium
+class Solution:
+
+    def sumSubarrayMins(self, arr: List[int]) -> int:
+        n = len(arr)
+        left = [-1] * n
+        right = [n] * n
+        stk = []
+        for (i, v) in enumerate(arr):
+            while stk and arr[stk[-1]] >= v:
+                stk.pop()
+            if stk:
+                left[i] = stk[-1]
+            stk.append(i)
+        stk = []
+        for i in range(n - 1, -1, -1):
+            while stk and arr[stk[-1]] > arr[i]:
+                stk.pop()
+            if stk:
+                right[i] = stk[-1]
+            stk.append(i)
+        mod = 10 ** 9 + 7
+        return sum(((i - left[i]) * (right[i] - i) * v for (i, v) in enumerate(arr))) % mod
+--------------------------------------------------------------------------------
+numFactoredBinaryTrees -> ID: 823 | Difficulty: Medium
+class Solution:
+
+    def numFactoredBinaryTrees(self, arr: List[int]) -> int:
+        mod = 10 ** 9 + 7
+        n = len(arr)
+        arr.sort()
+        idx = {v: i for (i, v) in enumerate(arr)}
+        f = [1] * n
+        for (i, a) in enumerate(arr):
+            for j in range(i):
+                b = arr[j]
+                if a % b == 0 and (c := (a // b)) in idx:
+                    f[i] = (f[i] + f[j] * f[idx[c]]) % mod
+        return sum(f) % mod
+--------------------------------------------------------------------------------
+numberOfAlternatingGroups -> ID: 3206 | Difficulty: Easy
+class Solution:
+
+    def numberOfAlternatingGroups(self, colors: List[int]) -> int:
+        k = 3
+        n = len(colors)
+        ans = cnt = 0
+        for i in range(n << 1):
+            if i and colors[i % n] == colors[(i - 1) % n]:
+                cnt = 1
+            else:
+                cnt += 1
+            ans += i >= n and cnt >= k
+        return ans
+--------------------------------------------------------------------------------
+countSubarrays -> ID: 2962 | Difficulty: Medium
+class Solution:
+
+    def countSubarrays(self, nums: List[int], k: int) -> int:
+        mx = max(nums)
+        n = len(nums)
+        ans = cnt = j = 0
+        for x in nums:
+            while j < n and cnt < k:
+                cnt += nums[j] == mx
+                j += 1
+            if cnt < k:
+                break
+            ans += n - j + 1
+            cnt -= x == mx
+        return ans
+--------------------------------------------------------------------------------
+maxChunksToSorted -> ID: 768 | Difficulty: Hard
+class Solution:
+
+    def maxChunksToSorted(self, arr: List[int]) -> int:
+        stk = []
+        for v in arr:
+            if not stk or v >= stk[-1]:
+                stk.append(v)
+            else:
+                mx = stk.pop()
+                while stk and stk[-1] > v:
+                    stk.pop()
+                stk.append(mx)
+        return len(stk)
+--------------------------------------------------------------------------------
+maximumSumOfHeights -> ID: 2866 | Difficulty: Medium
+class Solution:
+
+    def maximumSumOfHeights(self, maxHeights: List[int]) -> int:
+        n = len(maxHeights)
+        stk = []
+        left = [-1] * n
+        for (i, x) in enumerate(maxHeights):
+            while stk and maxHeights[stk[-1]] > x:
+                stk.pop()
+            if stk:
+                left[i] = stk[-1]
+            stk.append(i)
+        stk = []
+        right = [n] * n
+        for i in range(n - 1, -1, -1):
+            x = maxHeights[i]
+            while stk and maxHeights[stk[-1]] >= x:
+                stk.pop()
+            if stk:
+                right[i] = stk[-1]
+            stk.append(i)
+        f = [0] * n
+        for (i, x) in enumerate(maxHeights):
+            if i and x >= maxHeights[i - 1]:
+                f[i] = f[i - 1] + x
+            else:
+                j = left[i]
+                f[i] = x * (i - j) + (f[j] if j != -1 else 0)
+        g = [0] * n
+        for i in range(n - 1, -1, -1):
+            if i < n - 1 and maxHeights[i] >= maxHeights[i + 1]:
+                g[i] = g[i + 1] + maxHeights[i]
+            else:
+                j = right[i]
+                g[i] = maxHeights[i] * (j - i) + (g[j] if j != n else 0)
+        return max((a + b - c for (a, b, c) in zip(f, g, maxHeights)))
+--------------------------------------------------------------------------------
+numOfWays -> ID: 1569 | Difficulty: Hard
+class Solution:
+
+    def numOfWays(self, nums: List[int]) -> int:
+
+        def dfs(nums):
+            if len(nums) < 2:
+                return 1
+            left = [x for x in nums if x < nums[0]]
+            right = [x for x in nums if x > nums[0]]
+            (m, n) = (len(left), len(right))
+            (a, b) = (dfs(left), dfs(right))
+            return c[m + n][m] * a % mod * b % mod
+        n = len(nums)
+        mod = 10 ** 9 + 7
+        c = [[0] * n for _ in range(n)]
+        c[0][0] = 1
+        for i in range(1, n):
+            c[i][0] = 1
+            for j in range(1, i + 1):
+                c[i][j] = (c[i - 1][j] + c[i - 1][j - 1]) % mod
+        return (dfs(nums) - 1 + mod) % mod
+--------------------------------------------------------------------------------
+longestMonotonicSubarray -> ID: 3105 | Difficulty: Easy
+class Solution:
+
+    def longestMonotonicSubarray(self, nums: List[int]) -> int:
+        ans = t = 1
+        for (i, x) in enumerate(nums[1:]):
+            if nums[i] < x:
+                t += 1
+                ans = max(ans, t)
+            else:
+                t = 1
+        t = 1
+        for (i, x) in enumerate(nums[1:]):
+            if nums[i] > x:
+                t += 1
+                ans = max(ans, t)
+            else:
+                t = 1
+        return ans
+--------------------------------------------------------------------------------
+incremovableSubarrayCount -> ID: 2972 | Difficulty: Hard
+class Solution:
+
+    def incremovableSubarrayCount(self, nums: List[int]) -> int:
+        (i, n) = (0, len(nums))
+        while i + 1 < n and nums[i] < nums[i + 1]:
+            i += 1
+        if i == n - 1:
+            return n * (n + 1) // 2
+        ans = i + 2
+        j = n - 1
+        while j:
+            while i >= 0 and nums[i] >= nums[j]:
+                i -= 1
+            ans += i + 2
+            if nums[j - 1] >= nums[j]:
+                break
+            j -= 1
+        return ans
+--------------------------------------------------------------------------------
+findNumberOfLIS -> ID: 673 | Difficulty: Medium
+class Solution:
+
+    def findNumberOfLIS(self, nums: List[int]) -> int:
+        n = len(nums)
+        f = [1] * n
+        cnt = [1] * n
+        mx = 0
+        for i in range(n):
+            for j in range(i):
+                if nums[j] < nums[i]:
+                    if f[i] < f[j] + 1:
+                        f[i] = f[j] + 1
+                        cnt[i] = cnt[j]
+                    elif f[i] == f[j] + 1:
+                        cnt[i] += cnt[j]
+            if mx < f[i]:
+                mx = f[i]
+                ans = cnt[i]
+            elif mx == f[i]:
+                ans += cnt[i]
+        return ans
+--------------------------------------------------------------------------------
+distinctDifferenceArray -> ID: 2670 | Difficulty: Easy
+class Solution:
+
+    def distinctDifferenceArray(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        suf = [0] * (n + 1)
+        s = set()
+        for i in range(n - 1, -1, -1):
+            s.add(nums[i])
+            suf[i] = len(s)
+        s.clear()
+        ans = [0] * n
+        for (i, x) in enumerate(nums):
+            s.add(x)
+            ans[i] = len(s) - suf[i + 1]
+        return ans
+--------------------------------------------------------------------------------
+reverse -> ID: 7 | Difficulty: Medium
+class Solution:
+
+    def reverse(self, x: int) -> int:
+        ans = 0
+        (mi, mx) = (-2 ** 31, 2 ** 31 - 1)
+        while x:
+            if ans < mi // 10 + 1 or ans > mx // 10:
+                return 0
+            y = x % 10
+            if x < 0 and y > 0:
+                y -= 10
+            ans = ans * 10 + y
+            x = (x - y) // 10
+        return ans
+--------------------------------------------------------------------------------
+maxBoxesInWarehouse -> ID: 1564 | Difficulty: Medium
+class Solution:
+
+    def maxBoxesInWarehouse(self, boxes: List[int], warehouse: List[int]) -> int:
+        n = len(warehouse)
+        left = [warehouse[0]] * n
+        for i in range(1, n):
+            left[i] = min(left[i - 1], warehouse[i])
+        boxes.sort()
+        (i, j) = (0, n - 1)
+        while i < len(boxes):
+            while j >= 0 and left[j] < boxes[i]:
+                j -= 1
+            if j < 0:
+                break
+            (i, j) = (i + 1, j - 1)
+        return i
+--------------------------------------------------------------------------------
+minNumberOfHours -> ID: 2383 | Difficulty: Easy
+class Solution:
+
+    def minNumberOfHours(self, initialEnergy: int, initialExperience: int, energy: List[int], experience: List[int]) -> int:
+        sum_energy = sum(energy)
+        energy_hours = max(0, sum_energy + 1 - initialEnergy)
+        exp_hours = 0
+        current_exp = initialExperience
+        for e in experience:
+            if current_exp <= e:
+                delta = e + 1 - current_exp
+                exp_hours += delta
+                current_exp += delta
+            current_exp += e
+        return energy_hours + exp_hours
+--------------------------------------------------------------------------------
+minOperations -> ID: 3231 | Difficulty: Hard
+class Solution:
+
+    def minOperations(self, nums: List[int]) -> int:
+        g = []
+        for x in nums:
+            (l, r) = (0, len(g))
+            while l < r:
+                mid = l + r >> 1
+                if g[mid] < x:
+                    r = mid
+                else:
+                    l = mid + 1
+            if l == len(g):
+                g.append(x)
+            else:
+                g[l] = x
+        return len(g)
+--------------------------------------------------------------------------------
+dailyTemperatures -> ID: 739 | Difficulty: Medium
+class Solution:
+
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        stk = []
+        n = len(temperatures)
+        ans = [0] * n
+        for i in range(n - 1, -1, -1):
+            while stk and temperatures[stk[-1]] <= temperatures[i]:
+                stk.pop()
+            if stk:
+                ans[i] = stk[-1] - i
+            stk.append(i)
+        return ans
+--------------------------------------------------------------------------------
+maximumsSplicedArray -> ID: 2321 | Difficulty: Hard
+class Solution:
+
+    def maximumsSplicedArray(self, nums1: List[int], nums2: List[int]) -> int:
+
+        def f(nums1, nums2):
+            d = [a - b for (a, b) in zip(nums1, nums2)]
+            t = mx = d[0]
+            for v in d[1:]:
+                if t > 0:
+                    t += v
+                else:
+                    t = v
+                mx = max(mx, t)
+            return mx
+        (s1, s2) = (sum(nums1), sum(nums2))
+        return max(s2 + f(nums1, nums2), s1 + f(nums2, nums1))
+--------------------------------------------------------------------------------
+distinctPrimeFactors -> ID: 2521 | Difficulty: Medium
+class Solution:
+
+    def distinctPrimeFactors(self, nums: List[int]) -> int:
+        s = set()
+        for n in nums:
+            i = 2
+            while i <= n // i:
+                if n % i == 0:
+                    s.add(i)
+                    while n % i == 0:
+                        n //= i
+                i += 1
+            if n > 1:
+                s.add(n)
+        return len(s)
+--------------------------------------------------------------------------------
+getMaxLen -> ID: 1567 | Difficulty: Medium
+class Solution:
+
+    def getMaxLen(self, nums: List[int]) -> int:
+        n = len(nums)
+        f = [0] * n
+        g = [0] * n
+        f[0] = int(nums[0] > 0)
+        g[0] = int(nums[0] < 0)
+        ans = f[0]
+        for i in range(1, n):
+            if nums[i] > 0:
+                f[i] = f[i - 1] + 1
+                g[i] = 0 if g[i - 1] == 0 else g[i - 1] + 1
+            elif nums[i] < 0:
+                f[i] = 0 if g[i - 1] == 0 else g[i - 1] + 1
+                g[i] = f[i - 1] + 1
+            ans = max(ans, f[i])
+        return ans
+--------------------------------------------------------------------------------
+powerfulIntegers -> ID: 970 | Difficulty: Medium
+class Solution:
+
+    def powerfulIntegers(self, x: int, y: int, bound: int) -> List[int]:
+        ans = []
+        a = 1
+        while a <= bound:
+            b = 1
+            while a + b <= bound:
+                ans.append(a + b)
+                b *= y
+                if y == 1:
+                    break
+            if x == 1:
+                break
+            a *= x
+        return list(ans)
+--------------------------------------------------------------------------------
+maximumBooks -> ID: 2355 | Difficulty: Hard
+class Solution:
+
+    def maximumBooks(self, books: List[int]) -> int:
+        nums = [v - i for (i, v) in enumerate(books)]
+        n = len(nums)
+        left = [-1] * n
+        stk = []
+        for (i, v) in enumerate(nums):
+            while stk and nums[stk[-1]] >= v:
+                stk.pop()
+            if stk:
+                left[i] = stk[-1]
+            stk.append(i)
+        ans = 0
+        dp = [0] * n
+        dp[0] = books[0]
+        for (i, v) in enumerate(books):
+            j = left[i]
+            cnt = min(v, i - j)
+            u = v - cnt + 1
+            s = (u + v) * cnt // 2
+            dp[i] = s + (0 if j == -1 else dp[j])
+            ans = max(ans, dp[i])
+        return ans
+--------------------------------------------------------------------------------
+nextGreaterElements -> ID: 503 | Difficulty: Medium
+class Solution:
+
+    def nextGreaterElements(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        ans = [-1] * n
+        stk = []
+        for i in range(n * 2 - 1, -1, -1):
+            i %= n
+            while stk and stk[-1] <= nums[i]:
+                stk.pop()
+            if stk:
+                ans[i] = stk[-1]
+            stk.append(nums[i])
+        return ans
+--------------------------------------------------------------------------------
+bagOfTokensScore -> ID: 948 | Difficulty: Medium
+class Solution:
+
+    def bagOfTokensScore(self, tokens: List[int], power: int) -> int:
+        tokens.sort()
+        ans = score = 0
+        (i, j) = (0, len(tokens) - 1)
+        while i <= j:
+            if power >= tokens[i]:
+                power -= tokens[i]
+                (score, i) = (score + 1, i + 1)
+                ans = max(ans, score)
+            elif score:
+                power += tokens[j]
+                (score, j) = (score - 1, j - 1)
+            else:
+                break
+        return ans
+--------------------------------------------------------------------------------
+addNegabinary -> ID: 1073 | Difficulty: Medium
+class Solution:
+
+    def addNegabinary(self, arr1: List[int], arr2: List[int]) -> List[int]:
+        (i, j) = (len(arr1) - 1, len(arr2) - 1)
+        c = 0
+        ans = []
+        while i >= 0 or j >= 0 or c:
+            a = 0 if i < 0 else arr1[i]
+            b = 0 if j < 0 else arr2[j]
+            x = a + b + c
+            c = 0
+            if x >= 2:
+                x -= 2
+                c -= 1
+            elif x == -1:
+                x = 1
+                c += 1
+            ans.append(x)
+            (i, j) = (i - 1, j - 1)
+        while len(ans) > 1 and ans[-1] == 0:
+            ans.pop()
+        return ans[::-1]
+--------------------------------------------------------------------------------
+minOperationsToMakeMedianK -> ID: 3107 | Difficulty: Medium
+class Solution:
+
+    def minOperationsToMakeMedianK(self, nums: List[int], k: int) -> int:
+        nums.sort()
+        n = len(nums)
+        m = n >> 1
+        ans = abs(nums[m] - k)
+        if nums[m] > k:
+            for i in range(m - 1, -1, -1):
+                if nums[i] <= k:
+                    break
+                ans += nums[i] - k
+        else:
+            for i in range(m + 1, n):
+                if nums[i] >= k:
+                    break
+                ans += k - nums[i]
+        return ans
+--------------------------------------------------------------------------------
+smallestValue -> ID: 2507 | Difficulty: Medium
+class Solution:
+
+    def smallestValue(self, n: int) -> int:
+        while 1:
+            (t, s, i) = (n, 0, 2)
+            while i <= n // i:
+                while n % i == 0:
+                    n //= i
+                    s += i
+                i += 1
+            if n > 1:
+                s += n
+            if s == t:
+                return t
+            n = s
+--------------------------------------------------------------------------------
+minOperationsMaxProfit -> ID: 1599 | Difficulty: Medium
+class Solution:
+
+    def minOperationsMaxProfit(self, customers: List[int], boardingCost: int, runningCost: int) -> int:
+        ans = -1
+        mx = t = 0
+        wait = 0
+        i = 0
+        while wait or i < len(customers):
+            wait += customers[i] if i < len(customers) else 0
+            up = wait if wait < 4 else 4
+            wait -= up
+            t += up * boardingCost - runningCost
+            i += 1
+            if t > mx:
+                mx = t
+                ans = i
+        return ans
+--------------------------------------------------------------------------------
+sortedSquares -> ID: 977 | Difficulty: Easy
+class Solution:
+
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        ans = []
+        (i, j) = (0, len(nums) - 1)
+        while i <= j:
+            a = nums[i] * nums[i]
+            b = nums[j] * nums[j]
+            if a > b:
+                ans.append(a)
+                i += 1
+            else:
+                ans.append(b)
+                j -= 1
+        return ans[::-1]
+--------------------------------------------------------------------------------

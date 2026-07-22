@@ -1,0 +1,18 @@
+# Core dataset generation and grading
+sympy
+libcst
+math-verify
+networkx
+pillow
+tqdm
+
+# Plotting and analysis utilities
+numpy
+matplotlib
+transformers
+
+# Model evaluation
+vllm
+
+# Tests
+pytest

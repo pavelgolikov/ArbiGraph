@@ -1,0 +1,1489 @@
+======================================================================
+  MATH CHAIN DATASET  |  samples=40
+======================================================================
+
+======================================================================
+  Sample 0  |  ConvolutionTask  |  sample_idx=0
+  Output: [280, 286, -403, -474, -395, -155, 13, -1082, -1213, -542, -660, -782, -972, -748, -162, -180, -359, -158, 231]
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -45
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_1, compute Euler's totient function of i * val_1.
+Compute the sequence of these values and call that sequence task_1_out.
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+Let P_2(x) be a polynomial whose coefficients are the elements of the list list_2 in order, starting from the highest degree.
+If P_2(x) is the zero polynomial, define task_2_out = 0. For a nonzero constant polynomial, use gcd(P_2, P_2') = 1.
+Otherwise, let S_2(x) = P_2(x) / gcd(P_2(x), P_2'(x)), where the gcd is taken over Q[x] and made monic.
+Do not further normalize S_2(x): keep any scalar coefficient remaining after division by the monic gcd. Evaluate S_2(2) and call the result task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 3 to it.
+For each integer i from 1 to val_3, compute the number of diagonals in a convex polygon with i + val_3 vertices.
+Compute the sequence of these values and call that sequence task_3_out.
+
+Task 4:
+Let list_4 be the result of preprocessing task_3_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_4 has more than 10 elements, keep only the first 10 elements.
+Define seq2_4 = [4, -1, -5, -2, -5, 3, -3, -3, -4, 3].
+Compute the linear discrete convolution of list_4 and seq2_4. Call the result task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 1  |  FWHTTask  |  sample_idx=0
+  Output: [204, -36, -2, -6, -14, 2, 68, 16, 100, -24, -106, 6, -118, 14, -36, 28]
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = [-55, 22, 0, 19, -89, 20, -46, 66, -23, -12]
+
+Task 1:
+Let list_1 be the result of preprocessing task_1_input as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_1 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_1 into matrix matrix_1_1 of size 4x4 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_1 or truncate it.
+Compute the matrix polynomial matrix_1_1**3 + matrix_1_1**2 + matrix_1_1. Call the result mat_task_1_out.
+Convert matrix mat_task_1_out into a list task_1_out by concatenating matrix rows starting from the top row, then second row, etc...
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_2 into matrix mat_1_2 of size 3x3 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_2 or truncate it.
+Compute the trace of mat_1_2**3 and call the result task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 30 to it.
+For each prime number p with p <= 2*val_3, define e_p as follows.
+For every positive integer j such that p**j <= 2*val_3, compute floor((2*val_3) / p**j) - 2*floor(val_3 / p**j), and let e_p be the sum of these values over all such j.
+For each prime p with p <= 2*val_3, compute p * (e_p + 1).
+Return these values as a list in increasing order of p and call the resulting list task_3_out.
+
+Task 4:
+Let list_4 be the result of preprocessing task_3_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_4 has more than 10 elements, keep only the first 10 elements.
+If the length of list_4 is not a power of 2, update list_4 by padding it with zeros to the next power of 2.
+Let list_4 = [a_0, a_1, ..., a_{N-1}].
+Compute the unnormalized Walsh-Hadamard transform in Sylvester order. That is, for each j = 0, 1, ..., N-1, define
+H_j = sum_{k=0}^{N-1} ((-1) ** popcount(j & k)) * a_k, where `&` is bitwise AND and popcount counts the number of 1-bits.
+Return the sequence [H_0, H_1, ..., H_{N-1}] and call it task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 2  |  KroneckerProductTask  |  sample_idx=0
+  Output: [-290, 90, 890, 390, -116, 36, 356, 156, -348, 108, 1068, 468, -174, 54, 534, 234, 250, -570, 760, 950, 100, -228, 304, 380, 300, -684, 912, 1140, 150, -342, 456, 570, -910, -960, -820, 100, -364, -384, -328, 40, -1092, -1152, -984, 120, -546, -576, -492, 60, -232, 72, 712, 312, -232, 72, 712, 312, -464, 144, 1424, 624, -174, 54, 534, 234, 200, -456, 608, 760, 200, -456, 608, 760, 400, -912, 1216, 1520, 150, -342, 456, 570, -728, -768, -656, 80, -728, -768, -656, 80, -1456, -1536, -1312, 160, -546, -576, -492, 60, -522, 162, 1602, 702, -232, 72, 712, 312, 0, 0, 0, 0, 0, 0, 0, 0, 450, -1026, 1368, 1710, 200, -456, 608, 760, 0, 0, 0, 0, 0, 0, 0, 0, -1638, -1728, -1476, 180, -728, -768, -656, 80, 0, 0, 0, 0, 0, 0, 0, 0]
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = [80, 97, -62, -21, 22, 97, -68, -78, -67, -57]
+
+Task 1:
+Let list_1 be the result of preprocessing task_1_input as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_1 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_1 into matrix mat_1_1 of size 3x3 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_1 or truncate it.
+Compute the trace of mat_1_1**3 and call the result task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Compute the sum of the unitary divisors of val_2 (divisors d where gcd(d, val_2/d) == 1) and call the result task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_3, compute Euler's totient function phi(i + val_3).
+Compute the sequence of these values and call that sequence task_3_out.
+
+Task 4:
+Let list_4 be the result of preprocessing task_3_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_4 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_4 into matrix M1_4 of size 3x4 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_4 or truncate it.
+Define M2_4 = Matrix([[-29, 9, 89, 39], [25, -57, 76, 95], [-91, -96, -82, 10]]).
+Compute the Kronecker product of M1_4 and M2_4 and call the result mat_task_4_out.
+Convert matrix mat_task_4_out into a list task_4_out by concatenating matrix rows starting from the top row, then second row, etc...
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 3  |  MatrixMulTask  |  sample_idx=0
+  Output: [-4170, 1390, 11005, -6260, -2412, 2464, 18468, -11036, -320, 6720, -4040, -8640, 0, 0, 0, 0]
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 54
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 3 to it.
+For each integer i from 1 to val_1, compute the number of diagonals in a convex polygon with i + val_1 vertices.
+Compute the sequence of these values and call that sequence task_1_out.
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_2 into matrix M1_2 of size 4x4 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_2 or truncate it.
+Define M2_2 = Matrix([[8, -4, -26, -53], [65, -83, -59, -7], [-50, 24, -15, 55], [59, 90, -68, 100]]).
+Compute the Kronecker product of M1_2 and M2_2 and call the result mat_task_2_out.
+Convert matrix mat_task_2_out into a list task_2_out by concatenating matrix rows starting from the top row, then second row, etc...
+
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_3 into matrix matrix_1_3 of size 4x4 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_3 or truncate it.
+Compute the matrix polynomial matrix_1_3**3 + matrix_1_3**2 + matrix_1_3. Call the result mat_task_3_out.
+Convert matrix mat_task_3_out into a list task_3_out by concatenating matrix rows starting from the top row, then second row, etc...
+
+Task 4:
+Let list_4 be the result of preprocessing task_3_out as follows - for every element, replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_4 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_4 into matrix M1_4 of size 4x4 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_4 or truncate it.
+Define M2_4 = Matrix([[48, -46, -79, 98], [-20, -61, 90, 59], [3, 13, 74, -32], [88, 4, 69, -92]]).
+Compute the matrix product of M1_4 and M2_4 and call the result mat_task_4_out.
+Convert matrix mat_task_4_out into a list task_4_out by concatenating matrix rows starting from the top row, then second row, etc...
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 4  |  MatrixPolynomialTask  |  sample_idx=0
+  Output: [65958, 37860, 53620, 23096, 82050, 46488, 60300, 26208, 51360, 28620, 32688, 14400, 0, 0, 0, 0]
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 90
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_1, compute (i * val_1) modulo the val_1-th prime number.
+Compute the sequence of these values and call that sequence task_1_out.
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_2 into matrix matrix_1_2 of size 3x3 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_2 or truncate it.
+Compute the 1-norm of matrix_1_2 (the maximum absolute column sum) and call the result task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_3, compute Euler's totient function phi(i + val_3).
+Compute the sequence of these values and call that sequence task_3_out.
+
+Task 4:
+Let list_4 be the result of preprocessing task_3_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_4 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_4 into matrix matrix_1_4 of size 4x4 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_4 or truncate it.
+Compute the matrix polynomial matrix_1_4**3 + matrix_1_4**2 + matrix_1_4. Call the result mat_task_4_out.
+Convert matrix mat_task_4_out into a list task_4_out by concatenating matrix rows starting from the top row, then second row, etc...
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 5  |  NTTTask  |  sample_idx=0
+  Output: [0, 6, 8, 12, 14, 15, 16, 2, 1, 6, 9, 11, 7, 12, 7, 10]
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = [-75, 75, 43, 25, 15, -27, 69, 100, 14, -91]
+
+Task 1:
+Let list_1 be the result of preprocessing task_1_input as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_1 has more than 10 elements, keep only the first 10 elements.
+Let list_1 = [a_0, a_1, ..., a_{N-1}].
+Sort the indices 0, 1, ..., N-1 in ascending order by the pair (a_i, i).
+In other words, sort by the corresponding sequence value, and break ties by the smaller original index.
+Let the resulting index list be pi = [pi_0, pi_1, ..., pi_{N-1}].
+Compute the number of inversions in pi, meaning the number of pairs (r, s) such that 0 <= r < s < N and pi_r > pi_s.
+Call this result task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Compute the sum of the unitary divisors of val_2 (divisors d where gcd(d, val_2/d) == 1) and call the result task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_3, let x = i + val_3.
+Compute the standard reflected binary Gray code of x, defined as gray(x) = x XOR floor(x / 2), where XOR is bitwise exclusive OR.
+Return these Gray code values as ordinary decimal integers, not as binary strings, in the order i = 1, 2, ..., val_3. Call the resulting sequence task_3_out.
+
+Task 4:
+Let list_4 be the result of preprocessing task_3_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_4 has more than 10 elements, keep only the first 10 elements.
+If the length of list_4 is not a power of 2, update list_4 by padding it with zeros to the next power of 2.
+Let list_4 = [a_0, a_1, ..., a_{N-1}], and let p = 17.
+All arithmetic in this transform is modulo p. Let g be the smallest positive primitive root modulo p, and define omega = g**((p - 1) // N) mod p. By construction, (N) divides (p-1), so (omega) has exact order (N) modulo (p).
+Compute the number theoretic transform A = [A_0, A_1, ..., A_{N-1}], where for each j = 0, 1, ..., N-1, A_j = sum_{k=0}^{N-1} a_k * omega**(j*k) mod p.
+Return each A_j as its least nonnegative residue in {0, 1, ..., p-1}. Call the resulting sequence task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 6  |  PolyQuotientTask  |  sample_idx=0
+  Output: [1, 2, 1, 2, 4, 3, 5]
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = [-62, 23, 50, -44, 52, -60, 51, 60, 88, -78]
+
+Task 1:
+Let list_1 be the result of preprocessing task_1_input as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_1 has more than 10 elements, keep only the first 10 elements.
+Let P_1(x) be a polynomial whose coefficients are the elements of the list list_1 in order, starting from the highest degree.
+Compute the resultant of P_1(x) and the polynomial x**2 + x + 1 and call the result task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Define m = floor(sqrt(val_2)) + 7.
+Compute the unsigned Stirling number of the first kind c(m, m - 2), which counts the number of permutations of m elements with exactly m - 2 disjoint cycles.
+Call the result task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Let p be the val_3-th prime number, using the convention that the 1st prime is 2.
+Find all distinct residues r in {0, 1, ..., p-1} for which there exists an integer x such that x^2 ≡ r mod p.
+Include 0 as a quadratic residue. Return the residues in increasing order and call the resulting list task_3_out.
+
+Task 4:
+Let list_4 be the result of preprocessing task_3_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_4 has more than 10 elements, keep only the first 10 elements.
+Let P_4(x) be a polynomial whose coefficients are the elements of the list list_4 in order, starting from the highest degree.
+Compute the polynomial quotient when P_4(x) is divided by the monic polynomial x**2 + x + 1. Call the result poly_task_4_out.
+Convert poly_task_4_out into a list task_4_out by extracting its coefficients starting from the highest degree to the constant term, including zero coefficients for missing intermediate powers. Omit leading zero coefficients. Represent the zero polynomial as [0].
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 7  |  PolyRemainderTask  |  sample_idx=0
+  Output: [42, 56, 40, 88, 24, 72, 44, 60, 46, 72]
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = [6, 50, -30, -32, 73, -86, -2, -20, -4, 30]
+
+Task 1:
+Let list_1 be the result of preprocessing task_1_input as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_1 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_1 into matrix M1_1 of size 3x4 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_1 or truncate it.
+Define M2_1 = Matrix([[-40, 28, -5, -17], [96, -23, -76, -22], [86, 8, -14, -2]]).
+Compute the Kronecker product of M1_1 and M2_1 and call the result mat_task_1_out.
+Convert matrix mat_task_1_out into a list task_1_out by concatenating matrix rows starting from the top row, then second row, etc...
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+Consider list_2 as a sequence of y-coordinates with x-coordinates being their indices (0, 1, 2, ...).
+Compute the area of the convex hull of these 2D points, multiply the area by 2, and call the result task_2_out. If there are fewer than 3 points, or if all points are collinear, define the area to be 0.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_3, compute Euler's totient function phi(i + val_3).
+Compute the sequence of these values and call that sequence task_3_out.
+
+Task 4:
+Let list_4 be the result of preprocessing task_3_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_4 has more than 10 elements, keep only the first 10 elements.
+Let poly_1_4(x) be a polynomial whose coefficients are the elements of the list list_4 in order, starting from the highest degree.
+Define poly_2_4 = x**10 - 3*x**9 + 4*x**8 - 5*x**7 + 3*x**6 - 5*x**5 - 2*x**4 - 3*x**3 - 5*x**2 - 5*x - 3.
+Compute the polynomial remainder of poly_1_4 divided by poly_2_4. Call the result poly_task_4_out.
+Convert poly_task_4_out into a list task_4_out by extracting its coefficients starting from the highest degree to the constant term, including zero coefficients for missing intermediate powers. Omit leading zero coefficients. Represent the zero polynomial as [0].
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 8  |  SortByDivisorCountTask  |  sample_idx=0
+  Output: [0, 0, 20, -40, 40, 40, 40, 40, 40, 80]
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 84
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Compute the sum of the squares of all positive divisors of val_1 and call the result task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_2, compute Euler's totient function of i * val_2.
+Compute the sequence of these values and call that sequence task_2_out.
+
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Define seq2_3 = [-1, 1, 2, 5, 1, 4, -4, 3, -1, -4].
+Compute the linear discrete convolution of list_3 and seq2_3. Call the result task_3_out.
+
+Task 4:
+Let list_4 be the result of preprocessing task_3_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_4 has more than 10 elements, keep only the first 10 elements.
+Sort list_4 based on the number of divisors of their absolute values in ascending order. If an element is 0, treat its divisor count as 0. Maintain stable sorting for ties. Call the result task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 9  |  SubsetZetaTransformTask  |  sample_idx=0
+  Output: [15, 29, 25, 50, 24, 46, 58, 116, 42, 56, 52, 77, 51, 73, 85, 143]
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = [-69, 22, -57, -23, -52, 89, 43, -37, 12, -18]
+
+Task 1:
+Let list_1 be the result of preprocessing task_1_input as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_1 has more than 10 elements, keep only the first 10 elements.
+Let P_1(x) be a polynomial whose coefficients are the elements of the list list_1 in order, starting from the highest degree.
+Compute the polynomial quotient when P_1(x) is divided by the monic polynomial x**2 + x + 1. Call the result poly_task_1_out.
+Convert poly_task_1_out into a list task_1_out by extracting its coefficients starting from the highest degree to the constant term, including zero coefficients for missing intermediate powers. Omit leading zero coefficients. Represent the zero polynomial as [0].
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_2 into matrix mat_1_2 of size 2x2 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_2 or truncate it.
+Compute the Frobenius norm squared (sum of squares of all elements) of mat_1_2 and call the result task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_3, let x = i + val_3.
+Compute the standard reflected binary Gray code of x, defined as gray(x) = x XOR floor(x / 2), where XOR is bitwise exclusive OR.
+Return these Gray code values as ordinary decimal integers, not as binary strings, in the order i = 1, 2, ..., val_3. Call the resulting sequence task_3_out.
+
+Task 4:
+Let list_4 be the result of preprocessing task_3_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_4 has more than 10 elements, keep only the first 10 elements.
+If the length of list_4 is not a power of 2, update list_4 by padding it with zeros to the next power of 2.
+Let list_4 be a sequence of length 2^m. Index its entries by bitmasks S = 0, 1, ..., 2^m - 1.
+Compute the subset-sum/zeta transform B, where for each bitmask S, B[S] = sum of list_4[T] over all bitmasks T such that T is a subset of S.
+Here, T is a subset of S means every 1-bit of T is also a 1-bit of S, equivalently (T & S) = T.
+Return the values B[0], B[1], ..., B[2^m - 1] in increasing bitmask order and call the resulting sequence task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 10  |  ConvexHullAreaTask  |  sample_idx=0
+  Output: 1096
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 93
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i = 1, 2, ..., val_1, define A_i to be the sum over k = 1, 2, ..., i of k times the number of positive divisors of val_1 + k.
+Return the list [A_1, A_2, ..., A_{val_1}] in increasing order of i, so the first element corresponds to i = 1, the second element corresponds to i = 2, and so on.
+Call the resulting list task_1_out.
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_2 into matrix matrix_1_2 of size 4x4 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_2 or truncate it.
+Compute the matrix polynomial matrix_1_2**3 + matrix_1_2**2 + matrix_1_2. Call the result mat_task_2_out.
+Convert matrix mat_task_2_out into a list task_2_out by concatenating matrix rows starting from the top row, then second row, etc...
+
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Let poly_1_3(x) be a polynomial whose coefficients are the elements of the list list_3 in order, starting from the highest degree.
+Define poly_2_3 = x**10 + 2*x**9 - 2*x**8 + 2*x**7 + 3*x**5 + 5*x**4 + 3*x**3 - 3*x**2 - 3*x - 2.
+Compute the polynomial remainder of poly_1_3 divided by poly_2_3. Call the result poly_task_3_out.
+Convert poly_task_3_out into a list task_3_out by extracting its coefficients starting from the highest degree to the constant term, including zero coefficients for missing intermediate powers. Omit leading zero coefficients. Represent the zero polynomial as [0].
+
+Task 4:
+Let list_4 be the result of preprocessing task_3_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_4 has more than 10 elements, keep only the first 10 elements.
+Consider list_4 as a sequence of y-coordinates with x-coordinates being their indices (0, 1, 2, ...).
+Compute the area of the convex hull of these 2D points, multiply the area by 2, and call the result task_4_out. If there are fewer than 3 points, or if all points are collinear, define the area to be 0.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 11  |  InterpolateEvalTask  |  sample_idx=0
+  Output: -1012016
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -6
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Compute the sum of all positive divisors of val_1 and call the result task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_2, compute Euler's totient function phi(i + val_2).
+Compute the sequence of these values and call that sequence task_2_out.
+
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_3 into matrix M1_3 of size 3x3 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_3 or truncate it.
+Define M2_3 = Matrix([[93, -89, -61], [11, 79, 14], [0, -57, -100]]).
+Compute the matrix product of M1_3 and M2_3 and call the result mat_task_3_out.
+Convert matrix mat_task_3_out into a list task_3_out by concatenating matrix rows starting from the top row, then second row, etc...
+
+Task 4:
+Let points_4 be the result of preprocessing task_3_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If points_4 has more than 10 elements, keep only the first 10 elements.
+Construct the unique interpolating polynomial through the points (0, points_4[0]), (1, points_4[1]), ..., (8, points_4[8]).
+Evaluate that polynomial at x = 12 and call the result task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 12  |  MatrixFrobeniusSqTask  |  sample_idx=0
+  Output: 13249
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -96
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Compute the sum of the squares of all positive divisors of val_1 and call the result task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 30 to it.
+For each integer k = 1, 2, ..., val_2, compute Euler's totient function phi(k), the number of integers m with 1 <= m <= k such that gcd(m, k) = 1.
+Compute the sum phi(1) + phi(2) + ... + phi(val_2) and call the result task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i = 1, 2, ..., val_3, define A_i to be the sum over k = 1, 2, ..., i of k times the number of positive divisors of val_3 + k.
+Return the list [A_1, A_2, ..., A_{val_3}] in increasing order of i, so the first element corresponds to i = 1, the second element corresponds to i = 2, and so on.
+Call the resulting list task_3_out.
+
+Task 4:
+Let list_4 be the result of preprocessing task_3_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_4 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_4 into matrix mat_1_4 of size 3x3 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_4 or truncate it.
+Compute the Frobenius norm squared (sum of squares of all elements) of mat_1_4 and call the result task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 13  |  MatrixNorm1Task  |  sample_idx=0
+  Output: 133
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -59
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Compute the sum of all positive divisors of val_1 and call the result task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 3 to it.
+For each integer i from 1 to val_2, compute the number of diagonals in a convex polygon with i + val_2 vertices.
+Compute the sequence of these values and call that sequence task_2_out.
+
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_3 into matrix M1_3 of size 4x4 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_3 or truncate it.
+Define M2_3 = Matrix([[-100, -82, 3, 2], [-84, 77, 34, -10], [79, 75, 9, 87], [-32, -3, -64, -73]]).
+Compute the Kronecker product of M1_3 and M2_3 and call the result mat_task_3_out.
+Convert matrix mat_task_3_out into a list task_3_out by concatenating matrix rows starting from the top row, then second row, etc...
+
+Task 4:
+Let list_4 be the result of preprocessing task_3_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_4 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_4 into matrix matrix_1_4 of size 3x3 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_4 or truncate it.
+Compute the 1-norm of matrix_1_4 (the maximum absolute column sum) and call the result task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 14  |  MatrixTraceCubeTask  |  sample_idx=0
+  Output: 66659
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = [-13, 61, -55, -85, -61, -41, 54, -86, 34, 74]
+
+Task 1:
+Let list_1 be the result of preprocessing task_1_input as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_1 has more than 10 elements, keep only the first 10 elements.
+Let poly_1_1(x) be a polynomial whose coefficients are the elements of the list list_1 in order, starting from the highest degree.
+Define poly_2_1 = x**10 - 3*x**9 + x**8 + 5*x**7 - 3*x**6 - 5*x**5 - 5*x**4 + 5*x**3 + 3*x**2 - 3.
+Compute the polynomial remainder of poly_1_1 divided by poly_2_1. Call the result poly_task_1_out.
+Convert poly_task_1_out into a list task_1_out by extracting its coefficients starting from the highest degree to the constant term, including zero coefficients for missing intermediate powers. Omit leading zero coefficients. Represent the zero polynomial as [0].
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+If the length of list_2 is not a power of 2, update list_2 by padding it with zeros to the next power of 2.
+Let list_2 = [a_0, a_1, ..., a_{N-1}], and let p = 17.
+All arithmetic in this transform is modulo p. Let g be the smallest positive primitive root modulo p, and define omega = g**((p - 1) // N) mod p. By construction, (N) divides (p-1), so (omega) has exact order (N) modulo (p).
+Compute the number theoretic transform A = [A_0, A_1, ..., A_{N-1}], where for each j = 0, 1, ..., N-1, A_j = sum_{k=0}^{N-1} a_k * omega**(j*k) mod p.
+Return each A_j as its least nonnegative residue in {0, 1, ..., p-1}. Call the resulting sequence task_2_out.
+
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+If the length of list_3 is not a power of 2, update list_3 by padding it with zeros to the next power of 2.
+Let list_3 be a sequence of length 2^m. Index its entries by bitmasks S = 0, 1, ..., 2^m - 1.
+Compute the subset-sum/zeta transform B, where for each bitmask S, B[S] = sum of list_3[T] over all bitmasks T such that T is a subset of S.
+Here, T is a subset of S means every 1-bit of T is also a 1-bit of S, equivalently (T & S) = T.
+Return the values B[0], B[1], ..., B[2^m - 1] in increasing bitmask order and call the resulting sequence task_3_out.
+
+Task 4:
+Let list_4 be the result of preprocessing task_3_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_4 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_4 into matrix mat_1_4 of size 3x3 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_4 or truncate it.
+Compute the trace of mat_1_4**3 and call the result task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 15  |  PairwiseGcdSumTask  |  sample_idx=0
+  Output: 126
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 66
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_1, compute Euler's totient function of i * val_1.
+Compute the sequence of these values and call that sequence task_1_out.
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+If the length of list_2 is not a power of 2, update list_2 by padding it with zeros to the next power of 2.
+Let list_2 be a sequence of length 2^m. Index its entries by bitmasks S = 0, 1, ..., 2^m - 1.
+Compute the subset-sum/zeta transform B, where for each bitmask S, B[S] = sum of list_2[T] over all bitmasks T such that T is a subset of S.
+Here, T is a subset of S means every 1-bit of T is also a 1-bit of S, equivalently (T & S) = T.
+Return the values B[0], B[1], ..., B[2^m - 1] in increasing bitmask order and call the resulting sequence task_2_out.
+
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+If the length of list_3 is not a power of 2, update list_3 by padding it with zeros to the next power of 2.
+Let list_3 = [a_0, a_1, ..., a_{N-1}].
+Compute the unnormalized Walsh-Hadamard transform in Sylvester order. That is, for each j = 0, 1, ..., N-1, define
+H_j = sum_{k=0}^{N-1} ((-1) ** popcount(j & k)) * a_k, where `&` is bitwise AND and popcount counts the number of 1-bits.
+Return the sequence [H_0, H_1, ..., H_{N-1}] and call it task_3_out.
+
+Task 4:
+Let list_4 be the result of preprocessing task_3_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+If list_4 has more than 10 elements, keep only the first 10 elements.
+For every pair of indices i, j with 0 <= i < j < len(list_4), compute gcd(|list_4[i]|, |list_4[j]|). Use the convention gcd(0, 0) = 0.
+Compute the sum of all these GCD values and call the result task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 16  |  PermutationInversionsTask  |  sample_idx=0
+  Output: 21
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = [-94, 60, 13, 11, 20, 75, 24, -88, -22, -98]
+
+Task 1:
+Let list_1 be the result of preprocessing task_1_input as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_1 has more than 10 elements, keep only the first 10 elements.
+Let P_1(x) be a polynomial whose coefficients are the elements of the list list_1 in order, starting from the highest degree.
+Compute the polynomial quotient when P_1(x) is divided by the monic polynomial x**2 + x + 1. Call the result poly_task_1_out.
+Convert poly_task_1_out into a list task_1_out by extracting its coefficients starting from the highest degree to the constant term, including zero coefficients for missing intermediate powers. Omit leading zero coefficients. Represent the zero polynomial as [0].
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+If the length of list_2 is not a power of 2, update list_2 by padding it with zeros to the next power of 2.
+Let list_2 = [a_0, a_1, ..., a_{N-1}], and let p = 17.
+All arithmetic in this transform is modulo p. Let g be the smallest positive primitive root modulo p, and define omega = g**((p - 1) // N) mod p. By construction, (N) divides (p-1), so (omega) has exact order (N) modulo (p).
+Compute the number theoretic transform A = [A_0, A_1, ..., A_{N-1}], where for each j = 0, 1, ..., N-1, A_j = sum_{k=0}^{N-1} a_k * omega**(j*k) mod p.
+Return each A_j as its least nonnegative residue in {0, 1, ..., p-1}. Call the resulting sequence task_2_out.
+
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_3 into matrix M1_3 of size 2x4 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_3 or truncate it.
+Define M2_3 = Matrix([[83, -50, 21, -74], [-16, -67, -46, -78]]).
+Compute the Kronecker product of M1_3 and M2_3 and call the result mat_task_3_out.
+Convert matrix mat_task_3_out into a list task_3_out by concatenating matrix rows starting from the top row, then second row, etc...
+
+Task 4:
+Let list_4 be the result of preprocessing task_3_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_4 has more than 10 elements, keep only the first 10 elements.
+Let list_4 = [a_0, a_1, ..., a_{N-1}].
+Sort the indices 0, 1, ..., N-1 in ascending order by the pair (a_i, i).
+In other words, sort by the corresponding sequence value, and break ties by the smaller original index.
+Let the resulting index list be pi = [pi_0, pi_1, ..., pi_{N-1}].
+Compute the number of inversions in pi, meaning the number of pairs (r, s) such that 0 <= r < s < N and pi_r > pi_s.
+Call this result task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 17  |  PermutationOrderTask  |  sample_idx=0
+  Output: 4
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 45
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Compute the multiplicative order of 2 modulo (2*val_1 + 1) and call the result task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_2, compute Euler's totient function phi(i + val_2).
+Compute the sequence of these values and call that sequence task_2_out.
+
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_3 into matrix M1_3 of size 3x4 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_3 or truncate it.
+Define M2_3 = Matrix([[53, 14, -78, 45], [50, -62, -4, -35], [-34, 45, 50, -58]]).
+Compute the Kronecker product of M1_3 and M2_3 and call the result mat_task_3_out.
+Convert matrix mat_task_3_out into a list task_3_out by concatenating matrix rows starting from the top row, then second row, etc...
+
+Task 4:
+Let list_4 be the result of preprocessing task_3_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_4 has more than 10 elements, keep only the first 10 elements.
+Let list_4 = [a_0, a_1, ..., a_{N-1}].
+Sort the indices 0, 1, ..., N-1 in ascending order by the pair (a_i, i).
+In other words, sort by the corresponding sequence value, and break ties by the smaller original index.
+Let the resulting index list be pi = [pi_0, pi_1, ..., pi_{N-1}].
+Treat pi as the array form of a permutation of {0, 1, ..., N-1}, meaning pi maps r to pi_r.
+Compute the order of this permutation: the smallest positive integer m such that applying pi exactly m times gives the identity permutation.
+If N = 0, define the order to be 1.
+Call the result task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 18  |  PolyResultantFixedTask  |  sample_idx=0
+  Output: 804
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -32
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+List all prime numbers strictly between val_1**2 and (val_1+1)**2 in increasing order and call the result task_1_out.
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+Let P_2(x) be a polynomial whose coefficients are the elements of the list list_2 in order, starting from the highest degree.
+If P_2(x) is the zero polynomial, define task_2_out = 0. For a nonzero constant polynomial, use gcd(P_2, P_2') = 1.
+Otherwise, let S_2(x) = P_2(x) / gcd(P_2(x), P_2'(x)), where the gcd is taken over Q[x] and made monic.
+Do not further normalize S_2(x): keep any scalar coefficient remaining after division by the monic gcd. Evaluate S_2(2) and call the result task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_3, compute Euler's totient function phi(i + val_3).
+Compute the sequence of these values and call that sequence task_3_out.
+
+Task 4:
+Let list_4 be the result of preprocessing task_3_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_4 has more than 10 elements, keep only the first 10 elements.
+Let P_4(x) be a polynomial whose coefficients are the elements of the list list_4 in order, starting from the highest degree.
+Compute the resultant of P_4(x) and the polynomial x**2 + x + 1 and call the result task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 19  |  PolySquareFreeEvalTask  |  sample_idx=0
+  Output: 20852
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -80
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 30 to it.
+For each prime number p with p <= 2*val_1, define e_p as follows.
+For every positive integer j such that p**j <= 2*val_1, compute floor((2*val_1) / p**j) - 2*floor(val_1 / p**j), and let e_p be the sum of these values over all such j.
+For each prime p with p <= 2*val_1, compute p * (e_p + 1).
+Return these values as a list in increasing order of p and call the resulting list task_1_out.
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_2 into matrix mat_1_2 of size 3x3 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_2 or truncate it.
+Compute the Frobenius norm squared (sum of squares of all elements) of mat_1_2 and call the result task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_3, let x = i + val_3.
+Compute the standard reflected binary Gray code of x, defined as gray(x) = x XOR floor(x / 2), where XOR is bitwise exclusive OR.
+Return these Gray code values as ordinary decimal integers, not as binary strings, in the order i = 1, 2, ..., val_3. Call the resulting sequence task_3_out.
+
+Task 4:
+Let list_4 be the result of preprocessing task_3_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_4 has more than 10 elements, keep only the first 10 elements.
+Let P_4(x) be a polynomial whose coefficients are the elements of the list list_4 in order, starting from the highest degree.
+If P_4(x) is the zero polynomial, define task_4_out = 0. For a nonzero constant polynomial, use gcd(P_4, P_4') = 1.
+Otherwise, let S_4(x) = P_4(x) / gcd(P_4(x), P_4'(x)), where the gcd is taken over Q[x] and made monic.
+Do not further normalize S_4(x): keep any scalar coefficient remaining after division by the monic gcd. Evaluate S_4(2) and call the result task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 20  |  CentralBinomialPrimeValuationVectorTask  |  sample_idx=0
+  Output: [10, 3, 15, 21, 22, 39, 17, 38, 46, 29, 62, 37, 41, 43, 94, 106, 118, 61, 67, 71, 73, 79, 83, 89, 194, 202, 206, 214, 218, 226, 254, 262, 274, 278, 298, 302, 314, 326, 334, 346, 358]
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 48
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Compute the sum of the squares of all positive divisors of val_1 and call the result task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Compute the sum of the unitary divisors of val_2 (divisors d where gcd(d, val_2/d) == 1) and call the result task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Find the val_3-th prime number p.
+Compute Euler's totient phi(p-1), which equals the count of primitive roots modulo p. Call the result task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 30 to it.
+For each prime number p with p <= 2*val_4, define e_p as follows.
+For every positive integer j such that p**j <= 2*val_4, compute floor((2*val_4) / p**j) - 2*floor(val_4 / p**j), and let e_p be the sum of these values over all such j.
+For each prime p with p <= 2*val_4, compute p * (e_p + 1).
+Return these values as a list in increasing order of p and call the resulting list task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 21  |  GrayCodeSequenceTask  |  sample_idx=0
+  Output: [12, 13, 15, 14, 10, 11, 9]
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = [61, -8, -29, -35, 35, 13, 48, -47, -19, -44]
+
+Task 1:
+Let list_1 be the result of preprocessing task_1_input as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_1 has more than 10 elements, keep only the first 10 elements.
+If the length of list_1 is not a power of 2, update list_1 by padding it with zeros to the next power of 2.
+Let list_1 be a sequence of length 2^m. Index its entries by bitmasks S = 0, 1, ..., 2^m - 1.
+Compute the subset-sum/zeta transform B, where for each bitmask S, B[S] = sum of list_1[T] over all bitmasks T such that T is a subset of S.
+Here, T is a subset of S means every 1-bit of T is also a 1-bit of S, equivalently (T & S) = T.
+Return the values B[0], B[1], ..., B[2^m - 1] in increasing bitmask order and call the resulting sequence task_1_out.
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+Define seq2_2 = [-2, -3, -2, -5, -2, -5, 2, 5, 0, 0].
+Compute the linear discrete convolution of list_2 and seq2_2. Call the result task_2_out.
+
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Let list_3 = [a_0, a_1, ..., a_{N-1}].
+Sort the indices 0, 1, ..., N-1 in ascending order by the pair (a_i, i).
+In other words, sort by the corresponding sequence value, and break ties by the smaller original index.
+Let the resulting index list be pi = [pi_0, pi_1, ..., pi_{N-1}].
+Treat pi as the array form of a permutation of {0, 1, ..., N-1}, meaning pi maps r to pi_r.
+Compute the order of this permutation: the smallest positive integer m such that applying pi exactly m times gives the identity permutation.
+If N = 0, define the order to be 1.
+Call the result task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_4, let x = i + val_4.
+Compute the standard reflected binary Gray code of x, defined as gray(x) = x XOR floor(x / 2), where XOR is bitwise exclusive OR.
+Return these Gray code values as ordinary decimal integers, not as binary strings, in the order i = 1, 2, ..., val_4. Call the resulting sequence task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 22  |  ModularMultiplicationSequenceTask  |  sample_idx=0
+  Output: [5, 10, 4, 9, 3]
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = [-53, -81, -90, -95, 41, -14, 39, -83, -79, 20]
+
+Task 1:
+Let list_1 be the result of preprocessing task_1_input as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+If list_1 has more than 10 elements, keep only the first 10 elements.
+For every pair of indices i, j with 0 <= i < j < len(list_1), compute gcd(|list_1[i]|, |list_1[j]|). Use the convention gcd(0, 0) = 0.
+Compute the sum of all these GCD values and call the result task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_2, let x = i + val_2.
+Compute the standard reflected binary Gray code of x, defined as gray(x) = x XOR floor(x / 2), where XOR is bitwise exclusive OR.
+Return these Gray code values as ordinary decimal integers, not as binary strings, in the order i = 1, 2, ..., val_2. Call the resulting sequence task_2_out.
+
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Let list_3 = [a_0, a_1, ..., a_{N-1}].
+Sort the indices 0, 1, ..., N-1 in ascending order by the pair (a_i, i).
+In other words, sort by the corresponding sequence value, and break ties by the smaller original index.
+Let the resulting index list be pi = [pi_0, pi_1, ..., pi_{N-1}].
+Treat pi as the array form of a permutation of {0, 1, ..., N-1}, meaning pi maps r to pi_r.
+Compute the order of this permutation: the smallest positive integer m such that applying pi exactly m times gives the identity permutation.
+If N = 0, define the order to be 1.
+Call the result task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_4, compute (i * val_4) modulo the val_4-th prime number.
+Compute the sequence of these values and call that sequence task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 23  |  PolygonDiagonalsSequenceTask  |  sample_idx=0
+  Output: [35, 44, 54, 65, 77, 90, 104, 119, 135]
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -36
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i = 1, 2, ..., val_1, define A_i to be the sum over k = 1, 2, ..., i of k times the number of positive divisors of val_1 + k.
+Return the list [A_1, A_2, ..., A_{val_1}] in increasing order of i, so the first element corresponds to i = 1, the second element corresponds to i = 2, and so on.
+Call the resulting list task_1_out.
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+If the length of list_2 is not a power of 2, update list_2 by padding it with zeros to the next power of 2.
+Let list_2 = [a_0, a_1, ..., a_{N-1}].
+Compute the unnormalized Walsh-Hadamard transform in Sylvester order. That is, for each j = 0, 1, ..., N-1, define
+H_j = sum_{k=0}^{N-1} ((-1) ** popcount(j & k)) * a_k, where `&` is bitwise AND and popcount counts the number of 1-bits.
+Return the sequence [H_0, H_1, ..., H_{N-1}] and call it task_2_out.
+
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Let list_3 = [a_0, a_1, ..., a_{N-1}].
+Sort the indices 0, 1, ..., N-1 in ascending order by the pair (a_i, i).
+In other words, sort by the corresponding sequence value, and break ties by the smaller original index.
+Let the resulting index list be pi = [pi_0, pi_1, ..., pi_{N-1}].
+Treat pi as the array form of a permutation of {0, 1, ..., N-1}, meaning pi maps r to pi_r.
+Compute the order of this permutation: the smallest positive integer m such that applying pi exactly m times gives the identity permutation.
+If N = 0, define the order to be 1.
+Call the result task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 3 to it.
+For each integer i from 1 to val_4, compute the number of diagonals in a convex polygon with i + val_4 vertices.
+Compute the sequence of these values and call that sequence task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 24  |  PrimesBetweenSquaresTask  |  sample_idx=0
+  Output: [5189, 5197, 5209, 5227, 5231, 5233, 5237, 5261, 5273, 5279, 5281, 5297, 5303, 5309, 5323]
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = [92, 60, -100, 11, -75, -67, -31, -30, -14, -26]
+
+Task 1:
+Let list_1 be the result of preprocessing task_1_input as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_1 has more than 10 elements, keep only the first 10 elements.
+Let poly_1_1(x) be a polynomial whose coefficients are the elements of the list list_1 in order, starting from the highest degree.
+Define poly_2_1 = x**10 - 2*x**9 - 2*x**8 - 4*x**7 + 5*x**6 - x**5 - 2*x**4 - x**3 - 2*x**2 - 2*x - 4.
+Compute the polynomial remainder of poly_1_1 divided by poly_2_1. Call the result poly_task_1_out.
+Convert poly_task_1_out into a list task_1_out by extracting its coefficients starting from the highest degree to the constant term, including zero coefficients for missing intermediate powers. Omit leading zero coefficients. Represent the zero polynomial as [0].
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out as follows - for every element, replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_2 into matrix M1_2 of size 3x4 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_2 or truncate it.
+Define M2_2 = Matrix([[-67, 80, -43], [-28, 25, -48], [-85, 26, -25], [35, -5, -95]]).
+Compute the matrix product of M1_2 and M2_2 and call the result mat_task_2_out.
+Convert matrix mat_task_2_out into a list task_2_out by concatenating matrix rows starting from the top row, then second row, etc...
+
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Consider list_3 as a sequence of y-coordinates with x-coordinates being their indices (0, 1, 2, ...).
+Compute the area of the convex hull of these 2D points, multiply the area by 2, and call the result task_3_out. If there are fewer than 3 points, or if all points are collinear, define the area to be 0.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+List all prime numbers strictly between val_4**2 and (val_4+1)**2 in increasing order and call the result task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 25  |  QuadraticResiduesPrimeTask  |  sample_idx=0
+  Output: [0, 1, 4, 6, 9, 10, 14, 15, 16, 17, 19, 21, 22, 23, 24, 25, 26, 29, 33, 35, 36, 37, 39, 40, 47, 49, 54, 55, 56, 59, 60, 62, 64, 65]
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -93
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_1, let x = i + val_1.
+Compute the standard reflected binary Gray code of x, defined as gray(x) = x XOR floor(x / 2), where XOR is bitwise exclusive OR.
+Return these Gray code values as ordinary decimal integers, not as binary strings, in the order i = 1, 2, ..., val_1. Call the resulting sequence task_1_out.
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_2 into matrix mat_1_2 of size 3x3 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_2 or truncate it.
+Compute the Frobenius norm squared (sum of squares of all elements) of mat_1_2 and call the result task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 25 to it.
+Let p be the smallest prime number strictly greater than val_3 + 2.
+For each integer a = 1, 2, ..., val_3, compute the Legendre symbol Legendre(a, p). This value is 1 if there exists an integer x such that x**2 is congruent to a modulo p, and -1 otherwise.
+For each a, compute a * (Legendre(a, p) + 1). Then compute the sum of these values over all a = 1, 2, ..., val_3.
+Call the result task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Let p be the val_4-th prime number, using the convention that the 1st prime is 2.
+Find all distinct residues r in {0, 1, ..., p-1} for which there exists an integer x such that x^2 ≡ r mod p.
+Include 0 as a quadratic residue. Return the residues in increasing order and call the resulting list task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 26  |  SmallestFactorQuadraticTask  |  sample_idx=0
+  Output: [29, 2, 37, 2, 53, 2, 7, 2, 109, 2, 149, 2, 197, 2, 11, 2, 317, 2, 389, 2, 7, 2, 557, 2, 653, 2, 757, 2]
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = [-82, 36, -42, 4, 9, 16, 89, -34, 51, 61]
+
+Task 1:
+Let list_1 be the result of preprocessing task_1_input as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_1 has more than 10 elements, keep only the first 10 elements.
+Let list_1 = [a_0, a_1, ..., a_{N-1}].
+Sort the indices 0, 1, ..., N-1 in ascending order by the pair (a_i, i).
+In other words, sort by the corresponding sequence value, and break ties by the smaller original index.
+Let the resulting index list be pi = [pi_0, pi_1, ..., pi_{N-1}].
+Treat pi as the array form of a permutation of {0, 1, ..., N-1}, meaning pi maps r to pi_r.
+Compute the order of this permutation: the smallest positive integer m such that applying pi exactly m times gives the identity permutation.
+If N = 0, define the order to be 1.
+Call the result task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Let p be the val_2-th prime number, using the convention that the 1st prime is 2.
+Find all distinct residues r in {0, 1, ..., p-1} for which there exists an integer x such that x^2 ≡ r mod p.
+Include 0 as a quadratic residue. Return the residues in increasing order and call the resulting list task_2_out.
+
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_3 into matrix matrix_1_3 of size 3x3 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_3 or truncate it.
+Compute the 1-norm of matrix_1_3 (the maximum absolute column sum) and call the result task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_4, compute the smallest prime factor of i**2 + val_4.
+Compute the sequence of these values and call that sequence task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 27  |  TotientProductSequenceTask  |  sample_idx=0
+  Output: [88, 88, 176, 176, 352, 176, 528, 352, 528, 352, 880, 352, 1056, 528, 704, 704, 1408, 528, 1584, 704, 1056, 880, 1936, 704, 1760, 1056, 1584, 1056, 2464, 704, 2640, 1408, 1760, 1408, 2112, 1056, 3168, 1584, 2112, 1408, 3520, 1056, 3696, 1760, 2112, 1936, 4048, 1408, 3696, 1760, 2816, 2112, 4576, 1584, 3520, 2112, 3168, 2464, 5104, 1408, 5280, 2640, 3168, 2816, 4224, 1760, 5808, 2816, 3872, 2112, 6160, 2112, 6336, 3168, 3520, 3168, 5280, 2112, 6864, 2816, 4752, 3520, 7216, 2112, 5632, 3696, 4928, 3520, 7832]
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 36
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 2 to it.
+For each integer i from 2 to val_1, compute omega(i), the number of distinct prime factors of i.
+Compute the sum of all these omega values and call the result task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_2, compute Euler's totient function phi(i + val_2).
+Compute the sequence of these values and call that sequence task_2_out.
+
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Consider list_3 as a sequence of y-coordinates with x-coordinates being their indices (0, 1, 2, ...).
+Compute the area of the convex hull of these 2D points, multiply the area by 2, and call the result task_3_out. If there are fewer than 3 points, or if all points are collinear, define the area to be 0.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_4, compute Euler's totient function of i * val_4.
+Compute the sequence of these values and call that sequence task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 28  |  TotientShiftSequenceTask  |  sample_idx=0
+  Output: [24, 22, 46, 16, 42, 20, 32, 24, 52, 18, 40, 24, 36, 28, 58, 16, 60, 30, 36, 32, 48, 20, 66, 32, 44, 24, 70, 24, 72, 36, 40, 36, 60, 24, 78, 32, 54, 40, 82, 24, 64, 42, 56, 40]
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -1
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 2 to it.
+For each integer i from 2 to val_1, compute omega(i), the number of distinct prime factors of i.
+Compute the sum of all these omega values and call the result task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_2, let x = i + val_2.
+Compute the standard reflected binary Gray code of x, defined as gray(x) = x XOR floor(x / 2), where XOR is bitwise exclusive OR.
+Return these Gray code values as ordinary decimal integers, not as binary strings, in the order i = 1, 2, ..., val_2. Call the resulting sequence task_2_out.
+
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Let P_3(x) be a polynomial whose coefficients are the elements of the list list_3 in order, starting from the highest degree.
+If P_3(x) is the zero polynomial, define task_3_out = 0. For a nonzero constant polynomial, use gcd(P_3, P_3') = 1.
+Otherwise, let S_3(x) = P_3(x) / gcd(P_3(x), P_3'(x)), where the gcd is taken over Q[x] and made monic.
+Do not further normalize S_3(x): keep any scalar coefficient remaining after division by the monic gcd. Evaluate S_3(2) and call the result task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_4, compute Euler's totient function phi(i + val_4).
+Compute the sequence of these values and call that sequence task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 29  |  WeightedDivisorCountPrefixSequenceTask  |  sample_idx=0
+  Output: [4, 8, 32, 44, 64, 88, 130, 146, 218, 238, 304, 352, 404, 460, 595, 627, 695, 767, 919, 959, 1127]
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = 59
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_1, compute (i * val_1) modulo the val_1-th prime number.
+Compute the sequence of these values and call that sequence task_1_out.
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_2 into matrix matrix_1_2 of size 3x3 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_2 or truncate it.
+Compute the 1-norm of matrix_1_2 (the maximum absolute column sum) and call the result task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Compute the sum of the unitary divisors of val_3 (divisors d where gcd(d, val_3/d) == 1) and call the result task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i = 1, 2, ..., val_4, define A_i to be the sum over k = 1, 2, ..., i of k times the number of positive divisors of val_4 + k.
+Return the list [A_1, A_2, ..., A_{val_4}] in increasing order of i, so the first element corresponds to i = 1, the second element corresponds to i = 2, and so on.
+Call the resulting list task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 30  |  DivisorSigmaSquareTask  |  sample_idx=0
+  Output: 11830
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -38
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_1, compute the number of positive divisors of i.
+Compute the sum of all these divisor counts and call the result task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_2, let x = i + val_2.
+Compute the standard reflected binary Gray code of x, defined as gray(x) = x XOR floor(x / 2), where XOR is bitwise exclusive OR.
+Return these Gray code values as ordinary decimal integers, not as binary strings, in the order i = 1, 2, ..., val_2. Call the resulting sequence task_2_out.
+
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Let P_3(x) be a polynomial whose coefficients are the elements of the list list_3 in order, starting from the highest degree.
+Compute the resultant of P_3(x) and the polynomial x**2 + x + 1 and call the result task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Compute the sum of the squares of all positive divisors of val_4 and call the result task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 31  |  DivisorSumTask  |  sample_idx=0
+  Output: 12
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = [81, 37, 45, 24, -2, -32, 13, 70, -41, 26]
+
+Task 1:
+Let list_1 be the result of preprocessing task_1_input as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_1 has more than 10 elements, keep only the first 10 elements.
+Let P_1(x) be a polynomial whose coefficients are the elements of the list list_1 in order, starting from the highest degree.
+Compute the polynomial quotient when P_1(x) is divided by the monic polynomial x**2 + x + 1. Call the result poly_task_1_out.
+Convert poly_task_1_out into a list task_1_out by extracting its coefficients starting from the highest degree to the constant term, including zero coefficients for missing intermediate powers. Omit leading zero coefficients. Represent the zero polynomial as [0].
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+If the length of list_2 is not a power of 2, update list_2 by padding it with zeros to the next power of 2.
+Let list_2 = [a_0, a_1, ..., a_{N-1}].
+Compute the unnormalized Walsh-Hadamard transform in Sylvester order. That is, for each j = 0, 1, ..., N-1, define
+H_j = sum_{k=0}^{N-1} ((-1) ** popcount(j & k)) * a_k, where `&` is bitwise AND and popcount counts the number of 1-bits.
+Return the sequence [H_0, H_1, ..., H_{N-1}] and call it task_2_out.
+
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Let list_3 = [a_0, a_1, ..., a_{N-1}].
+Sort the indices 0, 1, ..., N-1 in ascending order by the pair (a_i, i).
+In other words, sort by the corresponding sequence value, and break ties by the smaller original index.
+Let the resulting index list be pi = [pi_0, pi_1, ..., pi_{N-1}].
+Compute the number of inversions in pi, meaning the number of pairs (r, s) such that 0 <= r < s < N and pi_r > pi_s.
+Call this result task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Compute the sum of all positive divisors of val_4 and call the result task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 32  |  LegendreResidueWeightTask  |  sample_idx=0
+  Output: 516
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = [-16, -84, 39, 0, 77, -32, 35, -94, -42, -97]
+
+Task 1:
+Let list_1 be the result of preprocessing task_1_input as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_1 has more than 10 elements, keep only the first 10 elements.
+Let P_1(x) be a polynomial whose coefficients are the elements of the list list_1 in order, starting from the highest degree.
+Compute the resultant of P_1(x) and the polynomial x**2 + x + 1 and call the result task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 30 to it.
+For each integer k = 1, 2, ..., val_2, compute Euler's totient function phi(k), the number of integers m with 1 <= m <= k such that gcd(m, k) = 1.
+Compute the sum phi(1) + phi(2) + ... + phi(val_2) and call the result task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Compute the sum of the squares of all positive divisors of val_3 and call the result task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 25 to it.
+Let p be the smallest prime number strictly greater than val_4 + 2.
+For each integer a = 1, 2, ..., val_4, compute the Legendre symbol Legendre(a, p). This value is 1 if there exists an integer x such that x**2 is congruent to a modulo p, and -1 otherwise.
+For each a, compute a * (Legendre(a, p) + 1). Then compute the sum of these values over all a = 1, 2, ..., val_4.
+Call the result task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 33  |  MultiplicativeOrderTask  |  sample_idx=0
+  Output: 14
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = [10, 31, -32, -24, 23, 17, -15, -91, -34, -30]
+
+Task 1:
+Let list_1 be the result of preprocessing task_1_input as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_1 has more than 10 elements, keep only the first 10 elements.
+Define seq2_1 = [-1, -3, 2, 1, 0, -4, -1, -5, -5, 1].
+Compute the linear discrete convolution of list_1 and seq2_1. Call the result task_1_out.
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+For every pair of indices i, j with 0 <= i < j < len(list_2), compute gcd(|list_2[i]|, |list_2[j]|). Use the convention gcd(0, 0) = 0.
+Compute the sum of all these GCD values and call the result task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Find the val_3-th prime number p.
+Compute Euler's totient phi(p-1), which equals the count of primitive roots modulo p. Call the result task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Compute the multiplicative order of 2 modulo (2*val_4 + 1) and call the result task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 34  |  PrimeOmegaSumTask  |  sample_idx=0
+  Output: 8
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = [34, -62, -58, 45, 90, 98, 68, 96, -1, -11]
+
+Task 1:
+Let list_1 be the result of preprocessing task_1_input as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_1 has more than 10 elements, keep only the first 10 elements.
+Let P_1(x) be a polynomial whose coefficients are the elements of the list list_1 in order, starting from the highest degree.
+If P_1(x) is the zero polynomial, define task_1_out = 0. For a nonzero constant polynomial, use gcd(P_1, P_1') = 1.
+Otherwise, let S_1(x) = P_1(x) / gcd(P_1(x), P_1'(x)), where the gcd is taken over Q[x] and made monic.
+Do not further normalize S_1(x): keep any scalar coefficient remaining after division by the monic gcd. Evaluate S_1(2) and call the result task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 30 to it.
+For each integer k = 1, 2, ..., val_2, compute Euler's totient function phi(k), the number of integers m with 1 <= m <= k such that gcd(m, k) = 1.
+Compute the sum phi(1) + phi(2) + ... + phi(val_2) and call the result task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Compute the multiplicative order of 2 modulo (2*val_3 + 1) and call the result task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 2 to it.
+For each integer i from 2 to val_4, compute omega(i), the number of distinct prime factors of i.
+Compute the sum of all these omega values and call the result task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 35  |  PrimitiveRootCountTask  |  sample_idx=0
+  Output: 112
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = [-100, -1, 52, -92, 53, 36, -47, 83, 65, 96]
+
+Task 1:
+Let list_1 be the result of preprocessing task_1_input as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_1 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_1 into matrix matrix_1_1 of size 4x4 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_1 or truncate it.
+Compute the matrix polynomial matrix_1_1**3 + matrix_1_1**2 + matrix_1_1. Call the result mat_task_1_out.
+Convert matrix mat_task_1_out into a list task_1_out by concatenating matrix rows starting from the top row, then second row, etc...
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+Let P_2(x) be a polynomial whose coefficients are the elements of the list list_2 in order, starting from the highest degree.
+Compute the resultant of P_2(x) and the polynomial x**2 + x + 1 and call the result task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 25 to it.
+Let p be the smallest prime number strictly greater than val_3 + 2.
+For each integer a = 1, 2, ..., val_3, compute the Legendre symbol Legendre(a, p). This value is 1 if there exists an integer x such that x**2 is congruent to a modulo p, and -1 otherwise.
+For each a, compute a * (Legendre(a, p) + 1). Then compute the sum of these values over all a = 1, 2, ..., val_3.
+Call the result task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Find the val_4-th prime number p.
+Compute Euler's totient phi(p-1), which equals the count of primitive roots modulo p. Call the result task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 36  |  ScaledStirlingFirstKindTask  |  sample_idx=0
+  Output: 3731
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = -79
+
+Task 1:
+Let val_1 be the result of preprocessing task_1_input as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 30 to it.
+For each prime number p with p <= 2*val_1, define e_p as follows.
+For every positive integer j such that p**j <= 2*val_1, compute floor((2*val_1) / p**j) - 2*floor(val_1 / p**j), and let e_p be the sum of these values over all such j.
+For each prime p with p <= 2*val_1, compute p * (e_p + 1).
+Return these values as a list in increasing order of p and call the resulting list task_1_out.
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_2 into matrix mat_1_2 of size 3x3 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_2 or truncate it.
+Compute the Frobenius norm squared (sum of squares of all elements) of mat_1_2 and call the result task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 2 to it.
+For each integer i from 2 to val_3, compute omega(i), the number of distinct prime factors of i.
+Compute the sum of all these omega values and call the result task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Define m = floor(sqrt(val_4)) + 7.
+Compute the unsigned Stirling number of the first kind c(m, m - 2), which counts the number of permutations of m elements with exactly m - 2 disjoint cycles.
+Call the result task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 37  |  SumDivisorCountsTask  |  sample_idx=0
+  Output: 123
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = [-40, 46, -15, 15, 48, 81, 17, 81, -73, 27]
+
+Task 1:
+Let list_1 be the result of preprocessing task_1_input as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_1 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_1 into matrix matrix_1_1 of size 4x4 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_1 or truncate it.
+Compute the matrix polynomial matrix_1_1**3 + matrix_1_1**2 + matrix_1_1. Call the result mat_task_1_out.
+Convert matrix mat_task_1_out into a list task_1_out by concatenating matrix rows starting from the top row, then second row, etc...
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+Let P_2(x) be a polynomial whose coefficients are the elements of the list list_2 in order, starting from the highest degree.
+Compute the resultant of P_2(x) and the polynomial x**2 + x + 1 and call the result task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 30 to it.
+For each integer k = 1, 2, ..., val_3, compute Euler's totient function phi(k), the number of integers m with 1 <= m <= k such that gcd(m, k) = 1.
+Compute the sum phi(1) + phi(2) + ... + phi(val_3) and call the result task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_4, compute the number of positive divisors of i.
+Compute the sum of all these divisor counts and call the result task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 38  |  SummatoryTotientTask  |  sample_idx=0
+  Output: 3176
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = [20, -5, 89, -4, 63, -74, 44, -50, -3, -55]
+
+Task 1:
+Let list_1 be the result of preprocessing task_1_input as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_1 has more than 10 elements, keep only the first 10 elements.
+Let P_1(x) be a polynomial whose coefficients are the elements of the list list_1 in order, starting from the highest degree.
+If P_1(x) is the zero polynomial, define task_1_out = 0. For a nonzero constant polynomial, use gcd(P_1, P_1') = 1.
+Otherwise, let S_1(x) = P_1(x) / gcd(P_1(x), P_1'(x)), where the gcd is taken over Q[x] and made monic.
+Do not further normalize S_1(x): keep any scalar coefficient remaining after division by the monic gcd. Evaluate S_1(2) and call the result task_1_out.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Compute the sum of all positive divisors of val_2 and call the result task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Find the val_3-th prime number p.
+Compute Euler's totient phi(p-1), which equals the count of primitive roots modulo p. Call the result task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 30 to it.
+For each integer k = 1, 2, ..., val_4, compute Euler's totient function phi(k), the number of integers m with 1 <= m <= k such that gcd(m, k) = 1.
+Compute the sum phi(1) + phi(2) + ... + phi(val_4) and call the result task_4_out.
+
+----------------------------------------------------------------------
+
+======================================================================
+  Sample 39  |  UnitaryDivisorSumTask  |  sample_idx=0
+  Output: 68
+======================================================================
+Solve all tasks below. Put every answer in its own \boxed{} block with the exact requested output name, for example \boxed{task_1_out = ...}.
+
+Initial Conditions:
+task_1_input = [45, -46, 22, -92, 57, 30, -39, -90, -70, 3]
+
+Task 1:
+Let list_1 be the result of preprocessing task_1_input as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_1 has more than 10 elements, keep only the first 10 elements.
+If the length of list_1 is not a power of 2, update list_1 by padding it with zeros to the next power of 2.
+Let list_1 be a sequence of length 2^m. Index its entries by bitmasks S = 0, 1, ..., 2^m - 1.
+Compute the subset-sum/zeta transform B, where for each bitmask S, B[S] = sum of list_1[T] over all bitmasks T such that T is a subset of S.
+Here, T is a subset of S means every 1-bit of T is also a 1-bit of S, equivalently (T & S) = T.
+Return the values B[0], B[1], ..., B[2^m - 1] in increasing bitmask order and call the resulting sequence task_1_out.
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+Reshape list list_2 into matrix mat_1_2 of size 3x3 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_2 or truncate it.
+Compute the trace of mat_1_2**3 and call the result task_2_out.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 30 to it.
+For each integer k = 1, 2, ..., val_3, compute Euler's totient function phi(k), the number of integers m with 1 <= m <= k such that gcd(m, k) = 1.
+Compute the sum phi(1) + phi(2) + ... + phi(val_3) and call the result task_3_out.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Compute the sum of the unitary divisors of val_4 (divisors d where gcd(d, val_4/d) == 1) and call the result task_4_out.
+
+----------------------------------------------------------------------

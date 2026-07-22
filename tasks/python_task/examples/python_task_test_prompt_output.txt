@@ -1,0 +1,2287 @@
+======================================================================
+  PYTHON TASK PROMPT TEST  |  scalar_max_mag=100  list_len_max=10
+  Total candidate algorithms: 80
+======================================================================
+
+======================================================================
+  [  0] largestDivisibleSubset  (list->list)
+  Output: [-94]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> List[int]:
+    list_3.sort()
+    n = len(list_3)
+    f = [1] * n
+    k = 0
+    for i in range(n):
+        for j in range(i):
+            if list_3[i] % list_3[j] == 0:
+                f[i] = max(f[i], f[j] + 1)
+        if f[k] < f[i]:
+            k = i
+    m = f[k]
+    i = k
+    ans = []
+    while m:
+        if list_3[k] % list_3[i] == 0 and f[i] == m:
+            ans.append(list_3[i])
+            (k, m) = (i, m - 1)
+        i -= 1
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [  1] longestWPI  (list->scalar)
+  Output: 7
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    ans = s = 0
+    pos = {}
+    for (i, x) in enumerate(list_3):
+        s += 1 if x > 8 else -1
+        if s > 0:
+            ans = i + 1
+        elif s - 1 in pos:
+            ans = max(ans, i - pos[s - 1])
+        if s not in pos:
+            pos[s] = i
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [  2] latestTimeCatchTheBus  (list->scalar)
+  Output: 83
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs passengers = task_3_passengers_static, capacity = task_3_capacity_static and save the result in task_3_out.
+```python
+def task_3(list_3: List[int], passengers: List[int], capacity: int) -> int:
+    list_3.sort()
+    passengers.sort()
+    j = 0
+    for t in list_3:
+        c = capacity
+        while c and j < len(passengers) and (passengers[j] <= t):
+            (c, j) = (c - 1, j + 1)
+    j -= 1
+    ans = list_3[-1] if c else passengers[j]
+    while ~j and passengers[j] == ans:
+        (ans, j) = (ans - 1, j - 1)
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [  3] findMin  (list->scalar)
+  Output: -61
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    (left, right) = (0, len(list_3) - 1)
+    while left < right:
+        mid = left + right >> 1
+        if list_3[mid] > list_3[right]:
+            left = mid + 1
+        elif list_3[mid] < list_3[right]:
+            right = mid
+        else:
+            right -= 1
+    task_3_out = list_3[left]
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [  4] minimumOperations  (list->scalar)
+  Output: 9
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    (i, j) = (0, len(list_3) - 1)
+    (a, b) = (list_3[i], list_3[j])
+    ans = 0
+    while i < j:
+        if a < b:
+            i += 1
+            a += list_3[i]
+            ans += 1
+        elif b < a:
+            j -= 1
+            b += list_3[j]
+            ans += 1
+        else:
+            (i, j) = (i + 1, j - 1)
+            (a, b) = (list_3[i], list_3[j])
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [  5] maximumProcessableQueries  (list->scalar)
+  Output: 2
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs queries = task_3_queries_static and save the result in task_3_out.
+```python
+def task_3(list_3: List[int], queries: List[int]) -> int:
+    n = len(list_3)
+    f = [[0] * n for _ in range(n)]
+    m = len(queries)
+    for i in range(n):
+        for j in range(n - 1, i - 1, -1):
+            if i:
+                f[i][j] = max(f[i][j], f[i - 1][j] + (list_3[i - 1] >= queries[f[i - 1][j]]))
+            if j + 1 < n:
+                f[i][j] = max(f[i][j], f[i][j + 1] + (list_3[j + 1] >= queries[f[i][j + 1]]))
+            if f[i][j] == m:
+                task_3_out = m
+                return task_3_out
+    task_3_out = max((f[i][i] + (list_3[i] >= queries[f[i][i]]) for i in range(n)))
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [  6] lexicographicallySmallestArray  (list->list)
+  Output: [62, -59, -47, -32, -10, -7, 71, -6, 74, 79]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs limit = task_3_limit_static and save the result in task_3_out.
+```python
+def task_3(list_3: List[int], limit: int) -> List[int]:
+    n = len(list_3)
+    arr = sorted(zip(list_3, range(n)))
+    ans = [0] * n
+    i = 0
+    while i < n:
+        j = i + 1
+        while j < n and arr[j][0] - arr[j - 1][0] <= limit:
+            j += 1
+        idx = sorted((k for (_, k) in arr[i:j]))
+        for (k, (x, _)) in zip(idx, arr[i:j]):
+            ans[k] = x
+        i = j
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [  7] numberOfSubarrays  (list->scalar)
+  Output: 10
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    stk = []
+    ans = 0
+    for x in list_3:
+        while stk and stk[-1][0] < x:
+            stk.pop()
+        if not stk or stk[-1][0] > x:
+            stk.append([x, 1])
+        else:
+            stk[-1][1] += 1
+        ans += stk[-1][1]
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [  8] movesToMakeZigzag  (list->scalar)
+  Output: 220
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    ans = [0, 0]
+    n = len(list_3)
+    for i in range(2):
+        for j in range(i, n, 2):
+            d = 0
+            if j:
+                d = max(d, list_3[j] - list_3[j - 1] + 1)
+            if j < n - 1:
+                d = max(d, list_3[j] - list_3[j + 1] + 1)
+            ans[i] += d
+    task_3_out = min(ans)
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [  9] findMaximums  (list->list)
+  Output: [83, 45, 0, 0, 0, 0, 0, 0, 0, 0]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> List[int]:
+    n = len(list_3)
+    left = [-1] * n
+    right = [n] * n
+    stk = []
+    for (i, x) in enumerate(list_3):
+        while stk and list_3[stk[-1]] >= x:
+            stk.pop()
+        if stk:
+            left[i] = stk[-1]
+        stk.append(i)
+    stk = []
+    for i in range(n - 1, -1, -1):
+        while stk and list_3[stk[-1]] >= list_3[i]:
+            stk.pop()
+        if stk:
+            right[i] = stk[-1]
+        stk.append(i)
+    ans = [0] * n
+    for i in range(n):
+        m = right[i] - left[i] - 1
+        ans[m - 1] = max(ans[m - 1], list_3[i])
+    for i in range(n - 2, -1, -1):
+        ans[i] = max(ans[i], ans[i + 1])
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 10] countHillValley  (list->scalar)
+  Output: 6
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    ans = j = 0
+    for i in range(1, len(list_3) - 1):
+        if list_3[i] == list_3[i + 1]:
+            continue
+        if list_3[i] > list_3[j] and list_3[i] > list_3[i + 1]:
+            ans += 1
+        if list_3[i] < list_3[j] and list_3[i] < list_3[i + 1]:
+            ans += 1
+        j = i
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 11] minOperations  (list->scalar)
+  Output: 7
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs nums2 = task_3_nums2_static and save the result in task_3_out.
+```python
+def task_3(list_3: List[int], nums2: List[int]) -> int:
+    (s1, s2) = (sum(list_3), sum(nums2))
+    if s1 == s2:
+        task_3_out = 0
+        return task_3_out
+    if s1 > s2:
+        task_3_out = task_3(nums2, list_3)
+        return task_3_out
+    arr = [6 - v for v in list_3] + [v - 1 for v in nums2]
+    d = s2 - s1
+    for (i, v) in enumerate(sorted(arr, reverse=True), 1):
+        d -= v
+        if d <= 0:
+            task_3_out = i
+            return task_3_out
+    task_3_out = -1
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 12] maximumSum  (list->scalar)
+  Output: 126
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    n = len(list_3)
+    ans = 0
+    for k in range(1, n + 1):
+        t = 0
+        j = 1
+        while k * j * j <= n:
+            t += list_3[k * j * j - 1]
+            j += 1
+        ans = max(ans, t)
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 13] candy  (list->scalar)
+  Output: 16
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    n = len(list_3)
+    left = [1] * n
+    right = [1] * n
+    for i in range(1, n):
+        if list_3[i] > list_3[i - 1]:
+            left[i] = left[i - 1] + 1
+    for i in range(n - 2, -1, -1):
+        if list_3[i] > list_3[i + 1]:
+            right[i] = right[i + 1] + 1
+    task_3_out = sum((max(a, b) for (a, b) in zip(left, right)))
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 14] asteroidCollision  (list->list)
+  Output: [96, 16, 84]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> List[int]:
+    stk = []
+    for x in list_3:
+        if x > 0:
+            stk.append(x)
+        else:
+            while stk and stk[-1] > 0 and (stk[-1] < -x):
+                stk.pop()
+            if stk and stk[-1] == -x:
+                stk.pop()
+            elif not stk or stk[-1] < 0:
+                stk.append(x)
+    task_3_out = stk
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 15] maxWidthRamp  (list->scalar)
+  Output: 8
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    stk = []
+    for (i, v) in enumerate(list_3):
+        if not stk or list_3[stk[-1]] > v:
+            stk.append(i)
+    ans = 0
+    for i in range(len(list_3) - 1, -1, -1):
+        while stk and list_3[stk[-1]] <= list_3[i]:
+            ans = max(ans, i - stk.pop())
+        if not stk:
+            break
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 16] transformArray  (list->list)
+  Output: [29, 29, -50, -50, -5, 18, 18, 38, 38, 35]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> List[int]:
+    f = True
+    while f:
+        f = False
+        t = list_3[:]
+        for i in range(1, len(t) - 1):
+            if t[i] > t[i - 1] and t[i] > t[i + 1]:
+                list_3[i] -= 1
+                f = True
+            if t[i] < t[i - 1] and t[i] < t[i + 1]:
+                list_3[i] += 1
+                f = True
+    task_3_out = list_3
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 17] longestSubarray  (list->scalar)
+  Output: 9
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    n = len(list_3)
+    left = [0] * (n + 1)
+    right = [0] * (n + 1)
+    for (i, x) in enumerate(list_3, 1):
+        if x:
+            left[i] = left[i - 1] + 1
+    for i in range(n - 1, -1, -1):
+        if list_3[i]:
+            right[i] = right[i + 1] + 1
+    task_3_out = max((left[i] + right[i + 1] for i in range(n)))
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 18] simulationResult  (list->list)
+  Output: [8, 55, 35, -33, -58, 40, 21, 68, -68, -39, 45, -80, -79, 87, 24, -83, 94, 36, 96]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs queries = task_3_queries_static and save the result in task_3_out.
+```python
+def task_3(list_3: List[int], queries: List[int]) -> List[int]:
+    s = set()
+    ans = []
+    for q in queries[::-1]:
+        if q not in s:
+            ans.append(q)
+            s.add(q)
+    for w in list_3:
+        if w not in s:
+            ans.append(w)
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 19] longestMountain  (list->scalar)
+  Output: 6
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    n = len(list_3)
+    f = [1] * n
+    g = [1] * n
+    for i in range(1, n):
+        if list_3[i] > list_3[i - 1]:
+            f[i] = f[i - 1] + 1
+    ans = 0
+    for i in range(n - 2, -1, -1):
+        if list_3[i] > list_3[i + 1]:
+            g[i] = g[i + 1] + 1
+            if f[i] > 1:
+                ans = max(ans, f[i] + g[i] - 1)
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 20] sortArrayByParity  (list->list)
+  Output: [66, -14, 12, 32, -84, -70, -37, -43, 15, -5]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> List[int]:
+    (i, j) = (0, len(list_3) - 1)
+    while i < j:
+        if list_3[i] % 2 == 0:
+            i += 1
+        elif list_3[j] % 2 == 1:
+            j -= 1
+        else:
+            (list_3[i], list_3[j]) = (list_3[j], list_3[i])
+            (i, j) = (i + 1, j - 1)
+    task_3_out = list_3
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 21] monotoneIncreasingDigits  (scalar->scalar)
+  Output: -89
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(val_3: int) -> int:
+    s = list(str(val_3))
+    i = 1
+    while i < len(s) and s[i - 1] <= s[i]:
+        i += 1
+    if i < len(s):
+        while i and s[i - 1] > s[i]:
+            s[i - 1] = str(int(s[i - 1]) - 1)
+            i -= 1
+        i += 1
+        while i < len(s):
+            s[i] = '9'
+            i += 1
+    task_3_out = int(''.join(s))
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 22] wiggleMaxLength  (list->scalar)
+  Output: 6
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    n = len(list_3)
+    ans = 1
+    f = [1] * n
+    g = [1] * n
+    for i in range(1, n):
+        for j in range(i):
+            if list_3[j] < list_3[i]:
+                f[i] = max(f[i], g[j] + 1)
+            elif list_3[j] > list_3[i]:
+                g[i] = max(g[i], f[j] + 1)
+        ans = max(ans, f[i], g[i])
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 23] minArrayLength  (list->scalar)
+  Output: 7
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs k = task_3_k_static and save the result in task_3_out.
+```python
+def task_3(list_3: List[int], k: int) -> int:
+    (ans, y) = (1, list_3[0])
+    for x in list_3[1:]:
+        if x == 0:
+            task_3_out = 1
+            return task_3_out
+        if x * y <= k:
+            y *= x
+        else:
+            y = x
+            ans += 1
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 24] sumFourDivisors  (list->scalar)
+  Output: 304
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+
+    def f(x: int) -> int:
+        i = 2
+        (cnt, s) = (2, x + 1)
+        while i <= x // i:
+            if x % i == 0:
+                cnt += 1
+                s += i
+                if i * i != x:
+                    cnt += 1
+                    s += x // i
+            i += 1
+        return s if cnt == 4 else 0
+    task_3_out = sum((f(x) for x in list_3))
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 25] pancakeSort  (list->list)
+  Output: [5, 10, 9, 6, 8, 7, 6, 5, 4, 3, 2]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> List[int]:
+
+    def reverse(arr, j):
+        i = 0
+        while i < j:
+            (arr[i], arr[j]) = (arr[j], arr[i])
+            (i, j) = (i + 1, j - 1)
+    n = len(list_3)
+    ans = []
+    for i in range(n - 1, 0, -1):
+        j = i
+        while j > 0 and list_3[j] != i + 1:
+            j -= 1
+        if j < i:
+            if j > 0:
+                ans.append(j + 1)
+                reverse(list_3, j)
+            ans.append(i + 1)
+            reverse(list_3, i)
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 26] findMin  (list->scalar)
+  Output: -87
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    if list_3[0] <= list_3[-1]:
+        task_3_out = list_3[0]
+        return task_3_out
+    (left, right) = (0, len(list_3) - 1)
+    while left < right:
+        mid = left + right >> 1
+        if list_3[0] <= list_3[mid]:
+            left = mid + 1
+        else:
+            right = mid
+    task_3_out = list_3[left]
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 27] maxArea  (list->scalar)
+  Output: 108
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    (l, r) = (0, len(list_3) - 1)
+    ans = 0
+    while l < r:
+        t = min(list_3[l], list_3[r]) * (r - l)
+        ans = max(ans, t)
+        if list_3[l] < list_3[r]:
+            l += 1
+        else:
+            r -= 1
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 28] maximumSum  (list->scalar)
+  Output: 104
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    n = len(list_3)
+    left = [0] * n
+    right = [0] * n
+    s = 0
+    for (i, x) in enumerate(list_3):
+        s = max(s, 0) + x
+        left[i] = s
+    s = 0
+    for i in range(n - 1, -1, -1):
+        s = max(s, 0) + list_3[i]
+        right[i] = s
+    ans = max(left)
+    for i in range(1, n - 1):
+        ans = max(ans, left[i - 1] + right[i + 1])
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 29] largestRectangleArea  (list->scalar)
+  Output: 92
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    n = len(list_3)
+    stk = []
+    left = [-1] * n
+    right = [n] * n
+    for (i, h) in enumerate(list_3):
+        while stk and list_3[stk[-1]] >= h:
+            right[stk[-1]] = i
+            stk.pop()
+        if stk:
+            left[i] = stk[-1]
+        stk.append(i)
+    task_3_out = max((h * (right[i] - left[i] - 1) for (i, h) in enumerate(list_3)))
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 30] findWinningPlayer  (list->scalar)
+  Output: 9
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs k = task_3_k_static and save the result in task_3_out.
+```python
+def task_3(list_3: List[int], k: int) -> int:
+    n = len(list_3)
+    k = min(k, n - 1)
+    i = cnt = 0
+    for j in range(1, n):
+        if list_3[i] < list_3[j]:
+            i = j
+            cnt = 1
+        else:
+            cnt += 1
+        if cnt == k:
+            break
+    task_3_out = i
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 31] kConcatenationMaxSum  (list->scalar)
+  Output: 218
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs k = task_3_k_static and save the result in task_3_out.
+```python
+def task_3(list_3: List[int], k: int) -> int:
+    s = mx_pre = mi_pre = mx_sub = 0
+    for x in list_3:
+        s += x
+        mx_pre = max(mx_pre, s)
+        mi_pre = min(mi_pre, s)
+        mx_sub = max(mx_sub, s - mi_pre)
+    ans = mx_sub
+    mod = 10 ** 9 + 7
+    if k == 1:
+        task_3_out = ans % mod
+        return task_3_out
+    mx_suf = s - mi_pre
+    ans = max(ans, mx_pre + mx_suf)
+    if s > 0:
+        ans = max(ans, (k - 2) * s + mx_pre + mx_suf)
+    task_3_out = ans % mod
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 32] minimumRefill  (list->scalar)
+  Output: 8
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs capacityA = task_3_capacityA_static, capacityB = task_3_capacityB_static and save the result in task_3_out.
+```python
+def task_3(list_3: List[int], capacityA: int, capacityB: int) -> int:
+    (a, b) = (capacityA, capacityB)
+    ans = 0
+    (i, j) = (0, len(list_3) - 1)
+    while i < j:
+        if a < list_3[i]:
+            ans += 1
+            a = capacityA
+        a -= list_3[i]
+        if b < list_3[j]:
+            ans += 1
+            b = capacityB
+        b -= list_3[j]
+        (i, j) = (i + 1, j - 1)
+    ans += i == j and max(a, b) < list_3[i]
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 33] getDescentPeriods  (list->scalar)
+  Output: 10
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    ans = 0
+    (i, n) = (0, len(list_3))
+    while i < n:
+        j = i + 1
+        while j < n and list_3[j - 1] - list_3[j] == 1:
+            j += 1
+        cnt = j - i
+        ans += (1 + cnt) * cnt // 2
+        i = j
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 34] countPairs  (list->scalar)
+  Output: 19
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs nums2 = task_3_nums2_static and save the result in task_3_out.
+```python
+def task_3(list_3: List[int], nums2: List[int]) -> int:
+    nums = [a - b for (a, b) in zip(list_3, nums2)]
+    nums.sort()
+    (l, r) = (0, len(nums) - 1)
+    ans = 0
+    while l < r:
+        while l < r and nums[l] + nums[r] <= 0:
+            l += 1
+        ans += r - l
+        r -= 1
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 35] validSubarrays  (list->scalar)
+  Output: 21
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    n = len(list_3)
+    right = [n] * n
+    stk = []
+    for i in range(n - 1, -1, -1):
+        while stk and list_3[stk[-1]] >= list_3[i]:
+            stk.pop()
+        if stk:
+            right[i] = stk[-1]
+        stk.append(i)
+    task_3_out = sum((j - i for (i, j) in enumerate(right)))
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 36] threeSumSmaller  (list->scalar)
+  Output: 51
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs target = task_3_target_static and save the result in task_3_out.
+```python
+def task_3(list_3: List[int], target: int) -> int:
+    list_3.sort()
+    (ans, n) = (0, len(list_3))
+    for i in range(n - 2):
+        (j, k) = (i + 1, n - 1)
+        while j < k:
+            x = list_3[i] + list_3[j] + list_3[k]
+            if x < target:
+                ans += k - j
+                j += 1
+            else:
+                k -= 1
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 37] maximumLengthOfRanges  (list->list)
+  Output: [3, 1, 2, 6, 2, 1, 7, 8, 10, 1]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> List[int]:
+    n = len(list_3)
+    left = [-1] * n
+    right = [n] * n
+    stk = []
+    for (i, x) in enumerate(list_3):
+        while stk and list_3[stk[-1]] <= x:
+            stk.pop()
+        if stk:
+            left[i] = stk[-1]
+        stk.append(i)
+    stk = []
+    for i in range(n - 1, -1, -1):
+        while stk and list_3[stk[-1]] <= list_3[i]:
+            stk.pop()
+        if stk:
+            right[i] = stk[-1]
+        stk.append(i)
+    task_3_out = [r - l - 1 for (l, r) in zip(left, right)]
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 38] maxSum  (list->scalar)
+  Output: 76
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs nums2 = task_3_nums2_static and save the result in task_3_out.
+```python
+def task_3(list_3: List[int], nums2: List[int]) -> int:
+    mod = 10 ** 9 + 7
+    (m, n) = (len(list_3), len(nums2))
+    i = j = 0
+    f = g = 0
+    while i < m or j < n:
+        if i == m:
+            g += nums2[j]
+            j += 1
+        elif j == n:
+            f += list_3[i]
+            i += 1
+        elif list_3[i] < nums2[j]:
+            f += list_3[i]
+            i += 1
+        elif list_3[i] > nums2[j]:
+            g += nums2[j]
+            j += 1
+        else:
+            f = g = max(f, g) + list_3[i]
+            i += 1
+            j += 1
+    task_3_out = max(f, g) % mod
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 39] findContentChildren  (list->scalar)
+  Output: 7
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs s = task_3_s_static and save the result in task_3_out.
+```python
+def task_3(list_3: List[int], s: List[int]) -> int:
+    list_3.sort()
+    s.sort()
+    j = 0
+    for (i, x) in enumerate(list_3):
+        while j < len(s) and s[j] < list_3[i]:
+            j += 1
+        if j >= len(s):
+            task_3_out = i
+            return task_3_out
+        j += 1
+    task_3_out = len(list_3)
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 40] getWinner  (list->scalar)
+  Output: 89
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs k = task_3_k_static and save the result in task_3_out.
+```python
+def task_3(list_3: List[int], k: int) -> int:
+    mx = list_3[0]
+    cnt = 0
+    for x in list_3[1:]:
+        if mx < x:
+            mx = x
+            cnt = 1
+        else:
+            cnt += 1
+        if cnt == k:
+            break
+    task_3_out = mx
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 41] canSeePersonsCount  (list->list)
+  Output: [3, 1, 3, 1, 1, 1, 2, 1, 1, 0]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> List[int]:
+    n = len(list_3)
+    ans = [0] * n
+    stk = []
+    for i in range(n - 1, -1, -1):
+        while stk and stk[-1] < list_3[i]:
+            ans[i] += 1
+            stk.pop()
+        if stk:
+            ans[i] += 1
+        stk.append(list_3[i])
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 42] leftRightDifference  (list->list)
+  Output: [142, 30, 1, 96, 195, 251, 224, 187, 154, 158]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> List[int]:
+    n = len(list_3)
+    leftSum = [0] * n
+    for i in range(1, n):
+        leftSum[i] = leftSum[i - 1] + list_3[i - 1]
+    total = sum(list_3)
+    answer = []
+    for i in range(n):
+        rightSum_i = total - list_3[i] - leftSum[i]
+        answer.append(abs(leftSum[i] - rightSum_i))
+    task_3_out = answer
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 43] incremovableSubarrayCount  (list->scalar)
+  Output: 5
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    (i, n) = (0, len(list_3))
+    while i + 1 < n and list_3[i] < list_3[i + 1]:
+        i += 1
+    if i == n - 1:
+        task_3_out = n * (n + 1) // 2
+        return task_3_out
+    ans = i + 2
+    j = n - 1
+    while j:
+        while i >= 0 and list_3[i] >= list_3[j]:
+            i -= 1
+        ans += i + 2
+        if list_3[j - 1] >= list_3[j]:
+            break
+        j -= 1
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 44] minimumBoxes  (scalar->scalar)
+  Output: 4
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(val_3: int) -> int:
+    (s, k) = (0, 1)
+    while s + k * (k + 1) // 2 <= val_3:
+        s += k * (k + 1) // 2
+        k += 1
+    k -= 1
+    ans = k * (k + 1) // 2
+    k = 1
+    while s < val_3:
+        ans += 1
+        s += k
+        k += 1
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 45] lenLongestFibSubseq  (list->scalar)
+  Output: 3
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    n = len(list_3)
+    f = [[0] * n for _ in range(n)]
+    d = {x: i for (i, x) in enumerate(list_3)}
+    for i in range(n):
+        for j in range(i):
+            f[i][j] = 2
+    ans = 0
+    for i in range(2, n):
+        for j in range(1, i):
+            t = list_3[i] - list_3[j]
+            if t in d and (k := d[t]) < j:
+                f[i][j] = max(f[i][j], f[j][k] + 1)
+                ans = max(ans, f[i][j])
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 46] matchPlayersAndTrainers  (list->scalar)
+  Output: 7
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs trainers = task_3_trainers_static and save the result in task_3_out.
+```python
+def task_3(list_3: List[int], trainers: List[int]) -> int:
+    list_3.sort()
+    trainers.sort()
+    (j, n) = (0, len(trainers))
+    for (i, p) in enumerate(list_3):
+        while j < n and trainers[j] < p:
+            j += 1
+        if j == n:
+            task_3_out = i
+            return task_3_out
+        j += 1
+    task_3_out = len(list_3)
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 47] maximumSumOfHeights  (list->scalar)
+  Output: 317
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    n = len(list_3)
+    max_total = 0
+    for i in range(n):
+        left = [0] * (i + 1)
+        left[i] = list_3[i]
+        for j in range(i - 1, -1, -1):
+            left[j] = min(list_3[j], left[j + 1])
+        left_sum = sum(left)
+        right_length = n - i
+        right = [0] * right_length
+        right[0] = list_3[i]
+        for j in range(i + 1, n):
+            pos_in_right = j - i
+            right[pos_in_right] = min(list_3[j], right[pos_in_right - 1])
+        right_sum = sum(right)
+        current_total = left_sum + right_sum - list_3[i]
+        if current_total > max_total:
+            max_total = current_total
+    task_3_out = max_total
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 48] largestRectangleArea  (list->scalar)
+  Output: 71
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    n = len(list_3)
+    stk = []
+    left = [-1] * n
+    right = [n] * n
+    for (i, h) in enumerate(list_3):
+        while stk and list_3[stk[-1]] >= h:
+            stk.pop()
+        if stk:
+            left[i] = stk[-1]
+        stk.append(i)
+    stk = []
+    for i in range(n - 1, -1, -1):
+        h = list_3[i]
+        while stk and list_3[stk[-1]] >= h:
+            stk.pop()
+        if stk:
+            right[i] = stk[-1]
+        stk.append(i)
+    task_3_out = max((h * (right[i] - left[i] - 1) for (i, h) in enumerate(list_3)))
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 49] maxScore  (list->scalar)
+  Output: 708
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    stk = []
+    for (i, x) in enumerate(list_3):
+        while stk and list_3[stk[-1]] <= x:
+            stk.pop()
+        stk.append(i)
+    ans = i = 0
+    for j in stk:
+        ans += list_3[j] * (j - i)
+        i = j
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 50] findKthPositive  (list->scalar)
+  Output: 62
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs k = task_3_k_static and save the result in task_3_out.
+```python
+def task_3(list_3: List[int], k: int) -> int:
+    if list_3[0] > k:
+        task_3_out = k
+        return task_3_out
+    (left, right) = (0, len(list_3))
+    while left < right:
+        mid = left + right >> 1
+        if list_3[mid] - mid - 1 >= k:
+            right = mid
+        else:
+            left = mid + 1
+    task_3_out = list_3[left - 1] + k - (list_3[left - 1] - (left - 1) - 1)
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 51] countQuadruplets  (list->scalar)
+  Output: 5
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    n = len(list_3)
+    f = [[0] * n for _ in range(n)]
+    g = [[0] * n for _ in range(n)]
+    for j in range(1, n - 2):
+        cnt = sum((list_3[l] > list_3[j] for l in range(j + 1, n)))
+        for k in range(j + 1, n - 1):
+            if list_3[j] > list_3[k]:
+                f[j][k] = cnt
+            else:
+                cnt -= 1
+    for k in range(2, n - 1):
+        cnt = sum((list_3[i] < list_3[k] for i in range(k)))
+        for j in range(k - 1, 0, -1):
+            if list_3[j] > list_3[k]:
+                g[j][k] = cnt
+            else:
+                cnt -= 1
+    task_3_out = sum((f[j][k] * g[j][k] for j in range(1, n - 2) for k in range(j + 1, n - 1)))
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 52] sumSubarrayMins  (list->scalar)
+  Output: 999999077
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    n = len(list_3)
+    left = [-1] * n
+    right = [n] * n
+    stk = []
+    for (i, v) in enumerate(list_3):
+        while stk and list_3[stk[-1]] >= v:
+            stk.pop()
+        if stk:
+            left[i] = stk[-1]
+        stk.append(i)
+    stk = []
+    for i in range(n - 1, -1, -1):
+        while stk and list_3[stk[-1]] > list_3[i]:
+            stk.pop()
+        if stk:
+            right[i] = stk[-1]
+        stk.append(i)
+    mod = 10 ** 9 + 7
+    task_3_out = sum(((i - left[i]) * (right[i] - i) * v for (i, v) in enumerate(list_3))) % mod
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 53] numFactoredBinaryTrees  (list->scalar)
+  Output: 10
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    mod = 10 ** 9 + 7
+    n = len(list_3)
+    list_3.sort()
+    idx = {v: i for (i, v) in enumerate(list_3)}
+    f = [1] * n
+    for (i, a) in enumerate(list_3):
+        for j in range(i):
+            b = list_3[j]
+            if a % b == 0 and (c := (a // b)) in idx:
+                f[i] = (f[i] + f[j] * f[idx[c]]) % mod
+    task_3_out = sum(f) % mod
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 54] numberOfAlternatingGroups  (list->scalar)
+  Output: 10
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    k = 3
+    n = len(list_3)
+    ans = cnt = 0
+    for i in range(n << 1):
+        if i and list_3[i % n] == list_3[(i - 1) % n]:
+            cnt = 1
+        else:
+            cnt += 1
+        ans += i >= n and cnt >= k
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 55] countSubarrays  (list->scalar)
+  Output: 110
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs k = task_3_k_static and save the result in task_3_out.
+```python
+def task_3(list_3: List[int], k: int) -> int:
+    mx = max(list_3)
+    n = len(list_3)
+    ans = cnt = j = 0
+    for x in list_3:
+        while j < n and cnt < k:
+            cnt += list_3[j] == mx
+            j += 1
+        if cnt < k:
+            break
+        ans += n - j + 1
+        cnt -= x == mx
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 56] maxChunksToSorted  (list->scalar)
+  Output: 3
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    stk = []
+    for v in list_3:
+        if not stk or v >= stk[-1]:
+            stk.append(v)
+        else:
+            mx = stk.pop()
+            while stk and stk[-1] > v:
+                stk.pop()
+            stk.append(mx)
+    task_3_out = len(stk)
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 57] maximumSumOfHeights  (list->scalar)
+  Output: 29
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    n = len(list_3)
+    stk = []
+    left = [-1] * n
+    for (i, x) in enumerate(list_3):
+        while stk and list_3[stk[-1]] > x:
+            stk.pop()
+        if stk:
+            left[i] = stk[-1]
+        stk.append(i)
+    stk = []
+    right = [n] * n
+    for i in range(n - 1, -1, -1):
+        x = list_3[i]
+        while stk and list_3[stk[-1]] >= x:
+            stk.pop()
+        if stk:
+            right[i] = stk[-1]
+        stk.append(i)
+    f = [0] * n
+    for (i, x) in enumerate(list_3):
+        if i and x >= list_3[i - 1]:
+            f[i] = f[i - 1] + x
+        else:
+            j = left[i]
+            f[i] = x * (i - j) + (f[j] if j != -1 else 0)
+    g = [0] * n
+    for i in range(n - 1, -1, -1):
+        if i < n - 1 and list_3[i] >= list_3[i + 1]:
+            g[i] = g[i + 1] + list_3[i]
+        else:
+            j = right[i]
+            g[i] = list_3[i] * (j - i) + (g[j] if j != n else 0)
+    task_3_out = max((a + b - c for (a, b, c) in zip(f, g, list_3)))
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 58] numOfWays  (list->scalar)
+  Output: 1679
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+
+    def dfs(nums):
+        if len(nums) < 2:
+            return 1
+        left = [x for x in nums if x < nums[0]]
+        right = [x for x in nums if x > nums[0]]
+        (m, n) = (len(left), len(right))
+        (a, b) = (dfs(left), dfs(right))
+        return c[m + n][m] * a % mod * b % mod
+    n = len(list_3)
+    mod = 10 ** 9 + 7
+    c = [[0] * n for _ in range(n)]
+    c[0][0] = 1
+    for i in range(1, n):
+        c[i][0] = 1
+        for j in range(1, i + 1):
+            c[i][j] = (c[i - 1][j] + c[i - 1][j - 1]) % mod
+    task_3_out = (dfs(list_3) - 1 + mod) % mod
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 59] longestMonotonicSubarray  (list->scalar)
+  Output: 3
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    ans = t = 1
+    for (i, x) in enumerate(list_3[1:]):
+        if list_3[i] < x:
+            t += 1
+            ans = max(ans, t)
+        else:
+            t = 1
+    t = 1
+    for (i, x) in enumerate(list_3[1:]):
+        if list_3[i] > x:
+            t += 1
+            ans = max(ans, t)
+        else:
+            t = 1
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 60] incremovableSubarrayCount  (list->scalar)
+  Output: 7
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    (i, n) = (0, len(list_3))
+    while i + 1 < n and list_3[i] < list_3[i + 1]:
+        i += 1
+    if i == n - 1:
+        task_3_out = n * (n + 1) // 2
+        return task_3_out
+    ans = i + 2
+    j = n - 1
+    while j:
+        while i >= 0 and list_3[i] >= list_3[j]:
+            i -= 1
+        ans += i + 2
+        if list_3[j - 1] >= list_3[j]:
+            break
+        j -= 1
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 61] findNumberOfLIS  (list->scalar)
+  Output: 16
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    n = len(list_3)
+    f = [1] * n
+    cnt = [1] * n
+    mx = 0
+    for i in range(n):
+        for j in range(i):
+            if list_3[j] < list_3[i]:
+                if f[i] < f[j] + 1:
+                    f[i] = f[j] + 1
+                    cnt[i] = cnt[j]
+                elif f[i] == f[j] + 1:
+                    cnt[i] += cnt[j]
+        if mx < f[i]:
+            mx = f[i]
+            ans = cnt[i]
+        elif mx == f[i]:
+            ans += cnt[i]
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 62] distinctDifferenceArray  (list->list)
+  Output: [-8, -6, -4, -2, 0, 2, 4, 6, 8, 10]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> List[int]:
+    n = len(list_3)
+    suf = [0] * (n + 1)
+    s = set()
+    for i in range(n - 1, -1, -1):
+        s.add(list_3[i])
+        suf[i] = len(s)
+    s.clear()
+    ans = [0] * n
+    for (i, x) in enumerate(list_3):
+        s.add(x)
+        ans[i] = len(s) - suf[i + 1]
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 63] reverse  (scalar->scalar)
+  Output: -99
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(val_3: int) -> int:
+    ans = 0
+    (mi, mx) = (-2 ** 31, 2 ** 31 - 1)
+    while val_3:
+        if ans < mi // 10 + 1 or ans > mx // 10:
+            task_3_out = 0
+            return task_3_out
+        y = val_3 % 10
+        if val_3 < 0 and y > 0:
+            y -= 10
+        ans = ans * 10 + y
+        val_3 = (val_3 - y) // 10
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 64] maxBoxesInWarehouse  (list->scalar)
+  Output: 4
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs warehouse = task_3_warehouse_static and save the result in task_3_out.
+```python
+def task_3(list_3: List[int], warehouse: List[int]) -> int:
+    n = len(warehouse)
+    left = [warehouse[0]] * n
+    for i in range(1, n):
+        left[i] = min(left[i - 1], warehouse[i])
+    list_3.sort()
+    (i, j) = (0, n - 1)
+    while i < len(list_3):
+        while j >= 0 and left[j] < list_3[i]:
+            j -= 1
+        if j < 0:
+            break
+        (i, j) = (i + 1, j - 1)
+    task_3_out = i
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 65] minNumberOfHours  (list->scalar)
+  Output: 185
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs initialEnergy = task_3_initialEnergy_static, initialExperience = task_3_initialExperience_static, experience = task_3_experience_static and save the result in task_3_out.
+```python
+def task_3(initialEnergy: int, initialExperience: int, list_3: List[int], experience: List[int]) -> int:
+    sum_energy = sum(list_3)
+    energy_hours = max(0, sum_energy + 1 - initialEnergy)
+    exp_hours = 0
+    current_exp = initialExperience
+    for e in experience:
+        if current_exp <= e:
+            delta = e + 1 - current_exp
+            exp_hours += delta
+            current_exp += delta
+        current_exp += e
+    task_3_out = energy_hours + exp_hours
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 66] minOperations  (list->scalar)
+  Output: 5
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    g = []
+    for x in list_3:
+        (l, r) = (0, len(g))
+        while l < r:
+            mid = l + r >> 1
+            if g[mid] < x:
+                r = mid
+            else:
+                l = mid + 1
+        if l == len(g):
+            g.append(x)
+        else:
+            g[l] = x
+    task_3_out = len(g)
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 67] dailyTemperatures  (list->list)
+  Output: [5, 1, 2, 1, 1, 0, 1, 0, 1, 0]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> List[int]:
+    stk = []
+    n = len(list_3)
+    ans = [0] * n
+    for i in range(n - 1, -1, -1):
+        while stk and list_3[stk[-1]] <= list_3[i]:
+            stk.pop()
+        if stk:
+            ans[i] = stk[-1] - i
+        stk.append(i)
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 68] maximumsSplicedArray  (list->scalar)
+  Output: 395
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs nums2 = task_3_nums2_static and save the result in task_3_out.
+```python
+def task_3(list_3: List[int], nums2: List[int]) -> int:
+
+    def f(nums1, nums2):
+        d = [a - b for (a, b) in zip(nums1, nums2)]
+        t = mx = d[0]
+        for v in d[1:]:
+            if t > 0:
+                t += v
+            else:
+                t = v
+            mx = max(mx, t)
+        return mx
+    (s1, s2) = (sum(list_3), sum(nums2))
+    task_3_out = max(s2 + f(list_3, nums2), s1 + f(nums2, list_3))
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 69] distinctPrimeFactors  (list->scalar)
+  Output: 7
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    s = set()
+    for n in list_3:
+        i = 2
+        while i <= n // i:
+            if n % i == 0:
+                s.add(i)
+                while n % i == 0:
+                    n //= i
+            i += 1
+        if n > 1:
+            s.add(n)
+    task_3_out = len(s)
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 70] getMaxLen  (list->scalar)
+  Output: 6
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    n = len(list_3)
+    f = [0] * n
+    g = [0] * n
+    f[0] = int(list_3[0] > 0)
+    g[0] = int(list_3[0] < 0)
+    ans = f[0]
+    for i in range(1, n):
+        if list_3[i] > 0:
+            f[i] = f[i - 1] + 1
+            g[i] = 0 if g[i - 1] == 0 else g[i - 1] + 1
+        elif list_3[i] < 0:
+            f[i] = 0 if g[i - 1] == 0 else g[i - 1] + 1
+            g[i] = f[i - 1] + 1
+        ans = max(ans, f[i])
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 71] powerfulIntegers  (scalar->list)
+  Output: [2, 30, -82, -54]
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Trace the execution of task_3 with inputs y = task_3_y_static, bound = task_3_bound_static and save the result in task_3_out.
+```python
+def task_3(val_3: int, y: int, bound: int) -> List[int]:
+    ans = []
+    a = 1
+    while a <= bound:
+        b = 1
+        while a + b <= bound:
+            ans.append(a + b)
+            b *= y
+            if y == 1:
+                break
+        if val_3 == 1:
+            break
+        a *= val_3
+    task_3_out = list(ans)
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 72] maximumBooks  (list->scalar)
+  Output: 7426
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> int:
+    nums = [v - i for (i, v) in enumerate(list_3)]
+    n = len(nums)
+    left = [-1] * n
+    stk = []
+    for (i, v) in enumerate(nums):
+        while stk and nums[stk[-1]] >= v:
+            stk.pop()
+        if stk:
+            left[i] = stk[-1]
+        stk.append(i)
+    ans = 0
+    dp = [0] * n
+    dp[0] = list_3[0]
+    for (i, v) in enumerate(list_3):
+        j = left[i]
+        cnt = min(v, i - j)
+        u = v - cnt + 1
+        s = (u + v) * cnt // 2
+        dp[i] = s + (0 if j == -1 else dp[j])
+        ans = max(ans, dp[i])
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 73] nextGreaterElements  (list->list)
+  Output: [11, 87, 87, 98, 66, 98, 57, 98, 98, -1]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> List[int]:
+    n = len(list_3)
+    ans = [-1] * n
+    stk = []
+    for i in range(n * 2 - 1, -1, -1):
+        i %= n
+        while stk and stk[-1] <= list_3[i]:
+            stk.pop()
+        if stk:
+            ans[i] = stk[-1]
+        stk.append(list_3[i])
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 74] bagOfTokensScore  (list->scalar)
+  Output: 10
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs power = task_3_power_static and save the result in task_3_out.
+```python
+def task_3(list_3: List[int], power: int) -> int:
+    list_3.sort()
+    ans = score = 0
+    (i, j) = (0, len(list_3) - 1)
+    while i <= j:
+        if power >= list_3[i]:
+            power -= list_3[i]
+            (score, i) = (score + 1, i + 1)
+            ans = max(ans, score)
+        elif score:
+            power += list_3[j]
+            (score, j) = (score - 1, j - 1)
+        else:
+            break
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 75] addNegabinary  (list->list)
+  Output: [-56, 35, 40, -2, 43, 35, -16, -43, -42, 103]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs arr2 = task_3_arr2_static and save the result in task_3_out.
+```python
+def task_3(list_3: List[int], arr2: List[int]) -> List[int]:
+    (i, j) = (len(list_3) - 1, len(arr2) - 1)
+    c = 0
+    ans = []
+    while i >= 0 or j >= 0 or c:
+        a = 0 if i < 0 else list_3[i]
+        b = 0 if j < 0 else arr2[j]
+        x = a + b + c
+        c = 0
+        if x >= 2:
+            x -= 2
+            c -= 1
+        elif x == -1:
+            x = 1
+            c += 1
+        ans.append(x)
+        (i, j) = (i - 1, j - 1)
+    while len(ans) > 1 and ans[-1] == 0:
+        ans.pop()
+    task_3_out = ans[::-1]
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 76] minOperationsToMakeMedianK  (list->scalar)
+  Output: 65
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs k = task_3_k_static and save the result in task_3_out.
+```python
+def task_3(list_3: List[int], k: int) -> int:
+    list_3.sort()
+    n = len(list_3)
+    m = n >> 1
+    ans = abs(list_3[m] - k)
+    if list_3[m] > k:
+        for i in range(m - 1, -1, -1):
+            if list_3[i] <= k:
+                break
+            ans += list_3[i] - k
+    else:
+        for i in range(m + 1, n):
+            if list_3[i] >= k:
+                break
+            ans += k - list_3[i]
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 77] smallestValue  (scalar->scalar)
+  Output: 5
+======================================================================
+Task 3:
+Let val_3 be the result of preprocessing task_2_out as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(val_3: int) -> int:
+    while 1:
+        (t, s, i) = (val_3, 0, 2)
+        while i <= val_3 // i:
+            while val_3 % i == 0:
+                val_3 //= i
+                s += i
+            i += 1
+        if val_3 > 1:
+            s += val_3
+        if s == t:
+            task_3_out = t
+            return task_3_out
+        val_3 = s
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 78] minOperationsMaxProfit  (list->scalar)
+  Output: 7
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 with inputs boardingCost = task_3_boardingCost_static, runningCost = task_3_runningCost_static and save the result in task_3_out.
+```python
+def task_3(list_3: List[int], boardingCost: int, runningCost: int) -> int:
+    ans = -1
+    mx = t = 0
+    wait = 0
+    i = 0
+    while wait or i < len(list_3):
+        wait += list_3[i] if i < len(list_3) else 0
+        up = wait if wait < 4 else 4
+        wait -= up
+        t += up * boardingCost - runningCost
+        i += 1
+        if t > mx:
+            mx = t
+            ans = i
+    task_3_out = ans
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+======================================================================
+  [ 79] sortedSquares  (list->list)
+  Output: [400, 4900, 8100, 1369, 9025, 5776, 2809, 2601, 2025, 7921]
+======================================================================
+Task 3:
+Let list_3 be the result of preprocessing task_2_out as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_3 and save the result in task_3_out.
+```python
+def task_3(list_3: List[int]) -> List[int]:
+    ans = []
+    (i, j) = (0, len(list_3) - 1)
+    while i <= j:
+        a = list_3[i] * list_3[i]
+        b = list_3[j] * list_3[j]
+        if a > b:
+            ans.append(a)
+            i += 1
+        else:
+            ans.append(b)
+            j -= 1
+    task_3_out = ans[::-1]
+    return task_3_out
+```
+
+----------------------------------------------------------------------
+
+
+======================================================================
+  SUMMARY: 80/80 tasks generated successfully
+======================================================================

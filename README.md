@@ -47,6 +47,25 @@ Files adapted from GSM-Symbolic are the corrected template overrides in
 `0062.json`, `0082.json`, and `0096.json`. The GSM datasets in this release
 contain generated problem instances derived from GSM-Symbolic templates.
 
+## Paper
+
+The accompanying paper is available on arXiv:
+https://arxiv.org/abs/2607.20764.
+
+If you use ArbiGraph, please cite:
+
+```bibtex
+@misc{golikov2026arbigrapharbitrarilyscalableverifiable,
+      title={ArbiGraph: Arbitrarily Scalable Verifiable Task Graphs for Evaluating Context Management},
+      author={Pavel Golikov and Evgenii Opryshko and Gennady Pekhimenko and Mark C. Jeffrey},
+      year={2026},
+      eprint={2607.20764},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2607.20764},
+}
+```
+
 ## Current Scope
 
 This is an initial benchmark release. It is intended to make the graph

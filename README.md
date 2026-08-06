@@ -11,7 +11,7 @@ This branch is the release snapshot for the first public ArbiGraph release. It
 contains the code and generated datasets used for the reported initial
 evaluation. The raw Qwen3.5-27B result JSON files are not committed to the
 repository; they are available here:
-https://drive.google.com/drive/folders/1FQD0lwaUrsdn-mLlS81rx8nEexT-XCJN?usp=sharing
+https://drive.google.com/drive/folders/10ix3KcGRF02N3I1C1QGSYWwTV4n2QOLy?usp=sharing
 
 ## Contents
 

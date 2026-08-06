@@ -8,8 +8,10 @@ branched multichain layouts, then score the final requested answer against
 executable ground truth.
 
 This branch is the release snapshot for the first public ArbiGraph release. It
-contains the code, generated datasets, and Qwen3.5-27B result files used for the
-reported initial evaluation.
+contains the code and generated datasets used for the reported initial
+evaluation. The raw Qwen3.5-27B result JSON files are not committed to the
+repository; they are available here:
+https://drive.google.com/drive/folders/1FQD0lwaUrsdn-mLlS81rx8nEexT-XCJN?usp=sharing
 
 ## Contents
 
@@ -19,7 +21,7 @@ reported initial evaluation.
   and prototype image tasks.
 - `run_agent_calc.py`: calculator-assisted agent evaluation harness.
 - `grader.py`: answer parsing and grading utilities.
-- `results/`: result JSON files for the initial evaluation.
+- Google Drive results archive: raw result JSON files for the initial evaluation.
 
 ## Evaluated Snapshot
 

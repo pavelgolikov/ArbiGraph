@@ -32,7 +32,8 @@ python generate_multichain.py --structure "['python','python',['python','python'
 ## Agent Evaluation
 
 The evaluation harness requires a local model runtime compatible with vLLM.
-The release result files are already included under `results/`.
+The raw release result files are available in the Google Drive results archive:
+https://drive.google.com/drive/folders/1FQD0lwaUrsdn-mLlS81rx8nEexT-XCJN?usp=sharing
 
 The repair budgets used in the included runs are:
 

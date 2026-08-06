@@ -39,14 +39,32 @@ SVG files.
 
 ## Datasets
 
-Generated datasets are not committed to `main`. The canonical current dataset
-release is intended to be hosted on Hugging Face:
+Generated datasets are not committed to `main`. A set of example datasets is
+released on [Hugging Face](https://huggingface.co/datasets/PavelGolikov/arbigraph).
+The repository contains 21 named configs: one for each combination of task
+category (`math`, `python`, or `gsm`) and graph topology. It does not have a
+default config, so a config name is required when loading it.
+
+Install the Hugging Face Datasets library:
+
+```bash
+pip install datasets
+```
+
+Then load a specific config:
 
 ```python
 from datasets import load_dataset
 
-dataset = load_dataset("pavelgolikov/arbigraph")
+dataset = load_dataset(
+    "PavelGolikov/arbigraph",
+    "math_single_target_baseline",
+)
+test_dataset = dataset["test"]
 ```
+
+Config names follow `<category>_<topology>`. All configs use the `test` split;
+see the Hugging Face dataset card for the complete config list and schema.
 
 To regenerate the Hugging Face release data from source:
 

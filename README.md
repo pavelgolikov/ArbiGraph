@@ -72,7 +72,7 @@ git checkout paper-v1-boxed
 If you use ArbiGraph, please cite:
 
 ```bibtex
-@misc{golikov2026arbigrapharbitrarilyscalableverifiable,
+@misc{golikov2026arbigraph,
       title={ArbiGraph: Arbitrarily Scalable Verifiable Task Graphs for Evaluating Context Management},
       author={Pavel Golikov and Evgenii Opryshko and Gennady Pekhimenko and Mark C. Jeffrey},
       year={2026},

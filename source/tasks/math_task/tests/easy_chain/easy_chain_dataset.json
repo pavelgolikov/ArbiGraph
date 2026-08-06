@@ -1,0 +1,31 @@
+{
+  "summary": {
+    "mode": "dag",
+    "target_node": "task_3",
+    "target_category": "math",
+    "target_native_task_id": "39",
+    "num_samples_per_task": 1,
+    "num_samples": 1,
+    "seed": 0,
+    "strict": true
+  },
+  "samples": [
+    {
+      "target_native_task_id": 39,
+      "target_node_id": "task_3",
+      "sample_idx": 0,
+      "prompt": "Solve the following tasks. Output the result for each.\n\nDefine task_1_input = {\"result\": [-81, 87, 99, -84, 79, -13, -12, 61, 60, 90]}.\nTask 1:\nLet list_1 be the result of preprocessing task_1_input[\"result\"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.\nIf list_1 has more than 10 elements, keep only the first 10 elements.\nIf the length of list_1 is not a power of 2, update list_1 by padding it with zeros to the next power of 2.\nLet list_1 = [a_0, a_1, ..., a_{N-1}].\nCompute the unnormalized Walsh-Hadamard transform in Sylvester order. That is, for each j = 0, 1, ..., N-1, define\nH_j = sum_{k=0}^{N-1} ((-1) ** popcount(j & k)) * a_k, where `&` is bitwise AND and popcount counts the number of 1-bits.\nReturn the sequence [H_0, H_1, ..., H_{N-1}].\nLet fwht_result_1 be the resulting list.\nOutput the result as task_1_out = {\"result\": fwht_result_1}, replacing fwht_result_1 with its calculated value.\n\nTask 2:\nLet list_2 be the result of preprocessing task_1_out[\"result\"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.\nIf list_2 has more than 10 elements, keep only the first 10 elements.\nLet list_2 = [a_0, a_1, ..., a_{N-1}].\nSort the indices 0, 1, ..., N-1 in ascending order by the pair (a_i, i).\nIn other words, sort by the corresponding sequence value, and break ties by the smaller original index.\nLet the resulting index list be pi = [pi_0, pi_1, ..., pi_{N-1}].\nCompute the number of inversions in pi, meaning the number of pairs (r, s) such that 0 <= r < s < N and pi_r > pi_s.\nLet permutation_inversions_result_2 be the resulting value.\nOutput the result as task_2_out = {\"result\": permutation_inversions_result_2}, replacing permutation_inversions_result_2 with its calculated value.\n\nTask 3:\nLet val_3 be the result of preprocessing task_2_out[\"result\"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.\nCompute the sum of the unitary divisors of val_3 (divisors d where gcd(d, val_3/d) == 1).\nLet unitary_divisor_sum_result_3 be the resulting value.\nOutput the result as task_3_out = {\"result\": unitary_divisor_sum_result_3}, replacing unitary_divisor_sum_result_3 with its calculated value.\n",
+      "node_outputs": [
+        {
+          "node_id"         : "task_1",
+          "native_task_id"  : 1,
+          "native_task_name": "fwht",
+          "output_value"    : [286, 4, 158, -216, 56, -34, 124, -546, -14, 64, -142, -156, -244, 26, -176, -486]
+        },
+        {"node_id": "task_2", "native_task_id": 16, "native_task_name": "permutation_inversions", "output_value": 28},
+        {"node_id": "task_3", "native_task_id": 39, "native_task_name": "unitary_divisor_sum", "output_value": 30}
+      ]
+    }
+  ]
+}
+

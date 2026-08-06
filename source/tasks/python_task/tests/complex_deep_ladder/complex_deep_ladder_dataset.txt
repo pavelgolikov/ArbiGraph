@@ -1,0 +1,294 @@
+======================================================================
+Prompt 1
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [-22, -32, 38, -41, -59, -85, 2, 44, -96, -49]}.
+Task 1:
+Let list_1 be the result of preprocessing task_1_input["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_1 has more than 10 elements, keep only the first 10 elements.
+Define task_1_queries_static = [95, 41, 36, -81, 24, -43, -83, -33, 34, -86].
+Trace the execution of task_1 with inputs queries = task_1_queries_static.
+```python
+from typing import List
+def task_1(list_1: List[int], queries: List[int]) -> List[int]:
+    s = set()
+    ans = []
+    for q in queries[::-1]:
+        if q not in s:
+            ans.append(q)
+            s.add(q)
+    for w in list_1:
+        if w not in s:
+            ans.append(w)
+    python_result_1 = ans
+    return python_result_1
+```
+Let python_result_1 be the value returned by task_1.
+Output the result as task_1_out = {"result": python_result_1}, replacing python_result_1 with its calculated value.
+
+Define task_2_input = {"result": [19, -22, -22, -57, -55, 80, 49, 71, -41, -67]}.
+Task 2:
+Let list_2 be the result of preprocessing task_2_input["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_2.
+```python
+from typing import List
+def task_2(list_2: List[int]) -> List[int]:
+    stk = []
+    n = len(list_2)
+    ans = [0] * n
+    for i in range(n - 1, -1, -1):
+        while stk and list_2[stk[-1]] <= list_2[i]:
+            stk.pop()
+        if stk:
+            ans[i] = stk[-1] - i
+        stk.append(i)
+    python_result_2 = ans
+    return python_result_2
+```
+Let python_result_2 be the value returned by task_2.
+Output the result as task_2_out = {"result": python_result_2}, replacing python_result_2 with its calculated value.
+
+Task 3:
+Let list_3_join be the result of interleaving the following lists in the order listed: task_1_out["result"], task_2_out["result"].
+Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
+For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
+Let list_3 be the result of preprocessing list_3_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Define task_3_k_static = 41.
+Trace the execution of task_3 with inputs k = task_3_k_static.
+```python
+from typing import List
+def task_3(list_3: List[int], k: int) -> int:
+    (ans, y) = (1, list_3[0])
+    for x in list_3[1:]:
+        if x == 0:
+            python_result_3 = 1
+            return python_result_3
+        if x * y <= k:
+            y *= x
+        else:
+            y = x
+            ans += 1
+    python_result_3 = ans
+    return python_result_3
+```
+Let python_result_3 be the value returned by task_3.
+Output the result as task_3_out = {"result": python_result_3}, replacing python_result_3 with its calculated value.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Trace the execution of task_4.
+```python
+def task_4(val_4: int) -> int:
+    s = list(str(val_4))
+    i = 1
+    while i < len(s) and s[i - 1] <= s[i]:
+        i += 1
+    if i < len(s):
+        while i and s[i - 1] > s[i]:
+            s[i - 1] = str(int(s[i - 1]) - 1)
+            i -= 1
+        i += 1
+        while i < len(s):
+            s[i] = '9'
+            i += 1
+    python_result_4 = int(''.join(s))
+    return python_result_4
+```
+Let python_result_4 be the value returned by task_4.
+Output the result as task_4_out = {"result": python_result_4}, replacing python_result_4 with its calculated value.
+
+Task 5:
+Let val_5 be the result of preprocessing task_4_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Trace the execution of task_5.
+```python
+def task_5(val_5: int) -> int:
+    s = list(str(val_5))
+    i = 1
+    while i < len(s) and s[i - 1] <= s[i]:
+        i += 1
+    if i < len(s):
+        while i and s[i - 1] > s[i]:
+            s[i - 1] = str(int(s[i - 1]) - 1)
+            i -= 1
+        i += 1
+        while i < len(s):
+            s[i] = '9'
+            i += 1
+    python_result_5 = int(''.join(s))
+    return python_result_5
+```
+Let python_result_5 be the value returned by task_5.
+Output the result as task_5_out = {"result": python_result_5}, replacing python_result_5 with its calculated value.
+
+Task 6:
+Let val_6 be the result of preprocessing task_4_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Define task_6_arr_static = [19, 66, 11, 0, -76, -69, -59, -87, -91, -71].
+Trace the execution of task_6 with inputs arr = task_6_arr_static.
+```python
+from typing import List
+def task_6(arr: List[int], val_6: int) -> int:
+    s = mx_pre = mi_pre = mx_sub = 0
+    for x in arr:
+        s += x
+        mx_pre = max(mx_pre, s)
+        mi_pre = min(mi_pre, s)
+        mx_sub = max(mx_sub, s - mi_pre)
+    ans = mx_sub
+    mod = 10 ** 9 + 7
+    if val_6 == 1:
+        python_result_6 = ans % mod
+        return python_result_6
+    mx_suf = s - mi_pre
+    ans = max(ans, mx_pre + mx_suf)
+    if s > 0:
+        ans = max(ans, (val_6 - 2) * s + mx_pre + mx_suf)
+    python_result_6 = ans % mod
+    return python_result_6
+```
+Let python_result_6 be the value returned by task_6.
+Output the result as task_6_out = {"result": python_result_6}, replacing python_result_6 with its calculated value.
+
+Task 7:
+Let val_7_join be the sum of the following values: task_5_out["result"], task_6_out["result"].
+Let val_7 be the result of preprocessing val_7_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Define task_7_nums_static = [-66, -31, 24, 69, -92, -86, 17, 7, 24, -52].
+Trace the execution of task_7 with inputs nums = task_7_nums_static.
+```python
+from typing import List
+def task_7(nums: List[int], val_7: int) -> List[int]:
+    n = len(nums)
+    arr = sorted(zip(nums, range(n)))
+    ans = [0] * n
+    i = 0
+    while i < n:
+        j = i + 1
+        while j < n and arr[j][0] - arr[j - 1][0] <= val_7:
+            j += 1
+        idx = sorted((k for (_, k) in arr[i:j]))
+        for (k, (x, _)) in zip(idx, arr[i:j]):
+            ans[k] = x
+        i = j
+    python_result_7 = ans
+    return python_result_7
+```
+Let python_result_7 be the value returned by task_7.
+Output the result as task_7_out = {"result": python_result_7}, replacing python_result_7 with its calculated value.
+
+Task 8:
+Let list_8 be the result of preprocessing task_7_out["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_8 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_8.
+```python
+from typing import List
+def task_8(list_8: List[int]) -> int:
+    n = len(list_8)
+    left = [1] * n
+    right = [1] * n
+    for i in range(1, n):
+        if list_8[i] > list_8[i - 1]:
+            left[i] = left[i - 1] + 1
+    for i in range(n - 2, -1, -1):
+        if list_8[i] > list_8[i + 1]:
+            right[i] = right[i + 1] + 1
+    python_result_8 = sum((max(a, b) for (a, b) in zip(left, right)))
+    return python_result_8
+```
+Let python_result_8 be the value returned by task_8.
+Output the result as task_8_out = {"result": python_result_8}, replacing python_result_8 with its calculated value.
+
+Task 9:
+Let val_9 be the result of preprocessing task_8_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Define task_9_arr_static = [-90, -66, 29, 78, 81, 64, -85, 37, 22, -18].
+Trace the execution of task_9 with inputs arr = task_9_arr_static.
+```python
+from typing import List
+def task_9(arr: List[int], val_9: int) -> int:
+    if arr[0] > val_9:
+        python_result_9 = val_9
+        return python_result_9
+    (left, right) = (0, len(arr))
+    while left < right:
+        mid = left + right >> 1
+        if arr[mid] - mid - 1 >= val_9:
+            right = mid
+        else:
+            left = mid + 1
+    python_result_9 = arr[left - 1] + val_9 - (arr[left - 1] - (left - 1) - 1)
+    return python_result_9
+```
+Let python_result_9 be the value returned by task_9.
+Output the result as task_9_out = {"result": python_result_9}, replacing python_result_9 with its calculated value.
+
+Task 10:
+Let val_10_join be the sum of the following values: task_5_out["result"], task_9_out["result"].
+Let val_10 be the result of preprocessing val_10_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Define task_10_nums_static = [71, -3, -95, -40, 45, 56, 49, -46, 34, -41].
+Trace the execution of task_10 with inputs nums = task_10_nums_static.
+```python
+from typing import List
+def task_10(nums: List[int], val_10: int) -> List[int]:
+    n = len(nums)
+    arr = sorted(zip(nums, range(n)))
+    ans = [0] * n
+    i = 0
+    while i < n:
+        j = i + 1
+        while j < n and arr[j][0] - arr[j - 1][0] <= val_10:
+            j += 1
+        idx = sorted((k for (_, k) in arr[i:j]))
+        for (k, (x, _)) in zip(idx, arr[i:j]):
+            ans[k] = x
+        i = j
+    python_result_10 = ans
+    return python_result_10
+```
+Let python_result_10 be the value returned by task_10.
+Output the result as task_10_out = {"result": python_result_10}, replacing python_result_10 with its calculated value.
+
+Task 11:
+Let list_11 be the result of preprocessing task_10_out["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_11 has more than 10 elements, keep only the first 10 elements.
+Trace the execution of task_11.
+```python
+from typing import List
+def task_11(list_11: List[int]) -> int:
+    ans = s = 0
+    pos = {}
+    for (i, x) in enumerate(list_11):
+        s += 1 if x > 8 else -1
+        if s > 0:
+            ans = i + 1
+        elif s - 1 in pos:
+            ans = max(ans, i - pos[s - 1])
+        if s not in pos:
+            pos[s] = i
+    python_result_11 = ans
+    return python_result_11
+```
+Let python_result_11 be the value returned by task_11.
+Output the result as task_11_out = {"result": python_result_11}, replacing python_result_11 with its calculated value.
+
+Task 12:
+Let val_12 be the result of preprocessing task_11_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Trace the execution of task_12.
+```python
+def task_12(val_12: int) -> int:
+    while 1:
+        (t, s, i) = (val_12, 0, 2)
+        while i <= val_12 // i:
+            while val_12 % i == 0:
+                val_12 //= i
+                s += i
+            i += 1
+        if val_12 > 1:
+            s += val_12
+        if s == t:
+            python_result_12 = t
+            return python_result_12
+        val_12 = s
+```
+Let python_result_12 be the value returned by task_12.
+Output the result as task_12_out = {"result": python_result_12}, replacing python_result_12 with its calculated value.

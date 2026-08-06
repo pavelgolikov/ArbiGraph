@@ -1,0 +1,44 @@
+{
+  "summary": {
+    "mode": "dag",
+    "target_node": "task_4",
+    "target_category": "python",
+    "target_native_task_id": "1",
+    "num_samples_per_task": 1,
+    "num_samples": 1,
+    "seed": 12,
+    "strict": true
+  },
+  "samples": [
+    {
+      "target_native_task_id": 1,
+      "target_node_id": "task_4",
+      "sample_idx": 0,
+      "prompt": "Solve the following tasks. Output the result for each.\n\nDefine task_1_input = {\"result\": 52}.\nTask 1:\nLet val_1 be the result of preprocessing task_1_input[\"result\"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.\nDefine task_1_nums_static = [-27, -33, 11, 34, -42, 14, 21, -95, -44, 81].\nTrace the execution of task_1 with inputs nums = task_1_nums_static.\n```python\nfrom typing import List\ndef task_1(nums: List[int], val_1: int) -> List[int]:\n    n = len(nums)\n    arr = sorted(zip(nums, range(n)))\n    ans = [0] * n\n    i = 0\n    while i < n:\n        j = i + 1\n        while j < n and arr[j][0] - arr[j - 1][0] <= val_1:\n            j += 1\n        idx = sorted((k for (_, k) in arr[i:j]))\n        for (k, (x, _)) in zip(idx, arr[i:j]):\n            ans[k] = x\n        i = j\n    python_result_1 = ans\n    return python_result_1\n```\nLet python_result_1 be the value returned by task_1.\nOutput the result as task_1_out = {\"result\": python_result_1}, replacing python_result_1 with its calculated value.\n\nTask 2:\nLet list_2 be the result of preprocessing task_1_out[\"result\"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.\nIf list_2 has more than 10 elements, keep only the first 10 elements.\nTrace the execution of task_2.\n```python\nfrom typing import List\ndef task_2(list_2: List[int]) -> List[int]:\n    f = True\n    while f:\n        f = False\n        t = list_2[:]\n        for i in range(1, len(t) - 1):\n            if t[i] > t[i - 1] and t[i] > t[i + 1]:\n                list_2[i] -= 1\n                f = True\n            if t[i] < t[i - 1] and t[i] < t[i + 1]:\n                list_2[i] += 1\n                f = True\n    python_result_2 = list_2\n    return python_result_2\n```\nLet python_result_2 be the value returned by task_2.\nOutput the result as task_2_out = {\"result\": python_result_2}, replacing python_result_2 with its calculated value.\n\nTask 3:\nLet list_3 be the result of preprocessing task_1_out[\"result\"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.\nIf list_3 has more than 10 elements, keep only the first 10 elements.\nTrace the execution of task_3.\n```python\nfrom typing import List\ndef task_3(list_3: List[int]) -> int:\n    (i, j) = (0, len(list_3) - 1)\n    (a, b) = (list_3[i], list_3[j])\n    ans = 0\n    while i < j:\n        if a < b:\n            i += 1\n            a += list_3[i]\n            ans += 1\n        elif b < a:\n            j -= 1\n            b += list_3[j]\n            ans += 1\n        else:\n            (i, j) = (i + 1, j - 1)\n            (a, b) = (list_3[i], list_3[j])\n    python_result_3 = ans\n    return python_result_3\n```\nLet python_result_3 be the value returned by task_3.\nOutput the result as task_3_out = {\"result\": python_result_3}, replacing python_result_3 with its calculated value.\n\nTask 4:\nLet list_4 be the result of preprocessing task_2_out[\"result\"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.\nIf list_4 has more than 10 elements, keep only the first 10 elements.\nTrace the execution of task_4.\n```python\nfrom typing import List\ndef task_4(list_4: List[int]) -> int:\n    ans = s = 0\n    pos = {}\n    for (i, x) in enumerate(list_4):\n        s += 1 if x > 8 else -1\n        if s > 0:\n            ans = i + 1\n        elif s - 1 in pos:\n            ans = max(ans, i - pos[s - 1])\n        if s not in pos:\n            pos[s] = i\n    python_result_4 = ans\n    return python_result_4\n```\nLet python_result_4 be the value returned by task_4.\nOutput the result as task_4_out = {\"result\": python_result_4}, replacing python_result_4 with its calculated value.\n\nTask 5:\nLet val_5 be the result of preprocessing task_3_out[\"result\"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.\nDefine task_5_tokens_static = [7, -33, -64, -59, 93, -28, 85, -99, 13, 68].\nTrace the execution of task_5 with inputs tokens = task_5_tokens_static.\n```python\nfrom typing import List\ndef task_5(tokens: List[int], val_5: int) -> int:\n    tokens.sort()\n    ans = score = 0\n    (i, j) = (0, len(tokens) - 1)\n    while i <= j:\n        if val_5 >= tokens[i]:\n            val_5 -= tokens[i]\n            (score, i) = (score + 1, i + 1)\n            ans = max(ans, score)\n        elif score:\n            val_5 += tokens[j]\n            (score, j) = (score - 1, j - 1)\n        else:\n            break\n    python_result_5 = ans\n    return python_result_5\n```\nLet python_result_5 be the value returned by task_5.\nOutput the result as task_5_out = {\"result\": python_result_5}, replacing python_result_5 with its calculated value.\n\nTask 6:\nLet val_6_join be the sum of the following values: task_4_out[\"result\"], task_5_out[\"result\"].\nLet val_6 be the result of preprocessing val_6_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.\nDefine task_6_y_static = -86.\nDefine task_6_bound_static = 90.\nTrace the execution of task_6 with inputs y = task_6_y_static, bound = task_6_bound_static.\n```python\nfrom typing import List\ndef task_6(val_6: int, y: int, bound: int) -> List[int]:\n    ans = []\n    a = 1\n    while a <= bound:\n        b = 1\n        while a + b <= bound:\n            ans.append(a + b)\n            b *= y\n            if y == 1:\n                break\n        if val_6 == 1:\n            break\n        a *= val_6\n    python_result_6 = list(ans)\n    return python_result_6\n```\nLet python_result_6 be the value returned by task_6.\nOutput the result as task_6_out = {\"result\": python_result_6}, replacing python_result_6 with its calculated value.\n",
+      "node_outputs": [
+        {
+          "node_id"         : "task_1",
+          "native_task_id"  : 8,
+          "native_task_name": "lexicographicallySmallestArray:scalar",
+          "output_value"    : [-95, -44, -42, -33, -27, 11, 14, 21, 34, 81]
+        },
+        {
+          "node_id"         : "task_2",
+          "native_task_id"  : 18,
+          "native_task_name": "transformArray:list",
+          "output_value"    : [-95, -44, -42, -33, -27, 11, 14, 21, 34, 81]
+        },
+        {"node_id": "task_3", "native_task_id": 5, "native_task_name": "minimumOperations:list", "output_value": 9},
+        {"node_id": "task_4", "native_task_id": 1, "native_task_name": "longestWPI:list", "output_value": 9},
+        {"node_id": "task_5", "native_task_id": 86, "native_task_name": "bagOfTokensScore:scalar", "output_value": 10},
+        {
+          "node_id"         : "task_6",
+          "native_task_id"  : 82,
+          "native_task_name": "powerfulIntegers:scalar",
+          "output_value"    : [2, -85, 20, -67]
+        }
+      ]
+    }
+  ]
+}
+

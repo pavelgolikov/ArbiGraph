@@ -1,0 +1,36 @@
+======================================================================
+Prompt 1
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": -62}.
+Task 1:
+Let val_1 be the result of preprocessing task_1_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -48 to it.
+Ryan was a pen pal with val_1 people. He stopped being penpals with 4 of them. They each send 3 letters a week that are 7 pages long. He responds in kind. He can write a page every 14 minutes. How many hours does he spend writing a week?
+Compute the final numerical answer. Let gsm_result_1 be that answer.
+Output the result as task_1_out = {"result": gsm_result_1}, replacing gsm_result_1 with its calculated value.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -25 to it.
+Benjamin went to buy some school supplies. He bought val_2 crayons which cost ¥3.75 each, 12 folders which cost ¥8.5 each, and a rim of bond paper which cost ¥21. How much did Benjamin spend on everything?
+Compute the final numerical answer. Let gsm_result_2 be that answer.
+Output the result as task_2_out = {"result": gsm_result_2}, replacing gsm_result_2 with its calculated value.
+
+Task 3:
+Let val_3 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -39 to it.
+Ella's uncle said that she had €200 budgeted for her birthday party. She wants to make sure that she and every invited friend each get to play one round of mini-golf, each have €val_3 in pinball tokens, and each get to ride the roller coaster twice. A round of mini-golf is €6. The roller coaster cost €12 a ride. How many friends can she invite?
+Compute the final numerical answer. Let gsm_result_3 be that answer.
+Output the result as task_3_out = {"result": gsm_result_3}, replacing gsm_result_3 with its calculated value.
+
+Task 4:
+Let val_4_join be the sum of the following values: task_2_out["result"], task_3_out["result"].
+Let val_4 be the result of preprocessing val_4_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -9 to it.
+A farmer is buying feed for his cows. He buys a variety of apples, hay, carrots and wheats. Since wheats are a rare treat, he only buys val_4 6-pound boxes of them for the whole stable. He only wants enough carrots to feed the cows while the vegetables are fresh, so he buys 11 8-pound bags. apples are the main diet of his cows, so he buys 34 38-pound packs. hay are a staple to supplement the apples, so he buys 17 16-pound sacks. If his farm truck can carry 100 pounds at a time, how many trips does the farmer need to transport all the feed?
+Compute the final numerical answer. Let gsm_result_4 be that answer.
+Output the result as task_4_out = {"result": gsm_result_4}, replacing gsm_result_4 with its calculated value.
+
+Task 5:
+Let val_5 be the result of preprocessing task_4_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 133 to it.
+According to its nutritional info, a bag of popcorn has val_5 calories per serving. If a 250 ounces bag has 5 servings, assuming enough bags are available and servings can be split, how many ounces can you eat if your daily calorie target is 2150 and you have already consumed 650 calories?
+Compute the final numerical answer. Let gsm_result_5 be that answer.
+Output the result as task_5_out = {"result": gsm_result_5}, replacing gsm_result_5 with its calculated value.

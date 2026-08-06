@@ -1,0 +1,10 @@
+{
+  "directed"  : true,
+  "multigraph": false,
+  "target"    : {"id": "task_3", "native_task_id": "39"},
+  "nodes"     : [
+    {"id": "task_1", "category": "math"}, {"id": "task_2", "category": "math"}, {"id": "task_3", "category": "math"}
+  ],
+  "edges"     : [ {"source": "task_1", "destination": "task_2"}, {"source": "task_2", "destination": "task_3"} ]
+}
+

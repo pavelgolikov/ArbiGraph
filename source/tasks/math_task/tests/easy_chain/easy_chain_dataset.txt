@@ -1,0 +1,33 @@
+======================================================================
+Prompt 1
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [-81, 87, 99, -84, 79, -13, -12, 61, 60, 90]}.
+Task 1:
+Let list_1 be the result of preprocessing task_1_input["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_1 has more than 10 elements, keep only the first 10 elements.
+If the length of list_1 is not a power of 2, update list_1 by padding it with zeros to the next power of 2.
+Let list_1 = [a_0, a_1, ..., a_{N-1}].
+Compute the unnormalized Walsh-Hadamard transform in Sylvester order. That is, for each j = 0, 1, ..., N-1, define
+H_j = sum_{k=0}^{N-1} ((-1) ** popcount(j & k)) * a_k, where `&` is bitwise AND and popcount counts the number of 1-bits.
+Return the sequence [H_0, H_1, ..., H_{N-1}].
+Let fwht_result_1 be the resulting list.
+Output the result as task_1_out = {"result": fwht_result_1}, replacing fwht_result_1 with its calculated value.
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+Let list_2 = [a_0, a_1, ..., a_{N-1}].
+Sort the indices 0, 1, ..., N-1 in ascending order by the pair (a_i, i).
+In other words, sort by the corresponding sequence value, and break ties by the smaller original index.
+Let the resulting index list be pi = [pi_0, pi_1, ..., pi_{N-1}].
+Compute the number of inversions in pi, meaning the number of pairs (r, s) such that 0 <= r < s < N and pi_r > pi_s.
+Let permutation_inversions_result_2 be the resulting value.
+Output the result as task_2_out = {"result": permutation_inversions_result_2}, replacing permutation_inversions_result_2 with its calculated value.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Compute the sum of the unitary divisors of val_3 (divisors d where gcd(d, val_3/d) == 1).
+Let unitary_divisor_sum_result_3 be the resulting value.
+Output the result as task_3_out = {"result": unitary_divisor_sum_result_3}, replacing unitary_divisor_sum_result_3 with its calculated value.

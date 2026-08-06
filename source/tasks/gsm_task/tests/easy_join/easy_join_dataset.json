@@ -1,0 +1,26 @@
+{
+  "summary": {
+    "mode": "dag",
+    "target_node": "task_1",
+    "target_category": "gsm",
+    "target_native_task_id": "16",
+    "num_samples_per_task": 1,
+    "num_samples": 1,
+    "seed": 1,
+    "strict": true
+  },
+  "samples": [
+    {
+      "target_native_task_id": 16,
+      "target_node_id": "task_1",
+      "sample_idx": 0,
+      "prompt": "Solve the following tasks. Output the result for each.\n\nDefine task_1_input = {\"result\": -90}.\nTask 1:\nLet val_1 be the result of preprocessing task_1_input[\"result\"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -61 to it.\nLogan is selling brownie and apples pie for a fundraiser. On Tuesday, he sold val_1 boxes of brownie and 13 fewer boxes of apples pie, than on Wednesday. On Wednesday, he sold 14 more boxes of brownies than on Tuesday and 29 boxes of apples pie. If the brownie cost $12 and the apples pie cost $27, how much did Logan earn in total over Tuesday and Wednesday?\nCompute the final numerical answer. Let gsm_result_1 be that answer.\nOutput the result as task_1_out = {\"result\": gsm_result_1}, replacing gsm_result_1 with its calculated value.\n\nDefine task_2_input = {\"result\": 48}.\nTask 2:\nLet val_2 be the result of preprocessing task_2_input[\"result\"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 2 to it.\nSophia saw a val_2-foot dolphin with 3 8-inch remoras attached to it. What percentage of the dolphin's body length is the combined length of the remoras?\nCompute the final numerical answer. Let gsm_result_2 be that answer.\nOutput the result as task_2_out = {\"result\": gsm_result_2}, replacing gsm_result_2 with its calculated value.\n\nTask 3:\nLet val_3_join be the sum of the following values: task_2_out[\"result\"], task_1_out[\"result\"].\nLet val_3 be the result of preprocessing val_3_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -74 to it.\nScarlett hid val_3 dozen eggs in the yard for the Easter egg hunt. Omar finds 3 eggs. Theodore finds four times as many as Omar. Owen finds 4 less than Theodore, and Noah finds 3/8 as many as Owen. How many eggs are still hidden in the yard?\nCompute the final numerical answer. Let gsm_result_3 be that answer.\nOutput the result as task_3_out = {\"result\": gsm_result_3}, replacing gsm_result_3 with its calculated value.\n",
+      "node_outputs": [
+        {"node_id": "task_1", "native_task_id": 16, "native_task_name": "GSM_0016", "output_value": 2079},
+        {"node_id": "task_2", "native_task_id":  0, "native_task_name": "GSM_0000", "output_value":    4},
+        {"node_id": "task_3", "native_task_id": 47, "native_task_name": "GSM_0047", "output_value":   82}
+      ]
+    }
+  ]
+}
+

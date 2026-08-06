@@ -1,0 +1,35 @@
+{
+  "directed"  : true,
+  "multigraph": false,
+  "target"    : {"id": "task_12", "native_task_id": "90"},
+  "nodes"     : [
+    {"id": "task_1",  "category": "python"},
+    {"id": "task_2",  "category": "python"},
+    {"id": "task_3",  "category": "python"},
+    {"id": "task_4",  "category": "python"},
+    {"id": "task_5",  "category": "python"},
+    {"id": "task_6",  "category": "python"},
+    {"id": "task_7",  "category": "python"},
+    {"id": "task_8",  "category": "python"},
+    {"id": "task_9",  "category": "python"},
+    {"id": "task_10", "category": "python"},
+    {"id": "task_11", "category": "python"},
+    {"id": "task_12", "category": "python"}
+  ],
+  "edges"     : [
+    {"source": "task_1",  "destination": "task_3" },
+    {"source": "task_2",  "destination": "task_3" },
+    {"source": "task_3",  "destination": "task_4" },
+    {"source": "task_4",  "destination": "task_5" },
+    {"source": "task_4",  "destination": "task_6" },
+    {"source": "task_5",  "destination": "task_7" },
+    {"source": "task_6",  "destination": "task_7" },
+    {"source": "task_7",  "destination": "task_8" },
+    {"source": "task_8",  "destination": "task_9" },
+    {"source": "task_5",  "destination": "task_10"},
+    {"source": "task_9",  "destination": "task_10"},
+    {"source": "task_10", "destination": "task_11"},
+    {"source": "task_11", "destination": "task_12"}
+  ]
+}
+

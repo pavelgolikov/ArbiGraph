@@ -1,0 +1,50 @@
+======================================================================
+Prompt 1
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": -62}.
+Task 1:
+Let val_1 be the result of preprocessing task_1_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_1, compute (i * val_1) modulo the val_1-th prime number.
+Compute the sequence of these values.
+Let modular_multiplication_sequence_result_1 be the resulting list.
+Output the result as task_1_out = {"result": modular_multiplication_sequence_result_1}, replacing modular_multiplication_sequence_result_1 with its calculated value.
+
+Task 2:
+Let list_2 be the result of preprocessing task_1_out["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_2 has more than 10 elements, keep only the first 10 elements.
+Let P_2(x) be a polynomial whose coefficients are the elements of the list list_2 in order, starting from the highest degree.
+If P_2(x) is the zero polynomial, define poly_square_free_eval_result_2 = 0. For a nonzero constant polynomial, use gcd(P_2, P_2') = 1.
+Otherwise, let S_2(x) = P_2(x) / gcd(P_2(x), P_2'(x)), where the gcd is taken over Q[x] and made monic.
+Do not further normalize S_2(x): keep any scalar coefficient remaining after division by the monic gcd. Evaluate S_2(2), and let poly_square_free_eval_result_2 be the resulting value.
+Output the result as task_2_out = {"result": poly_square_free_eval_result_2}, replacing poly_square_free_eval_result_2 with its calculated value.
+
+Task 3:
+Let list_3 be the result of preprocessing task_1_out["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_3 has more than 10 elements, keep only the first 10 elements.
+Let P_3(x) be a polynomial whose coefficients are the elements of the list list_3 in order, starting from the highest degree.
+Compute the resultant of P_3(x) and the polynomial x**2 + x + 1.
+Let poly_resultant_fixed_result_3 be the resulting value.
+Output the result as task_3_out = {"result": poly_resultant_fixed_result_3}, replacing poly_resultant_fixed_result_3 with its calculated value.
+
+Task 4:
+Let val_4_join be the sum of the following values: task_2_out["result"], task_3_out["result"].
+Let val_4 be the result of preprocessing val_4_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 30 to it.
+For each prime number p with p <= 2*val_4, define e_p as follows.
+For every positive integer j such that p**j <= 2*val_4, compute floor((2*val_4) / p**j) - 2*floor(val_4 / p**j), and let e_p be the sum of these values over all such j.
+For each prime p with p <= 2*val_4, compute p * (e_p + 1).
+Return these values as a list in increasing order of p.
+Let central_binomial_prime_valuation_vector_result_4 be the resulting list.
+Output the result as task_4_out = {"result": central_binomial_prime_valuation_vector_result_4}, replacing central_binomial_prime_valuation_vector_result_4 with its calculated value.
+
+Task 5:
+Let list_5 be the result of preprocessing task_4_out["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_5 has more than 10 elements, keep only the first 10 elements.
+If the length of list_5 is not a power of 2, update list_5 by padding it with zeros to the next power of 2.
+Let list_5 = [a_0, a_1, ..., a_{N-1}]. Let p be the smallest prime number of the form m*N + 1 for a positive integer m.
+All arithmetic in this transform is modulo p. Let g be the smallest positive primitive root modulo p, and define omega = g**((p - 1) // N) mod p. By construction, (N) divides (p-1), so (omega) has exact order (N) modulo (p).
+Compute the number theoretic transform A = [A_0, A_1, ..., A_{N-1}], where for each j = 0, 1, ..., N-1, A_j = sum_{k=0}^{N-1} a_k * omega**(j*k) mod p.
+Return each A_j as its least nonnegative residue in {0, 1, ..., p-1}.
+Let ntt_result_5 be the resulting list.
+Output the result as task_5_out = {"result": ntt_result_5}, replacing ntt_result_5 with its calculated value.

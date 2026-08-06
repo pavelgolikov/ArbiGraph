@@ -1,0 +1,28 @@
+{
+  "summary": {
+    "mode": "dag",
+    "target_node": "task_5",
+    "target_category": "gsm",
+    "target_native_task_id": "24",
+    "num_samples_per_task": 1,
+    "num_samples": 1,
+    "seed": 2,
+    "strict": true
+  },
+  "samples": [
+    {
+      "target_native_task_id": 24,
+      "target_node_id": "task_5",
+      "sample_idx": 0,
+      "prompt": "Solve the following tasks. Output the result for each.\n\nDefine task_1_input = {\"result\": -62}.\nTask 1:\nLet val_1 be the result of preprocessing task_1_input[\"result\"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -48 to it.\nRyan was a pen pal with val_1 people. He stopped being penpals with 4 of them. They each send 3 letters a week that are 7 pages long. He responds in kind. He can write a page every 14 minutes. How many hours does he spend writing a week?\nCompute the final numerical answer. Let gsm_result_1 be that answer.\nOutput the result as task_1_out = {\"result\": gsm_result_1}, replacing gsm_result_1 with its calculated value.\n\nTask 2:\nLet val_2 be the result of preprocessing task_1_out[\"result\"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -25 to it.\nBenjamin went to buy some school supplies. He bought val_2 crayons which cost \u00a53.75 each, 12 folders which cost \u00a58.5 each, and a rim of bond paper which cost \u00a521. How much did Benjamin spend on everything?\nCompute the final numerical answer. Let gsm_result_2 be that answer.\nOutput the result as task_2_out = {\"result\": gsm_result_2}, replacing gsm_result_2 with its calculated value.\n\nTask 3:\nLet val_3 be the result of preprocessing task_1_out[\"result\"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -39 to it.\nElla's uncle said that she had \u20ac200 budgeted for her birthday party. She wants to make sure that she and every invited friend each get to play one round of mini-golf, each have \u20acval_3 in pinball tokens, and each get to ride the roller coaster twice. A round of mini-golf is \u20ac6. The roller coaster cost \u20ac12 a ride. How many friends can she invite?\nCompute the final numerical answer. Let gsm_result_3 be that answer.\nOutput the result as task_3_out = {\"result\": gsm_result_3}, replacing gsm_result_3 with its calculated value.\n\nTask 4:\nLet val_4_join be the sum of the following values: task_2_out[\"result\"], task_3_out[\"result\"].\nLet val_4 be the result of preprocessing val_4_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -9 to it.\nA farmer is buying feed for his cows. He buys a variety of apples, hay, carrots and wheats. Since wheats are a rare treat, he only buys val_4 6-pound boxes of them for the whole stable. He only wants enough carrots to feed the cows while the vegetables are fresh, so he buys 11 8-pound bags. apples are the main diet of his cows, so he buys 34 38-pound packs. hay are a staple to supplement the apples, so he buys 17 16-pound sacks. If his farm truck can carry 100 pounds at a time, how many trips does the farmer need to transport all the feed?\nCompute the final numerical answer. Let gsm_result_4 be that answer.\nOutput the result as task_4_out = {\"result\": gsm_result_4}, replacing gsm_result_4 with its calculated value.\n\nTask 5:\nLet val_5 be the result of preprocessing task_4_out[\"result\"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 133 to it.\nAccording to its nutritional info, a bag of popcorn has val_5 calories per serving. If a 250 ounces bag has 5 servings, assuming enough bags are available and servings can be split, how many ounces can you eat if your daily calorie target is 2150 and you have already consumed 650 calories?\nCompute the final numerical answer. Let gsm_result_5 be that answer.\nOutput the result as task_5_out = {\"result\": gsm_result_5}, replacing gsm_result_5 with its calculated value.\n",
+      "node_outputs": [
+        {"node_id": "task_1", "native_task_id": 72, "native_task_name": "GSM_0072", "output_value":  49},
+        {"node_id": "task_2", "native_task_id": 18, "native_task_name": "GSM_0018", "output_value": 213},
+        {"node_id": "task_3", "native_task_id": 96, "native_task_name": "GSM_0096", "output_value":   4},
+        {"node_id": "task_4", "native_task_id":  7, "native_task_name": "GSM_0007", "output_value":  17},
+        {"node_id": "task_5", "native_task_id": 24, "native_task_name": "GSM_0024", "output_value": 500}
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,25 @@
+======================================================================
+Prompt 1
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": -90}.
+Task 1:
+Let val_1 be the result of preprocessing task_1_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -61 to it.
+Logan is selling brownie and apples pie for a fundraiser. On Tuesday, he sold val_1 boxes of brownie and 13 fewer boxes of apples pie, than on Wednesday. On Wednesday, he sold 14 more boxes of brownies than on Tuesday and 29 boxes of apples pie. If the brownie cost $12 and the apples pie cost $27, how much did Logan earn in total over Tuesday and Wednesday?
+Compute the final numerical answer. Let gsm_result_1 be that answer.
+Output the result as task_1_out = {"result": gsm_result_1}, replacing gsm_result_1 with its calculated value.
+
+Define task_2_input = {"result": 48}.
+Task 2:
+Let val_2 be the result of preprocessing task_2_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 2 to it.
+Sophia saw a val_2-foot dolphin with 3 8-inch remoras attached to it. What percentage of the dolphin's body length is the combined length of the remoras?
+Compute the final numerical answer. Let gsm_result_2 be that answer.
+Output the result as task_2_out = {"result": gsm_result_2}, replacing gsm_result_2 with its calculated value.
+
+Task 3:
+Let val_3_join be the sum of the following values: task_2_out["result"], task_1_out["result"].
+Let val_3 be the result of preprocessing val_3_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -74 to it.
+Scarlett hid val_3 dozen eggs in the yard for the Easter egg hunt. Omar finds 3 eggs. Theodore finds four times as many as Omar. Owen finds 4 less than Theodore, and Noah finds 3/8 as many as Owen. How many eggs are still hidden in the yard?
+Compute the final numerical answer. Let gsm_result_3 be that answer.
+Output the result as task_3_out = {"result": gsm_result_3}, replacing gsm_result_3 with its calculated value.

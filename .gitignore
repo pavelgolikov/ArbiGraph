@@ -1,4 +1,13 @@
-sympy
-ml-gsm-symbolic
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
 scratch/
-*.pyc
+deps/
+sympy/
+ml-gsm-symbolic/
+
+source/generated/
+*.log

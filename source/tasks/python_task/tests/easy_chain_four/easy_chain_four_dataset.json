@@ -1,0 +1,47 @@
+{
+  "summary": {
+    "mode": "dag",
+    "target_node": "task_4",
+    "target_category": "python",
+    "target_native_task_id": "93",
+    "num_samples_per_task": 1,
+    "num_samples": 1,
+    "seed": 10,
+    "strict": true
+  },
+  "samples": [
+    {
+      "target_native_task_id": 93,
+      "target_node_id": "task_4",
+      "sample_idx": 0,
+      "prompt": "Solve the following tasks. Output the result for each.\n\nDefine task_1_input = {\"result\": 43}.\nTask 1:\nLet val_1 be the result of preprocessing task_1_input[\"result\"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.\nDefine task_1_y_static = 37.\nDefine task_1_bound_static = 82.\nTrace the execution of task_1 with inputs y = task_1_y_static, bound = task_1_bound_static.\n```python\nfrom typing import List\ndef task_1(val_1: int, y: int, bound: int) -> List[int]:\n    ans = []\n    a = 1\n    while a <= bound:\n        b = 1\n        while a + b <= bound:\n            ans.append(a + b)\n            b *= y\n            if y == 1:\n                break\n        if val_1 == 1:\n            break\n        a *= val_1\n    python_result_1 = list(ans)\n    return python_result_1\n```\nLet python_result_1 be the value returned by task_1.\nOutput the result as task_1_out = {\"result\": python_result_1}, replacing python_result_1 with its calculated value.\n\nTask 2:\nLet list_2 be the result of preprocessing task_1_out[\"result\"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.\nIf list_2 has more than 10 elements, keep only the first 10 elements.\nDefine task_2_queries_static = [-49, -30, 52, 22, 90, -63, -94, 71, 26, 50].\nTrace the execution of task_2 with inputs queries = task_2_queries_static.\n```python\nfrom typing import List\ndef task_2(list_2: List[int], queries: List[int]) -> List[int]:\n    s = set()\n    ans = []\n    for q in queries[::-1]:\n        if q not in s:\n            ans.append(q)\n            s.add(q)\n    for w in list_2:\n        if w not in s:\n            ans.append(w)\n    python_result_2 = ans\n    return python_result_2\n```\nLet python_result_2 be the value returned by task_2.\nOutput the result as task_2_out = {\"result\": python_result_2}, replacing python_result_2 with its calculated value.\n\nTask 3:\nLet list_3 be the result of preprocessing task_2_out[\"result\"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.\nIf list_3 has more than 10 elements, keep only the first 10 elements.\nTrace the execution of task_3.\n```python\nfrom typing import List\ndef task_3(list_3: List[int]) -> List[int]:\n    stk = []\n    for x in list_3:\n        if x > 0:\n            stk.append(x)\n        else:\n            while stk and stk[-1] > 0 and (stk[-1] < -x):\n                stk.pop()\n            if stk and stk[-1] == -x:\n                stk.pop()\n            elif not stk or stk[-1] < 0:\n                stk.append(x)\n    python_result_3 = stk\n    return python_result_3\n```\nLet python_result_3 be the value returned by task_3.\nOutput the result as task_3_out = {\"result\": python_result_3}, replacing python_result_3 with its calculated value.\n\nTask 4:\nLet list_4 be the result of preprocessing task_3_out[\"result\"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.\nIf list_4 has more than 10 elements, keep only the first 10 elements.\nTrace the execution of task_4.\n```python\nfrom typing import List\ndef task_4(list_4: List[int]) -> List[int]:\n    ans = []\n    (i, j) = (0, len(list_4) - 1)\n    while i <= j:\n        a = list_4[i] * list_4[i]\n        b = list_4[j] * list_4[j]\n        if a > b:\n            ans.append(a)\n            i += 1\n        else:\n            ans.append(b)\n            j -= 1\n    python_result_4 = ans[::-1]\n    return python_result_4\n```\nLet python_result_4 be the value returned by task_4.\nOutput the result as task_4_out = {\"result\": python_result_4}, replacing python_result_4 with its calculated value.\n",
+      "node_outputs": [
+        {
+          "node_id"         : "task_1",
+          "native_task_id"  : 82,
+          "native_task_name": "powerfulIntegers:scalar",
+          "output_value"    : [2, 38, 44, 80]
+        },
+        {
+          "node_id"         : "task_2",
+          "native_task_id"  : 20,
+          "native_task_name": "simulationResult:list",
+          "output_value"    : [50, 26, 71, -94, -63, 90, 22, 52, -30, -49, 2, 38, 44, 80]
+        },
+        {
+          "node_id"         : "task_3",
+          "native_task_id"  : 16,
+          "native_task_name": "asteroidCollision:list",
+          "output_value"    : [-94, -63, 90, 22, 52]
+        },
+        {
+          "node_id"         : "task_4",
+          "native_task_id"  : 93,
+          "native_task_name": "sortedSquares:list",
+          "output_value"    : [484, 2704, 8100, 3969, 8836]
+        }
+      ]
+    }
+  ]
+}
+

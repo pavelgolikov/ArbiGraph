@@ -1,0 +1,17 @@
+{
+  "directed"  : true,
+  "multigraph": false,
+  "target"    : {"id": "task_3", "native_task_id": "1"},
+  "nodes"     : [
+    {"id": "task_1", "category": "python"},
+    {"id": "task_2", "category": "python"},
+    {"id": "task_3", "category": "python"},
+    {"id": "task_4", "category": "python"}
+  ],
+  "edges"     : [
+    {"source": "task_1", "destination": "task_4"},
+    {"source": "task_2", "destination": "task_3"},
+    {"source": "task_3", "destination": "task_4"}
+  ]
+}
+

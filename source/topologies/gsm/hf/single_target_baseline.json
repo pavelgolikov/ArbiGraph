@@ -1,0 +1,9 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "target": {"id": "task_1", "native_task_id": "all"},
+  "nodes": [
+    {"id": "task_1", "category": "gsm"}
+  ],
+  "edges": []
+}

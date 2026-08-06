@@ -1,0 +1,73 @@
+======================================================================
+Prompt 1
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": 77}.
+Task 1:
+Let val_1 be the result of preprocessing task_1_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -63 to it.
+Diego is feeding his livestock silage. Each horse needs val_1 kg, and each goat needs 5 kg less than twice the amount each horse needs. If there are 14 horses and 20 goats, how many kg of silage does Diego need?
+Compute the final numerical answer. Let gsm_result_1 be that answer.
+Output the result as task_1_out = {"result": gsm_result_1}, replacing gsm_result_1 with its calculated value.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 299944 to it.
+Ms. Johnson is looking for a apartment that will not go beyond her $val_2 budget. She saw a property that has a selling price of $280000. On top of that, the buyer has to pay a brokerage fee which is 3% of the selling price, and also the transfer fee that is 13% of the selling price. How much more is the total price of the apartment than Ms. Johnson's budget?
+Compute the final numerical answer. Let gsm_result_2 be that answer.
+Output the result as task_2_out = {"result": gsm_result_2}, replacing gsm_result_2 with its calculated value.
+
+Task 3:
+Let val_3 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -24 to it.
+Zoe sliced a whole pear into val_3 pieces. She ate 4 slices, her cousin ate 7 more than her, and her sister ate 4 more than her cousin. How many slices of pear did they all eat?
+Compute the final numerical answer. Let gsm_result_3 be that answer.
+Output the result as task_3_out = {"result": gsm_result_3}, replacing gsm_result_3 with its calculated value.
+
+Task 4:
+Let val_4 be the result of preprocessing task_2_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 21 to it.
+Elijah is selling brownie and strawberries pie for a fundraiser. On Friday, he sold val_4 boxes of brownie and 14 fewer boxes of strawberries pie, than on Saturday. On Saturday, he sold 14 more boxes of brownies than on Friday and 23 boxes of strawberries pie. If the brownie cost £10 and the strawberries pie cost £26, how much did Elijah earn in total over Friday and Saturday?
+Compute the final numerical answer. Let gsm_result_4 be that answer.
+Output the result as task_4_out = {"result": gsm_result_4}, replacing gsm_result_4 with its calculated value.
+
+Task 5:
+Let val_5 be the result of preprocessing task_3_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -21 to it.
+When the water is cold Ella swims a mile in 22 minutes. When the water is warm Ella swims a mile in val_5 minutes more than twice as long. How much longer does Ella take to swim 9 miles on a hot day than a cold day?
+Compute the final numerical answer. Let gsm_result_5 be that answer.
+Output the result as task_5_out = {"result": gsm_result_5}, replacing gsm_result_5 with its calculated value.
+
+Task 6:
+Let val_6_join be the sum of the following values: task_4_out["result"], task_5_out["result"].
+Let val_6 be the result of preprocessing val_6_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -47 to it.
+Samuel goes to the store to buy some sugar. The normal brand of sugar he buys costs ¥val_6 per kilogram. He had to buy a more expensive brand that costs 25% more since his favorite brand was sold out. He decides to buy a week's worth of sugar and he uses 1 kilogram of sugar per day. He also decided to buy himself a cookie for ¥2. How much did everything cost?
+Compute the final numerical answer. Let gsm_result_6 be that answer.
+Output the result as task_6_out = {"result": gsm_result_6}, replacing gsm_result_6 with its calculated value.
+
+Task 7:
+Let val_7 be the result of preprocessing task_6_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+Aisha can peel val_7 onions a minute and saute 45 onions in 12 minutes. If she peels all the onions first and then sautes them, how long will it take her to peel and saute 180 onions?
+Compute the final numerical answer. Let gsm_result_7 be that answer.
+Output the result as task_7_out = {"result": gsm_result_7}, replacing gsm_result_7 with its calculated value.
+
+Task 8:
+Let val_8 be the result of preprocessing task_7_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -39 to it.
+Ethan goes to the store to buy some rice. The normal brand of rice he buys costs ¥val_8 per kilogram. He had to buy a more expensive brand that costs 25% more since his favorite brand was sold out. He decides to buy a week's worth of rice and he uses 1 kilogram of rice per day. He also decided to buy himself a muffin for ¥2. How much did everything cost?
+Compute the final numerical answer. Let gsm_result_8 be that answer.
+Output the result as task_8_out = {"result": gsm_result_8}, replacing gsm_result_8 with its calculated value.
+
+Task 9:
+Let val_9 be the result of preprocessing task_8_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 38 to it.
+A janitor has to clean a university with val_9 rooms. They have 5 days to get it done. It takes them 30 minutes per room. If they work 10 hours each day, what percentage of their working time, on average, is spent cleaning rooms?
+Compute the final numerical answer. Let gsm_result_9 be that answer.
+Output the result as task_9_out = {"result": gsm_result_9}, replacing gsm_result_9 with its calculated value.
+
+Task 10:
+Let val_10_join be the sum of the following values: task_9_out["result"], task_4_out["result"].
+Let val_10 be the result of preprocessing val_10_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -33 to it.
+Aria went to the confectionery and bought various types of treats. She bought val_10 dozen croissants which cost $19 per dozen, 6 dozen macarons which cost $84 per dozen, and 4 dozen brownies for $114 per dozen. How much was the total cost?
+Compute the final numerical answer. Let gsm_result_10 be that answer.
+Output the result as task_10_out = {"result": gsm_result_10}, replacing gsm_result_10 with its calculated value.
+
+Task 11:
+Let val_11 be the result of preprocessing task_10_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -17 to it.
+Sophia can peel val_11 shrimps a minute and saute 35 shrimps in 8 minutes. If she peels all the shrimps first and then sautes them, how long will it take her to peel and saute 70 shrimps?
+Compute the final numerical answer. Let gsm_result_11 be that answer.
+Output the result as task_11_out = {"result": gsm_result_11}, replacing gsm_result_11 with its calculated value.

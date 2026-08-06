@@ -1,0 +1,49 @@
+======================================================================
+Prompt 1
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [72, -85, 79, 29, 22, 79, -47, 80, -33, 90]}.
+Task 1:
+Let list_1 be the result of preprocessing task_1_input["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_1 has more than 10 elements, keep only the first 10 elements.
+Let P_1(x) be a polynomial whose coefficients are the elements of the list list_1 in order, starting from the highest degree.
+If P_1(x) is the zero polynomial, define poly_square_free_eval_result_1 = 0. For a nonzero constant polynomial, use gcd(P_1, P_1') = 1.
+Otherwise, let S_1(x) = P_1(x) / gcd(P_1(x), P_1'(x)), where the gcd is taken over Q[x] and made monic.
+Do not further normalize S_1(x): keep any scalar coefficient remaining after division by the monic gcd. Evaluate S_1(2), and let poly_square_free_eval_result_1 be the resulting value.
+Output the result as task_1_out = {"result": poly_square_free_eval_result_1}, replacing poly_square_free_eval_result_1 with its calculated value.
+
+Define task_2_input = {"result": 18}.
+Task 2:
+Let val_2 be the result of preprocessing task_2_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+For each integer i from 1 to val_2, compute the number of positive divisors of i.
+Compute the sum of all these divisor counts.
+Let sum_divisor_counts_result_2 be the resulting value.
+Output the result as task_2_out = {"result": sum_divisor_counts_result_2}, replacing sum_divisor_counts_result_2 with its calculated value.
+
+Task 3:
+Let val_3_join be the sum of the following values: task_1_out["result"], task_2_out["result"].
+Let val_3 be the result of preprocessing val_3_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Let p be the val_3-th prime number, using the convention that the 1st prime is 2.
+Find all distinct residues r in {0, 1, ..., p-1} for which there exists an integer x such that x^2 ≡ r mod p.
+Include 0 as a quadratic residue. Return the residues in increasing order.
+Let quadratic_residues_prime_result_3 be the resulting list.
+Output the result as task_3_out = {"result": quadratic_residues_prime_result_3}, replacing quadratic_residues_prime_result_3 with its calculated value.
+
+Task 4:
+Let list_4 be the result of preprocessing task_3_out["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_4 has more than 10 elements, keep only the first 10 elements.
+Sort list_4 based on the number of divisors of their absolute values in ascending order. If an element is 0, treat its divisor count as 0. Maintain stable sorting for ties.
+Let sort_by_divisor_count_result_4 be the resulting list.
+Output the result as task_4_out = {"result": sort_by_divisor_count_result_4}, replacing sort_by_divisor_count_result_4 with its calculated value.
+
+Task 5:
+Let list_5 be the result of preprocessing task_3_out["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+If list_5 has more than 10 elements, keep only the first 10 elements.
+Let L be max(1, the length of list_5). Let r = max(1, floor(sqrt(L))). Let c = ceil(L / r).
+Reshape list list_5 into matrix M1_5 of size r x c using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list list_5 or truncate it.
+Define M2_5 = Matrix([[92, 13, -45, -77], [-70, -25, 44, -93], [37, 85, -48, -75]]).
+Compute the Kronecker product of M1_5 and M2_5. Let mat_kronecker_product_result_5 be this matrix.
+Convert matrix mat_kronecker_product_result_5 into a list kronecker_product_result_5 by concatenating matrix rows starting from the top row, then second row, etc...
+Output the result as task_5_out = {"result": kronecker_product_result_5}, replacing kronecker_product_result_5 with its calculated value.

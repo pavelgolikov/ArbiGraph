@@ -1,0 +1,154 @@
+======================================================================
+Prompt 1
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": -89}.
+Task 1:
+Let val_1 be the result of preprocessing task_1_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Define task_1_arr_static = [63, -9, 79, -19, -77, 0, 9, 60, -58, 44].
+Trace the execution of task_1 with inputs arr = task_1_arr_static.
+```python
+from typing import List
+def task_1(arr: List[int], val_1: int) -> int:
+    s = mx_pre = mi_pre = mx_sub = 0
+    for x in arr:
+        s += x
+        mx_pre = max(mx_pre, s)
+        mi_pre = min(mi_pre, s)
+        mx_sub = max(mx_sub, s - mi_pre)
+    ans = mx_sub
+    mod = 10 ** 9 + 7
+    if val_1 == 1:
+        python_result_1 = ans % mod
+        return python_result_1
+    mx_suf = s - mi_pre
+    ans = max(ans, mx_pre + mx_suf)
+    if s > 0:
+        ans = max(ans, (val_1 - 2) * s + mx_pre + mx_suf)
+    python_result_1 = ans % mod
+    return python_result_1
+```
+Let python_result_1 be the value returned by task_1.
+Output the result as task_1_out = {"result": python_result_1}, replacing python_result_1 with its calculated value.
+
+Define task_2_input = {"result": -75}.
+Task 2:
+Let val_2 be the result of preprocessing task_2_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Define task_2_nums_static = [75, 17, 81, -24, -97, 69, -26, 89, -96, -83].
+Trace the execution of task_2 with inputs nums = task_2_nums_static.
+```python
+from typing import List
+def task_2(nums: List[int], val_2: int) -> int:
+    (ans, y) = (1, nums[0])
+    for x in nums[1:]:
+        if x == 0:
+            python_result_2 = 1
+            return python_result_2
+        if x * y <= val_2:
+            y *= x
+        else:
+            y = x
+            ans += 1
+    python_result_2 = ans
+    return python_result_2
+```
+Let python_result_2 be the value returned by task_2.
+Output the result as task_2_out = {"result": python_result_2}, replacing python_result_2 with its calculated value.
+
+Task 3:
+Let val_3_join be the sum of the following values: task_1_out["result"], task_2_out["result"].
+Let val_3 be the result of preprocessing val_3_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Define task_3_skills_static = [8, -90, 70, -75, 36, -87, -90, 25, 43, -100].
+Trace the execution of task_3 with inputs skills = task_3_skills_static.
+```python
+from typing import List
+def task_3(skills: List[int], val_3: int) -> int:
+    n = len(skills)
+    val_3 = min(val_3, n - 1)
+    i = cnt = 0
+    for j in range(1, n):
+        if skills[i] < skills[j]:
+            i = j
+            cnt = 1
+        else:
+            cnt += 1
+        if cnt == val_3:
+            break
+    python_result_3 = i
+    return python_result_3
+```
+Let python_result_3 be the value returned by task_3.
+Output the result as task_3_out = {"result": python_result_3}, replacing python_result_3 with its calculated value.
+
+Task 4:
+Let val_4 be the result of preprocessing task_3_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Define task_4_buses_static = [-35, 91, 54, 77, -64, -49, -87, -78, 83, -80].
+Define task_4_passengers_static = [-91, 1, -83, 99, -95, -30, -89, 45, 29, 26].
+Trace the execution of task_4 with inputs buses = task_4_buses_static, passengers = task_4_passengers_static.
+```python
+from typing import List
+def task_4(buses: List[int], passengers: List[int], val_4: int) -> int:
+    buses.sort()
+    passengers.sort()
+    j = 0
+    for t in buses:
+        c = val_4
+        while c and j < len(passengers) and (passengers[j] <= t):
+            (c, j) = (c - 1, j + 1)
+    j -= 1
+    ans = buses[-1] if c else passengers[j]
+    while ~j and passengers[j] == ans:
+        (ans, j) = (ans - 1, j - 1)
+    python_result_4 = ans
+    return python_result_4
+```
+Let python_result_4 be the value returned by task_4.
+Output the result as task_4_out = {"result": python_result_4}, replacing python_result_4 with its calculated value.
+
+Task 5:
+Let val_5 be the result of preprocessing task_3_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Trace the execution of task_5.
+```python
+def task_5(val_5: int) -> int:
+    ans = 0
+    (mi, mx) = (-2 ** 31, 2 ** 31 - 1)
+    while val_5:
+        if ans < mi // 10 + 1 or ans > mx // 10:
+            python_result_5 = 0
+            return python_result_5
+        y = val_5 % 10
+        if val_5 < 0 and y > 0:
+            y -= 10
+        ans = ans * 10 + y
+        val_5 = (val_5 - y) // 10
+    python_result_5 = ans
+    return python_result_5
+```
+Let python_result_5 be the value returned by task_5.
+Output the result as task_5_out = {"result": python_result_5}, replacing python_result_5 with its calculated value.
+
+Task 6:
+Let val_6 be the result of preprocessing task_5_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Define task_6_nums_static = [-65, -61, 10, -15, -78, 5, -39, -83, -56, -63].
+Trace the execution of task_6 with inputs nums = task_6_nums_static.
+```python
+from typing import List
+def task_6(nums: List[int], val_6: int) -> List[int]:
+    n = len(nums)
+    arr = sorted(zip(nums, range(n)))
+    ans = [0] * n
+    i = 0
+    while i < n:
+        j = i + 1
+        while j < n and arr[j][0] - arr[j - 1][0] <= val_6:
+            j += 1
+        idx = sorted((k for (_, k) in arr[i:j]))
+        for (k, (x, _)) in zip(idx, arr[i:j]):
+            ans[k] = x
+        i = j
+    python_result_6 = ans
+    return python_result_6
+```
+Let python_result_6 be the value returned by task_6.
+Output the result as task_6_out = {"result": python_result_6}, replacing python_result_6 with its calculated value.

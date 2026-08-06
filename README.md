@@ -1,58 +1,73 @@
 # ArbiGraph
 
-ArbiGraph is a benchmark generator for evaluating context management in
-tool-assisted language agents. It builds verifiable task graphs whose nodes are
-plain-English tasks with typed scalar or list-valued inputs and outputs. The
-generator can instantiate independent distractor tasks, linear chains, and
-branched multichain layouts, then score the final requested answer against
-executable ground truth.
+ArbiGraph is a benchmark generator for evaluating context management in language
+models and agents. It builds verifiable directed task graphs where each node is a
+math, Python tracing, or GSM-style task, and each edge passes one task's output
+into another task's input.
 
-This branch is the release snapshot for the first public ArbiGraph release. It
-contains the code and generated datasets used for the reported initial
-evaluation. The raw Qwen3.5-27B result JSON files are not committed to the
-repository; they are available here:
+The current version uses JSON-style task outputs:
+
+```text
+task_j_out = {"result": <result here>}
+```
+
+The paper version used an earlier output format based on `\boxed{...}` and
+different graph topologies. That paper-era snapshot is preserved in this
+repository under the Git tag `paper-v1-boxed`. Raw paper result JSON files are
+available here:
 https://drive.google.com/drive/folders/10ix3KcGRF02N3I1C1QGSYWwTV4n2QOLy?usp=sharing
 
-## Contents
+## Repository Layout
 
-- `generate_baseline.py`, `generate_forgetting.py`, `generate_chain.py`,
-  `generate_multichain.py`: dataset generators for the evaluated settings.
-- `tasks/`: task implementations for math, Python tracing, GSM-style, custom,
-  and prototype image tasks.
-- `run_agent_calc.py`: calculator-assisted agent evaluation harness.
-- `grader.py`: answer parsing and grading utilities.
-- Google Drive results archive: raw result JSON files for the initial evaluation.
+- `source/generate_dataset.py`: generate a dataset from an input graph topology.
+- `source/generate_hf_datasets.sh`: reproduce the Hugging Face dataset release.
+- `source/dataset_to_text.py`: export prompts from generated dataset JSON files.
+- `source/topologies/`: graph topology JSON files grouped by task category.
+- `source/tasks/`: task implementations for math, Python tracing, and GSM-style
+  tasks.
 
-## Evaluated Snapshot
+## Setup
 
-The release evaluation uses:
+Install the Python dependencies:
 
-- Settings: baseline, forgetting, chain, and multichain.
-- Task categories: math, Python tracing, and GSM-style arithmetic.
-- Model: Qwen3.5-27B with calculator access.
-- Samples: 16 generated samples per target task.
-- Target tasks: 40 math tasks, 80 Python tasks, and 41 GSM-style tasks.
+```bash
+pip install -r requirements.txt
+```
 
-GSM-style multichain is not included in this release snapshot.
+Dataset generation also requires the Graphviz `dot` binary to render topology
+SVG files.
 
-## Reproducing
+## Datasets
 
-See `REPRODUCING.md` for the commands used to regenerate datasets and
-evaluation results.
+Generated datasets are not committed to `main`. The canonical current dataset
+release is intended to be hosted on Hugging Face:
 
-GSM-style dataset generation uses the Apple GSM-Symbolic templates from
-https://github.com/apple/ml-gsm-symbolic.
+```python
+from datasets import load_dataset
 
-Files adapted from GSM-Symbolic are the corrected template overrides in
-`tasks/gsm_task/corrected_templates/`: `0010.json`, `0016.json`,
-`0024.json`, `0039.json`, `0048.json`, `0050.json`, `0060.json`,
-`0062.json`, `0082.json`, and `0096.json`. The GSM datasets in this release
-contain generated problem instances derived from GSM-Symbolic templates.
+dataset = load_dataset("pavelgolikov/arbigraph")
+```
+
+To regenerate the Hugging Face release data from source:
+
+```bash
+cd source
+bash generate_hf_datasets.sh
+```
+
+This writes generated files under `source/generated/hf_datasets/`.
 
 ## Paper
 
 The accompanying paper is available on arXiv:
 https://arxiv.org/abs/2607.20764.
+
+If you need the exact code and datasets corresponding to the paper-era release,
+use:
+
+```bash
+git checkout paper-v1-boxed
+```
 
 If you use ArbiGraph, please cite:
 
@@ -67,10 +82,3 @@ If you use ArbiGraph, please cite:
       url={https://arxiv.org/abs/2607.20764},
 }
 ```
-
-## Current Scope
-
-This is an initial benchmark release. It is intended to make the graph
-construction, adapters, generated datasets, evaluation harness, and result
-artifacts inspectable and reproducible. Additional model evaluations, multimodal
-task categories, and richer real-world workflow instantiations are in progress.

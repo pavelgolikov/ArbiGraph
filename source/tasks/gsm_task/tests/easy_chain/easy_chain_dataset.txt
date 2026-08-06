@@ -1,0 +1,23 @@
+======================================================================
+Prompt 1
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": -81}.
+Task 1:
+Let val_1 be the result of preprocessing task_1_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 869 to it.
+Kenji's dog has val_1 puppies, 230 of which have spots. Haruka's dog has 450 puppies, 120 of which have spots. What percentage of all the puppies have spots?
+Compute the final numerical answer. Let gsm_result_1 be that answer.
+Output the result as task_1_out = {"result": gsm_result_1}, replacing gsm_result_1 with its calculated value.
+
+Task 2:
+Let val_2 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -17 to it.
+A farmer is buying feed for his pigs. He buys a variety of hay, apples, carrots and corns. Since corns are a rare treat, he only buys val_2 7-pound boxes of them for the whole stable. He only wants enough carrots to feed the pigs while the vegetables are fresh, so he buys 12 9-pound bags. hay are the main diet of his pigs, so he buys 34 44-pound packs. apples are a staple to supplement the hay, so he buys 15 16-pound sacks. If his farm truck can carry 190 pounds at a time, how many trips does the farmer need to transport all the feed?
+Compute the final numerical answer. Let gsm_result_2 be that answer.
+Output the result as task_2_out = {"result": gsm_result_2}, replacing gsm_result_2 with its calculated value.
+
+Task 3:
+Let val_3 be the result of preprocessing task_2_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
+To make a call from a hotel room phone, you must pay €0.5 for each minute of your call. After val_3 minutes, that price drops to €0.333 per minute. How much would a 97-minute call cost, rounded to the nearest whole number?
+Compute the final numerical answer. Let gsm_result_3 be that answer.
+Output the result as task_3_out = {"result": gsm_result_3}, replacing gsm_result_3 with its calculated value.

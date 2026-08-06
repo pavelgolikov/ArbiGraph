@@ -1,0 +1,10 @@
+{
+  "directed"  : true,
+  "multigraph": false,
+  "target"    : {"id": "task_1", "native_task_id": "16"},
+  "nodes"     : [
+    {"id": "task_1", "category": "gsm"}, {"id": "task_2", "category": "gsm"}, {"id": "task_3", "category": "gsm"}
+  ],
+  "edges"     : [ {"source": "task_2", "destination": "task_3"}, {"source": "task_1", "destination": "task_3"} ]
+}
+

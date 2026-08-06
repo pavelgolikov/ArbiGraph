@@ -1,18 +1,5 @@
-# Core dataset generation and grading
-sympy
+fracturedjson
 libcst
-math-verify
 networkx
-pillow
+sympy
 tqdm
-
-# Plotting and analysis utilities
-numpy
-matplotlib
-transformers
-
-# Model evaluation
-vllm
-
-# Tests
-pytest

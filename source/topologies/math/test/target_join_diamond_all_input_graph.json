@@ -1,0 +1,19 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "target": {"id": "task_5", "native_task_id": "all"},
+  "nodes": [
+    {"id": "task_1", "category": "math"},
+    {"id": "task_2", "category": "math"},
+    {"id": "task_3", "category": "math"},
+    {"id": "task_4", "category": "math"},
+    {"id": "task_5", "category": "math"}
+  ],
+  "edges": [
+    {"source": "task_1", "destination": "task_2"},
+    {"source": "task_1", "destination": "task_3"},
+    {"source": "task_2", "destination": "task_5"},
+    {"source": "task_3", "destination": "task_5"},
+    {"source": "task_4", "destination": "task_5"}
+  ]
+}

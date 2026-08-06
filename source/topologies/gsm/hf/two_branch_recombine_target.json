@@ -1,0 +1,21 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "target": {"id": "task_6", "native_task_id": "all"},
+  "nodes": [
+    {"id": "task_1", "category": "gsm"},
+    {"id": "task_2", "category": "gsm"},
+    {"id": "task_3", "category": "gsm"},
+    {"id": "task_4", "category": "gsm"},
+    {"id": "task_5", "category": "gsm"},
+    {"id": "task_6", "category": "gsm"}
+  ],
+  "edges": [
+    {"source": "task_1", "destination": "task_2"},
+    {"source": "task_2", "destination": "task_3"},
+    {"source": "task_3", "destination": "task_6"},
+    {"source": "task_1", "destination": "task_4"},
+    {"source": "task_4", "destination": "task_5"},
+    {"source": "task_5", "destination": "task_6"}
+  ]
+}

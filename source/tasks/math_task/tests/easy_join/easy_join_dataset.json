@@ -1,0 +1,31 @@
+{
+  "summary": {
+    "mode": "dag",
+    "target_node": "task_1",
+    "target_category": "math",
+    "target_native_task_id": "37",
+    "num_samples_per_task": 1,
+    "num_samples": 1,
+    "seed": 1,
+    "strict": true
+  },
+  "samples": [
+    {
+      "target_native_task_id": 37,
+      "target_node_id": "task_1",
+      "sample_idx": 0,
+      "prompt": "Solve the following tasks. Output the result for each.\n\nDefine task_1_input = {\"result\": -90}.\nTask 1:\nLet val_1 be the result of preprocessing task_1_input[\"result\"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.\nFor each integer i from 1 to val_1, compute the number of positive divisors of i.\nCompute the sum of all these divisor counts.\nLet sum_divisor_counts_result_1 be the resulting value.\nOutput the result as task_1_out = {\"result\": sum_divisor_counts_result_1}, replacing sum_divisor_counts_result_1 with its calculated value.\n\nDefine task_2_input = {\"result\": -86}.\nTask 2:\nLet val_2 be the result of preprocessing task_2_input[\"result\"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.\nCompute the sum of the squares of all positive divisors of val_2.\nLet divisor_sigma_square_result_2 be the resulting value.\nOutput the result as task_2_out = {\"result\": divisor_sigma_square_result_2}, replacing divisor_sigma_square_result_2 with its calculated value.\n\nTask 3:\nLet val_3_join be the sum of the following values: task_2_out[\"result\"], task_1_out[\"result\"].\nLet val_3 be the result of preprocessing val_3_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.\nDefine m = floor(sqrt(val_3)) + 7.\nCompute the unsigned Stirling number of the first kind c(m, m - 2), which counts the number of permutations of m elements with exactly m - 2 disjoint cycles.\nLet scaled_stirling_first_kind_result_3 be the resulting value.\nOutput the result as task_3_out = {\"result\": scaled_stirling_first_kind_result_3}, replacing scaled_stirling_first_kind_result_3 with its calculated value.\n",
+      "node_outputs": [
+        {"node_id": "task_1", "native_task_id": 37, "native_task_name": "sum_divisor_counts", "output_value": 429},
+        {"node_id": "task_2", "native_task_id": 30, "native_task_name": "divisor_sigma_square", "output_value": 8420},
+        {
+          "node_id"         : "task_3",
+          "native_task_id"  : 36,
+          "native_task_name": "scaled_stirling_first_kind",
+          "output_value"    : 3731
+        }
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,26 @@
+{
+  "summary": {
+    "mode": "dag",
+    "target_node": "task_3",
+    "target_category": "gsm",
+    "target_native_task_id": "10",
+    "num_samples_per_task": 1,
+    "num_samples": 1,
+    "seed": 0,
+    "strict": true
+  },
+  "samples": [
+    {
+      "target_native_task_id": 10,
+      "target_node_id": "task_3",
+      "sample_idx": 0,
+      "prompt": "Solve the following tasks. Output the result for each.\n\nDefine task_1_input = {\"result\": -81}.\nTask 1:\nLet val_1 be the result of preprocessing task_1_input[\"result\"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 869 to it.\nKenji's dog has val_1 puppies, 230 of which have spots. Haruka's dog has 450 puppies, 120 of which have spots. What percentage of all the puppies have spots?\nCompute the final numerical answer. Let gsm_result_1 be that answer.\nOutput the result as task_1_out = {\"result\": gsm_result_1}, replacing gsm_result_1 with its calculated value.\n\nTask 2:\nLet val_2 be the result of preprocessing task_1_out[\"result\"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add -17 to it.\nA farmer is buying feed for his pigs. He buys a variety of hay, apples, carrots and corns. Since corns are a rare treat, he only buys val_2 7-pound boxes of them for the whole stable. He only wants enough carrots to feed the pigs while the vegetables are fresh, so he buys 12 9-pound bags. hay are the main diet of his pigs, so he buys 34 44-pound packs. apples are a staple to supplement the hay, so he buys 15 16-pound sacks. If his farm truck can carry 190 pounds at a time, how many trips does the farmer need to transport all the feed?\nCompute the final numerical answer. Let gsm_result_2 be that answer.\nOutput the result as task_2_out = {\"result\": gsm_result_2}, replacing gsm_result_2 with its calculated value.\n\nTask 3:\nLet val_3 be the result of preprocessing task_2_out[\"result\"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.\nTo make a call from a hotel room phone, you must pay \u20ac0.5 for each minute of your call. After val_3 minutes, that price drops to \u20ac0.333 per minute. How much would a 97-minute call cost, rounded to the nearest whole number?\nCompute the final numerical answer. Let gsm_result_3 be that answer.\nOutput the result as task_3_out = {\"result\": gsm_result_3}, replacing gsm_result_3 with its calculated value.\n",
+      "node_outputs": [
+        {"node_id": "task_1", "native_task_id": 15, "native_task_name": "GSM_0015", "output_value": 25},
+        {"node_id": "task_2", "native_task_id":  7, "native_task_name": "GSM_0007", "output_value": 10},
+        {"node_id": "task_3", "native_task_id": 10, "native_task_name": "GSM_0010", "output_value": 34}
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use ArbiGraph, please cite the accompanying paper."
+title: "ArbiGraph"
+authors:
+  - family-names: "Golikov"
+    given-names: "Pavel"
+  - family-names: "Opryshko"
+    given-names: "Evgenii"
+  - family-names: "Pekhimenko"
+    given-names: "Gennady"
+  - family-names: "Jeffrey"
+    given-names: "Mark C."
+repository-code: "https://github.com/pavelgolikov/ArbiGraph"
+url: "https://arxiv.org/abs/2607.20764"
+preferred-citation:
+  type: article
+  title: "ArbiGraph: Arbitrarily Scalable Verifiable Task Graphs for Evaluating Context Management"
+  authors:
+    - family-names: "Golikov"
+      given-names: "Pavel"
+    - family-names: "Opryshko"
+      given-names: "Evgenii"
+    - family-names: "Pekhimenko"
+      given-names: "Gennady"
+    - family-names: "Jeffrey"
+      given-names: "Mark C."
+  year: 2026
+  url: "https://arxiv.org/abs/2607.20764"
+  identifiers:
+    - type: other
+      value: "arXiv:2607.20764"

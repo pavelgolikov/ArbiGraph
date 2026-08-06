@@ -1,0 +1,28 @@
+{
+  "summary": {
+    "mode": "dag",
+    "target_node": "task_4",
+    "target_category": "gsm",
+    "target_native_task_id": "39",
+    "num_samples_per_task": 1,
+    "num_samples": 1,
+    "seed": 3,
+    "strict": true
+  },
+  "samples": [
+    {
+      "target_native_task_id": 39,
+      "target_node_id": "task_4",
+      "sample_idx": 0,
+      "prompt": "Solve the following tasks. Output the result for each.\n\nDefine task_1_input = {\"result\": 72}.\nTask 1:\nLet val_1 be the result of preprocessing task_1_input[\"result\"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.\nOliver has val_1 light black spools of thread, 102 dark black spools of thread, 54 light orange spools of thread, and 72 dark orange spools of thread. What percent of the spools are black?\nCompute the final numerical answer. Let gsm_result_1 be that answer.\nOutput the result as task_1_out = {\"result\": gsm_result_1}, replacing gsm_result_1 with its calculated value.\n\nDefine task_2_input = {\"result\": -61}.\nTask 2:\nLet val_2 be the result of preprocessing task_2_input[\"result\"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1839 to it.\nAccording to its nutritional info, a bag of cookies has 400 calories per serving. If a 125 oz bag has 5 servings, assuming enough bags are available and servings can be split, how many oz can you eat if your daily calorie target is val_2 and you have already consumed 1500 calories?\nCompute the final numerical answer. Let gsm_result_2 be that answer.\nOutput the result as task_2_out = {\"result\": gsm_result_2}, replacing gsm_result_2 with its calculated value.\n\nTask 3:\nLet val_3_join be the sum of the following values: task_1_out[\"result\"], task_2_out[\"result\"].\nLet val_3 be the result of preprocessing val_3_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 417 to it.\nA care facility has a capacity of val_3 rooms with 1/10 occupied. Due to the major accident, 30 patients are admitted into the care facility each day. Calculate the total number of unoccupied rooms in the care facility after 2 weeks.\nCompute the final numerical answer. Let gsm_result_3 be that answer.\nOutput the result as task_3_out = {\"result\": gsm_result_3}, replacing gsm_result_3 with its calculated value.\n\nTask 4:\nLet val_4 be the result of preprocessing task_3_out[\"result\"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 20 to it.\nA janitor has to clean a university with val_4 floors. They have 5 days to get it done. It takes them 30 minutes per floor. If they work 10 hours each day, what percentage of their working time, on average, is spent cleaning floors?\nCompute the final numerical answer. Let gsm_result_4 be that answer.\nOutput the result as task_4_out = {\"result\": gsm_result_4}, replacing gsm_result_4 with its calculated value.\n\nTask 5:\nLet val_5 be the result of preprocessing task_3_out[\"result\"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 20 to it.\nLuna receives val_5 emails a day. 20% of those emails don't require any response. Luna responds to the rest of them. How many emails does Luna respond to in a 3 day work week?\nCompute the final numerical answer. Let gsm_result_5 be that answer.\nOutput the result as task_5_out = {\"result\": gsm_result_5}, replacing gsm_result_5 with its calculated value.\n",
+      "node_outputs": [
+        {"node_id": "task_1", "native_task_id": 66, "native_task_name": "GSM_0066", "output_value":  58},
+        {"node_id": "task_2", "native_task_id": 24, "native_task_name": "GSM_0024", "output_value":  25},
+        {"node_id": "task_3", "native_task_id": 28, "native_task_name": "GSM_0028", "output_value":  30},
+        {"node_id": "task_4", "native_task_id": 39, "native_task_name": "GSM_0039", "output_value":  50},
+        {"node_id": "task_5", "native_task_id": 27, "native_task_name": "GSM_0027", "output_value": 120}
+      ]
+    }
+  ]
+}
+

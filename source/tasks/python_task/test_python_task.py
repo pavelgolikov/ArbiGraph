@@ -48,6 +48,7 @@ class PythonTaskIntegrationTest(unittest.TestCase):
 
         self.assertIn("Define task_1_limit_static =", prompt)
         self.assertIn("limit = task_1_limit_static", prompt)
+        self.assertNotIn("Update task_1_input", prompt)
 
     def test_python_scalar_join_fills_multi_parent_node(self):
         graph = parse_custom_dag(graph_data(

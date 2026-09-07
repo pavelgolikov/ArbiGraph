@@ -12,15 +12,11 @@ from typing import Any
 
 import libcst as cst
 
-from tasks.math_task.math_helpers import (
-    adapt_list_compute,
-    adapt_list_prompt,
-    adapt_scalar_compute,
-    adapt_scalar_prompt,
-    join_adaptar_add_compute,
-    join_adaptar_add_prompt,
-    join_adaptar_interleave_compute,
-    join_adaptar_interleave_prompt,
+from tasks.adapters import (
+    AddScalarsAdapter,
+    ListToListAdapter,
+    ScalarToScalarAdapter,
+    SumListsAdapter,
 )
 from tasks.task import Task
 
@@ -31,6 +27,189 @@ SCALAR_MAX_MAG = 100
 STATIC_ATTEMPTS = 5
 TIMEOUT_SECONDS = 5
 
+# =============================================================================
+# Base Class
+# =============================================================================
+
+class PythonTask(Task):
+    def __init__(
+        self,
+        task: dict[str, Any],
+        task_ind: int,
+        input_names: list[str],
+        input_value: Any,
+        scalar_max_mag: int,
+        list_len_max: int,
+        num_parents: int = 1,
+    ):
+        super().__init__("python", task["task_id"], task["task_name"], task["input_type"], task["output_type"])
+        self.params = task["func_info"]["params"]
+        self.chained_param = task["chained_param"]
+        self.scalar_max_mag = scalar_max_mag
+        self.list_len_max = list_len_max
+        self.num_parents = num_parents
+        self.result_var_name = f"python_result_{task_ind:d}"
+        self.method_name = f"task_{task_ind:d}"
+        self.adapted_input_name = f"list_{task_ind:d}" if self.input_type == "list" else f"val_{task_ind:d}"
+        if self.input_type == "list":
+            self.input_adapter = ListToListAdapter(
+                mod_value=scalar_max_mag,
+                list_len_max=list_len_max,
+                to_int=True,
+                num_parents=self.num_parents,
+            )
+        else:
+            self.input_adapter = ScalarToScalarAdapter(mod_value=scalar_max_mag, to_int=True)
+        adapted_input = self.input_adapter.compute(input_value)
+        self.func_code = transform_code(
+            task["func_info"]["code"],
+            task["func_info"]["name"],
+            self.chained_param,
+            self.adapted_input_name,
+            self.result_var_name,
+            self.method_name,
+            task["func_info"]["return_tuple_index"],
+        )
+        self.out, self.static_values = self._try_solution(adapted_input)
+        self.prompt = self.prompt_generator(task_ind, input_names, f"task_{task_ind:d}_out")
+
+    def _try_solution(self, adapted_input: Any) -> tuple[Any, dict[str, Any]]:
+        last_error = None
+        for _ in range(STATIC_ATTEMPTS):
+            inputs = {self.adapted_input_name: copy.deepcopy(adapted_input)}
+            static_values = {}
+            for name, param_type in self.params:
+                if name == self.chained_param:
+                    continue
+                if param_type == "list":
+                    value = [random.randint(-self.scalar_max_mag, self.scalar_max_mag) for _ in range(self.list_len_max)]
+                else:
+                    value = random.randint(-self.scalar_max_mag, self.scalar_max_mag)
+                inputs[name] = value
+                static_values[name] = value
+            try:
+                output = execute_function(self.func_code, self.method_name, inputs)
+            except Exception as exc:
+                last_error = exc
+                continue
+            if output is None or (isinstance(output, (list, tuple)) and not output):
+                continue
+            return (list(output) if self.output_type == "list" else output), static_values
+        raise ValueError(f"Could not execute {self.task_name}: {last_error}")
+
+    def solution_generator(self, input_value: Any) -> Any:
+        output = self.out
+        return output
+
+    def prompt_generator(self, task_ind: int, input_names: list[str], output_name: str) -> str:
+        prompt = self.input_adapter.prompt(input_names[0], self.adapted_input_name)
+
+        for name, value in self.static_values.items():
+            prompt += f"Define task_{task_ind:d}_{name}_static = {json.dumps(value, ensure_ascii=True)}.\n"
+
+        mappings = [
+            f'{name} = task_{task_ind:d}_{name}_static'
+            for name, _param_type in self.params
+            if name != self.chained_param
+        ]
+        inputs_clause = f" with inputs {', '.join(mappings)}" if mappings else ""
+        func_code = self.func_code
+        if "List[" in func_code:
+            func_code = f"from typing import List\n{func_code}"
+        prompt += (
+            f"Trace the execution of {self.method_name}{inputs_clause}.\n"
+            f"```python\n{func_code}```\n"
+            f"Let {self.result_var_name} be the value returned by {self.method_name}.\n"
+            f"Output the result as {output_name} = "
+            f'{{"result": {self.result_var_name}}}, '
+            f"replacing {self.result_var_name} with its calculated value."
+        )
+        return f"Task {task_ind:d}:\n{prompt.rstrip()}"
+
+
+
+def load_pool() -> list[dict[str, Any]]:
+    tasks = []
+    task_id = 0
+    for func_info in load_candidate_algos():
+        output_type = func_info["output_type"]
+        for input_type in ("list", "scalar"):
+            chained_param = next((name for name, param_type in func_info["params"] if param_type == input_type), None)
+            if chained_param is None:
+                continue
+            tasks.append({
+                "category": "python",
+                "task_id": task_id,
+                "task_name": f"{func_info['name']}:{input_type}",
+                "input_type": input_type,
+                "output_type": output_type,
+                "task_implementation": PythonTask,
+                "func_info": func_info,
+                "chained_param": chained_param,
+            })
+            task_id += 1
+
+    return tasks
+
+
+def make_stage(
+    task: dict[str, Any],
+    task_number: int,
+    input_names: list[str],
+    _input: Any,
+) -> tuple[Any, str, list[str], Any]:
+    adapter_prompt = ""
+    num_parents = 0 if _input is None else len(input_names)
+    if _input is None:
+        if task["input_type"] == "list":
+            task_input = [random.randint(-SCALAR_MAX_MAG, SCALAR_MAX_MAG) for _ in range(LIST_LEN_MAX)]
+        else:
+            task_input = random.randint(-SCALAR_MAX_MAG, SCALAR_MAX_MAG)
+    else:
+        task_input = _input
+
+    references = [f'{input_name}["result"]' for input_name in input_names]
+    if len(input_names) > 1:
+        if task["input_type"] == "scalar":
+            adapter_name = f"val_{task_number:d}_join"
+            join_adapter = AddScalarsAdapter()
+        elif task["input_type"] == "list":
+            adapter_name = f"list_{task_number:d}_join"
+            join_adapter = SumListsAdapter()
+        else:
+            raise ValueError(f"Cannot join inputs for input_type={task['input_type']!r}.")
+        task_input = join_adapter.compute(task_input)
+        adapter_prompt = join_adapter.prompt(references, adapter_name)
+        references = [adapter_name]
+
+    task_instance = task["task_implementation"](
+        task,
+        task_number,
+        references,
+        task_input,
+        SCALAR_MAX_MAG,
+        LIST_LEN_MAX,
+        num_parents,
+    )
+    prompt = task_instance.prompt.rstrip()
+    if adapter_prompt:
+        task_header, task_body = prompt.split("\n", 1)
+        prompt = f"{task_header}\n{adapter_prompt.rstrip()}\n{task_body}"
+
+    if bad_output(task_instance.out):
+        raise ValueError(f"python:{task['task_id']}:{task['task_name']} produced an unusable output.")
+
+    if _input is None:
+        input_json = json.dumps({"result": task_input}, ensure_ascii=True)
+        prompt = f"Define {input_names[0]} = {input_json}.\n{prompt}"
+
+    return task_instance.out, prompt, [], task_input
+
+
+
+# =============================================================================
+# Internal Helpers
+# =============================================================================
 
 def bad_output(value: Any) -> bool:
     if isinstance(value, list):
@@ -232,170 +411,3 @@ def transform_code(
         elif line.strip():
             lines.append(line)
     return "\n".join(lines).strip() + "\n"
-
-
-class PythonTask(Task):
-    def __init__(
-        self,
-        task: dict[str, Any],
-        task_ind: int,
-        input_names: list[str],
-        input_value: Any,
-        scalar_max_mag: int,
-        list_len_max: int,
-    ):
-        super().__init__("python", task["task_id"], task["task_name"], task["input_type"], task["output_type"])
-        self.params = task["func_info"]["params"]
-        self.chained_param = task["chained_param"]
-        self.scalar_max_mag = scalar_max_mag
-        self.list_len_max = list_len_max
-        self.result_var_name = f"python_result_{task_ind:d}"
-        self.method_name = f"task_{task_ind:d}"
-        self.adapted_input_name = f"list_{task_ind:d}" if self.input_type == "list" else f"val_{task_ind:d}"
-        if self.input_type == "list":
-            adapted_input = adapt_list_compute(input_value, mod_value=scalar_max_mag, list_len_max=list_len_max, to_int=True)
-        else:
-            adapted_input = adapt_scalar_compute(input_value, mod_value=scalar_max_mag, to_int=True)
-        self.func_code = transform_code(
-            task["func_info"]["code"],
-            task["func_info"]["name"],
-            self.chained_param,
-            self.adapted_input_name,
-            self.result_var_name,
-            self.method_name,
-            task["func_info"]["return_tuple_index"],
-        )
-        self.out, self.static_values = self._try_solution(adapted_input)
-        self.prompt = self.prompt_generator(task_ind, input_names, f"task_{task_ind:d}_out")
-
-    def _try_solution(self, adapted_input: Any) -> tuple[Any, dict[str, Any]]:
-        last_error = None
-        for _ in range(STATIC_ATTEMPTS):
-            inputs = {self.adapted_input_name: copy.deepcopy(adapted_input)}
-            static_values = {}
-            for name, param_type in self.params:
-                if name == self.chained_param:
-                    continue
-                if param_type == "list":
-                    value = [random.randint(-self.scalar_max_mag, self.scalar_max_mag) for _ in range(self.list_len_max)]
-                else:
-                    value = random.randint(-self.scalar_max_mag, self.scalar_max_mag)
-                inputs[name] = value
-                static_values[name] = value
-            try:
-                output = execute_function(self.func_code, self.method_name, inputs)
-            except Exception as exc:
-                last_error = exc
-                continue
-            if output is None or (isinstance(output, (list, tuple)) and not output):
-                continue
-            return (list(output) if self.output_type == "list" else output), static_values
-        raise ValueError(f"Could not execute {self.task_name}: {last_error}")
-
-    def solution_generator(self, input_value: Any) -> Any:
-        output = self.out
-        return output
-
-    def prompt_generator(self, task_ind: int, input_names: list[str], output_name: str) -> str:
-        if self.input_type == "list":
-            prompt = adapt_list_prompt(input_names[0], self.adapted_input_name, self.scalar_max_mag, self.list_len_max, to_int=True)
-        else:
-            prompt = adapt_scalar_prompt(input_names[0], self.adapted_input_name, self.scalar_max_mag, to_int=True)
-
-        for name, value in self.static_values.items():
-            prompt += f"Define task_{task_ind:d}_{name}_static = {json.dumps(value, ensure_ascii=True)}.\n"
-
-        mappings = [
-            f'{name} = task_{task_ind:d}_{name}_static'
-            for name, _param_type in self.params
-            if name != self.chained_param
-        ]
-        inputs_clause = f" with inputs {', '.join(mappings)}" if mappings else ""
-        func_code = self.func_code
-        if "List[" in func_code:
-            func_code = f"from typing import List\n{func_code}"
-        prompt += (
-            f"Trace the execution of {self.method_name}{inputs_clause}.\n"
-            f"```python\n{func_code}```\n"
-            f"Let {self.result_var_name} be the value returned by {self.method_name}.\n"
-            f"Output the result as {output_name} = "
-            f'{{"result": {self.result_var_name}}}, '
-            f"replacing {self.result_var_name} with its calculated value."
-        )
-        return f"Task {task_ind:d}:\n{prompt.rstrip()}"
-
-
-def load_pool() -> list[dict[str, Any]]:
-    tasks = []
-    task_id = 0
-    for func_info in load_candidate_algos():
-        output_type = func_info["output_type"]
-        for input_type in ("list", "scalar"):
-            chained_param = next((name for name, param_type in func_info["params"] if param_type == input_type), None)
-            if chained_param is None:
-                continue
-            tasks.append({
-                "category": "python",
-                "task_id": task_id,
-                "task_name": f"{func_info['name']}:{input_type}",
-                "input_type": input_type,
-                "output_type": output_type,
-                "task_implementation": PythonTask,
-                "func_info": func_info,
-                "chained_param": chained_param,
-            })
-            task_id += 1
-
-    return tasks
-
-
-def make_stage(
-    task: dict[str, Any],
-    task_number: int,
-    input_names: list[str],
-    _input: Any,
-) -> tuple[Any, str, list[str], Any]:
-    adapter_prompt = ""
-    if _input is None:
-        if task["input_type"] == "list":
-            task_input = [random.randint(-SCALAR_MAX_MAG, SCALAR_MAX_MAG) for _ in range(LIST_LEN_MAX)]
-        else:
-            task_input = random.randint(-SCALAR_MAX_MAG, SCALAR_MAX_MAG)
-    else:
-        task_input = _input
-
-    references = [f'{input_name}["result"]' for input_name in input_names]
-    if len(input_names) > 1:
-        if task["input_type"] == "scalar":
-            adapter_name = f"val_{task_number:d}_join"
-            task_input = join_adaptar_add_compute(task_input)
-            adapter_prompt = join_adaptar_add_prompt(references, adapter_name)
-        elif task["input_type"] == "list":
-            adapter_name = f"list_{task_number:d}_join"
-            task_input = join_adaptar_interleave_compute(task_input)
-            adapter_prompt = join_adaptar_interleave_prompt(references, adapter_name)
-        else:
-            raise ValueError(f"Cannot join inputs for input_type={task['input_type']!r}.")
-        references = [adapter_name]
-
-    task_instance = task["task_implementation"](
-        task,
-        task_number,
-        references,
-        task_input,
-        SCALAR_MAX_MAG,
-        LIST_LEN_MAX,
-    )
-    prompt = task_instance.prompt.rstrip()
-    if adapter_prompt:
-        task_header, task_body = prompt.split("\n", 1)
-        prompt = f"{task_header}\n{adapter_prompt.rstrip()}\n{task_body}"
-
-    if bad_output(task_instance.out):
-        raise ValueError(f"python:{task['task_id']}:{task['task_name']} produced an unusable output.")
-
-    if _input is None:
-        input_json = json.dumps({"result": task_input}, ensure_ascii=True)
-        prompt = f"Define {input_names[0]} = {input_json}.\n{prompt}"
-
-    return task_instance.out, prompt, [], task_input

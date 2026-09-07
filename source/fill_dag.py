@@ -15,7 +15,7 @@ from tasks.python_task.python_task import load_pool as load_python_pool
 from tasks.python_task.python_task import make_stage as make_python_stage
 
 
-MAX_FILL_ATTEMPTS = 100
+MAX_FILL_ATTEMPTS = 200
 
 
 def load_pool(category: str) -> list[dict[str, Any]]:
@@ -198,6 +198,7 @@ def _instantiate(
     type_choices: dict[Any, dict[str, Any]],
     pools: dict[str, list[dict[str, Any]]],
     rng: random.Random,
+    sample_idx: int = 0,
 ) -> dict[str, Any]:
     # Topological order guarantees parent outputs are ready before child tasks.
     order = list(nx.topological_sort(graph))
@@ -226,17 +227,32 @@ def _instantiate(
             input_names = [outputs[parent]["output_name"] for parent in parents]
             input_value = [outputs[parent]["value"] for parent in parents]
 
-        picked = pick_task(
-            type_choice["category"],
-            type_choice["input_type"],
-            type_choice["output_type"],
-            input_value,
-            input_names_for_stage=input_names,
-            task_number=task_number,
-            pools=pools,
-            rng=rng,
-            pinned_task=type_choice["task"],
-        )
+        target_root = not parents and node_id == graph.graph["target"]["id"]
+        target_attempt = 0
+        while True:
+            node_rng = rng
+            if target_root:
+                target_task_id = graph.graph["target"]["native_task_id"]
+                key = f"{type_choice['category']}:{target_task_id}:{sample_idx}:{target_attempt}"
+                random.seed(key)
+                node_rng = random.Random(key)
+            try:
+                picked = pick_task(
+                    type_choice["category"],
+                    type_choice["input_type"],
+                    type_choice["output_type"],
+                    input_value,
+                    input_names_for_stage=input_names,
+                    task_number=task_number,
+                    pools=pools,
+                    rng=node_rng,
+                    pinned_task=type_choice["task"],
+                )
+                break
+            except Exception:
+                target_attempt += 1
+                if not target_root or target_attempt >= MAX_FILL_ATTEMPTS:
+                    raise
         task = picked["task"]
         input_value = picked["input"]
 
@@ -279,12 +295,14 @@ def fill_dag(
     graph: nx.DiGraph,
     *,
     seed: int = 0,
+    sample_idx: int = 0,
     max_fill_attempts: int = MAX_FILL_ATTEMPTS,
 ) -> dict[str, Any]:
     rng = random.Random(seed)
 
     # Load one task pool per graph category.
-    pools = {category: load_pool(category) for category in {attrs["category"] for _node_id, attrs in graph.nodes(data=True)}}
+    categories = {attrs["category"] for _node_id, attrs in graph.nodes(data=True)}
+    pools = {category: load_pool(category) for category in categories}
     last_error = None
 
     for _ in range(max_fill_attempts):
@@ -293,7 +311,7 @@ def fill_dag(
         # Retry from type choice after instantiation or output-vetting failure.
         type_choices = choose_task_types(graph, pools, rng)
         try:
-            return _instantiate(graph, type_choices, pools, rng)
+            return _instantiate(graph, type_choices, pools, rng, sample_idx)
         except Exception as exc:
             last_error = exc
 

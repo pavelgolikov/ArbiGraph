@@ -1,5 +1,11 @@
+# Dataset generation (source/)
 fracturedjson
 libcst
 networkx
 sympy
 tqdm
+
+# Evaluation harness (eval/) — only needed to run models against a generated
+# dataset. The calculator tool server needs these; vLLM is installed separately.
+mcp
+pydantic

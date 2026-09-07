@@ -53,7 +53,7 @@ def _node_outputs(dag_sample: dict[str, Any]) -> list[dict[str, Any]]:
 
 # Create one sample from one concrete target DAG.
 def _make_sample(dag_data: dict[str, Any], sample_idx: int, seed: int) -> dict[str, Any]:
-    dag_sample = fill_dag(parse_custom_dag(dag_data), seed=seed)
+    dag_sample = fill_dag(parse_custom_dag(dag_data), seed=seed, sample_idx=sample_idx)
     target_record = next(record for record in dag_sample["nodes"] if record["node_id"] == dag_sample["target_node"])
     return {
         "target_native_task_id": target_record["task_id"],

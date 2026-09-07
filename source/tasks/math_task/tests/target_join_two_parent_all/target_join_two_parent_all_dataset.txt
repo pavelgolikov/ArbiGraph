@@ -8,7 +8,7 @@ Task 1:
 Let list_1 be the result of preprocessing task_1_input["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_1 has more than 10 elements, keep only the first 10 elements.
 Sort list_1 based on the number of divisors of their absolute values in ascending order. If an element is 0, treat its divisor count as 0. Maintain stable sorting for ties.
-Let sort_by_divisor_count_result_1 be the resulting list.
+Let sort_by_divisor_count_result_1 be the resulting sorted list.
 Output the result as task_1_out = {"result": sort_by_divisor_count_result_1}, replacing sort_by_divisor_count_result_1 with its calculated value.
 
 Define task_2_input = {"result": [67, -30, 29, 9, -61, 78, -48, 99, -49, -48]}.
@@ -19,19 +19,20 @@ If the length of list_2 is not a power of 2, update list_2 by padding it with ze
 Let list_2 = [a_0, a_1, ..., a_{N-1}]. Let p be the smallest prime number of the form m*N + 1 for a positive integer m.
 All arithmetic in this transform is modulo p. Let g be the smallest positive primitive root modulo p, and define omega = g**((p - 1) // N) mod p. By construction, (N) divides (p-1), so (omega) has exact order (N) modulo (p).
 Compute the number theoretic transform A = [A_0, A_1, ..., A_{N-1}], where for each j = 0, 1, ..., N-1, A_j = sum_{k=0}^{N-1} a_k * omega**(j*k) mod p.
-Return each A_j as its least nonnegative residue in {0, 1, ..., p-1}.
-Let ntt_result_2 be the resulting list.
+Compute each A_j as its least nonnegative residue in {0, 1, ..., p-1}.
+Let ntt_result_2 be this sequence A.
 Output the result as task_2_out = {"result": ntt_result_2}, replacing ntt_result_2 with its calculated value.
 
 Task 3:
-Let list_3_join be the result of interleaving the following lists in the order listed: task_1_out["result"], task_2_out["result"].
-Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
-For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
+Pair the input lists task_1_out["result"] and task_2_out["result"] with the output variables task_1_out_fd and task_2_out_fd, respectively.
+For each pair independently, suppose the input list is [x_1, ..., x_n] and let the paired output variable be [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n for that input list.
+Let list_3_join be the result of adding the following lists elementwise: task_1_out_fd, task_2_out_fd. At each position, add the elements from every list that has an element at that position.
+If a list is shorter than the others, omit it from the sums after it runs out of elements.
 Let list_3 be the result of preprocessing list_3_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_3 has more than 10 elements, keep only the first 10 elements.
 Define seq2_3 = [3, 1, 1, -4, 5, 1, 0, -2, -3, 4].
 Compute the linear discrete convolution of list_3 and seq2_3.
-Let convolution_result_3 be the resulting list.
+Let convolution_result_3 be the resulting sequence.
 Output the result as task_3_out = {"result": convolution_result_3}, replacing convolution_result_3 with its calculated value.
 
 ======================================================================
@@ -56,22 +57,23 @@ If the length of list_2 is not a power of 2, update list_2 by padding it with ze
 Let list_2 = [a_0, a_1, ..., a_{N-1}].
 Compute the unnormalized Walsh-Hadamard transform in Sylvester order. That is, for each j = 0, 1, ..., N-1, define
 H_j = sum_{k=0}^{N-1} ((-1) ** popcount(j & k)) * a_k, where `&` is bitwise AND and popcount counts the number of 1-bits.
-Return the sequence [H_0, H_1, ..., H_{N-1}].
-Let fwht_result_2 be the resulting list.
+Compute the sequence [H_0, H_1, ..., H_{N-1}].
+Let fwht_result_2 be this sequence.
 Output the result as task_2_out = {"result": fwht_result_2}, replacing fwht_result_2 with its calculated value.
 
 Task 3:
-Let list_3_join be the result of interleaving the following lists in the order listed: task_1_out["result"], task_2_out["result"].
-Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
-For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
+Pair the input lists task_1_out["result"] and task_2_out["result"] with the output variables task_1_out_fd and task_2_out_fd, respectively.
+For each pair independently, suppose the input list is [x_1, ..., x_n] and let the paired output variable be [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n for that input list.
+Let list_3_join be the result of adding the following lists elementwise: task_1_out_fd, task_2_out_fd. At each position, add the elements from every list that has an element at that position.
+If a list is shorter than the others, omit it from the sums after it runs out of elements.
 Let list_3 be the result of preprocessing list_3_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_3 has more than 10 elements, keep only the first 10 elements.
 If the length of list_3 is not a power of 2, update list_3 by padding it with zeros to the next power of 2.
 Let list_3 = [a_0, a_1, ..., a_{N-1}].
 Compute the unnormalized Walsh-Hadamard transform in Sylvester order. That is, for each j = 0, 1, ..., N-1, define
 H_j = sum_{k=0}^{N-1} ((-1) ** popcount(j & k)) * a_k, where `&` is bitwise AND and popcount counts the number of 1-bits.
-Return the sequence [H_0, H_1, ..., H_{N-1}].
-Let fwht_result_3 be the resulting list.
+Compute the sequence [H_0, H_1, ..., H_{N-1}].
+Let fwht_result_3 be this sequence.
 Output the result as task_3_out = {"result": fwht_result_3}, replacing fwht_result_3 with its calculated value.
 
 ======================================================================
@@ -93,13 +95,14 @@ Task 2:
 Let list_2 be the result of preprocessing task_2_input["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_2 has more than 10 elements, keep only the first 10 elements.
 Sort list_2 based on the number of divisors of their absolute values in ascending order. If an element is 0, treat its divisor count as 0. Maintain stable sorting for ties.
-Let sort_by_divisor_count_result_2 be the resulting list.
+Let sort_by_divisor_count_result_2 be the resulting sorted list.
 Output the result as task_2_out = {"result": sort_by_divisor_count_result_2}, replacing sort_by_divisor_count_result_2 with its calculated value.
 
 Task 3:
-Let list_3_join be the result of interleaving the following lists in the order listed: task_1_out["result"], task_2_out["result"].
-Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
-For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
+Pair the input lists task_1_out["result"] and task_2_out["result"] with the output variables task_1_out_fd and task_2_out_fd, respectively.
+For each pair independently, suppose the input list is [x_1, ..., x_n] and let the paired output variable be [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n for that input list.
+Let list_3_join be the result of adding the following lists elementwise: task_1_out_fd, task_2_out_fd. At each position, add the elements from every list that has an element at that position.
+If a list is shorter than the others, omit it from the sums after it runs out of elements.
 Let list_3 be the result of preprocessing list_3_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_3 has more than 10 elements, keep only the first 10 elements.
 Let L be max(1, the length of list_3). Let r = max(1, floor(sqrt(L))). Let c = ceil(L / r).
@@ -133,14 +136,15 @@ If the length of list_2 is not a power of 2, update list_2 by padding it with ze
 Let list_2 = [a_0, a_1, ..., a_{N-1}].
 Compute the unnormalized Walsh-Hadamard transform in Sylvester order. That is, for each j = 0, 1, ..., N-1, define
 H_j = sum_{k=0}^{N-1} ((-1) ** popcount(j & k)) * a_k, where `&` is bitwise AND and popcount counts the number of 1-bits.
-Return the sequence [H_0, H_1, ..., H_{N-1}].
-Let fwht_result_2 be the resulting list.
+Compute the sequence [H_0, H_1, ..., H_{N-1}].
+Let fwht_result_2 be this sequence.
 Output the result as task_2_out = {"result": fwht_result_2}, replacing fwht_result_2 with its calculated value.
 
 Task 3:
-Let list_3_join be the result of interleaving the following lists in the order listed: task_1_out["result"], task_2_out["result"].
-Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
-For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
+Pair the input lists task_1_out["result"] and task_2_out["result"] with the output variables task_1_out_fd and task_2_out_fd, respectively.
+For each pair independently, suppose the input list is [x_1, ..., x_n] and let the paired output variable be [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n for that input list.
+Let list_3_join be the result of adding the following lists elementwise: task_1_out_fd, task_2_out_fd. At each position, add the elements from every list that has an element at that position.
+If a list is shorter than the others, omit it from the sums after it runs out of elements.
 Let list_3 be the result of preprocessing list_3_join as follows - for every element, replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_3 has more than 10 elements, keep only the first 10 elements.
 Let L be max(1, the length of list_3). Let r = max(1, floor(sqrt(L))). Let c = ceil(L / r).
@@ -177,9 +181,10 @@ Convert matrix mat_matrix_polynomial_result_2 into a list matrix_polynomial_resu
 Output the result as task_2_out = {"result": matrix_polynomial_result_2}, replacing matrix_polynomial_result_2 with its calculated value.
 
 Task 3:
-Let list_3_join be the result of interleaving the following lists in the order listed: task_1_out["result"], task_2_out["result"].
-Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
-For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
+Pair the input lists task_1_out["result"] and task_2_out["result"] with the output variables task_1_out_fd and task_2_out_fd, respectively.
+For each pair independently, suppose the input list is [x_1, ..., x_n] and let the paired output variable be [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n for that input list.
+Let list_3_join be the result of adding the following lists elementwise: task_1_out_fd, task_2_out_fd. At each position, add the elements from every list that has an element at that position.
+If a list is shorter than the others, omit it from the sums after it runs out of elements.
 Let list_3 be the result of preprocessing list_3_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_3 has more than 10 elements, keep only the first 10 elements.
 Let L be max(1, the length of list_3). Let k = ceil(sqrt(L)).
@@ -198,8 +203,7 @@ Define task_1_input = {"result": -84}.
 Task 1:
 Let val_1 be the result of preprocessing task_1_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 3 to it.
 For each integer i from 1 to val_1, compute the number of diagonals in a convex polygon with i + val_1 vertices.
-Compute the sequence of these values.
-Let polygon_diagonals_sequence_result_1 be the resulting list.
+Compute the sequence of these values. Let polygon_diagonals_sequence_result_1 be the resulting sequence.
 Output the result as task_1_out = {"result": polygon_diagonals_sequence_result_1}, replacing polygon_diagonals_sequence_result_1 with its calculated value.
 
 Define task_2_input = {"result": [-72, -95, 49, -48, -77, -75, -16, -98, -75, 38]}.
@@ -213,17 +217,18 @@ Convert poly_poly_remainder_result_2 into a list poly_remainder_result_2 by extr
 Output the result as task_2_out = {"result": poly_remainder_result_2}, replacing poly_remainder_result_2 with its calculated value.
 
 Task 3:
-Let list_3_join be the result of interleaving the following lists in the order listed: task_1_out["result"], task_2_out["result"].
-Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
-For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
+Pair the input lists task_1_out["result"] and task_2_out["result"] with the output variables task_1_out_fd and task_2_out_fd, respectively.
+For each pair independently, suppose the input list is [x_1, ..., x_n] and let the paired output variable be [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n for that input list.
+Let list_3_join be the result of adding the following lists elementwise: task_1_out_fd, task_2_out_fd. At each position, add the elements from every list that has an element at that position.
+If a list is shorter than the others, omit it from the sums after it runs out of elements.
 Let list_3 be the result of preprocessing list_3_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_3 has more than 10 elements, keep only the first 10 elements.
 If the length of list_3 is not a power of 2, update list_3 by padding it with zeros to the next power of 2.
 Let list_3 = [a_0, a_1, ..., a_{N-1}]. Let p be the smallest prime number of the form m*N + 1 for a positive integer m.
 All arithmetic in this transform is modulo p. Let g be the smallest positive primitive root modulo p, and define omega = g**((p - 1) // N) mod p. By construction, (N) divides (p-1), so (omega) has exact order (N) modulo (p).
 Compute the number theoretic transform A = [A_0, A_1, ..., A_{N-1}], where for each j = 0, 1, ..., N-1, A_j = sum_{k=0}^{N-1} a_k * omega**(j*k) mod p.
-Return each A_j as its least nonnegative residue in {0, 1, ..., p-1}.
-Let ntt_result_3 be the resulting list.
+Compute each A_j as its least nonnegative residue in {0, 1, ..., p-1}.
+Let ntt_result_3 be this sequence A.
 Output the result as task_3_out = {"result": ntt_result_3}, replacing ntt_result_3 with its calculated value.
 
 ======================================================================
@@ -251,9 +256,10 @@ Let gray_code_sequence_result_2 be the resulting list.
 Output the result as task_2_out = {"result": gray_code_sequence_result_2}, replacing gray_code_sequence_result_2 with its calculated value.
 
 Task 3:
-Let list_3_join be the result of interleaving the following lists in the order listed: task_1_out["result"], task_2_out["result"].
-Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
-For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
+Pair the input lists task_1_out["result"] and task_2_out["result"] with the output variables task_1_out_fd and task_2_out_fd, respectively.
+For each pair independently, suppose the input list is [x_1, ..., x_n] and let the paired output variable be [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n for that input list.
+Let list_3_join be the result of adding the following lists elementwise: task_1_out_fd, task_2_out_fd. At each position, add the elements from every list that has an element at that position.
+If a list is shorter than the others, omit it from the sums after it runs out of elements.
 Let list_3 be the result of preprocessing list_3_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_3 has more than 10 elements, keep only the first 10 elements.
 Let P_3(x) be a polynomial whose coefficients are the elements of the list list_3 in order, starting from the highest degree.
@@ -272,7 +278,7 @@ Let val_1 be the result of preprocessing task_1_input["result"] as follows - if 
 For each prime number p with p <= 2*val_1, define e_p as follows.
 For every positive integer j such that p**j <= 2*val_1, compute floor((2*val_1) / p**j) - 2*floor(val_1 / p**j), and let e_p be the sum of these values over all such j.
 For each prime p with p <= 2*val_1, compute p * (e_p + 1).
-Return these values as a list in increasing order of p.
+List these values in increasing order of p.
 Let central_binomial_prime_valuation_vector_result_1 be the resulting list.
 Output the result as task_1_out = {"result": central_binomial_prime_valuation_vector_result_1}, replacing central_binomial_prime_valuation_vector_result_1 with its calculated value.
 
@@ -289,9 +295,10 @@ Convert matrix mat_mat_mul_result_2 into a list mat_mul_result_2 by concatenatin
 Output the result as task_2_out = {"result": mat_mul_result_2}, replacing mat_mul_result_2 with its calculated value.
 
 Task 3:
-Let list_3_join be the result of interleaving the following lists in the order listed: task_1_out["result"], task_2_out["result"].
-Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
-For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
+Pair the input lists task_1_out["result"] and task_2_out["result"] with the output variables task_1_out_fd and task_2_out_fd, respectively.
+For each pair independently, suppose the input list is [x_1, ..., x_n] and let the paired output variable be [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n for that input list.
+Let list_3_join be the result of adding the following lists elementwise: task_1_out_fd, task_2_out_fd. At each position, add the elements from every list that has an element at that position.
+If a list is shorter than the others, omit it from the sums after it runs out of elements.
 Let list_3 be the result of preprocessing list_3_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_3 has more than 10 elements, keep only the first 10 elements.
 Let poly_1_3(x) be a polynomial whose coefficients are the elements of the list list_3 in order, starting from the highest degree.
@@ -313,8 +320,8 @@ If the length of list_1 is not a power of 2, update list_1 by padding it with ze
 Let list_1 = [a_0, a_1, ..., a_{N-1}]. Let p be the smallest prime number of the form m*N + 1 for a positive integer m.
 All arithmetic in this transform is modulo p. Let g be the smallest positive primitive root modulo p, and define omega = g**((p - 1) // N) mod p. By construction, (N) divides (p-1), so (omega) has exact order (N) modulo (p).
 Compute the number theoretic transform A = [A_0, A_1, ..., A_{N-1}], where for each j = 0, 1, ..., N-1, A_j = sum_{k=0}^{N-1} a_k * omega**(j*k) mod p.
-Return each A_j as its least nonnegative residue in {0, 1, ..., p-1}.
-Let ntt_result_1 be the resulting list.
+Compute each A_j as its least nonnegative residue in {0, 1, ..., p-1}.
+Let ntt_result_1 be this sequence A.
 Output the result as task_1_out = {"result": ntt_result_1}, replacing ntt_result_1 with its calculated value.
 
 Define task_2_input = {"result": [-100, 75, -80, -46, 72, 37, -65, -4, 10, 17]}.
@@ -330,13 +337,14 @@ Convert matrix mat_kronecker_product_result_2 into a list kronecker_product_resu
 Output the result as task_2_out = {"result": kronecker_product_result_2}, replacing kronecker_product_result_2 with its calculated value.
 
 Task 3:
-Let list_3_join be the result of interleaving the following lists in the order listed: task_1_out["result"], task_2_out["result"].
-Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
-For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
+Pair the input lists task_1_out["result"] and task_2_out["result"] with the output variables task_1_out_fd and task_2_out_fd, respectively.
+For each pair independently, suppose the input list is [x_1, ..., x_n] and let the paired output variable be [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n for that input list.
+Let list_3_join be the result of adding the following lists elementwise: task_1_out_fd, task_2_out_fd. At each position, add the elements from every list that has an element at that position.
+If a list is shorter than the others, omit it from the sums after it runs out of elements.
 Let list_3 be the result of preprocessing list_3_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_3 has more than 10 elements, keep only the first 10 elements.
 Sort list_3 based on the number of divisors of their absolute values in ascending order. If an element is 0, treat its divisor count as 0. Maintain stable sorting for ties.
-Let sort_by_divisor_count_result_3 be the resulting list.
+Let sort_by_divisor_count_result_3 be the resulting sorted list.
 Output the result as task_3_out = {"result": sort_by_divisor_count_result_3}, replacing sort_by_divisor_count_result_3 with its calculated value.
 
 ======================================================================
@@ -358,21 +366,22 @@ Task 2:
 Let val_2 be the result of preprocessing task_2_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 For each integer i from 1 to val_2, compute (i * val_2) modulo the val_2-th prime number.
 Compute the sequence of these values.
-Let modular_multiplication_sequence_result_2 be the resulting list.
+Let modular_multiplication_sequence_result_2 be the resulting sequence.
 Output the result as task_2_out = {"result": modular_multiplication_sequence_result_2}, replacing modular_multiplication_sequence_result_2 with its calculated value.
 
 Task 3:
-Let list_3_join be the result of interleaving the following lists in the order listed: task_1_out["result"], task_2_out["result"].
-Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
-For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
+Pair the input lists task_1_out["result"] and task_2_out["result"] with the output variables task_1_out_fd and task_2_out_fd, respectively.
+For each pair independently, suppose the input list is [x_1, ..., x_n] and let the paired output variable be [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n for that input list.
+Let list_3_join be the result of adding the following lists elementwise: task_1_out_fd, task_2_out_fd. At each position, add the elements from every list that has an element at that position.
+If a list is shorter than the others, omit it from the sums after it runs out of elements.
 Let list_3 be the result of preprocessing list_3_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_3 has more than 10 elements, keep only the first 10 elements.
 If the length of list_3 is not a power of 2, update list_3 by padding it with zeros to the next power of 2.
 Let list_3 be a sequence of length 2^m. Index its entries by bitmasks S = 0, 1, ..., 2^m - 1.
 Compute the subset-sum/zeta transform B, where for each bitmask S, B[S] = sum of list_3[T] over all bitmasks T such that T is a subset of S.
 Here, T is a subset of S means every 1-bit of T is also a 1-bit of S, equivalently (T & S) = T.
-Return the values B[0], B[1], ..., B[2^m - 1] in increasing bitmask order.
-Let subset_zeta_transform_result_3 be the resulting list.
+Compute the values B[0], B[1], ..., B[2^m - 1] in increasing bitmask order.
+Let subset_zeta_transform_result_3 be this sequence B.
 Output the result as task_3_out = {"result": subset_zeta_transform_result_3}, replacing subset_zeta_transform_result_3 with its calculated value.
 
 ======================================================================
@@ -402,9 +411,10 @@ Convert poly_poly_remainder_result_2 into a list poly_remainder_result_2 by extr
 Output the result as task_2_out = {"result": poly_remainder_result_2}, replacing poly_remainder_result_2 with its calculated value.
 
 Task 3:
-Let list_3_join be the result of interleaving the following lists in the order listed: task_1_out["result"], task_2_out["result"].
-Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
-For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
+Pair the input lists task_1_out["result"] and task_2_out["result"] with the output variables task_1_out_fd and task_2_out_fd, respectively.
+For each pair independently, suppose the input list is [x_1, ..., x_n] and let the paired output variable be [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n for that input list.
+Let list_3_join be the result of adding the following lists elementwise: task_1_out_fd, task_2_out_fd. At each position, add the elements from every list that has an element at that position.
+If a list is shorter than the others, omit it from the sums after it runs out of elements.
 Let list_3 be the result of preprocessing list_3_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_3 has more than 10 elements, keep only the first 10 elements.
 Consider list_3 as a sequence of y-coordinates with x-coordinates being their indices (0, 1, 2, ...).
@@ -432,14 +442,15 @@ If the length of list_2 is not a power of 2, update list_2 by padding it with ze
 Let list_2 be a sequence of length 2^m. Index its entries by bitmasks S = 0, 1, ..., 2^m - 1.
 Compute the subset-sum/zeta transform B, where for each bitmask S, B[S] = sum of list_2[T] over all bitmasks T such that T is a subset of S.
 Here, T is a subset of S means every 1-bit of T is also a 1-bit of S, equivalently (T & S) = T.
-Return the values B[0], B[1], ..., B[2^m - 1] in increasing bitmask order.
-Let subset_zeta_transform_result_2 be the resulting list.
+Compute the values B[0], B[1], ..., B[2^m - 1] in increasing bitmask order.
+Let subset_zeta_transform_result_2 be this sequence B.
 Output the result as task_2_out = {"result": subset_zeta_transform_result_2}, replacing subset_zeta_transform_result_2 with its calculated value.
 
 Task 3:
-Let list_3_join be the result of interleaving the following lists in the order listed: task_1_out["result"], task_2_out["result"].
-Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
-For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
+Pair the input lists task_1_out["result"] and task_2_out["result"] with the output variables task_1_out_fd and task_2_out_fd, respectively.
+For each pair independently, suppose the input list is [x_1, ..., x_n] and let the paired output variable be [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n for that input list.
+Let list_3_join be the result of adding the following lists elementwise: task_1_out_fd, task_2_out_fd. At each position, add the elements from every list that has an element at that position.
+If a list is shorter than the others, omit it from the sums after it runs out of elements.
 Let points_3 be the result of preprocessing list_3_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If points_3 has more than 10 elements, keep only the first 10 elements.
 Let N be the length of points_3. Construct the unique interpolating polynomial through the points (i, points_3[i]) for every integer i with 0 <= i < N.
@@ -460,8 +471,8 @@ If the length of list_1 is not a power of 2, update list_1 by padding it with ze
 Let list_1 = [a_0, a_1, ..., a_{N-1}]. Let p be the smallest prime number of the form m*N + 1 for a positive integer m.
 All arithmetic in this transform is modulo p. Let g be the smallest positive primitive root modulo p, and define omega = g**((p - 1) // N) mod p. By construction, (N) divides (p-1), so (omega) has exact order (N) modulo (p).
 Compute the number theoretic transform A = [A_0, A_1, ..., A_{N-1}], where for each j = 0, 1, ..., N-1, A_j = sum_{k=0}^{N-1} a_k * omega**(j*k) mod p.
-Return each A_j as its least nonnegative residue in {0, 1, ..., p-1}.
-Let ntt_result_1 be the resulting list.
+Compute each A_j as its least nonnegative residue in {0, 1, ..., p-1}.
+Let ntt_result_1 be this sequence A.
 Output the result as task_1_out = {"result": ntt_result_1}, replacing ntt_result_1 with its calculated value.
 
 Define task_2_input = {"result": [-31, -89, 35, -16, -10, -30, -75, -44, -97, -43]}.
@@ -474,9 +485,10 @@ Convert poly_poly_quotient_result_2 into a list poly_quotient_result_2 by extrac
 Output the result as task_2_out = {"result": poly_quotient_result_2}, replacing poly_quotient_result_2 with its calculated value.
 
 Task 3:
-Let list_3_join be the result of interleaving the following lists in the order listed: task_1_out["result"], task_2_out["result"].
-Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
-For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
+Pair the input lists task_1_out["result"] and task_2_out["result"] with the output variables task_1_out_fd and task_2_out_fd, respectively.
+For each pair independently, suppose the input list is [x_1, ..., x_n] and let the paired output variable be [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n for that input list.
+Let list_3_join be the result of adding the following lists elementwise: task_1_out_fd, task_2_out_fd. At each position, add the elements from every list that has an element at that position.
+If a list is shorter than the others, omit it from the sums after it runs out of elements.
 Let list_3 be the result of preprocessing list_3_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_3 has more than 10 elements, keep only the first 10 elements.
 Let L be the length of list_3. Let k = floor(sqrt(L)).
@@ -496,7 +508,7 @@ Task 1:
 Let val_1 be the result of preprocessing task_1_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 For each integer i from 1 to val_1, compute (i * val_1) modulo the val_1-th prime number.
 Compute the sequence of these values.
-Let modular_multiplication_sequence_result_1 be the resulting list.
+Let modular_multiplication_sequence_result_1 be the resulting sequence.
 Output the result as task_1_out = {"result": modular_multiplication_sequence_result_1}, replacing modular_multiplication_sequence_result_1 with its calculated value.
 
 Define task_2_input = {"result": [-20, -46, 95, 59, -60, -98, -14, 50, -69, -51]}.
@@ -512,9 +524,10 @@ Convert matrix mat_mat_mul_result_2 into a list mat_mul_result_2 by concatenatin
 Output the result as task_2_out = {"result": mat_mul_result_2}, replacing mat_mul_result_2 with its calculated value.
 
 Task 3:
-Let list_3_join be the result of interleaving the following lists in the order listed: task_1_out["result"], task_2_out["result"].
-Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
-For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
+Pair the input lists task_1_out["result"] and task_2_out["result"] with the output variables task_1_out_fd and task_2_out_fd, respectively.
+For each pair independently, suppose the input list is [x_1, ..., x_n] and let the paired output variable be [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n for that input list.
+Let list_3_join be the result of adding the following lists elementwise: task_1_out_fd, task_2_out_fd. At each position, add the elements from every list that has an element at that position.
+If a list is shorter than the others, omit it from the sums after it runs out of elements.
 Let list_3 be the result of preprocessing list_3_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_3 has more than 10 elements, keep only the first 10 elements.
 Let L be the length of list_3. Let k = floor(sqrt(L)).
@@ -535,7 +548,7 @@ Let val_1 be the result of preprocessing task_1_input["result"] as follows - if 
 For each prime number p with p <= 2*val_1, define e_p as follows.
 For every positive integer j such that p**j <= 2*val_1, compute floor((2*val_1) / p**j) - 2*floor(val_1 / p**j), and let e_p be the sum of these values over all such j.
 For each prime p with p <= 2*val_1, compute p * (e_p + 1).
-Return these values as a list in increasing order of p.
+List these values in increasing order of p.
 Let central_binomial_prime_valuation_vector_result_1 be the resulting list.
 Output the result as task_1_out = {"result": central_binomial_prime_valuation_vector_result_1}, replacing central_binomial_prime_valuation_vector_result_1 with its calculated value.
 
@@ -549,9 +562,10 @@ Convert poly_poly_quotient_result_2 into a list poly_quotient_result_2 by extrac
 Output the result as task_2_out = {"result": poly_quotient_result_2}, replacing poly_quotient_result_2 with its calculated value.
 
 Task 3:
-Let list_3_join be the result of interleaving the following lists in the order listed: task_1_out["result"], task_2_out["result"].
-Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
-For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
+Pair the input lists task_1_out["result"] and task_2_out["result"] with the output variables task_1_out_fd and task_2_out_fd, respectively.
+For each pair independently, suppose the input list is [x_1, ..., x_n] and let the paired output variable be [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n for that input list.
+Let list_3_join be the result of adding the following lists elementwise: task_1_out_fd, task_2_out_fd. At each position, add the elements from every list that has an element at that position.
+If a list is shorter than the others, omit it from the sums after it runs out of elements.
 Let list_3 be the result of preprocessing list_3_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_3 has more than 10 elements, keep only the first 10 elements.
 Let L be the length of list_3. Let k = floor(sqrt(L)).
@@ -582,19 +596,20 @@ Define task_2_input = {"result": -74}.
 Task 2:
 Let val_2 be the result of preprocessing task_2_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 For each integer i = 1, 2, ..., val_2, define A_i to be the sum over k = 1, 2, ..., i of k times the number of positive divisors of val_2 + k.
-Return the list [A_1, A_2, ..., A_{val_2}] in increasing order of i, so the first element corresponds to i = 1, the second element corresponds to i = 2, and so on.
+Compute the list [A_1, A_2, ..., A_{val_2}] in increasing order of i, so the first element corresponds to i = 1, the second element corresponds to i = 2, and so on.
 Let weighted_divisor_count_prefix_sequence_result_2 be the resulting list.
 Output the result as task_2_out = {"result": weighted_divisor_count_prefix_sequence_result_2}, replacing weighted_divisor_count_prefix_sequence_result_2 with its calculated value.
 
 Task 3:
-Let list_3_join be the result of interleaving the following lists in the order listed: task_1_out["result"], task_2_out["result"].
-Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
-For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
+Pair the input lists task_1_out["result"] and task_2_out["result"] with the output variables task_1_out_fd and task_2_out_fd, respectively.
+For each pair independently, suppose the input list is [x_1, ..., x_n] and let the paired output variable be [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n for that input list.
+Let list_3_join be the result of adding the following lists elementwise: task_1_out_fd, task_2_out_fd. At each position, add the elements from every list that has an element at that position.
+If a list is shorter than the others, omit it from the sums after it runs out of elements.
 Let list_3 be the result of preprocessing list_3_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
 If list_3 has more than 10 elements, keep only the first 10 elements.
 For every pair of indices i, j with 0 <= i < j < len(list_3), compute gcd(|list_3[i]|, |list_3[j]|). Use the convention gcd(0, 0) = 0.
 Compute the sum of all these GCD values.
-Let pairwise_gcd_sum_result_3 be the resulting value.
+Let pairwise_gcd_sum_result_3 be the resulting sum.
 Output the result as task_3_out = {"result": pairwise_gcd_sum_result_3}, replacing pairwise_gcd_sum_result_3 with its calculated value.
 
 ======================================================================
@@ -610,8 +625,8 @@ If the length of list_1 is not a power of 2, update list_1 by padding it with ze
 Let list_1 = [a_0, a_1, ..., a_{N-1}].
 Compute the unnormalized Walsh-Hadamard transform in Sylvester order. That is, for each j = 0, 1, ..., N-1, define
 H_j = sum_{k=0}^{N-1} ((-1) ** popcount(j & k)) * a_k, where `&` is bitwise AND and popcount counts the number of 1-bits.
-Return the sequence [H_0, H_1, ..., H_{N-1}].
-Let fwht_result_1 be the resulting list.
+Compute the sequence [H_0, H_1, ..., H_{N-1}].
+Let fwht_result_1 be this sequence.
 Output the result as task_1_out = {"result": fwht_result_1}, replacing fwht_result_1 with its calculated value.
 
 Define task_2_input = {"result": [31, 55, 55, 36, 42, 2, 99, -94, 35, -2]}.
@@ -626,9 +641,10 @@ Convert matrix mat_matrix_polynomial_result_2 into a list matrix_polynomial_resu
 Output the result as task_2_out = {"result": matrix_polynomial_result_2}, replacing matrix_polynomial_result_2 with its calculated value.
 
 Task 3:
-Let list_3_join be the result of interleaving the following lists in the order listed: task_1_out["result"], task_2_out["result"].
-Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
-For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
+Pair the input lists task_1_out["result"] and task_2_out["result"] with the output variables task_1_out_fd and task_2_out_fd, respectively.
+For each pair independently, suppose the input list is [x_1, ..., x_n] and let the paired output variable be [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n for that input list.
+Let list_3_join be the result of adding the following lists elementwise: task_1_out_fd, task_2_out_fd. At each position, add the elements from every list that has an element at that position.
+If a list is shorter than the others, omit it from the sums after it runs out of elements.
 Let list_3 be the result of preprocessing list_3_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_3 has more than 10 elements, keep only the first 10 elements.
 Let list_3 = [a_0, a_1, ..., a_{N-1}].
@@ -669,9 +685,10 @@ Convert matrix mat_kronecker_product_result_2 into a list kronecker_product_resu
 Output the result as task_2_out = {"result": kronecker_product_result_2}, replacing kronecker_product_result_2 with its calculated value.
 
 Task 3:
-Let list_3_join be the result of interleaving the following lists in the order listed: task_1_out["result"], task_2_out["result"].
-Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
-For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
+Pair the input lists task_1_out["result"] and task_2_out["result"] with the output variables task_1_out_fd and task_2_out_fd, respectively.
+For each pair independently, suppose the input list is [x_1, ..., x_n] and let the paired output variable be [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n for that input list.
+Let list_3_join be the result of adding the following lists elementwise: task_1_out_fd, task_2_out_fd. At each position, add the elements from every list that has an element at that position.
+If a list is shorter than the others, omit it from the sums after it runs out of elements.
 Let list_3 be the result of preprocessing list_3_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_3 has more than 10 elements, keep only the first 10 elements.
 Let list_3 = [a_0, a_1, ..., a_{N-1}].
@@ -697,8 +714,8 @@ If the length of list_1 is not a power of 2, update list_1 by padding it with ze
 Let list_1 = [a_0, a_1, ..., a_{N-1}]. Let p be the smallest prime number of the form m*N + 1 for a positive integer m.
 All arithmetic in this transform is modulo p. Let g be the smallest positive primitive root modulo p, and define omega = g**((p - 1) // N) mod p. By construction, (N) divides (p-1), so (omega) has exact order (N) modulo (p).
 Compute the number theoretic transform A = [A_0, A_1, ..., A_{N-1}], where for each j = 0, 1, ..., N-1, A_j = sum_{k=0}^{N-1} a_k * omega**(j*k) mod p.
-Return each A_j as its least nonnegative residue in {0, 1, ..., p-1}.
-Let ntt_result_1 be the resulting list.
+Compute each A_j as its least nonnegative residue in {0, 1, ..., p-1}.
+Let ntt_result_1 be this sequence A.
 Output the result as task_1_out = {"result": ntt_result_1}, replacing ntt_result_1 with its calculated value.
 
 Define task_2_input = {"result": [57, 59, 19, 60, 60, 9, -99, -78, -97, -14]}.
@@ -711,9 +728,10 @@ Convert poly_poly_quotient_result_2 into a list poly_quotient_result_2 by extrac
 Output the result as task_2_out = {"result": poly_quotient_result_2}, replacing poly_quotient_result_2 with its calculated value.
 
 Task 3:
-Let list_3_join be the result of interleaving the following lists in the order listed: task_1_out["result"], task_2_out["result"].
-Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
-For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
+Pair the input lists task_1_out["result"] and task_2_out["result"] with the output variables task_1_out_fd and task_2_out_fd, respectively.
+For each pair independently, suppose the input list is [x_1, ..., x_n] and let the paired output variable be [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n for that input list.
+Let list_3_join be the result of adding the following lists elementwise: task_1_out_fd, task_2_out_fd. At each position, add the elements from every list that has an element at that position.
+If a list is shorter than the others, omit it from the sums after it runs out of elements.
 Let list_3 be the result of preprocessing list_3_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_3 has more than 10 elements, keep only the first 10 elements.
 Let P_3(x) be a polynomial whose coefficients are the elements of the list list_3 in order, starting from the highest degree.
@@ -737,14 +755,14 @@ Define task_2_input = {"result": -71}.
 Task 2:
 Let val_2 be the result of preprocessing task_2_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 For each integer i from 1 to val_2, compute Euler's totient function of i * val_2.
-Compute the sequence of these values.
-Let totient_product_sequence_result_2 be the resulting list.
+Compute the sequence of these values. Let totient_product_sequence_result_2 be the resulting sequence.
 Output the result as task_2_out = {"result": totient_product_sequence_result_2}, replacing totient_product_sequence_result_2 with its calculated value.
 
 Task 3:
-Let list_3_join be the result of interleaving the following lists in the order listed: task_1_out["result"], task_2_out["result"].
-Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
-For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
+Pair the input lists task_1_out["result"] and task_2_out["result"] with the output variables task_1_out_fd and task_2_out_fd, respectively.
+For each pair independently, suppose the input list is [x_1, ..., x_n] and let the paired output variable be [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n for that input list.
+Let list_3_join be the result of adding the following lists elementwise: task_1_out_fd, task_2_out_fd. At each position, add the elements from every list that has an element at that position.
+If a list is shorter than the others, omit it from the sums after it runs out of elements.
 Let list_3 be the result of preprocessing list_3_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_3 has more than 10 elements, keep only the first 10 elements.
 Let P_3(x) be a polynomial whose coefficients are the elements of the list list_3 in order, starting from the highest degree.
@@ -783,7 +801,7 @@ Let val_3 be the result of preprocessing val_3_join as follows - if it is a floa
 For each prime number p with p <= 2*val_3, define e_p as follows.
 For every positive integer j such that p**j <= 2*val_3, compute floor((2*val_3) / p**j) - 2*floor(val_3 / p**j), and let e_p be the sum of these values over all such j.
 For each prime p with p <= 2*val_3, compute p * (e_p + 1).
-Return these values as a list in increasing order of p.
+List these values in increasing order of p.
 Let central_binomial_prime_valuation_vector_result_3 be the resulting list.
 Output the result as task_3_out = {"result": central_binomial_prime_valuation_vector_result_3}, replacing central_binomial_prime_valuation_vector_result_3 with its calculated value.
 
@@ -843,7 +861,7 @@ Task 2:
 Let val_2 be the result of preprocessing task_2_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 2 to it.
 For each integer i from 2 to val_2, compute omega(i), the number of distinct prime factors of i.
 Compute the sum of all these omega values.
-Let prime_omega_sum_result_2 be the resulting value.
+Let prime_omega_sum_result_2 be the resulting sum.
 Output the result as task_2_out = {"result": prime_omega_sum_result_2}, replacing prime_omega_sum_result_2 with its calculated value.
 
 Task 3:
@@ -851,7 +869,7 @@ Let val_3_join be the sum of the following values: task_1_out["result"], task_2_
 Let val_3 be the result of preprocessing val_3_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 For each integer i from 1 to val_3, compute (i * val_3) modulo the val_3-th prime number.
 Compute the sequence of these values.
-Let modular_multiplication_sequence_result_3 be the resulting list.
+Let modular_multiplication_sequence_result_3 be the resulting sequence.
 Output the result as task_3_out = {"result": modular_multiplication_sequence_result_3}, replacing modular_multiplication_sequence_result_3 with its calculated value.
 
 ======================================================================
@@ -878,8 +896,7 @@ Task 3:
 Let val_3_join be the sum of the following values: task_1_out["result"], task_2_out["result"].
 Let val_3 be the result of preprocessing val_3_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 3 to it.
 For each integer i from 1 to val_3, compute the number of diagonals in a convex polygon with i + val_3 vertices.
-Compute the sequence of these values.
-Let polygon_diagonals_sequence_result_3 be the resulting list.
+Compute the sequence of these values. Let polygon_diagonals_sequence_result_3 be the resulting sequence.
 Output the result as task_3_out = {"result": polygon_diagonals_sequence_result_3}, replacing polygon_diagonals_sequence_result_3 with its calculated value.
 
 ======================================================================
@@ -935,7 +952,7 @@ Define task_2_input = {"result": 11}.
 Task 2:
 Let val_2 be the result of preprocessing task_2_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 Compute the sum of the squares of all positive divisors of val_2.
-Let divisor_sigma_square_result_2 be the resulting value.
+Let divisor_sigma_square_result_2 be the resulting sum.
 Output the result as task_2_out = {"result": divisor_sigma_square_result_2}, replacing divisor_sigma_square_result_2 with its calculated value.
 
 Task 3:
@@ -943,7 +960,7 @@ Let val_3_join be the sum of the following values: task_1_out["result"], task_2_
 Let val_3 be the result of preprocessing val_3_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 Let p be the val_3-th prime number, using the convention that the 1st prime is 2.
 Find all distinct residues r in {0, 1, ..., p-1} for which there exists an integer x such that x^2 ≡ r mod p.
-Include 0 as a quadratic residue. Return the residues in increasing order.
+Include 0 as a quadratic residue. List the residues in increasing order.
 Let quadratic_residues_prime_result_3 be the resulting list.
 Output the result as task_3_out = {"result": quadratic_residues_prime_result_3}, replacing quadratic_residues_prime_result_3 with its calculated value.
 
@@ -958,7 +975,7 @@ Let list_1 be the result of preprocessing task_1_input["result"] as follows - fo
 If list_1 has more than 10 elements, keep only the first 10 elements.
 For every pair of indices i, j with 0 <= i < j < len(list_1), compute gcd(|list_1[i]|, |list_1[j]|). Use the convention gcd(0, 0) = 0.
 Compute the sum of all these GCD values.
-Let pairwise_gcd_sum_result_1 be the resulting value.
+Let pairwise_gcd_sum_result_1 be the resulting sum.
 Output the result as task_1_out = {"result": pairwise_gcd_sum_result_1}, replacing pairwise_gcd_sum_result_1 with its calculated value.
 
 Define task_2_input = {"result": [68, -81, 53, 10, -51, 28, 4, -27, -52, 90]}.
@@ -976,8 +993,7 @@ Task 3:
 Let val_3_join be the sum of the following values: task_1_out["result"], task_2_out["result"].
 Let val_3 be the result of preprocessing val_3_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 For each integer i from 1 to val_3, compute the smallest prime factor of i**2 + val_3.
-Compute the sequence of these values.
-Let smallest_factor_quadratic_result_3 be the resulting list.
+Compute the sequence of these values. Let smallest_factor_quadratic_result_3 be the resulting sequence.
 Output the result as task_3_out = {"result": smallest_factor_quadratic_result_3}, replacing smallest_factor_quadratic_result_3 with its calculated value.
 
 ======================================================================
@@ -1001,15 +1017,14 @@ Task 2:
 Let val_2 be the result of preprocessing task_2_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 For each integer i from 1 to val_2, compute the number of positive divisors of i.
 Compute the sum of all these divisor counts.
-Let sum_divisor_counts_result_2 be the resulting value.
+Let sum_divisor_counts_result_2 be the resulting sum.
 Output the result as task_2_out = {"result": sum_divisor_counts_result_2}, replacing sum_divisor_counts_result_2 with its calculated value.
 
 Task 3:
 Let val_3_join be the sum of the following values: task_1_out["result"], task_2_out["result"].
 Let val_3 be the result of preprocessing val_3_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 For each integer i from 1 to val_3, compute Euler's totient function of i * val_3.
-Compute the sequence of these values.
-Let totient_product_sequence_result_3 be the resulting list.
+Compute the sequence of these values. Let totient_product_sequence_result_3 be the resulting sequence.
 Output the result as task_3_out = {"result": totient_product_sequence_result_3}, replacing totient_product_sequence_result_3 with its calculated value.
 
 ======================================================================
@@ -1021,7 +1036,7 @@ Define task_1_input = {"result": -4}.
 Task 1:
 Let val_1 be the result of preprocessing task_1_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 Compute the sum of the squares of all positive divisors of val_1.
-Let divisor_sigma_square_result_1 be the resulting value.
+Let divisor_sigma_square_result_1 be the resulting sum.
 Output the result as task_1_out = {"result": divisor_sigma_square_result_1}, replacing divisor_sigma_square_result_1 with its calculated value.
 
 Define task_2_input = {"result": [-23, 25, 6, -72, 1, -67, -7, -16, -39, -39]}.
@@ -1039,8 +1054,7 @@ Task 3:
 Let val_3_join be the sum of the following values: task_1_out["result"], task_2_out["result"].
 Let val_3 be the result of preprocessing val_3_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 For each integer i from 1 to val_3, compute Euler's totient function phi(i + val_3).
-Compute the sequence of these values.
-Let totient_shift_sequence_result_3 be the resulting list.
+Compute the sequence of these values. Let totient_shift_sequence_result_3 be the resulting sequence.
 Output the result as task_3_out = {"result": totient_shift_sequence_result_3}, replacing totient_shift_sequence_result_3 with its calculated value.
 
 ======================================================================
@@ -1053,7 +1067,7 @@ Task 1:
 Let val_1 be the result of preprocessing task_1_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 2 to it.
 For each integer i from 2 to val_1, compute omega(i), the number of distinct prime factors of i.
 Compute the sum of all these omega values.
-Let prime_omega_sum_result_1 be the resulting value.
+Let prime_omega_sum_result_1 be the resulting sum.
 Output the result as task_1_out = {"result": prime_omega_sum_result_1}, replacing prime_omega_sum_result_1 with its calculated value.
 
 Define task_2_input = {"result": -39}.
@@ -1061,14 +1075,14 @@ Task 2:
 Let val_2 be the result of preprocessing task_2_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 For each integer i from 1 to val_2, compute the number of positive divisors of i.
 Compute the sum of all these divisor counts.
-Let sum_divisor_counts_result_2 be the resulting value.
+Let sum_divisor_counts_result_2 be the resulting sum.
 Output the result as task_2_out = {"result": sum_divisor_counts_result_2}, replacing sum_divisor_counts_result_2 with its calculated value.
 
 Task 3:
 Let val_3_join be the sum of the following values: task_1_out["result"], task_2_out["result"].
 Let val_3 be the result of preprocessing val_3_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 For each integer i = 1, 2, ..., val_3, define A_i to be the sum over k = 1, 2, ..., i of k times the number of positive divisors of val_3 + k.
-Return the list [A_1, A_2, ..., A_{val_3}] in increasing order of i, so the first element corresponds to i = 1, the second element corresponds to i = 2, and so on.
+Compute the list [A_1, A_2, ..., A_{val_3}] in increasing order of i, so the first element corresponds to i = 1, the second element corresponds to i = 2, and so on.
 Let weighted_divisor_count_prefix_sequence_result_3 be the resulting list.
 Output the result as task_3_out = {"result": weighted_divisor_count_prefix_sequence_result_3}, replacing weighted_divisor_count_prefix_sequence_result_3 with its calculated value.
 
@@ -1093,14 +1107,14 @@ Let list_2 be the result of preprocessing task_2_input["result"] as follows - fo
 If list_2 has more than 10 elements, keep only the first 10 elements.
 For every pair of indices i, j with 0 <= i < j < len(list_2), compute gcd(|list_2[i]|, |list_2[j]|). Use the convention gcd(0, 0) = 0.
 Compute the sum of all these GCD values.
-Let pairwise_gcd_sum_result_2 be the resulting value.
+Let pairwise_gcd_sum_result_2 be the resulting sum.
 Output the result as task_2_out = {"result": pairwise_gcd_sum_result_2}, replacing pairwise_gcd_sum_result_2 with its calculated value.
 
 Task 3:
 Let val_3_join be the sum of the following values: task_1_out["result"], task_2_out["result"].
 Let val_3 be the result of preprocessing val_3_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 Compute the sum of the squares of all positive divisors of val_3.
-Let divisor_sigma_square_result_3 be the resulting value.
+Let divisor_sigma_square_result_3 be the resulting sum.
 Output the result as task_3_out = {"result": divisor_sigma_square_result_3}, replacing divisor_sigma_square_result_3 with its calculated value.
 
 ======================================================================
@@ -1123,7 +1137,7 @@ Define task_2_input = {"result": 69}.
 Task 2:
 Let val_2 be the result of preprocessing task_2_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 Compute the sum of the unitary divisors of val_2 (divisors d where gcd(d, val_2/d) == 1).
-Let unitary_divisor_sum_result_2 be the resulting value.
+Let unitary_divisor_sum_result_2 be the resulting sum.
 Output the result as task_2_out = {"result": unitary_divisor_sum_result_2}, replacing unitary_divisor_sum_result_2 with its calculated value.
 
 Task 3:
@@ -1166,7 +1180,7 @@ Let val_3 be the result of preprocessing val_3_join as follows - if it is a floa
 Let p be the smallest prime number strictly greater than val_3 + 2.
 For each integer a = 1, 2, ..., val_3, compute the Legendre symbol Legendre(a, p). This value is 1 if there exists an integer x such that x**2 is congruent to a modulo p, and -1 otherwise.
 For each a, compute a * (Legendre(a, p) + 1). Then compute the sum of these values over all a = 1, 2, ..., val_3.
-Let legendre_residue_weight_result_3 be the resulting value.
+Let legendre_residue_weight_result_3 be the resulting sum.
 Output the result as task_3_out = {"result": legendre_residue_weight_result_3}, replacing legendre_residue_weight_result_3 with its calculated value.
 
 ======================================================================
@@ -1180,7 +1194,7 @@ Let list_1 be the result of preprocessing task_1_input["result"] as follows - fo
 If list_1 has more than 10 elements, keep only the first 10 elements.
 For every pair of indices i, j with 0 <= i < j < len(list_1), compute gcd(|list_1[i]|, |list_1[j]|). Use the convention gcd(0, 0) = 0.
 Compute the sum of all these GCD values.
-Let pairwise_gcd_sum_result_1 be the resulting value.
+Let pairwise_gcd_sum_result_1 be the resulting sum.
 Output the result as task_1_out = {"result": pairwise_gcd_sum_result_1}, replacing pairwise_gcd_sum_result_1 with its calculated value.
 
 Define task_2_input = {"result": 97}.
@@ -1189,7 +1203,7 @@ Let val_2 be the result of preprocessing task_2_input["result"] as follows - if 
 Let p be the smallest prime number strictly greater than val_2 + 2.
 For each integer a = 1, 2, ..., val_2, compute the Legendre symbol Legendre(a, p). This value is 1 if there exists an integer x such that x**2 is congruent to a modulo p, and -1 otherwise.
 For each a, compute a * (Legendre(a, p) + 1). Then compute the sum of these values over all a = 1, 2, ..., val_2.
-Let legendre_residue_weight_result_2 be the resulting value.
+Let legendre_residue_weight_result_2 be the resulting sum.
 Output the result as task_2_out = {"result": legendre_residue_weight_result_2}, replacing legendre_residue_weight_result_2 with its calculated value.
 
 Task 3:
@@ -1209,7 +1223,7 @@ Task 1:
 Let val_1 be the result of preprocessing task_1_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 2 to it.
 For each integer i from 2 to val_1, compute omega(i), the number of distinct prime factors of i.
 Compute the sum of all these omega values.
-Let prime_omega_sum_result_1 be the resulting value.
+Let prime_omega_sum_result_1 be the resulting sum.
 Output the result as task_1_out = {"result": prime_omega_sum_result_1}, replacing prime_omega_sum_result_1 with its calculated value.
 
 Define task_2_input = {"result": [-72, 32, -100, -77, 97, -19, -28, -100, 50, -6]}.
@@ -1218,7 +1232,7 @@ Let list_2 be the result of preprocessing task_2_input["result"] as follows - fo
 If list_2 has more than 10 elements, keep only the first 10 elements.
 For every pair of indices i, j with 0 <= i < j < len(list_2), compute gcd(|list_2[i]|, |list_2[j]|). Use the convention gcd(0, 0) = 0.
 Compute the sum of all these GCD values.
-Let pairwise_gcd_sum_result_2 be the resulting value.
+Let pairwise_gcd_sum_result_2 be the resulting sum.
 Output the result as task_2_out = {"result": pairwise_gcd_sum_result_2}, replacing pairwise_gcd_sum_result_2 with its calculated value.
 
 Task 3:
@@ -1226,7 +1240,7 @@ Let val_3_join be the sum of the following values: task_1_out["result"], task_2_
 Let val_3 be the result of preprocessing val_3_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 2 to it.
 For each integer i from 2 to val_3, compute omega(i), the number of distinct prime factors of i.
 Compute the sum of all these omega values.
-Let prime_omega_sum_result_3 be the resulting value.
+Let prime_omega_sum_result_3 be the resulting sum.
 Output the result as task_3_out = {"result": prime_omega_sum_result_3}, replacing prime_omega_sum_result_3 with its calculated value.
 
 ======================================================================
@@ -1271,7 +1285,7 @@ Define task_1_input = {"result": -87}.
 Task 1:
 Let val_1 be the result of preprocessing task_1_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 Compute the sum of the unitary divisors of val_1 (divisors d where gcd(d, val_1/d) == 1).
-Let unitary_divisor_sum_result_1 be the resulting value.
+Let unitary_divisor_sum_result_1 be the resulting sum.
 Output the result as task_1_out = {"result": unitary_divisor_sum_result_1}, replacing unitary_divisor_sum_result_1 with its calculated value.
 
 Define task_2_input = {"result": 76}.
@@ -1280,7 +1294,7 @@ Let val_2 be the result of preprocessing task_2_input["result"] as follows - if 
 Let p be the smallest prime number strictly greater than val_2 + 2.
 For each integer a = 1, 2, ..., val_2, compute the Legendre symbol Legendre(a, p). This value is 1 if there exists an integer x such that x**2 is congruent to a modulo p, and -1 otherwise.
 For each a, compute a * (Legendre(a, p) + 1). Then compute the sum of these values over all a = 1, 2, ..., val_2.
-Let legendre_residue_weight_result_2 be the resulting value.
+Let legendre_residue_weight_result_2 be the resulting sum.
 Output the result as task_2_out = {"result": legendre_residue_weight_result_2}, replacing legendre_residue_weight_result_2 with its calculated value.
 
 Task 3:
@@ -1302,7 +1316,7 @@ Let list_1 be the result of preprocessing task_1_input["result"] as follows - fo
 If list_1 has more than 10 elements, keep only the first 10 elements.
 For every pair of indices i, j with 0 <= i < j < len(list_1), compute gcd(|list_1[i]|, |list_1[j]|). Use the convention gcd(0, 0) = 0.
 Compute the sum of all these GCD values.
-Let pairwise_gcd_sum_result_1 be the resulting value.
+Let pairwise_gcd_sum_result_1 be the resulting sum.
 Output the result as task_1_out = {"result": pairwise_gcd_sum_result_1}, replacing pairwise_gcd_sum_result_1 with its calculated value.
 
 Define task_2_input = {"result": 68}.
@@ -1310,7 +1324,7 @@ Task 2:
 Let val_2 be the result of preprocessing task_2_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 For each integer i from 1 to val_2, compute the number of positive divisors of i.
 Compute the sum of all these divisor counts.
-Let sum_divisor_counts_result_2 be the resulting value.
+Let sum_divisor_counts_result_2 be the resulting sum.
 Output the result as task_2_out = {"result": sum_divisor_counts_result_2}, replacing sum_divisor_counts_result_2 with its calculated value.
 
 Task 3:
@@ -1318,7 +1332,7 @@ Let val_3_join be the sum of the following values: task_1_out["result"], task_2_
 Let val_3 be the result of preprocessing val_3_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 For each integer i from 1 to val_3, compute the number of positive divisors of i.
 Compute the sum of all these divisor counts.
-Let sum_divisor_counts_result_3 be the resulting value.
+Let sum_divisor_counts_result_3 be the resulting sum.
 Output the result as task_3_out = {"result": sum_divisor_counts_result_3}, replacing sum_divisor_counts_result_3 with its calculated value.
 
 ======================================================================
@@ -1365,7 +1379,7 @@ Let list_1 be the result of preprocessing task_1_input["result"] as follows - fo
 If list_1 has more than 10 elements, keep only the first 10 elements.
 For every pair of indices i, j with 0 <= i < j < len(list_1), compute gcd(|list_1[i]|, |list_1[j]|). Use the convention gcd(0, 0) = 0.
 Compute the sum of all these GCD values.
-Let pairwise_gcd_sum_result_1 be the resulting value.
+Let pairwise_gcd_sum_result_1 be the resulting sum.
 Output the result as task_1_out = {"result": pairwise_gcd_sum_result_1}, replacing pairwise_gcd_sum_result_1 with its calculated value.
 
 Define task_2_input = {"result": 39}.
@@ -1379,5 +1393,5 @@ Task 3:
 Let val_3_join be the sum of the following values: task_1_out["result"], task_2_out["result"].
 Let val_3 be the result of preprocessing val_3_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 Compute the sum of the unitary divisors of val_3 (divisors d where gcd(d, val_3/d) == 1).
-Let unitary_divisor_sum_result_3 be the resulting value.
+Let unitary_divisor_sum_result_3 be the resulting sum.
 Output the result as task_3_out = {"result": unitary_divisor_sum_result_3}, replacing unitary_divisor_sum_result_3 with its calculated value.

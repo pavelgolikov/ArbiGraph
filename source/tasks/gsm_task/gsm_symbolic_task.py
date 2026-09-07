@@ -22,11 +22,9 @@ import re
 from fractions import Fraction
 from typing import Any, Dict, List, Tuple
 
-from tasks.math_task.math_helpers import (
-    adapt_scalar_compute,
-    adapt_scalar_prompt,
-    join_adaptar_add_compute,
-    join_adaptar_add_prompt,
+from tasks.adapters import (
+    AddScalarsAdapter,
+    ScalarToScalarAdapter,
 )
 from tasks.task import Task
 
@@ -548,10 +546,16 @@ def load_templates(templates_dir: str) -> List[dict]:
 
 
 def get_default_templates_dir() -> str:
-    """Return the default path to the GSM-Symbolic templates directory."""
-    return os.path.abspath(os.path.join(
-        os.path.dirname(__file__), "..", "..", "..", "deps", "ml-gsm-symbolic", "templates", "symbolic"
-    ))
+    """Return the default path to the GSM-Symbolic templates directory.
+
+    The checkout lives outside the repository. ARBIGRAPH_DEPS overrides the
+    directory holding it; the default is the directory containing the repo.
+    """
+    deps_dir = os.environ.get(
+        "ARBIGRAPH_DEPS",
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", ".."),
+    )
+    return os.path.abspath(os.path.join(deps_dir, "ml-gsm-symbolic", "templates", "symbolic"))
 
 
 # ============================================================================
@@ -585,15 +589,26 @@ class GSMSymbolicTask(Task):
         self.answer_expr = ""
         self.chained_var_name = None
         self.clamped_add_val = 0
+        self.input_adapter = ScalarToScalarAdapter(
+            mod_value=self.scalar_max_mag,
+            to_int=True,
+            needs_abs=True,
+        )
 
         self._bind_input_to_template(task["template"], task["template_filename"], input_value)
+        self.input_adapter = ScalarToScalarAdapter(
+            mod_value=self.scalar_max_mag,
+            to_int=True,
+            needs_abs=True,
+            add_val=self.clamped_add_val,
+        )
         self.out = self.solution_generator(input_value)
         if self.out is None:
             raise ValueError(f"{self.task_name} returned None.")
         self.prompt = self.prompt_generator(task_ind, input_names, f"task_{task_ind:d}_out")
 
     def _extract_chained_value(self, input_value: Any) -> int:
-        return int(adapt_scalar_compute(input_value, needs_abs=True, to_int=True, mod_value=self.scalar_max_mag))
+        return int(self.input_adapter.compute(input_value))
 
     def _bind_input_to_template(self, template: dict[str, Any], template_filename: str, input_value: Any) -> None:
         qa = template["question_annotated"]
@@ -612,6 +627,20 @@ class GSMSymbolicTask(Task):
         ]
         if not numeric_specs:
             raise ValueError(f"{self.task_name} has no bindable scalar variable.")
+
+        # Only a variable the answer actually reads may carry the chained value.
+        # Some templates declare a variable that appears solely in a condition --
+        # 0054's `total` bounds n1..n3 but is absent from `n1 + (n1+n2) + (n1+n2+n3)`.
+        # Binding to one of those silently breaks the chain: the child's answer no
+        # longer depends on its parent, so it can be solved without it. Match whole
+        # identifiers so `n1` does not match `n10`.
+        answer_names = set(re.findall(r"[A-Za-z_]\w*", answer_expr))
+        numeric_specs = [spec for spec in numeric_specs if spec["names"][0] in answer_names]
+        if not numeric_specs:
+            raise ValueError(
+                f"{self.task_name} has no bindable scalar variable in its answer "
+                f"expression: {answer_expr!r}"
+            )
 
         chained_int = self._extract_chained_value(input_value)
 
@@ -706,14 +735,7 @@ class GSMSymbolicTask(Task):
 
     def prompt_generator(self, task_number: int, input_names: list[str], output_name: str) -> str:
         input_reference = input_names[0]
-        preprocess = adapt_scalar_prompt(
-            input_reference,
-            self.adapted_input_name,
-            needs_abs=True,
-            mod_value=self.scalar_max_mag,
-            to_int=True,
-            add_val=self.clamped_add_val,
-        )
+        preprocess = self.input_adapter.prompt(input_reference, self.adapted_input_name)
         orig_val = self.var_values.get(self.chained_var_name)
         if self.chained_var_name is not None:
             self.var_values[self.chained_var_name] = self.adapted_input_name
@@ -770,8 +792,9 @@ def make_stage(
     references = [f'{input_name}["result"]' for input_name in input_names]
     if len(input_names) > 1:
         adapter_name = f"val_{task_number:d}_join"
-        task_input = join_adaptar_add_compute(task_input)
-        adapter_prompt = join_adaptar_add_prompt(references, adapter_name)
+        join_adapter = AddScalarsAdapter()
+        task_input = join_adapter.compute(task_input)
+        adapter_prompt = join_adapter.prompt(references, adapter_name)
         references = [adapter_name]
 
     task_instance = task["task_implementation"](

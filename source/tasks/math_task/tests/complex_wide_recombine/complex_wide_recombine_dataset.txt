@@ -9,7 +9,7 @@ Let list_1 be the result of preprocessing task_1_input["result"] as follows - fo
 If list_1 has more than 10 elements, keep only the first 10 elements.
 Define seq2_1 = [-1, -2, -5, 0, 0, 0, -4, 3, -1, -3].
 Compute the linear discrete convolution of list_1 and seq2_1.
-Let convolution_result_1 be the resulting list.
+Let convolution_result_1 be the resulting sequence.
 Output the result as task_1_out = {"result": convolution_result_1}, replacing convolution_result_1 with its calculated value.
 
 Define task_2_input = {"result": [-36, -88, 99, -41, 78, -26, 66, -100, -25, 58]}.
@@ -22,7 +22,8 @@ Let poly_resultant_fixed_result_2 be the resulting value.
 Output the result as task_2_out = {"result": poly_resultant_fixed_result_2}, replacing poly_resultant_fixed_result_2 with its calculated value.
 
 Task 3:
-Let list_3 be the result of preprocessing task_1_out["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let list_3 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_3 has more than 10 elements, keep only the first 10 elements.
 Let L be max(1, the length of list_3). Let r = max(1, floor(sqrt(L))). Let c = ceil(L / r).
 Reshape list list_3 into matrix M1_3 of size r x c using row-major order, filling the top row first, then the second row, and so on.
@@ -33,7 +34,8 @@ Convert matrix mat_kronecker_product_result_3 into a list kronecker_product_resu
 Output the result as task_3_out = {"result": kronecker_product_result_3}, replacing kronecker_product_result_3 with its calculated value.
 
 Task 4:
-Let list_4 be the result of preprocessing task_1_out["result"] as follows - for every element, replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let list_4 be the result of preprocessing task_1_out_fd as follows - for every element, replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_4 has more than 10 elements, keep only the first 10 elements.
 Let L be max(1, the length of list_4). Let r = max(1, floor(sqrt(L))). Let c = ceil(L / r).
 Reshape list list_4 into matrix M1_4 of size r x c using row-major order, filling the top row first, then the second row, and so on.
@@ -44,7 +46,8 @@ Convert matrix mat_mat_mul_result_4 into a list mat_mul_result_4 by concatenatin
 Output the result as task_4_out = {"result": mat_mul_result_4}, replacing mat_mul_result_4 with its calculated value.
 
 Task 5:
-Let list_5 be the result of preprocessing task_1_out["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let list_5 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_5 has more than 10 elements, keep only the first 10 elements.
 Let L be max(1, the length of list_5). Let k = ceil(sqrt(L)).
 Reshape list list_5 into matrix matrix_1_5 of size k x k using row-major order, filling the top row first, then the second row, and so on.
@@ -56,12 +59,12 @@ Output the result as task_5_out = {"result": matrix_polynomial_result_5}, replac
 Task 6:
 Let val_6 be the result of preprocessing task_2_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 For each integer i from 1 to val_6, compute the smallest prime factor of i**2 + val_6.
-Compute the sequence of these values.
-Let smallest_factor_quadratic_result_6 be the resulting list.
+Compute the sequence of these values. Let smallest_factor_quadratic_result_6 be the resulting sequence.
 Output the result as task_6_out = {"result": smallest_factor_quadratic_result_6}, replacing smallest_factor_quadratic_result_6 with its calculated value.
 
 Task 7:
-Let list_7 be the result of preprocessing task_3_out["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Suppose task_3_out["result"] = [x_1, ..., x_n]. Let task_3_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let list_7 be the result of preprocessing task_3_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_7 has more than 10 elements, keep only the first 10 elements.
 Let L be max(1, the length of list_7). Let r = max(1, floor(sqrt(L))). Let c = ceil(L / r).
 Reshape list list_7 into matrix M1_7 of size r x c using row-major order, filling the top row first, then the second row, and so on.
@@ -72,27 +75,30 @@ Convert matrix mat_kronecker_product_result_7 into a list kronecker_product_resu
 Output the result as task_7_out = {"result": kronecker_product_result_7}, replacing kronecker_product_result_7 with its calculated value.
 
 Task 8:
-Let list_8 be the result of preprocessing task_4_out["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Suppose task_4_out["result"] = [x_1, ..., x_n]. Let task_4_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let list_8 be the result of preprocessing task_4_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_8 has more than 10 elements, keep only the first 10 elements.
 Let L be max(1, the length of list_8). Let r = max(1, floor(sqrt(L))). Let c = ceil(L / r).
 Reshape list list_8 into matrix M1_8 of size r x c using row-major order, filling the top row first, then the second row, and so on.
 To achieve the required dimension for the reshape, you can append zeros to the end of list list_8 or truncate it.
-Define M2_8 = Matrix([[-29, 65, -90], [52, -77, -91], [-47, 94, 73]]).
+Define M2_8 = Matrix([[-29, 65, -90, 52], [-77, -91, -47, 94], [73, 2, 22, -65]]).
 Compute the Kronecker product of M1_8 and M2_8. Let mat_kronecker_product_result_8 be this matrix.
 Convert matrix mat_kronecker_product_result_8 into a list kronecker_product_result_8 by concatenating matrix rows starting from the top row, then second row, etc...
 Output the result as task_8_out = {"result": kronecker_product_result_8}, replacing kronecker_product_result_8 with its calculated value.
 
 Task 9:
-Let list_9 be the result of preprocessing task_5_out["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Suppose task_5_out["result"] = [x_1, ..., x_n]. Let task_5_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let list_9 be the result of preprocessing task_5_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_9 has more than 10 elements, keep only the first 10 elements.
 Sort list_9 based on the number of divisors of their absolute values in ascending order. If an element is 0, treat its divisor count as 0. Maintain stable sorting for ties.
-Let sort_by_divisor_count_result_9 be the resulting list.
+Let sort_by_divisor_count_result_9 be the resulting sorted list.
 Output the result as task_9_out = {"result": sort_by_divisor_count_result_9}, replacing sort_by_divisor_count_result_9 with its calculated value.
 
 Task 10:
-Let list_10_join be the result of interleaving the following lists in the order listed: task_6_out["result"], task_7_out["result"], task_8_out["result"], task_9_out["result"].
-Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
-For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
+Pair the input lists task_6_out["result"], task_7_out["result"], task_8_out["result"], and task_9_out["result"] with the output variables task_6_out_fd, task_7_out_fd, task_8_out_fd, and task_9_out_fd, respectively.
+For each pair independently, suppose the input list is [x_1, ..., x_n] and let the paired output variable be [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n for that input list.
+Let list_10_join be the result of adding the following lists elementwise: task_6_out_fd, task_7_out_fd, task_8_out_fd, task_9_out_fd. At each position, add the elements from every list that has an element at that position.
+If a list is shorter than the others, omit it from the sums after it runs out of elements.
 Let list_10 be the result of preprocessing list_10_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_10 has more than 10 elements, keep only the first 10 elements.
 Let L be the length of list_10. Let k = floor(sqrt(L)).
@@ -106,23 +112,25 @@ Task 11:
 Let val_11 be the result of preprocessing task_10_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 Let p be the val_11-th prime number, using the convention that the 1st prime is 2.
 Find all distinct residues r in {0, 1, ..., p-1} for which there exists an integer x such that x^2 ≡ r mod p.
-Include 0 as a quadratic residue. Return the residues in increasing order.
+Include 0 as a quadratic residue. List the residues in increasing order.
 Let quadratic_residues_prime_result_11 be the resulting list.
 Output the result as task_11_out = {"result": quadratic_residues_prime_result_11}, replacing quadratic_residues_prime_result_11 with its calculated value.
 
 Task 12:
-Let list_12 be the result of preprocessing task_11_out["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Suppose task_11_out["result"] = [x_1, ..., x_n]. Let task_11_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let list_12 be the result of preprocessing task_11_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_12 has more than 10 elements, keep only the first 10 elements.
 If the length of list_12 is not a power of 2, update list_12 by padding it with zeros to the next power of 2.
 Let list_12 = [a_0, a_1, ..., a_{N-1}].
 Compute the unnormalized Walsh-Hadamard transform in Sylvester order. That is, for each j = 0, 1, ..., N-1, define
 H_j = sum_{k=0}^{N-1} ((-1) ** popcount(j & k)) * a_k, where `&` is bitwise AND and popcount counts the number of 1-bits.
-Return the sequence [H_0, H_1, ..., H_{N-1}].
-Let fwht_result_12 be the resulting list.
+Compute the sequence [H_0, H_1, ..., H_{N-1}].
+Let fwht_result_12 be this sequence.
 Output the result as task_12_out = {"result": fwht_result_12}, replacing fwht_result_12 with its calculated value.
 
 Task 13:
-Let list_13 be the result of preprocessing task_12_out["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Suppose task_12_out["result"] = [x_1, ..., x_n]. Let task_12_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let list_13 be the result of preprocessing task_12_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_13 has more than 10 elements, keep only the first 10 elements.
 Let L be max(1, the length of list_13). Let k = ceil(sqrt(L)).
 Reshape list list_13 into matrix matrix_1_13 of size k x k using row-major order, filling the top row first, then the second row, and so on.
@@ -132,9 +140,10 @@ Convert matrix mat_matrix_polynomial_result_13 into a list matrix_polynomial_res
 Output the result as task_13_out = {"result": matrix_polynomial_result_13}, replacing matrix_polynomial_result_13 with its calculated value.
 
 Task 14:
-Let list_14_join be the result of interleaving the following lists in the order listed: task_13_out["result"], task_8_out["result"], task_6_out["result"].
-Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
-For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
+Pair the input lists task_13_out["result"], task_8_out["result"], and task_6_out["result"] with the output variables task_13_out_fd, task_8_out_fd, and task_6_out_fd, respectively.
+For each pair independently, suppose the input list is [x_1, ..., x_n] and let the paired output variable be [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n for that input list.
+Let list_14_join be the result of adding the following lists elementwise: task_13_out_fd, task_8_out_fd, task_6_out_fd. At each position, add the elements from every list that has an element at that position.
+If a list is shorter than the others, omit it from the sums after it runs out of elements.
 Let list_14 be the result of preprocessing list_14_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_14 has more than 10 elements, keep only the first 10 elements.
 Consider list_14 as a sequence of y-coordinates with x-coordinates being their indices (0, 1, 2, ...).
@@ -145,17 +154,17 @@ Output the result as task_14_out = {"result": convex_hull_area_result_14}, repla
 Task 15:
 Let val_15 be the result of preprocessing task_14_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 For each integer i from 1 to val_15, compute Euler's totient function of i * val_15.
-Compute the sequence of these values.
-Let totient_product_sequence_result_15 be the resulting list.
+Compute the sequence of these values. Let totient_product_sequence_result_15 be the resulting sequence.
 Output the result as task_15_out = {"result": totient_product_sequence_result_15}, replacing totient_product_sequence_result_15 with its calculated value.
 
 Task 16:
-Let list_16 be the result of preprocessing task_15_out["result"] as follows - for every element, replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Suppose task_15_out["result"] = [x_1, ..., x_n]. Let task_15_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let list_16 be the result of preprocessing task_15_out_fd as follows - for every element, replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_16 has more than 10 elements, keep only the first 10 elements.
 Let L be max(1, the length of list_16). Let r = max(1, floor(sqrt(L))). Let c = ceil(L / r).
 Reshape list list_16 into matrix M1_16 of size r x c using row-major order, filling the top row first, then the second row, and so on.
 To achieve the required dimension for the reshape, you can append zeros to the end of list list_16 or truncate it.
-Define M2_16 = Matrix([[2, 22, -65], [-19, -82, -41], [37, 88, 53], [63, 19, 26]]).
+Define M2_16 = Matrix([[-19, -82, -41], [37, 88, 53], [63, 19, 26], [-4, 56, 7]]).
 Compute the matrix product of M1_16 and M2_16. Let mat_mat_mul_result_16 be this matrix product.
 Convert matrix mat_mat_mul_result_16 into a list mat_mul_result_16 by concatenating matrix rows starting from the top row, then second row, etc...
 Output the result as task_16_out = {"result": mat_mul_result_16}, replacing mat_mul_result_16 with its calculated value.

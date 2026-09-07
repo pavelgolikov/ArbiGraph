@@ -5,7 +5,9 @@ Solve the following tasks. Output the result for each.
 
 Define task_1_input = {"result": [87, 18, -3, 34, 76, -2, -56, -90, 13, -22]}.
 Task 1:
-Let list_1 be the result of preprocessing task_1_input["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Let task_1_input["result"] = [x_1, ..., x_n]. Update task_1_input["result"] to [x_1 + s, ..., x_n + s], where s = n + x_1 + ... + x_n.
+Let list_1 be the result of preprocessing task_1_input["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1);
+then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_1 has more than 10 elements, keep only the first 10 elements.
 Trace the execution of task_1.
 ```python
@@ -36,7 +38,8 @@ Output the result as task_1_out = {"result": python_result_1}, replacing python_
 
 Define task_2_input = {"result": 67}.
 Task 2:
-Let val_2 be the result of preprocessing task_2_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Let val_2 be the result of preprocessing task_2_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1);
+then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 Define task_2_y_static = -87.
 Define task_2_bound_static = 100.
 Trace the execution of task_2 with inputs y = task_2_y_static, bound = task_2_bound_static.
@@ -63,7 +66,8 @@ Output the result as task_2_out = {"result": python_result_2}, replacing python_
 
 Define task_3_input = {"result": -12}.
 Task 3:
-Let val_3 be the result of preprocessing task_3_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Let val_3 be the result of preprocessing task_3_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1);
+then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 Define task_3_y_static = -35.
 Define task_3_bound_static = 28.
 Trace the execution of task_3 with inputs y = task_3_y_static, bound = task_3_bound_static.
@@ -90,7 +94,8 @@ Output the result as task_3_out = {"result": python_result_3}, replacing python_
 
 Define task_4_input = {"result": -58}.
 Task 4:
-Let val_4 be the result of preprocessing task_4_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Let val_4 be the result of preprocessing task_4_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1);
+then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 Define task_4_nums_static = [-23, -17, -61, 24, 34, 81, 41, -94, 20, -83].
 Trace the execution of task_4 with inputs nums = task_4_nums_static.
 ```python
@@ -115,10 +120,13 @@ Let python_result_4 be the value returned by task_4.
 Output the result as task_4_out = {"result": python_result_4}, replacing python_result_4 with its calculated value.
 
 Task 5:
+Update each of task_1_out["result"], task_2_out["result"] independently as follows:
+For each list, suppose the list is [x_1, ..., x_n]. Update the list to [x_1 + s, ..., x_n + s], where s = n + x_1 + ... + x_n.
 Let list_5_join be the result of interleaving the following lists in the order listed: task_1_out["result"], task_2_out["result"].
 Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
 For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
-Let list_5 be the result of preprocessing list_5_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Let list_5 be the result of preprocessing list_5_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1);
+then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_5 has more than 10 elements, keep only the first 10 elements.
 Define task_5_k_static = -92.
 Trace the execution of task_5 with inputs k = task_5_k_static.
@@ -142,10 +150,13 @@ Let python_result_5 be the value returned by task_5.
 Output the result as task_5_out = {"result": python_result_5}, replacing python_result_5 with its calculated value.
 
 Task 6:
+Update each of task_3_out["result"], task_4_out["result"] independently as follows:
+For each list, suppose the list is [x_1, ..., x_n]. Update the list to [x_1 + s, ..., x_n + s], where s = n + x_1 + ... + x_n.
 Let list_6_join be the result of interleaving the following lists in the order listed: task_3_out["result"], task_4_out["result"].
 Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
 For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
-Let list_6 be the result of preprocessing list_6_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Let list_6 be the result of preprocessing list_6_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1);
+then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_6 has more than 10 elements, keep only the first 10 elements.
 Define task_6_queries_static = [62, 17, -62, -100, -17, -34, -5, -44, -5, -69].
 Trace the execution of task_6 with inputs queries = task_6_queries_static.
@@ -168,7 +179,8 @@ Let python_result_6 be the value returned by task_6.
 Output the result as task_6_out = {"result": python_result_6}, replacing python_result_6 with its calculated value.
 
 Task 7:
-Let val_7 be the result of preprocessing task_5_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Let val_7 be the result of preprocessing task_5_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1);
+then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 Define task_7_nums_static = [7, 9, 15, -6, 88, 61, 63, 95, 69, 45].
 Trace the execution of task_7 with inputs nums = task_7_nums_static.
 ```python
@@ -193,7 +205,8 @@ Let python_result_7 be the value returned by task_7.
 Output the result as task_7_out = {"result": python_result_7}, replacing python_result_7 with its calculated value.
 
 Task 8:
-Let val_8 be the result of preprocessing task_5_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Let val_8 be the result of preprocessing task_5_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1);
+then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 Define task_8_y_static = 7.
 Define task_8_bound_static = 40.
 Trace the execution of task_8 with inputs y = task_8_y_static, bound = task_8_bound_static.
@@ -219,7 +232,9 @@ Let python_result_8 be the value returned by task_8.
 Output the result as task_8_out = {"result": python_result_8}, replacing python_result_8 with its calculated value.
 
 Task 9:
-Let list_9 be the result of preprocessing task_6_out["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Let task_6_out["result"] = [x_1, ..., x_n]. Update task_6_out["result"] to [x_1 + s, ..., x_n + s], where s = n + x_1 + ... + x_n.
+Let list_9 be the result of preprocessing task_6_out["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1);
+then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_9 has more than 10 elements, keep only the first 10 elements.
 Trace the execution of task_9.
 ```python
@@ -243,7 +258,9 @@ Let python_result_9 be the value returned by task_9.
 Output the result as task_9_out = {"result": python_result_9}, replacing python_result_9 with its calculated value.
 
 Task 10:
-Let list_10 be the result of preprocessing task_6_out["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Let task_6_out["result"] = [x_1, ..., x_n]. Update task_6_out["result"] to [x_1 + s, ..., x_n + s], where s = n + x_1 + ... + x_n.
+Let list_10 be the result of preprocessing task_6_out["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1);
+then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_10 has more than 10 elements, keep only the first 10 elements.
 Trace the execution of task_10.
 ```python
@@ -267,10 +284,13 @@ Let python_result_10 be the value returned by task_10.
 Output the result as task_10_out = {"result": python_result_10}, replacing python_result_10 with its calculated value.
 
 Task 11:
+Update each of task_7_out["result"], task_8_out["result"] independently as follows:
+For each list, suppose the list is [x_1, ..., x_n]. Update the list to [x_1 + s, ..., x_n + s], where s = n + x_1 + ... + x_n.
 Let list_11_join be the result of interleaving the following lists in the order listed: task_7_out["result"], task_8_out["result"].
 Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
 For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
-Let list_11 be the result of preprocessing list_11_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Let list_11 be the result of preprocessing list_11_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1);
+then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_11 has more than 10 elements, keep only the first 10 elements.
 Trace the execution of task_11.
 ```python
@@ -299,10 +319,13 @@ Let python_result_11 be the value returned by task_11.
 Output the result as task_11_out = {"result": python_result_11}, replacing python_result_11 with its calculated value.
 
 Task 12:
+Update each of task_9_out["result"], task_10_out["result"] independently as follows:
+For each list, suppose the list is [x_1, ..., x_n]. Update the list to [x_1 + s, ..., x_n + s], where s = n + x_1 + ... + x_n.
 Let list_12_join be the result of interleaving the following lists in the order listed: task_9_out["result"], task_10_out["result"].
 Take the first element from each list, then the second element from each list, and so on. If one list is shorter, skip it after it runs out of elements.
 For example, interleaving [1, 2, 3], [10, 20], and [100, 200, 300, 400] gives [1, 10, 100, 2, 20, 200, 3, 300, 400].
-Let list_12 be the result of preprocessing list_12_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Let list_12 be the result of preprocessing list_12_join as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1);
+then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_12 has more than 10 elements, keep only the first 10 elements.
 Trace the execution of task_12.
 ```python
@@ -326,7 +349,8 @@ Let python_result_12 be the value returned by task_12.
 Output the result as task_12_out = {"result": python_result_12}, replacing python_result_12 with its calculated value.
 
 Task 13:
-Let val_13 be the result of preprocessing task_11_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Let val_13 be the result of preprocessing task_11_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1);
+then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 Define task_13_arr_static = [14, 28, -41, 3, -17, 70, 39, -48, 60, 53].
 Trace the execution of task_13 with inputs arr = task_13_arr_static.
 ```python
@@ -349,7 +373,8 @@ Let python_result_13 be the value returned by task_13.
 Output the result as task_13_out = {"result": python_result_13}, replacing python_result_13 with its calculated value.
 
 Task 14:
-Let val_14 be the result of preprocessing task_12_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Let val_14 be the result of preprocessing task_12_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1);
+then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 Define task_14_skills_static = [-39, -14, 22, 75, 47, -78, 46, 99, 50, 71].
 Trace the execution of task_14 with inputs skills = task_14_skills_static.
 ```python
@@ -374,7 +399,8 @@ Output the result as task_14_out = {"result": python_result_14}, replacing pytho
 
 Task 15:
 Let val_15_join be the sum of the following values: task_13_out["result"], task_14_out["result"].
-Let val_15 be the result of preprocessing val_15_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Let val_15 be the result of preprocessing val_15_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1);
+then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 Define task_15_tokens_static = [-18, -35, 61, -40, -79, 86, -45, 27, 87, -63].
 Trace the execution of task_15 with inputs tokens = task_15_tokens_static.
 ```python
@@ -400,7 +426,8 @@ Let python_result_15 be the value returned by task_15.
 Output the result as task_15_out = {"result": python_result_15}, replacing python_result_15 with its calculated value.
 
 Task 16:
-Let val_16 be the result of preprocessing task_15_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Let val_16 be the result of preprocessing task_15_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1);
+then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 Trace the execution of task_16.
 ```python
 def task_16(val_16: int) -> int:

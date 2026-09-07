@@ -5,7 +5,8 @@ Solve the following tasks. Output the result for each.
 
 Define task_1_input = {"result": -89}.
 Task 1:
-Let val_1 be the result of preprocessing task_1_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Let val_1 be the result of preprocessing task_1_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1);
+then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 Define task_1_arr_static = [63, -9, 79, -19, -77, 0, 9, 60, -58, 44].
 Trace the execution of task_1 with inputs arr = task_1_arr_static.
 ```python
@@ -34,7 +35,8 @@ Output the result as task_1_out = {"result": python_result_1}, replacing python_
 
 Define task_2_input = {"result": -75}.
 Task 2:
-Let val_2 be the result of preprocessing task_2_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Let val_2 be the result of preprocessing task_2_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1);
+then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 Define task_2_nums_static = [75, 17, 81, -24, -97, 69, -26, 89, -96, -83].
 Trace the execution of task_2 with inputs nums = task_2_nums_static.
 ```python
@@ -58,7 +60,8 @@ Output the result as task_2_out = {"result": python_result_2}, replacing python_
 
 Task 3:
 Let val_3_join be the sum of the following values: task_1_out["result"], task_2_out["result"].
-Let val_3 be the result of preprocessing val_3_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Let val_3 be the result of preprocessing val_3_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1);
+then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 Define task_3_skills_static = [8, -90, 70, -75, 36, -87, -90, 25, 43, -100].
 Trace the execution of task_3 with inputs skills = task_3_skills_static.
 ```python
@@ -82,7 +85,8 @@ Let python_result_3 be the value returned by task_3.
 Output the result as task_3_out = {"result": python_result_3}, replacing python_result_3 with its calculated value.
 
 Task 4:
-Let val_4 be the result of preprocessing task_3_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Let val_4 be the result of preprocessing task_3_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1);
+then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 Define task_4_buses_static = [-35, 91, 54, 77, -64, -49, -87, -78, 83, -80].
 Define task_4_passengers_static = [-91, 1, -83, 99, -95, -30, -89, 45, 29, 26].
 Trace the execution of task_4 with inputs buses = task_4_buses_static, passengers = task_4_passengers_static.
@@ -107,7 +111,8 @@ Let python_result_4 be the value returned by task_4.
 Output the result as task_4_out = {"result": python_result_4}, replacing python_result_4 with its calculated value.
 
 Task 5:
-Let val_5 be the result of preprocessing task_3_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Let val_5 be the result of preprocessing task_3_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1);
+then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 Trace the execution of task_5.
 ```python
 def task_5(val_5: int) -> int:
@@ -129,7 +134,8 @@ Let python_result_5 be the value returned by task_5.
 Output the result as task_5_out = {"result": python_result_5}, replacing python_result_5 with its calculated value.
 
 Task 6:
-Let val_6 be the result of preprocessing task_5_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Let val_6 be the result of preprocessing task_5_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1);
+then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 Define task_6_nums_static = [-65, -61, 10, -15, -78, 5, -39, -83, -56, -63].
 Trace the execution of task_6 with inputs nums = task_6_nums_static.
 ```python

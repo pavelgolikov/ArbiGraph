@@ -15,7 +15,8 @@ Convert matrix mat_matrix_polynomial_result_1 into a list matrix_polynomial_resu
 Output the result as task_1_out = {"result": matrix_polynomial_result_1}, replacing matrix_polynomial_result_1 with its calculated value.
 
 Task 2:
-Let list_2 be the result of preprocessing task_1_out["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let list_2 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_2 has more than 10 elements, keep only the first 10 elements.
 Let P_2(x) be a polynomial whose coefficients are the elements of the list list_2 in order, starting from the highest degree.
 Compute the polynomial quotient when P_2(x) is divided by the monic polynomial x**2 + x + 1. Let poly_poly_quotient_result_2 be this polynomial.
@@ -23,7 +24,8 @@ Convert poly_poly_quotient_result_2 into a list poly_quotient_result_2 by extrac
 Output the result as task_2_out = {"result": poly_quotient_result_2}, replacing poly_quotient_result_2 with its calculated value.
 
 Task 3:
-Let list_3 be the result of preprocessing task_1_out["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let list_3 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_3 has more than 10 elements, keep only the first 10 elements.
 Let P_3(x) be a polynomial whose coefficients are the elements of the list list_3 in order, starting from the highest degree.
 If P_3(x) is the zero polynomial, define poly_square_free_eval_result_3 = 0. For a nonzero constant polynomial, use gcd(P_3, P_3') = 1.
@@ -32,7 +34,8 @@ Do not further normalize S_3(x): keep any scalar coefficient remaining after div
 Output the result as task_3_out = {"result": poly_square_free_eval_result_3}, replacing poly_square_free_eval_result_3 with its calculated value.
 
 Task 4:
-Let list_4 be the result of preprocessing task_2_out["result"] as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let list_4 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100 while preserving its original sign.
 If list_4 has more than 10 elements, keep only the first 10 elements.
 Let L be the length of list_4. Let k = floor(sqrt(L)).
 Reshape list list_4 into matrix mat_1_4 of size k x k using row-major order, filling the top row first, then the second row, and so on.
@@ -44,7 +47,7 @@ Output the result as task_4_out = {"result": matrix_frobenius_sq_result_4}, repl
 Task 5:
 Let val_5 be the result of preprocessing task_3_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 Compute the sum of the squares of all positive divisors of val_5.
-Let divisor_sigma_square_result_5 be the resulting value.
+Let divisor_sigma_square_result_5 be the resulting sum.
 Output the result as task_5_out = {"result": divisor_sigma_square_result_5}, replacing divisor_sigma_square_result_5 with its calculated value.
 
 Task 6:
@@ -58,7 +61,7 @@ Output the result as task_6_out = {"result": summatory_totient_result_6}, replac
 Task 7:
 Let val_7 be the result of preprocessing task_6_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 Compute the sum of the unitary divisors of val_7 (divisors d where gcd(d, val_7/d) == 1).
-Let unitary_divisor_sum_result_7 be the resulting value.
+Let unitary_divisor_sum_result_7 be the resulting sum.
 Output the result as task_7_out = {"result": unitary_divisor_sum_result_7}, replacing unitary_divisor_sum_result_7 with its calculated value.
 
 Task 8:
@@ -66,28 +69,26 @@ Let val_8 be the result of preprocessing task_7_out["result"] as follows - if it
 Let p be the smallest prime number strictly greater than val_8 + 2.
 For each integer a = 1, 2, ..., val_8, compute the Legendre symbol Legendre(a, p). This value is 1 if there exists an integer x such that x**2 is congruent to a modulo p, and -1 otherwise.
 For each a, compute a * (Legendre(a, p) + 1). Then compute the sum of these values over all a = 1, 2, ..., val_8.
-Let legendre_residue_weight_result_8 be the resulting value.
+Let legendre_residue_weight_result_8 be the resulting sum.
 Output the result as task_8_out = {"result": legendre_residue_weight_result_8}, replacing legendre_residue_weight_result_8 with its calculated value.
 
 Task 9:
-Let val_9 be the result of preprocessing task_8_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 25 to it.
-Let p be the smallest prime number strictly greater than val_9 + 2.
-For each integer a = 1, 2, ..., val_9, compute the Legendre symbol Legendre(a, p). This value is 1 if there exists an integer x such that x**2 is congruent to a modulo p, and -1 otherwise.
-For each a, compute a * (Legendre(a, p) + 1). Then compute the sum of these values over all a = 1, 2, ..., val_9.
-Let legendre_residue_weight_result_9 be the resulting value.
-Output the result as task_9_out = {"result": legendre_residue_weight_result_9}, replacing legendre_residue_weight_result_9 with its calculated value.
+Let val_9 be the result of preprocessing task_8_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
+Compute the sum of the unitary divisors of val_9 (divisors d where gcd(d, val_9/d) == 1).
+Let unitary_divisor_sum_result_9 be the resulting sum.
+Output the result as task_9_out = {"result": unitary_divisor_sum_result_9}, replacing unitary_divisor_sum_result_9 with its calculated value.
 
 Task 10:
 Let val_10_join be the sum of the following values: task_9_out["result"], task_4_out["result"].
 Let val_10 be the result of preprocessing val_10_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
 For each integer i from 1 to val_10, compute the number of positive divisors of i.
 Compute the sum of all these divisor counts.
-Let sum_divisor_counts_result_10 be the resulting value.
+Let sum_divisor_counts_result_10 be the resulting sum.
 Output the result as task_10_out = {"result": sum_divisor_counts_result_10}, replacing sum_divisor_counts_result_10 with its calculated value.
 
 Task 11:
 Let val_11 be the result of preprocessing task_10_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 2 to it.
 For each integer i from 2 to val_11, compute omega(i), the number of distinct prime factors of i.
 Compute the sum of all these omega values.
-Let prime_omega_sum_result_11 be the resulting value.
+Let prime_omega_sum_result_11 be the resulting sum.
 Output the result as task_11_out = {"result": prime_omega_sum_result_11}, replacing prime_omega_sum_result_11 with its calculated value.

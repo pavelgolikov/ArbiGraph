@@ -52,8 +52,8 @@ A topology names its nodes, gives each a category, lists the directed edges, and
 `native_task_id` pins which task occupies the target node. Set it to `"all"` to generate one sample
 group for every task in that category.
 
-A root node's input is printed in its prompt, and every other node obtains its input through
-`get_input`. The model solves the graph and submits the target's answer with a `submit_answers`
+Every node obtains its input through `get_input`; a root node calls it with no dependencies. The
+model solves the graph and submits the target's answer with a `submit_answers`
 tool.
 
 ## Task categories
@@ -90,7 +90,7 @@ with the target highlighted (this requires Graphviz `dot` on the PATH). Run
 or shuffle the visible task labels.
 
 Ready-made topologies are in [generate/topologies/](generate/topologies/), one directory per
-category. `test/` holds small development graphs, and `exp1/` holds the seven experiment topologies.
+category. `test/` holds small development graphs, and `exp1/` holds the experiment topologies.
 
 ### RAG data
 
@@ -139,14 +139,11 @@ demand from a topology. For a complete example, run:
 python rlvr/arbigraph_rlvr/examples/math_six_chain_target/run.py
 ```
 
-[rlvr/full_train/](rlvr/full_train/) contains a GRPO training setup built on this interface.
-
 ## Hugging Face dataset
 
 An example dataset is published on
 [Hugging Face](https://huggingface.co/datasets/PavelGolikov/arbigraph). It was generated with the
 old framework, before the `get_input` tool, and can be regenerated from the Git tag `hf_release`.
-[hf_release/](hf_release/) contains the packaging scripts.
 
 ## Repository layout
 
@@ -154,9 +151,8 @@ old framework, before the `get_input` tool, and can be regenerated from the Git 
 source/       generator: topology parsing, graph filling, dataset CLI, task categories
 generate/     topologies, generation scripts, task pools, generated datasets
 eval/         agent harnesses, calculator tool, grading, analysis, results
-rlvr/         RLVR environments and training
+rlvr/         RLVR environments
 tests/        test suite
-hf_release/   Hugging Face packaging (old framework)
 ```
 
 ## Tests

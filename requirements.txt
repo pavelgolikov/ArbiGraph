@@ -16,5 +16,3 @@ ujson
 matplotlib
 numpy
 scipy
-
-# RLVR training has its own list: rlvr/full_train/requirements.txt

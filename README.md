@@ -117,8 +117,7 @@ python eval/grade_results.py --input eval/results/my_run.json
 `run_agent.py` serves the model locally with vLLM, and `run_agent_api.py` runs the same agent
 against an API endpoint. Both checkpoint per sample, so rerunning the same command resumes an
 interrupted run. The agent also has a calculator tool, so arithmetic slips are not mistaken for
-context-management failures. The SLURM scripts used for the experiments are in
-[eval/slurm_scripts/](eval/slurm_scripts/).
+context-management failures.
 
 ### Results
 
@@ -160,6 +159,13 @@ tests/        test suite
 ```bash
 python -m pytest tests
 ```
+
+## License
+
+The code is released under the [MIT License](LICENSE). Generated datasets and rollouts that
+include the `rag` category contain passages from [HotpotQA](https://hotpotqa.github.io/), which is
+distributed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/); that content
+remains under CC BY-SA 4.0.
 
 ## Citation
 

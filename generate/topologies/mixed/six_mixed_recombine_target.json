@@ -1,0 +1,21 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "target": {"id": "rlve_target", "native_task_id": "all"},
+  "nodes": [
+    {"id": "math_root", "category": "math"},
+    {"id": "rag_upper", "category": "rag"},
+    {"id": "python_upper", "category": "python"},
+    {"id": "python_lower", "category": "python"},
+    {"id": "math_lower", "category": "math"},
+    {"id": "rlve_target", "category": "rlve"}
+  ],
+  "edges": [
+    {"source": "math_root", "destination": "rag_upper"},
+    {"source": "rag_upper", "destination": "python_upper"},
+    {"source": "python_upper", "destination": "rlve_target"},
+    {"source": "math_root", "destination": "python_lower"},
+    {"source": "python_lower", "destination": "math_lower"},
+    {"source": "math_lower", "destination": "rlve_target"}
+  ]
+}

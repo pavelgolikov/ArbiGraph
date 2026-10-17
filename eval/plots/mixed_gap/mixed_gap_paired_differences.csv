@@ -1,0 +1,25 @@
+model,topology,metric,estimate,ci_low,ci_high,pairs,templates,interval
+Qwen3.8-27B,chain,target,0.09090909090909091,-0.050505050505050504,0.23232323232323232,99,33,cluster bootstrap
+Qwen3.8-27B,chain,target_adjusted_for_solo_accuracy,0.08004063666508236,-0.05684366444037869,0.2610264226411,99,33,cluster bootstrap + Jeffreys-binomial calibration
+Qwen3.8-27B,braid,target,0.1111111111111111,-0.020202020202020204,0.24242424242424243,99,33,cluster bootstrap
+Qwen3.8-27B,braid,target_adjusted_for_solo_accuracy,0.10024265686710257,-0.021291534995366273,0.27299385328288955,99,33,cluster bootstrap + Jeffreys-binomial calibration
+Qwen3.8-27B,fan-out/in,target,0.010101010101010102,-0.1111111111111111,0.12121212121212122,99,33,cluster bootstrap
+Qwen3.8-27B,fan-out/in,target_adjusted_for_solo_accuracy,-0.0007674441429984333,-0.11273812903417986,0.16134423525723696,99,33,cluster bootstrap + Jeffreys-binomial calibration
+Qwen3.8-27B,all three,target,0.0707070707070707,0.006734006734006734,0.13468013468013468,297,33,cluster bootstrap
+Qwen3.8-27B,all three,target_adjusted_for_solo_accuracy,0.05983861646306217,-0.015160869092018851,0.18260006465584303,297,33,cluster bootstrap + Jeffreys-binomial calibration
+GPT-OSS-120B,chain,target,-0.28125,-0.40625,-0.15625,96,32,cluster bootstrap
+GPT-OSS-120B,chain,target_adjusted_for_solo_accuracy,-0.22211314623415643,-0.34340024421636733,-0.04286526385720961,96,32,cluster bootstrap + Jeffreys-binomial calibration
+GPT-OSS-120B,braid,target,-0.19791666666666666,-0.34375,-0.052083333333333336,96,32,cluster bootstrap
+GPT-OSS-120B,braid,target_adjusted_for_solo_accuracy,-0.1387798129008231,-0.2789415148376635,0.07584453136703001,96,32,cluster bootstrap + Jeffreys-binomial calibration
+GPT-OSS-120B,fan-out/in,target,-0.17708333333333334,-0.3020833333333333,-0.041666666666666664,96,32,cluster bootstrap
+GPT-OSS-120B,fan-out/in,target_adjusted_for_solo_accuracy,-0.11794647956748977,-0.23866274515319794,0.07357355714697386,96,32,cluster bootstrap + Jeffreys-binomial calibration
+GPT-OSS-120B,all three,target,-0.21875,-0.3055555555555556,-0.13194444444444445,288,32,cluster bootstrap
+GPT-OSS-120B,all three,target_adjusted_for_solo_accuracy,-0.15961314623415643,-0.2534742121787408,-0.0052043868618213435,288,32,cluster bootstrap + Jeffreys-binomial calibration
+gemma-4-31B-it,chain,target,0.08108108108108109,-0.05405405405405406,0.21621621621621623,111,37,cluster bootstrap
+gemma-4-31B-it,chain,target_adjusted_for_solo_accuracy,0.03694619877470552,-0.05415375335466044,0.23776954070646047,111,37,cluster bootstrap + Jeffreys-binomial calibration
+gemma-4-31B-it,braid,target,-0.009009009009009009,-0.15315315315315314,0.13513513513513514,111,37,cluster bootstrap
+gemma-4-31B-it,braid,target_adjusted_for_solo_accuracy,-0.053143891315384564,-0.15790567782698606,0.1541880163183615,111,37,cluster bootstrap + Jeffreys-binomial calibration
+gemma-4-31B-it,fan-out/in,target,-0.009009009009009009,-0.12612612612612611,0.11711711711711711,111,37,cluster bootstrap
+gemma-4-31B-it,fan-out/in,target_adjusted_for_solo_accuracy,-0.053143891315384564,-0.1341701241991985,0.1381813080700582,111,37,cluster bootstrap + Jeffreys-binomial calibration
+gemma-4-31B-it,all three,target,0.021021021021021023,-0.057057057057057055,0.10510510510510511,333,37,cluster bootstrap
+gemma-4-31B-it,all three,target_adjusted_for_solo_accuracy,-0.023113861285354535,-0.07292742434417836,0.13489867697253058,333,37,cluster bootstrap + Jeffreys-binomial calibration

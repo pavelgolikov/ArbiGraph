@@ -1,6 +1,6 @@
 """Grade a finished agent run.
 
-run_agent_calc.py produces answers; this grades them. It reads a results JSON,
+run_agent.py produces answers; this grades them. It reads a results JSON,
 compares every node's parsed answer against the ground truth already stored in
 that sample's node_outputs, and writes a "grading" section back into the file:
 one per sample, one aggregate under summary.
@@ -10,17 +10,70 @@ everything that does not need edges is still computed.
 """
 
 import argparse
+import importlib.util
 import json
 import os
-import re
 import sys
 import math
 from collections import Counter, defaultdict
+from functools import lru_cache
+from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 REPO_ROOT = os.path.dirname(os.path.abspath(__file__))
 if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
+
+HOTPOTQA_METRICS = (
+    "em", "f1", "prec", "recall",
+    "sp_em", "sp_f1", "sp_prec", "sp_recall",
+    "joint_em", "joint_f1", "joint_prec", "joint_recall",
+)
+
+
+@lru_cache(maxsize=1)
+def _load_hotpotqa_evaluator():
+    """Import the official evaluator from the hotpotqa checkout beside this repository."""
+    path = Path(__file__).resolve().parents[2] / "hotpotqa" / "hotpot_evaluate_v1.py"
+    if not path.is_file():
+        raise FileNotFoundError(
+            f"HotpotQA evaluator missing: {path}\n"
+            f"Run: git clone https://github.com/hotpotqa/hotpot {path.parent}"
+        )
+    spec = importlib.util.spec_from_file_location("hotpot_evaluate_v1", path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def score_hotpotqa(prediction, ground_truth):
+    """Score one node in memory using the official HotpotQA evaluator."""
+    evaluator = _load_hotpotqa_evaluator()
+    metrics = dict.fromkeys(HOTPOTQA_METRICS, 0.0)
+    # Missing or malformed components receive zero, as absent predictions do upstream.
+    if isinstance(prediction, dict):
+        if isinstance(prediction.get("answer"), str):
+            evaluator.update_answer(metrics, prediction["answer"], ground_truth["answer"])
+        support = prediction.get("sp")
+        if isinstance(support, list) and all(
+            isinstance(fact, (list, tuple)) and len(fact) == 2
+            and isinstance(fact[0], str) and type(fact[1]) is int
+            for fact in support
+        ):
+            evaluator.update_sp(metrics, support, ground_truth["sp"])
+
+    # Upstream defines this joint combination inside its file-based eval() wrapper.
+    metrics["joint_em"] = metrics["em"] * metrics["sp_em"]
+    metrics["joint_prec"] = metrics["prec"] * metrics["sp_prec"]
+    metrics["joint_recall"] = metrics["recall"] * metrics["sp_recall"]
+    joint_prec, joint_recall = metrics["joint_prec"], metrics["joint_recall"]
+    if joint_prec + joint_recall > 0:
+        metrics["joint_f1"] = 2 * joint_prec * joint_recall / (joint_prec + joint_recall)
+    return metrics
+
+
+def joint_exact_match(prediction, ground_truth):
+    return score_hotpotqa(prediction, ground_truth)["joint_em"] == 1.0
 
 
 def _matches_integer_exactly(prediction: object, ground_truth: int) -> bool:
@@ -89,12 +142,27 @@ def grade_value(prediction: object, ground_truth: object) -> bool:
     return prediction == ground_truth
 
 
+# A task declares how its own answers are compared, by name, because node records
+# round-trip through JSON. "numeric" suits integer, float, and list outputs; a
+# task whose answer is not a number registers its own rule here.
+COMPARATORS = {"numeric": grade_value, "hotpotqa": joint_exact_match}
+DEFAULT_COMPARATOR = "numeric"
+
+
+def comparator(name=None):
+    """Return the answer comparator a task declared, or the numeric default."""
+    if name is None:
+        name = DEFAULT_COMPARATOR
+    try:
+        return COMPARATORS[name]
+    except KeyError:
+        raise ValueError(f"Unknown comparator {name!r}.") from None
+
+
 def save_json(data, path):
-    """Match run_agent_calc.py's formatting so regrading does not reflow the file."""
+    """Match run_agent.py's formatting so regrading does not reflow the file."""
     os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
     json_str = json.dumps(data, indent=2)
-    json_str = re.sub(r'\[\s+([^\[\]\{\}]*?)\s+\]', lambda m: '[' + re.sub(r'\s+', ' ', m.group(1)) + ']', json_str)
-    json_str = re.sub(r'\[\s+\]', '[]', json_str)
     with open(path, "w") as f:
         f.write(json_str)
 
@@ -115,31 +183,54 @@ def grade_sample(sample: Dict[str, Any]) -> Dict[str, Any]:
     separates a wrong answer from one the agent never produced, which is the
     difference between a reasoning failure and a context-management failure.
     """
-    # node_outputs is in topological order and the prompt numbers tasks by that
-    # position, so the answer key is the node's position, NOT its node_id. The two
-    # diverge whenever topological order differs from the ids in the topology JSON
-    # (two_branch_recombine: node task_4 is asked for as task_3_out).
-    answers = sample.get("task_answers") or {}
+    # node_outputs is in visible task-number order, so the answer key is the
+    # node's serialized position, NOT its node_id. The two diverge whenever labels
+    # are shuffled or topology IDs differ from the prompt numbering.
+    answers = sample.get("submitted_answers") or {}
+    # Only the graded task's submission counts towards the target. Every other node is
+    # scored from the output the model wrote as text, which is a diagnostic.
+    written = sample.get("task_answers") or {}
+    # What a child's get_input call said about each parent. A child cannot ask for its
+    # input without stating what it believes its parents produced, so this is an exact
+    # record of the value the model carried forward, and it does not depend on the model
+    # writing that value down anywhere. It therefore outranks the text.
+    reported = sample.get("reported_correct") or {}
+    target_node_id = sample["target_node_id"]
     node_correct: Dict[str, bool] = {}
     node_answered: Dict[str, bool] = {}
     answer_turn: Dict[str, Optional[int]] = {}
     node_position: Dict[str, int] = {}
+    hotpotqa = {}
 
     for position, record in enumerate(sample["node_outputs"], start=1):
         node_id = record["node_id"]
         node_position[node_id] = position
         entry = answers.get(f"task_{position}_out")
+        if entry is None and node_id != target_node_id:
+            entry = written.get(f"task_{position}_out")
         node_answered[node_id] = entry is not None
         answer_turn[node_id] = None if entry is None else entry.get("turn")
-        node_correct[node_id] = (
-            False if entry is None else bool(grade_value(entry["answer"], record["output_value"]))
-        )
+        if record.get("comparator") == "hotpotqa":
+            metrics = score_hotpotqa(None if entry is None else entry["answer"], record["output_value"])
+            hotpotqa[node_id] = metrics
+            node_correct[node_id] = metrics["joint_em"] == 1.0
+        else:
+            same_answer = comparator(record.get("comparator"))
+            node_correct[node_id] = (
+                False if entry is None else bool(same_answer(entry["answer"], record["output_value"]))
+            )
+        # Only the target is scored from its submission. Every other node is scored from
+        # what its children reported, falling back to the text when it has no children.
+        observed = reported.get(str(position))
+        if observed is not None and node_id != target_node_id:
+            node_correct[node_id] = observed
+            node_answered[node_id] = True
 
     order = [record["node_id"] for record in sample["node_outputs"]]
     first_incorrect = next((node_id for node_id in order if not node_correct[node_id]), None)
-    target = sample["target_node_id"]
+    target = target_node_id
 
-    return {
+    grading = {
         "node_correct": node_correct,
         "node_position": node_position,
         "node_answered": node_answered,
@@ -150,6 +241,9 @@ def grade_sample(sample: Dict[str, Any]) -> Dict[str, Any]:
         "num_nodes": len(order),
         "first_incorrect_node": first_incorrect,
     }
+    if hotpotqa:
+        grading["hotpotqa"] = hotpotqa
+    return grading
 
 
 def aggregate(samples: List[Dict[str, Any]], parents: Optional[Dict[str, List[str]]]) -> Dict[str, Any]:
@@ -209,12 +303,23 @@ def aggregate(samples: List[Dict[str, Any]], parents: Optional[Dict[str, List[st
         summary["conditional_child_accuracy_given_correct_parents"] = {
             k: {"accuracy": rate(v), "n": len(v)} for k, v in sorted(child_given_parents.items())
         }
+    # Average complete per-example scores, including zeroes for unanswered RAG nodes.
+    # Targets are also reported separately when a graph contains other RAG nodes.
+    all_hotpotqa = [metrics for sample in graded
+                   for metrics in sample["grading"].get("hotpotqa", {}).values()]
+    target_hotpotqa = [sample["grading"]["hotpotqa"][sample["target_node_id"]] for sample in graded
+                      if sample["target_node_id"] in sample["grading"].get("hotpotqa", {})]
+    for key, values in (("hotpotqa", all_hotpotqa), ("hotpotqa_target", target_hotpotqa)):
+        if values:
+            summary[key] = {"num_graded": len(values), **{
+                name: sum(metrics[name] for metrics in values) / len(values) for name in HOTPOTQA_METRICS
+            }}
     return summary
 
 
 def main():
     parser = argparse.ArgumentParser(description="Grade an agent results JSON in place.")
-    parser.add_argument("--input", required=True, help="Results JSON written by run_agent_calc.py")
+    parser.add_argument("--input", required=True, help="Results JSON written by run_agent.py")
     parser.add_argument("--output", default="", help="Write here instead of updating --input in place")
     parser.add_argument("--graph", default="", help="Topology JSON, for parent-conditioned metrics")
     args = parser.parse_args()
@@ -248,6 +353,13 @@ def main():
         print(f"All-Node Exact Accuracy: {grading['all_node_exact_accuracy']:.2%}")
         print(f"Average Node Accuracy:   {grading['average_node_accuracy']:.2%}")
         print(f"By position:             {', '.join(f'{k}={v:.2%}' for k, v in grading['node_accuracy_by_position'].items())}")
+        for key in ("hotpotqa", "hotpotqa_target"):
+            if key in grading:
+                metrics = grading[key]
+                print(f"{key} ({metrics['num_graded']} nodes): "
+                      f"answer EM/F1={metrics['em']:.2%}/{metrics['f1']:.2%}, "
+                      f"support EM/F1={metrics['sp_em']:.2%}/{metrics['sp_f1']:.2%}, "
+                      f"joint EM/F1={metrics['joint_em']:.2%}/{metrics['joint_f1']:.2%}")
 
 
 if __name__ == "__main__":

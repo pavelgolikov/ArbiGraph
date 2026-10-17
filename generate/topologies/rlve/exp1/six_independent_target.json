@@ -1,0 +1,35 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "target": {
+    "id": "task_6",
+    "native_task_id": "all"
+  },
+  "nodes": [
+    {
+      "id": "task_1",
+      "category": "rlve"
+    },
+    {
+      "id": "task_2",
+      "category": "rlve"
+    },
+    {
+      "id": "task_3",
+      "category": "rlve"
+    },
+    {
+      "id": "task_4",
+      "category": "rlve"
+    },
+    {
+      "id": "task_5",
+      "category": "rlve"
+    },
+    {
+      "id": "task_6",
+      "category": "rlve"
+    }
+  ],
+  "edges": []
+}

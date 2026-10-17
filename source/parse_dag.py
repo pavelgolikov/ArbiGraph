@@ -12,12 +12,6 @@ import networkx as nx
 from networkx.readwrite import json_graph
 
 
-def format_json(data: dict[str, Any]) -> str:
-    from fracturedjson import Encoder
-
-    return json.dumps(data, cls=Encoder, indent=2) + "\n"
-
-
 def parse_custom_dag(data: dict[str, Any]) -> nx.DiGraph:
     """Parse new-format custom DAG JSON into a validated NetworkX DiGraph."""
     if not isinstance(data, dict):
@@ -100,23 +94,54 @@ def parse_custom_dag(data: dict[str, Any]) -> nx.DiGraph:
     return graph
 
 
-def _custom_dag_to_dot(graph: nx.DiGraph, rankdir: str) -> str:
+def _custom_dag_to_dot(
+    graph: nx.DiGraph,
+    rankdir: str,
+    task_numbers: dict[str, int] | None = None,
+    annotation: str | None = None,
+) -> str:
     if rankdir not in {"LR", "TB"}:
         raise ValueError("rankdir must be either 'LR' or 'TB'.")
 
     target = graph.graph["target"]
     target_id = target["id"]
 
+    if task_numbers is not None:
+        missing = set(graph.nodes) - set(task_numbers)
+        extra = set(task_numbers) - set(graph.nodes)
+        if missing or extra:
+            raise ValueError(
+                f"Task-number mapping does not match graph nodes; missing={sorted(missing)!r}, "
+                f"extra={sorted(extra)!r}."
+            )
+        numbers = list(task_numbers.values())
+        if (
+            any(type(number) is not int for number in numbers)
+            or sorted(numbers) != list(range(1, len(numbers) + 1))
+        ):
+            raise ValueError("Task-number mapping must be a bijection over 1..N.")
+
+    graph_attributes = (
+        f"rankdir={json.dumps(rankdir)}, bgcolor=\"white\", pad=\"0.2\", "
+        "nodesep=\"0.45\", ranksep=\"0.65\""
+    )
+    if annotation is not None:
+        graph_attributes += (
+            f", label={json.dumps(annotation)}, labelloc=\"t\", "
+            "fontname=\"Helvetica\", fontsize=12"
+        )
+
     lines = [
         "digraph custom_dag {",
-        f"  graph [rankdir={json.dumps(rankdir)}, bgcolor=\"white\", pad=\"0.2\", nodesep=\"0.45\", ranksep=\"0.65\"];",
+        f"  graph [{graph_attributes}];",
         "  node [shape=box, style=\"rounded,filled\", fontname=\"Helvetica\", fontsize=10, margin=\"0.08,0.06\"];",
         "  edge [fontname=\"Helvetica\", fontsize=9, color=\"#555555\", arrowsize=0.7];",
     ]
 
     for node_id in nx.topological_sort(graph):
         attrs = graph.nodes[node_id]
-        label = f"{node_id}\n{attrs['category']}"
+        visible_id = node_id if task_numbers is None else f"task_{task_numbers[node_id]}"
+        label = f"{visible_id}\n{attrs['category']}"
         fill = "#fff2b8" if node_id == target_id else "#e8f1ff"
         border = "#c48a00" if node_id == target_id else "#5279b8"
         penwidth = "2.0" if node_id == target_id else "1.2"
@@ -134,14 +159,21 @@ def _custom_dag_to_dot(graph: nx.DiGraph, rankdir: str) -> str:
     return "\n".join(lines) + "\n"
 
 
-def render_custom_dag_svg(graph: nx.DiGraph, image_path: str, rankdir: str = "LR") -> None:
+def render_custom_dag_svg(
+    graph: nx.DiGraph,
+    image_path: str,
+    rankdir: str = "LR",
+    *,
+    task_numbers: dict[str, int] | None = None,
+    annotation: str | None = None,
+) -> None:
     """Render a parsed custom DAG graph to an SVG image with Graphviz."""
     image_dir = os.path.dirname(os.path.abspath(image_path))
     os.makedirs(image_dir, exist_ok=True)
     try:
         subprocess.run(
             ["dot", "-Tsvg", "-o", image_path],
-            input=_custom_dag_to_dot(graph, rankdir),
+            input=_custom_dag_to_dot(graph, rankdir, task_numbers, annotation),
             text=True,
             check=True,
             capture_output=True,

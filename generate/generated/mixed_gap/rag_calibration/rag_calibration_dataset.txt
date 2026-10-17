@@ -1,0 +1,899 @@
+======================================================================
+Prompt 1
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 2
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 3
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 4
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 5
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 6
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 7
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 8
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 9
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 10
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 11
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 12
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 13
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 14
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 15
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 16
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 17
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 18
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 19
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 20
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 21
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 22
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 23
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 24
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 25
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 26
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 27
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 28
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 29
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 30
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 31
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 32
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 33
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 34
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 35
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 36
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 37
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 38
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 39
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 40
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 41
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 42
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 43
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 44
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 45
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 46
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 47
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 48
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 49
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 50
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 51
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 52
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 53
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 54
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 55
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 56
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 57
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 58
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 59
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 60
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 61
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 62
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 63
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 64
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 65
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 66
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 67
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 68
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 69
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 70
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 71
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 72
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 73
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 74
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 75
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 76
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 77
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 78
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 79
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 80
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 81
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 82
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 83
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 84
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 85
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 86
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 87
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 88
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 89
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.
+
+======================================================================
+Prompt 90
+======================================================================
+Solve task 1. Once you have its result, call the submit_answers tool once with the result of task 1.
+
+Task 1:
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+Answer the question in task_1_input using the provided context.
+Output the result as task_1_out = {"result": {"answer": "<short answer>", "sp": [["<title>", <zero_based_sentence_index>], ...]}}, where "sp" is a list of supporting facts, each represented as a pair: article title and the zero-based index of the sentence in the context.

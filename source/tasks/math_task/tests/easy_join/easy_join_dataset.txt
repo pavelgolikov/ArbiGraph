@@ -1,27 +1,27 @@
 ======================================================================
 Prompt 1
 ======================================================================
-Solve the following tasks. Output the result for each.
+Solve the following tasks. Output the result for each. After you have the results of all tasks, call the submit_answers tool once with the results of all tasks in task order.
 
-Define task_1_input = {"result": -15}.
 Task 1:
-Let val_1 be the result of preprocessing task_1_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
-For each integer i from 1 to val_1, compute the number of positive divisors of i.
+To get task_1_input, call the get_input tool with task_index=1 and input_dependencies=[].
+For each integer i from 1 to task_1_input, compute the number of positive divisors of i.
 Compute the sum of all these divisor counts.
 Let sum_divisor_counts_result_1 be the resulting sum.
 Output the result as task_1_out = {"result": sum_divisor_counts_result_1}, replacing sum_divisor_counts_result_1 with its calculated value.
 
-Define task_2_input = {"result": 81}.
 Task 2:
-Let val_2 be the result of preprocessing task_2_input["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100; then add 1 to it.
-Compute the sum of the squares of all positive divisors of val_2.
-Let divisor_sigma_square_result_2 be the resulting sum.
-Output the result as task_2_out = {"result": divisor_sigma_square_result_2}, replacing divisor_sigma_square_result_2 with its calculated value.
+To get task_2_input, call the get_input tool with task_index=2 and input_dependencies=[].
+Consider task_2_input as a sequence of y-coordinates with x-coordinates being their indices (0, 1, 2, ...).
+Compute the area of the convex hull of these 2D points and multiply the area by 2. If there are fewer than 3 points, or if all points are collinear, define the area to be 0.
+Let convex_hull_area_result_2 be the resulting value.
+Output the result as task_2_out = {"result": convex_hull_area_result_2}, replacing convex_hull_area_result_2 with its calculated value.
 
 Task 3:
-Let val_3_join be the sum of the following values: task_2_out["result"], task_1_out["result"].
-Let val_3 be the result of preprocessing val_3_join as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 100.
-Define m = floor(sqrt(val_3)) + 7.
-Compute the unsigned Stirling number of the first kind c(m, m - 2), which counts the number of permutations of m elements with exactly m - 2 disjoint cycles.
-Let scaled_stirling_first_kind_result_3 be the resulting value.
-Output the result as task_3_out = {"result": scaled_stirling_first_kind_result_3}, replacing scaled_stirling_first_kind_result_3 with its calculated value.
+To get task_3_input, call the get_input tool with task_index=3 and input_dependencies=[task_2_out, task_1_out], substituting the actual values.
+Let task_3_input = [a_0, a_1, ..., a_{N-1}].
+Compute the unnormalized Walsh-Hadamard transform in Sylvester order. That is, for each j = 0, 1, ..., N-1, define
+H_j = sum_{k=0}^{N-1} ((-1) ** popcount(j & k)) * a_k, where `&` is bitwise AND and popcount counts the number of 1-bits.
+Compute the sequence [H_0, H_1, ..., H_{N-1}].
+Let fwht_result_3 be this sequence.
+Output the result as task_3_out = {"result": fwht_result_3}, replacing fwht_result_3 with its calculated value.

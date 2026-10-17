@@ -10,6 +10,7 @@ sympy/
 ml-gsm-symbolic/
 
 source/generated/
-eval/results/
+/source/tasks/rag_task/hotpot_train_v1.1.json
+/eval/results/**/*_partial/
 eval/logs/
 *.log

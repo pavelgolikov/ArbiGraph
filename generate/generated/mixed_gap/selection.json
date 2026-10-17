@@ -1,0 +1,346 @@
+{
+  "models": [
+    "Qwen3.8-27B",
+    "GPT-OSS-120B",
+    "gemma-4-31B-it"
+  ],
+  "prescreen_repeats_per_task": 8,
+  "selection_rule": {
+    "accuracy": "8/8 correct on each of the three models",
+    "rag": "Three highest mean generated-token counts among accuracy passers",
+    "rlve": "Five nearest the median of six math/python solo-token medians, among accuracy passers with at least 1800 mean generated tokens"
+  },
+  "math_python_reference_median_generated_tokens": 2293.75,
+  "selected": {
+    "rag": [
+      68,
+      25,
+      184
+    ],
+    "rlve": [
+      13,
+      31,
+      38,
+      21,
+      11
+    ]
+  },
+  "prescreen": {
+    "rag": {
+      "7": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 6,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 818.2083333333334,
+        "context_chars": 7461
+      },
+      "25": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 8,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 955.7083333333334,
+        "context_chars": 7136
+      },
+      "27": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 6,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 849.5416666666666,
+        "context_chars": 6605
+      },
+      "29": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 5,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 760.2916666666666,
+        "context_chars": 6777
+      },
+      "36": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 6,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 726.25,
+        "context_chars": 6370
+      },
+      "44": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 7,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 874.5,
+        "context_chars": 5768
+      },
+      "48": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 8,
+          "gemma-4-31B-it": 7
+        },
+        "mean_generated_tokens": 816.2916666666666,
+        "context_chars": 6393
+      },
+      "68": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 8,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 964.5416666666666,
+        "context_chars": 5633
+      },
+      "75": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 8,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 710.6666666666666,
+        "context_chars": 5469
+      },
+      "83": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 7,
+          "GPT-OSS-120B": 1,
+          "gemma-4-31B-it": 4
+        },
+        "mean_generated_tokens": 1261.2916666666667,
+        "context_chars": 6469
+      },
+      "91": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 5,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 621.3333333333334,
+        "context_chars": 8866
+      },
+      "92": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 4,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 646.375,
+        "context_chars": 6220
+      },
+      "121": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 8,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 678.0416666666666,
+        "context_chars": 6421
+      },
+      "131": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 7,
+          "GPT-OSS-120B": 1,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 925.875,
+        "context_chars": 5977
+      },
+      "144": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 3,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 714.5,
+        "context_chars": 7201
+      },
+      "159": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 8,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 658.0833333333334,
+        "context_chars": 7697
+      },
+      "163": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 8,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 593.8333333333334,
+        "context_chars": 7352
+      },
+      "170": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 8,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 651.125,
+        "context_chars": 7229
+      },
+      "172": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 7,
+          "GPT-OSS-120B": 7,
+          "gemma-4-31B-it": 5
+        },
+        "mean_generated_tokens": 730.5416666666666,
+        "context_chars": 5751
+      },
+      "182": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 6,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 1220.75,
+        "context_chars": 7508
+      },
+      "184": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 8,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 719.5416666666666,
+        "context_chars": 6268
+      },
+      "185": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 4,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 792.4166666666666,
+        "context_chars": 5844
+      },
+      "186": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 7,
+          "GPT-OSS-120B": 8,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 783.5416666666666,
+        "context_chars": 7116
+      },
+      "199": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 3,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 720.9166666666666,
+        "context_chars": 5735
+      }
+    },
+    "rlve": {
+      "1": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 7,
+          "GPT-OSS-120B": 7,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 1603.0833333333333
+      },
+      "4": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 8,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 735.9166666666666
+      },
+      "5": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 8,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 324.5416666666667
+      },
+      "6": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 8,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 1185.5
+      },
+      "11": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 8,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 3693.5
+      },
+      "13": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 8,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 2278.5
+      },
+      "15": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 8,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 633.7083333333334
+      },
+      "21": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 8,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 2737.3333333333335
+      },
+      "26": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 7,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 3735.7916666666665
+      },
+      "31": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 8,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 2443.375
+      },
+      "34": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 8,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 3738
+      },
+      "38": {
+        "correct_of_8": {
+          "Qwen3.8-27B": 8,
+          "GPT-OSS-120B": 8,
+          "gemma-4-31B-it": 8
+        },
+        "mean_generated_tokens": 2040
+      }
+    }
+  }
+}

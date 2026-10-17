@@ -1,0 +1,7 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "target": {"id": "task_1", "native_task_id": 0},
+  "nodes": [{"id": "task_1", "category": "rag"}],
+  "edges": []
+}

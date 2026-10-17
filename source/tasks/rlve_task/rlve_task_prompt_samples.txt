@@ -1,0 +1,2111 @@
+======================================================================
+Prompt 1
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [1, 1, 1, 4, 4, 1]}.
+Task 1:
+Given an array A of length 6: A[0]=task_1_input["result"][0] A[1]=task_1_input["result"][1] A[2]=task_1_input["result"][2] A[3]=task_1_input["result"][3] A[4]=task_1_input["result"][4] A[5]=task_1_input["result"][5]
+
+Please find a (not necessarily contiguous) subsequence of length 5 (i.e., select 5 elements with increasing indices: 0 <= i1 < ... < i5 < 6) such that the resulting subsequence A[i1], ..., A[i5] is **lexicographically maximal**.
+
+Let maximum_lexicographical_order_subsequence_result_1 be a single list with the selected subsequence A[i1], ..., A[i5] in order.
+Output the result as task_1_out = {"result": maximum_lexicographical_order_subsequence_result_1}, replacing maximum_lexicographical_order_subsequence_result_1 with its calculated value.
+
+Task 2:
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_2 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 6; then add 1 to it.
+If rlve_input_2 has more than 6 elements, keep only the first 6 elements.
+You are given 6 pairs of integers `(S[i], A[i])` for `0 <= i < 6`, provided as:
+S[0]=5 A[0]=rlve_input_2[0]
+S[1]=6 A[1]=rlve_input_2[1]
+S[2]=13 A[2]=rlve_input_2[2]
+S[3]=14 A[3]=rlve_input_2[3]
+S[4]=16 A[4]=rlve_input_2[4]
+S[5]=17 A[5]=rlve_input_2[5]
+
+**Note:** The array `S` is sorted in non-decreasing order: `S[0] <= S[1] <= ... <= S[5]`
+
+Please select k distinct pairs `i_1, i_2, ..., i_k` and maximize the following expression: `max(S[i_1], S[i_2], ..., S[i_k]) * 2 + A[i_1] + A[i_2] + ... + A[i_k]` (i.e., the sum of the selected A[i] values plus the maximum S[i] value multiplied by 2).
+Please compute the **maximum value of this expression** for each k = 1 to 6.
+
+Let salesman_fatigue_result_2 be a single list with the maximum value of this expression for each k = 1 to 6, in order.
+Output the result as task_2_out = {"result": salesman_fatigue_result_2}, replacing salesman_fatigue_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 6.
+If rlve_input_3 has more than 5 elements, keep only the first 5 elements.
+You are given a sequence C: C[1]=rlve_input_3[0] C[2]=rlve_input_3[1] C[3]=rlve_input_3[2] C[4]=rlve_input_3[3] C[5]=rlve_input_3[4]
+
+Now, please determine two non-negative integer sequences X[1], ..., X[5] and Y[1], ..., Y[5] such that:
+- For 1 ≤ i ≤ 5, define: Pos[i] = (C[i] + 2 × X[i] + Y[i]) mod 6
+- The values Pos[1], ..., Pos[5] must be all distinct.
+- No Pos[i] can be equal to 3.
+- Among all valid solutions:
+  + First, minimize the lexicographical order of sequence Y.
+  + If multiple solutions have the same Y, then choose the one with the smallest lexicographical order of X.
+
+Let box_scheduling_result_3 be a single list with Pos[1], ..., Pos[5] in order.
+Output the result as task_3_out = {"result": box_scheduling_result_3}, replacing box_scheduling_result_3 with its calculated value.
+
+======================================================================
+Prompt 2
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [8, 40, 19, 47, 12, 37, 18]}.
+Task 1:
+There are 7 items, and the i-th item has two attributes W[i] and L[i]. The arrays W and L are given as follows:
+W[1]=task_1_input["result"][0] L[1]=26
+W[2]=task_1_input["result"][1] L[2]=2
+W[3]=task_1_input["result"][2] L[3]=24
+W[4]=task_1_input["result"][3] L[4]=18
+W[5]=task_1_input["result"][4] L[5]=41
+W[6]=task_1_input["result"][5] L[6]=20
+W[7]=task_1_input["result"][6] L[7]=39
+
+Partition all items into an arbitrary number of **disjoint non-empty sets**. For each set S, its cost is defined as: cost(S) = max(W[i] for i ∈ S) × max(L[i] for i ∈ S)
+Can you make the total cost, which is the sum of costs of all sets, as small as possible?
+
+Let land_acquisition_result_1 be the minimum possible total cost.
+Output the result as task_1_out = {"result": land_acquisition_result_1}, replacing land_acquisition_result_1 with its calculated value.
+
+Task 2:
+Let rlve_input_2 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 1458; then add 183 to it.
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `rlve_input_2` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_2 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_2_out = {"result": negative_base_result_2}, replacing negative_base_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 6; then add 1 to it.
+If rlve_input_3 has more than 6 elements, keep only the first 6 elements.
+Given an array A of length 6: A[0]=rlve_input_3[0] A[1]=rlve_input_3[1] A[2]=rlve_input_3[2] A[3]=rlve_input_3[3] A[4]=rlve_input_3[4] A[5]=rlve_input_3[5]
+
+Please find a (not necessarily contiguous) subsequence of length 5 (i.e., select 5 elements with increasing indices: 0 <= i1 < ... < i5 < 6) such that the resulting subsequence A[i1], ..., A[i5] is **lexicographically maximal**.
+
+Let maximum_lexicographical_order_subsequence_result_3 be a single list with the selected subsequence A[i1], ..., A[i5] in order.
+Output the result as task_3_out = {"result": maximum_lexicographical_order_subsequence_result_3}, replacing maximum_lexicographical_order_subsequence_result_3 with its calculated value.
+
+======================================================================
+Prompt 3
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [[1, 4, 4, 1, 5, 1], [5, 1, 1, 6, 1, 3], [5, 1, 6, 1, 1, 1], [2, 1, 3, 6, 4, 4], [1, 6, 5, 6, 5, 3], [4, 4, 6, 5, 5, 1]]}.
+Task 1:
+You are given two matrices A and B of size 6 × 6 (0-indexed).
+
+Matrix A is (given in **row-major order**, with each row represented as a list of integers separated by spaces):
+4 5 3 2 6 2
+6 1 9 2 3 8
+10 8 7 3 2 4
+4 3 2 2 10 4
+4 7 4 4 3 2
+1 6 3 4 1 6
+
+Matrix B is (given in **row-major order**, with each row represented as a list of integers separated by spaces):
+task_1_input["result"][0][0] task_1_input["result"][0][1] task_1_input["result"][0][2] task_1_input["result"][0][3] task_1_input["result"][0][4] task_1_input["result"][0][5]
+task_1_input["result"][1][0] task_1_input["result"][1][1] task_1_input["result"][1][2] task_1_input["result"][1][3] task_1_input["result"][1][4] task_1_input["result"][1][5]
+task_1_input["result"][2][0] task_1_input["result"][2][1] task_1_input["result"][2][2] task_1_input["result"][2][3] task_1_input["result"][2][4] task_1_input["result"][2][5]
+task_1_input["result"][3][0] task_1_input["result"][3][1] task_1_input["result"][3][2] task_1_input["result"][3][3] task_1_input["result"][3][4] task_1_input["result"][3][5]
+task_1_input["result"][4][0] task_1_input["result"][4][1] task_1_input["result"][4][2] task_1_input["result"][4][3] task_1_input["result"][4][4] task_1_input["result"][4][5]
+task_1_input["result"][5][0] task_1_input["result"][5][1] task_1_input["result"][5][2] task_1_input["result"][5][3] task_1_input["result"][5][4] task_1_input["result"][5][5]
+
+Please find a permutation P of indices from 0 to 5, i.e., P[0], P[1], ..., P[5], such that the following ratio is maximized: (A[0][P[0]] + A[1][P[1]] + ... + A[5][P[5]]) / (B[0][P[0]] + B[1][P[1]] + ... + B[5][P[5]])
+
+The maximum possible value of this ratio is a rational number; write it in lowest terms as `p / q`. Let fractional_programming_bipartite_graph_matching_result_1 be `p * q^-1 mod 998244353`, where `q^-1` is the modular multiplicative inverse of `q` modulo the prime 998244353 - that is, the unique integer `y` with `0 <= y < 998244353` and `q * y = 1 (mod 998244353)`.
+Output the result as task_1_out = {"result": fractional_programming_bipartite_graph_matching_result_1}, replacing fractional_programming_bipartite_graph_matching_result_1 with its calculated value.
+
+Task 2:
+Let rlve_input_2 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 1458; then add 183 to it.
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `rlve_input_2` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_2 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_2_out = {"result": negative_base_result_2}, replacing negative_base_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 7.
+If rlve_input_3 has more than 6 elements, keep only the first 6 elements.
+You are given an array of 6 integers: rlve_input_3
+
+You will perform 3 operations in order. In each operation, you uniformly select a subarray (a contiguous segment of the array) at random from all 6 × (6 + 1) / 2 possible subarrays. Then, all elements in that subarray are changed to the **maximum** value within it.
+
+Please compute the expected value of each position in the array after all 3 operations. Since the expected value is a rational number with denominator (6 × (6 + 1) / 2)^3, output the **numerator** (i.e., the expected value multiplied by (6 × (6 + 1) / 2)^3), modulo 10000.
+
+Let random_range_max_expectation_result_3 be a single list with the scaled expected values (modulo 10000) for each position, in order.
+Output the result as task_3_out = {"result": random_range_max_expectation_result_3}, replacing random_range_max_expectation_result_3 with its calculated value.
+
+======================================================================
+Prompt 4
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": 928}.
+Task 1:
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `task_1_input["result"]` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_1 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_1_out = {"result": negative_base_result_1}, replacing negative_base_result_1 with its calculated value.
+
+Task 2:
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_2 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 9.
+If rlve_input_2 has more than 8 elements, keep only the first 8 elements.
+You are given the following list of 8 numbers: rlve_input_2
+Please find the minimum value in each contiguous subarray of size 4 (there are 5 such subarrays in total).
+
+Let sliding_window_result_2 be a single list with those minimum values from the leftmost subarray to the rightmost, in order.
+Output the result as task_2_out = {"result": sliding_window_result_2}, replacing sliding_window_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 6; then add 1 to it.
+If rlve_input_3 has more than 6 elements, keep only the first 6 elements.
+You are given 6 pairs of integers `(S[i], A[i])` for `0 <= i < 6`, provided as:
+S[0]=1 A[0]=rlve_input_3[0]
+S[1]=3 A[1]=rlve_input_3[1]
+S[2]=5 A[2]=rlve_input_3[2]
+S[3]=10 A[3]=rlve_input_3[3]
+S[4]=17 A[4]=rlve_input_3[4]
+S[5]=18 A[5]=rlve_input_3[5]
+
+**Note:** The array `S` is sorted in non-decreasing order: `S[0] <= S[1] <= ... <= S[5]`
+
+Please select k distinct pairs `i_1, i_2, ..., i_k` and maximize the following expression: `max(S[i_1], S[i_2], ..., S[i_k]) * 2 + A[i_1] + A[i_2] + ... + A[i_k]` (i.e., the sum of the selected A[i] values plus the maximum S[i] value multiplied by 2).
+Please compute the **maximum value of this expression** for each k = 1 to 6.
+
+Let salesman_fatigue_result_3 be a single list with the maximum value of this expression for each k = 1 to 6, in order.
+Output the result as task_3_out = {"result": salesman_fatigue_result_3}, replacing salesman_fatigue_result_3 with its calculated value.
+
+======================================================================
+Prompt 5
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [8, 1, 1, 5, 7, 6, 2]}.
+Task 1:
+You are given an **undirected graph** with 7 vertices labeled from 0 to 6. The graph contains the following undirected edges:
+(1, 6)
+(5, 6)
+(0, 5)
+(4, 5)
+(2, 5)
+(2, 3)
+(0, 6)
+(4, 6)
+(1, 3)
+(0, 3)
+(0, 4)
+(2, 6)
+(3, 6)
+(0, 2)
+(2, 4)
+(1, 4)
+(3, 4)
+(0, 1)
+
+Each vertex has a cost, given as a list `C` of length 7, where `C[i]` is the cost of vertex i:
+C[0]=task_1_input["result"][0]
+C[1]=task_1_input["result"][1]
+C[2]=task_1_input["result"][2]
+C[3]=task_1_input["result"][3]
+C[4]=task_1_input["result"][4]
+C[5]=task_1_input["result"][5]
+C[6]=task_1_input["result"][6]
+
+Your task is to select a set of distinct vertices x_1, x_2, ..., x_k (you determine k), such that every edge in the graph has at least one endpoint in the selected set; that is, for every edge (u, v), at least one of u or v must be included.
+Try your best to minimize the total cost: C[x_1] + C[x_2] + ... + C[x_k].
+
+Let minimum_vertex_cover_result_1 be the minimum possible total cost.
+Output the result as task_1_out = {"result": minimum_vertex_cover_result_1}, replacing minimum_vertex_cover_result_1 with its calculated value.
+
+Task 2:
+Let rlve_input_2 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 1458; then add 183 to it.
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `rlve_input_2` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_2 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_2_out = {"result": negative_base_result_2}, replacing negative_base_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 9.
+If rlve_input_3 has more than 8 elements, keep only the first 8 elements.
+You are given the following list of 8 numbers: rlve_input_3
+Please find the minimum value in each contiguous subarray of size 4 (there are 5 such subarrays in total).
+
+Let sliding_window_result_3 be a single list with those minimum values from the leftmost subarray to the rightmost, in order.
+Output the result as task_3_out = {"result": sliding_window_result_3}, replacing sliding_window_result_3 with its calculated value.
+
+======================================================================
+Prompt 6
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [1, 3, 4, 2, 3, 1]}.
+Task 1:
+You are given an array that repeats every 6 elements. The initial pattern is: task_1_input["result"]. This pattern repeats 10 times, creating a total array length of 60.
+
+For example, if the initial pattern is [1, 3, 2] and it repeats 2 times, the full array would be [1, 3, 2, 1, 3, 2].
+
+Find the length of the longest non-decreasing subsequence (not necessarily contiguous) in this repeated array.
+
+Let repeat_sequence_lnds_result_1 be the length of that longest non-decreasing subsequence.
+Output the result as task_1_out = {"result": repeat_sequence_lnds_result_1}, replacing repeat_sequence_lnds_result_1 with its calculated value.
+
+Task 2:
+Let rlve_input_2 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 1458; then add 183 to it.
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `rlve_input_2` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_2 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_2_out = {"result": negative_base_result_2}, replacing negative_base_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 31.
+If rlve_input_3 has more than 6 elements, keep only the first 6 elements.
+You are given the following list of numbers:
+rlve_input_3
+Please sort them in **ascending order**.
+
+Let sorting_result_3 be a single list with the sorted numbers in ascending order.
+Output the result as task_3_out = {"result": sorting_result_3}, replacing sorting_result_3 with its calculated value.
+
+======================================================================
+Prompt 7
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [1, 1, 1, 2, 4, 6]}.
+Task 1:
+There are 6 items labeled from 0 to 5. Each item labeled `i` has an associated cost C[i]. The array C is: C[0]=task_1_input["result"][0] C[1]=task_1_input["result"][1] C[2]=task_1_input["result"][2] C[3]=task_1_input["result"][3] C[4]=task_1_input["result"][4] C[5]=task_1_input["result"][5]
+Initially, the items are arranged in the order A (this means the item at position 0 has label A[0], at position 1 has label A[1], etc): A[0]=4 A[1]=1 A[2]=2 A[3]=3 A[4]=5 A[5]=0
+You are required to rearrange the items into the target order B: B[0]=4 B[1]=0 B[2]=5 B[3]=1 B[4]=3 B[5]=2
+
+You may perform any number of swaps. Swapping the items labeled `i` and `j` incurs a cost of C[i] + C[j]. Please minimize the total cost of all swaps.
+
+Let slo_elephants_result_1 be the minimum possible total cost of all swaps.
+Output the result as task_1_out = {"result": slo_elephants_result_1}, replacing slo_elephants_result_1 with its calculated value.
+
+Task 2:
+Let rlve_input_2 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 1458; then add 183 to it.
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `rlve_input_2` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_2 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_2_out = {"result": negative_base_result_2}, replacing negative_base_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 8; then add 1 to it.
+If rlve_input_3 has more than 8 elements, keep only the first 8 elements.
+You are given a 2D integer matrix of size 4 x 2:
+rlve_input_3[0] rlve_input_3[1]
+rlve_input_3[2] rlve_input_3[3]
+rlve_input_3[4] rlve_input_3[5]
+rlve_input_3[6] rlve_input_3[7]
+
+Return all elements of the matrix in a clockwise spiral order, starting from the top-left corner. More precisely:
+- Start from the top-left corner and move right until you reach the right edge.
+- Then, move down until you reach the bottom-right corner.
+- Then, move left until you reach the bottom-left corner.
+- Then, move up until you reach the top-right corner.
+- Continue this inward spiral traversal until all elements have been visited exactly once.
+
+---
+
+**Example 1**
+
+You are given an integer matrix of size 3 x 3:
+1 2 3
+4 5 6
+7 8 9
+
+The spiral order is [1, 2, 3, 6, 9, 8, 7, 4, 5].
+
+**Example 2**
+
+You are given an integer matrix of size 3 x 4:
+1 2 3 4
+5 6 7 8
+9 10 11 12
+
+The spiral order is [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7].
+
+---
+
+Let spiral_matrix_result_3 be a single list with all 8 elements of the matrix in clockwise spiral order.
+Output the result as task_3_out = {"result": spiral_matrix_result_3}, replacing spiral_matrix_result_3 with its calculated value.
+
+======================================================================
+Prompt 8
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [6, 0, 9, 8, 9, 9]}.
+Task 1:
+You are given a **tree** (i.e., a connected undirected graph with no cycles) with 6 + 1 = 7 vertices, labeled from `0` to `6`.
+
+`0` is the root of the tree. Each non-root vertex has a parent, and the edge connecting it with its parent has a weight. The edges are given as follows:
+`1`'s parent is `2` with weight `6`
+`2`'s parent is `4` with weight `8`
+`3`'s parent is `5` with weight `6`
+`4`'s parent is `0` with weight `6`
+`5`'s parent is `4` with weight `5`
+`6`'s parent is `0` with weight `3`
+
+Each non-root vertex also has a cost, given as a list `C` of length 6, where `C[i]` is the cost of vertex `i`:
+C[1]=task_1_input["result"][0] C[2]=task_1_input["result"][1] C[3]=task_1_input["result"][2] C[4]=task_1_input["result"][3] C[5]=task_1_input["result"][4] C[6]=task_1_input["result"][5]
+
+The root (vertex `0`) is already selected. Your task is to select exactly 4 **additional** non-root vertices. The total cost of the selection is defined as follows:
+- For every vertex `u`, let `D[u]` be the distance from `u` to its **nearest selected ancestor**, where a selected ancestor includes `0` or the vertex itself (if selected). The **distance** between two vertices is the sum of weights along the unique path between them.
+- The cost contributed by vertex `u` is `C[u] × D[u]` for all non-root verticies `u`.
+- Try your best to **minimize** the total cost.
+
+Let minimum_tree_weighted_dominating_ancestor_result_1 be the minimum possible total cost.
+Output the result as task_1_out = {"result": minimum_tree_weighted_dominating_ancestor_result_1}, replacing minimum_tree_weighted_dominating_ancestor_result_1 with its calculated value.
+
+Task 2:
+Let rlve_input_2 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 1458; then add 183 to it.
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `rlve_input_2` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_2 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_2_out = {"result": negative_base_result_2}, replacing negative_base_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 1048576.
+If rlve_input_3 has more than 5 elements, keep only the first 5 elements.
+You are given an integer array `A` of length 5:
+A[0]=rlve_input_3[0] A[1]=rlve_input_3[1] A[2]=rlve_input_3[2] A[3]=rlve_input_3[3] A[4]=rlve_input_3[4]
+
+Please count the number of valid integer arrays `B` of length 5 that satisfy the following conditions:
+- For all indices 0 <= i <= 4, the value B[i] must be in the range: 0 <= B[i] < 2^20 = 1048576
+- For all indices 0 <= i < 4, the following bitwise conditions hold:
+  - (A[i] & B[i]) <= (A[i + 1] & B[i + 1])
+  - (A[i] | B[i]) >= (A[i + 1] | B[i + 1])
+  - (Here, `&` is the bitwise AND operator and `|` is the bitwise OR operator.)
+
+Let and_or_sequence_counting_result_3 be the number of valid arrays `B` that satisfy all the above conditions.
+Output the result as task_3_out = {"result": and_or_sequence_counting_result_3}, replacing and_or_sequence_counting_result_3 with its calculated value.
+
+======================================================================
+Prompt 9
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": 2}.
+Task 1:
+You are given a grid of size 2 × 2. You may color some cells (and leave others uncolored) using 2 colors labeled from 0 to 1, such that:
+1. No two different colors appear in the same row or the same column.
+2. Color `i` is used exactly X[i] times. The array X is given as: X[0]=task_1_input["result"] // 2 + (1 if 0 < task_1_input["result"] % 2 else 0) X[1]=task_1_input["result"] // 2 + (1 if 1 < task_1_input["result"] % 2 else 0)
+
+Let grid_coloring_counting_result_1 be the number of valid colorings modulo 6924.
+Output the result as task_1_out = {"result": grid_coloring_counting_result_1}, replacing grid_coloring_counting_result_1 with its calculated value.
+
+Task 2:
+Let rlve_input_2 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 1458; then add 183 to it.
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `rlve_input_2` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_2 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_2_out = {"result": negative_base_result_2}, replacing negative_base_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 6; then add 1 to it.
+If rlve_input_3 has more than 6 elements, keep only the first 6 elements.
+Given an array A of length 6:
+rlve_input_3
+
+Repeat array A 5 times to form a new array B of length 6 * 5 = 30. In the new array B, how many (nonempty) contiguous subarrays have a total sum less than or equal to 12?
+
+Let bounded_subarray_counting_result_3 be the total number of (nonempty) subarrays in B whose sum is less than or equal to 12.
+Output the result as task_3_out = {"result": bounded_subarray_counting_result_3}, replacing bounded_subarray_counting_result_3 with its calculated value.
+
+======================================================================
+Prompt 10
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [1, 6, 3, 5, 2, 5]}.
+Task 1:
+Given a sequence of integers: task_1_input["result"]
+
+Please count the number of distinct permutations of this sequence that are **lexicographically smaller** than the original sequence.
+Note: Permutations that only differ by the positions of equal elements are considered the **same**.
+
+Let cantor_expansion_result_1 be the number of such permutations modulo 48066.
+Output the result as task_1_out = {"result": cantor_expansion_result_1}, replacing cantor_expansion_result_1 with its calculated value.
+
+Task 2:
+Let rlve_input_2 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 1458; then add 183 to it.
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `rlve_input_2` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_2 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_2_out = {"result": negative_base_result_2}, replacing negative_base_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 6; then add 1 to it.
+If rlve_input_3 has more than 6 elements, keep only the first 6 elements.
+Given a sequence of integers: rlve_input_3
+
+Please count the number of distinct permutations of this sequence that are **lexicographically smaller** than the original sequence.
+Note: Permutations that only differ by the positions of equal elements are considered the **same**.
+
+Let cantor_expansion_result_3 be the number of such permutations modulo 95279.
+Output the result as task_3_out = {"result": cantor_expansion_result_3}, replacing cantor_expansion_result_3 with its calculated value.
+
+======================================================================
+Prompt 11
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": 1297}.
+Task 1:
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `task_1_input["result"]` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_1 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_1_out = {"result": negative_base_result_1}, replacing negative_base_result_1 with its calculated value.
+
+Task 2:
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_2 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 8; then add 1 to it.
+If rlve_input_2 has more than 8 elements, keep only the first 8 elements.
+You are given a 2D integer matrix of size 4 x 2:
+rlve_input_2[0] rlve_input_2[1]
+rlve_input_2[2] rlve_input_2[3]
+rlve_input_2[4] rlve_input_2[5]
+rlve_input_2[6] rlve_input_2[7]
+
+Return all elements of the matrix in a clockwise spiral order, starting from the top-left corner. More precisely:
+- Start from the top-left corner and move right until you reach the right edge.
+- Then, move down until you reach the bottom-right corner.
+- Then, move left until you reach the bottom-left corner.
+- Then, move up until you reach the top-right corner.
+- Continue this inward spiral traversal until all elements have been visited exactly once.
+
+---
+
+**Example 1**
+
+You are given an integer matrix of size 3 x 3:
+1 2 3
+4 5 6
+7 8 9
+
+The spiral order is [1, 2, 3, 6, 9, 8, 7, 4, 5].
+
+**Example 2**
+
+You are given an integer matrix of size 3 x 4:
+1 2 3 4
+5 6 7 8
+9 10 11 12
+
+The spiral order is [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7].
+
+---
+
+Let spiral_matrix_result_2 be a single list with all 8 elements of the matrix in clockwise spiral order.
+Output the result as task_2_out = {"result": spiral_matrix_result_2}, replacing spiral_matrix_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 16; then add 1 to it.
+If rlve_input_3 has more than 8 elements, keep only the first 8 elements.
+You are given 8 coins in a row (1-indexed from left to right). The i-th coin has value C[i]: C[1]=rlve_input_3[0] C[2]=rlve_input_3[1] C[3]=rlve_input_3[2] C[4]=rlve_input_3[3] C[5]=rlve_input_3[4] C[6]=rlve_input_3[5] C[7]=rlve_input_3[6] C[8]=rlve_input_3[7]
+Alice and Bob play alternately, with Alice going first. On a turn, a player removes some **positive number** of **leftmost** coins and adds the sum of their values to their own score. The game ends when no coins remain.
+
+Rules:
+- On Alice’s **first** turn, she may take either 1 or 2 coins.
+- Thereafter, if the previous player took k coins, the current player may take any number of coins from 1 to min(k * 2, the number of remaining coins).
+
+Assuming both players play optimally, what is the **maximum total value** Alice can obtain?
+
+Let coin_square_game_result_3 be the maximum total value Alice can obtain.
+Output the result as task_3_out = {"result": coin_square_game_result_3}, replacing coin_square_game_result_3 with its calculated value.
+
+======================================================================
+Prompt 12
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": 10}.
+Task 1:
+You are given a grid of size 6 × 5. You may color some cells (and leave others uncolored) using 1 colors labeled from 0 to 0, such that:
+1. No two different colors appear in the same row or the same column.
+2. Color `i` is used exactly X[i] times. The array X is given as: X[0]=task_1_input["result"] // 1 + (1 if 0 < task_1_input["result"] % 1 else 0)
+
+Let grid_coloring_counting_result_1 be the number of valid colorings modulo 1748.
+Output the result as task_1_out = {"result": grid_coloring_counting_result_1}, replacing grid_coloring_counting_result_1 with its calculated value.
+
+Task 2:
+Let rlve_input_2 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 1458; then add 183 to it.
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `rlve_input_2` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_2 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_2_out = {"result": negative_base_result_2}, replacing negative_base_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 36; then add 1 to it.
+If rlve_input_3 has more than 6 elements, keep only the first 6 elements.
+Given an expression rlve_input_3[0] - rlve_input_3[1] - rlve_input_3[2] - rlve_input_3[3] * rlve_input_3[4] + rlve_input_3[5], please count the number of **distinct values** that can be obtained by inserting parentheses in the expression (but rearranging terms is NOT allowed).
+
+Let expression_adding_parenthese_counting_result_3 be the number of distinct values that can be obtained.
+Output the result as task_3_out = {"result": expression_adding_parenthese_counting_result_3}, replacing expression_adding_parenthese_counting_result_3 with its calculated value.
+
+======================================================================
+Prompt 13
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [1, 4, 3, 4, 5, 3]}.
+Task 1:
+You are given two arrays `A` and `B`, each containing 6 integers:
+A[0]=1 B[0]=task_1_input["result"][0]
+A[1]=3 B[1]=task_1_input["result"][1]
+A[2]=2 B[2]=task_1_input["result"][2]
+A[3]=2 B[3]=task_1_input["result"][3]
+A[4]=2 B[4]=task_1_input["result"][4]
+A[5]=4 B[5]=task_1_input["result"][5]
+
+Please select 3 **distinct indices** `i_1, ..., i_3` to maximize the value of ratio `(A[i_1] + ... + A[i_3]) / (B[i_1] + ... + B[i_3])`
+
+The maximum possible value of this ratio is a rational number; write it in lowest terms as `p / q`. Let fractional_programming_result_1 be `p * q^-1 mod 998244353`, where `q^-1` is the modular multiplicative inverse of `q` modulo the prime 998244353 - that is, the unique integer `y` with `0 <= y < 998244353` and `q * y = 1 (mod 998244353)`.
+For example, if the ratio were `5 / 2`, the answer would be `499122179`, since `499122179 * 2 = 5 (mod 998244353)`.
+Output the result as task_1_out = {"result": fractional_programming_result_1}, replacing fractional_programming_result_1 with its calculated value.
+
+Task 2:
+Let rlve_input_2 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 1458; then add 183 to it.
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `rlve_input_2` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_2 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_2_out = {"result": negative_base_result_2}, replacing negative_base_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 6; then add 1 to it.
+If rlve_input_3 has more than 6 elements, keep only the first 6 elements.
+You are given two arrays `A` and `B`, each containing 6 integers:
+A[0]=5 B[0]=rlve_input_3[0]
+A[1]=3 B[1]=rlve_input_3[1]
+A[2]=9 B[2]=rlve_input_3[2]
+A[3]=8 B[3]=rlve_input_3[3]
+A[4]=9 B[4]=rlve_input_3[4]
+A[5]=6 B[5]=rlve_input_3[5]
+
+Please select 3 **distinct indices** `i_1, ..., i_3` to maximize the value of ratio `(A[i_1] + ... + A[i_3]) / (B[i_1] + ... + B[i_3])`
+
+The maximum possible value of this ratio is a rational number; write it in lowest terms as `p / q`. Let fractional_programming_result_3 be `p * q^-1 mod 998244353`, where `q^-1` is the modular multiplicative inverse of `q` modulo the prime 998244353 - that is, the unique integer `y` with `0 <= y < 998244353` and `q * y = 1 (mod 998244353)`.
+For example, if the ratio were `5 / 2`, the answer would be `499122179`, since `499122179 * 2 = 5 (mod 998244353)`.
+Output the result as task_3_out = {"result": fractional_programming_result_3}, replacing fractional_programming_result_3 with its calculated value.
+
+======================================================================
+Prompt 14
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [1, 2, 4, 3, 2]}.
+Task 1:
+There are 5 nodes, each associated with values A[i][1], A[i][2], and A[i][3]. For each node `i`, define: P[i][j] = A[i][j] / (A[i][1] + A[i][2] + A[i][3]) for j = 1, 2, 3. The values A are given as follows:
+A[0][1, 2, 3] = [task_1_input["result"][0], 4, 3]
+A[1][1, 2, 3] = [task_1_input["result"][1], 2, 2]
+A[2][1, 2, 3] = [task_1_input["result"][2], 3, 1]
+A[3][1, 2, 3] = [task_1_input["result"][3], 4, 5]
+A[4][1, 2, 3] = [task_1_input["result"][4], 2, 1]
+
+We define the following random process:
+1. For each node `i`, randomly assign W[i] = j with probability P[i][j] for j = 1, 2, 3.
+2. Starting from an empty set, repeatedly select a node `i` with probability proportional to W[i], and add it to the set (duplicates are allowed). Continue until all nodes are in the set.
+3. Let T[i] denote the first time node `i` is added to the set.
+
+You are also given a set of constraints (each of the form T[u] < T[v]) that correspond to the edges of an undirected tree:
+T[1] < T[4]
+T[4] < T[3]
+T[1] < T[0]
+T[2] < T[4]
+Please compute the total probability that all the above T[u] < T[v] conditions hold during the random process.
+
+Let money_charging_game_result_1 be that total probability modulo 998244353.
+Output the result as task_1_out = {"result": money_charging_game_result_1}, replacing money_charging_game_result_1 with its calculated value.
+
+Task 2:
+Let rlve_input_2 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 1458; then add 183 to it.
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `rlve_input_2` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_2 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_2_out = {"result": negative_base_result_2}, replacing negative_base_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3_list be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 6; then add 1 to it.
+If rlve_input_3_list has more than 36 elements, keep only the first 36 elements.
+Reshape list rlve_input_3_list into matrix rlve_input_3 of size 6 x 6 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list rlve_input_3_list or truncate it.
+You are given two matrices A and B of size 6 × 6 (0-indexed).
+
+Matrix A is (given in **row-major order**, with each row represented as a list of integers separated by spaces):
+8 2 5 5 7 6
+4 4 7 4 4 3
+3 10 4 7 10 5
+4 2 5 7 3 1
+2 4 1 2 4 7
+3 2 6 5 1 4
+
+Matrix B is (given in **row-major order**, with each row represented as a list of integers separated by spaces):
+rlve_input_3[0][0] rlve_input_3[0][1] rlve_input_3[0][2] rlve_input_3[0][3] rlve_input_3[0][4] rlve_input_3[0][5]
+rlve_input_3[1][0] rlve_input_3[1][1] rlve_input_3[1][2] rlve_input_3[1][3] rlve_input_3[1][4] rlve_input_3[1][5]
+rlve_input_3[2][0] rlve_input_3[2][1] rlve_input_3[2][2] rlve_input_3[2][3] rlve_input_3[2][4] rlve_input_3[2][5]
+rlve_input_3[3][0] rlve_input_3[3][1] rlve_input_3[3][2] rlve_input_3[3][3] rlve_input_3[3][4] rlve_input_3[3][5]
+rlve_input_3[4][0] rlve_input_3[4][1] rlve_input_3[4][2] rlve_input_3[4][3] rlve_input_3[4][4] rlve_input_3[4][5]
+rlve_input_3[5][0] rlve_input_3[5][1] rlve_input_3[5][2] rlve_input_3[5][3] rlve_input_3[5][4] rlve_input_3[5][5]
+
+Please find a permutation P of indices from 0 to 5, i.e., P[0], P[1], ..., P[5], such that the following ratio is maximized: (A[0][P[0]] + A[1][P[1]] + ... + A[5][P[5]]) / (B[0][P[0]] + B[1][P[1]] + ... + B[5][P[5]])
+
+The maximum possible value of this ratio is a rational number; write it in lowest terms as `p / q`. Let fractional_programming_bipartite_graph_matching_result_3 be `p * q^-1 mod 998244353`, where `q^-1` is the modular multiplicative inverse of `q` modulo the prime 998244353 - that is, the unique integer `y` with `0 <= y < 998244353` and `q * y = 1 (mod 998244353)`.
+Output the result as task_3_out = {"result": fractional_programming_bipartite_graph_matching_result_3}, replacing fractional_programming_bipartite_graph_matching_result_3 with its calculated value.
+
+======================================================================
+Prompt 15
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": 7}.
+Task 1:
+You are given a grid of size 3 × 5. You may color some cells (and leave others uncolored) using 2 colors labeled from 0 to 1, such that:
+1. No two different colors appear in the same row or the same column.
+2. Color `i` is used exactly X[i] times. The array X is given as: X[0]=task_1_input["result"] // 2 + (1 if 0 < task_1_input["result"] % 2 else 0) X[1]=task_1_input["result"] // 2 + (1 if 1 < task_1_input["result"] % 2 else 0)
+
+Let grid_coloring_counting_result_1 be the number of valid colorings modulo 5326.
+Output the result as task_1_out = {"result": grid_coloring_counting_result_1}, replacing grid_coloring_counting_result_1 with its calculated value.
+
+Task 2:
+Let rlve_input_2 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 1458; then add 183 to it.
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `rlve_input_2` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_2 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_2_out = {"result": negative_base_result_2}, replacing negative_base_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 4; then add 1 to it.
+If rlve_input_3 has more than 5 elements, keep only the first 5 elements.
+Count the number of matrices A of size 4 × 5 (0-indexed) that satisfy the following conditions:
+1. Each element A[i][j] (0 ≤ i < 4, 0 ≤ j < 5) is an integer in the range [1, U[j]]. U is: U[0]=rlve_input_3[0] U[1]=rlve_input_3[1] U[2]=rlve_input_3[2] U[3]=rlve_input_3[3] U[4]=rlve_input_3[4]
+2. For each column j (0 ≤ j < 5), there are exactly R[j] rows i (1 ≤ i < 4) such that A[i][j] > A[0][j]. R is: R[0]=0 R[1]=0 R[2]=0 R[3]=0 R[4]=0
+3. There are exactly 3 rows i (1 ≤ i < 4) such that A[0][j] ≥ A[i][j] holds for **all** j (0 ≤ j < 5).
+
+Let grade_ranking_counting_result_3 be the number of such matrices modulo 998244353.
+Output the result as task_3_out = {"result": grade_ranking_counting_result_3}, replacing grade_ranking_counting_result_3 with its calculated value.
+
+======================================================================
+Prompt 16
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [6, 4, 1, 5, 0, 0]}.
+Task 1:
+You are given an array of 6 integers: task_1_input["result"]
+
+You will perform 4 operations in order. In each operation, you uniformly select a subarray (a contiguous segment of the array) at random from all 6 × (6 + 1) / 2 possible subarrays. Then, all elements in that subarray are changed to the **maximum** value within it.
+
+Please compute the expected value of each position in the array after all 4 operations. Since the expected value is a rational number with denominator (6 × (6 + 1) / 2)^4, output the **numerator** (i.e., the expected value multiplied by (6 × (6 + 1) / 2)^4), modulo 10000.
+
+Let random_range_max_expectation_result_1 be a single list with the scaled expected values (modulo 10000) for each position, in order.
+Output the result as task_1_out = {"result": random_range_max_expectation_result_1}, replacing random_range_max_expectation_result_1 with its calculated value.
+
+Task 2:
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_2 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 6; then add 1 to it.
+If rlve_input_2 has more than 6 elements, keep only the first 6 elements.
+You are given 6 pairs of integers `(S[i], A[i])` for `0 <= i < 6`, provided as:
+S[0]=3 A[0]=rlve_input_2[0]
+S[1]=9 A[1]=rlve_input_2[1]
+S[2]=11 A[2]=rlve_input_2[2]
+S[3]=12 A[3]=rlve_input_2[3]
+S[4]=13 A[4]=rlve_input_2[4]
+S[5]=15 A[5]=rlve_input_2[5]
+
+**Note:** The array `S` is sorted in non-decreasing order: `S[0] <= S[1] <= ... <= S[5]`
+
+Please select k distinct pairs `i_1, i_2, ..., i_k` and maximize the following expression: `max(S[i_1], S[i_2], ..., S[i_k]) * 2 + A[i_1] + A[i_2] + ... + A[i_k]` (i.e., the sum of the selected A[i] values plus the maximum S[i] value multiplied by 2).
+Please compute the **maximum value of this expression** for each k = 1 to 6.
+
+Let salesman_fatigue_result_2 be a single list with the maximum value of this expression for each k = 1 to 6, in order.
+Output the result as task_2_out = {"result": salesman_fatigue_result_2}, replacing salesman_fatigue_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 10; then add 1 to it.
+If rlve_input_3 has more than 7 elements, keep only the first 7 elements.
+You are given `6 + 1 = 7` pairs of integers: `(A[0], B[0])`, `(a[1], b[1])`, `(a[2], b[2])`, ..., `(a[6], b[6])`
+(A[0], B[0]) = (rlve_input_3[0], 1)
+(a[1], b[1]) = (rlve_input_3[1], 4)
+(a[2], b[2]) = (rlve_input_3[2], 6)
+(a[3], b[3]) = (rlve_input_3[3], 4)
+(a[4], b[4]) = (rlve_input_3[4], 10)
+(a[5], b[5]) = (rlve_input_3[5], 4)
+(a[6], b[6]) = (rlve_input_3[6], 8)
+
+Your task is to **rearrange the 6 pairs** `(a[i], b[i])` for `1 ≤ i ≤ 6` in some order (there are `6!` possible permutations). After rearrangement, define the new sequence of `7` pairs as: `(A[0], B[0])`, `(A[1], B[1])`, ..., `(A[6], B[6])`, where `(A[i], B[i])` comes from the chosen permutation for `i ≥ 1`.
+
+Your goal is to **minimize** the following value: `max ( A[0] * A[1] * ... * A[i - 1] // B[i] | 1 ≤ i ≤ 6 )` (Note: `//` means **integer division**, i.e., rounded down just like in Python).
+That is, for each `i` from `1` to `6`, compute the product of all previous `A` values (`A[0]` to `A[i - 1]`) divided by `B[i]`, take the maximum of these, and find a permutation that minimizes this maximum.
+
+Let king_sorting_result_3 be the minimum possible value of that maximum.
+Output the result as task_3_out = {"result": king_sorting_result_3}, replacing king_sorting_result_3 with its calculated value.
+
+======================================================================
+Prompt 17
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": 1006}.
+Task 1:
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `task_1_input["result"]` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_1 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_1_out = {"result": negative_base_result_1}, replacing negative_base_result_1 with its calculated value.
+
+Task 2:
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_2 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 31.
+If rlve_input_2 has more than 6 elements, keep only the first 6 elements.
+You are given the following list of numbers:
+rlve_input_2
+Please sort them in **ascending order**.
+
+Let sorting_result_2 be a single list with the sorted numbers in ascending order.
+Output the result as task_2_out = {"result": sorting_result_2}, replacing sorting_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 6; then add 1 to it.
+If rlve_input_3 has more than 6 elements, keep only the first 6 elements.
+You are given 6 items labeled from `0` to `5`. Each item has a **weight** W[i] and a **value** V[i]:
+W[0]=rlve_input_3[0] V[0]=2
+W[1]=rlve_input_3[1] V[1]=2
+W[2]=rlve_input_3[2] V[2]=5
+W[3]=rlve_input_3[3] V[3]=3
+W[4]=rlve_input_3[4] V[4]=3
+W[5]=rlve_input_3[5] V[5]=2
+
+Please select a subset of **distinct items** i_1, i_2, ..., i_k such that:
+- The total weight W[i_1] + W[i_2] + ... + W[i_k] is **less than or equal to** 11, and
+- Try your best to maximize the total value V[i_1] + V[i_2] + ... + V[i_k].
+
+Let knapsack_result_3 be the maximum possible total value.
+Output the result as task_3_out = {"result": knapsack_result_3}, replacing knapsack_result_3 with its calculated value.
+
+======================================================================
+Prompt 18
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [1, 1, 2, 3, 6, 5]}.
+Task 1:
+You are given 6 pairs of integers `(S[i], A[i])` for `0 <= i < 6`, provided as:
+S[0]=1 A[0]=task_1_input["result"][0]
+S[1]=2 A[1]=task_1_input["result"][1]
+S[2]=3 A[2]=task_1_input["result"][2]
+S[3]=5 A[3]=task_1_input["result"][3]
+S[4]=10 A[4]=task_1_input["result"][4]
+S[5]=16 A[5]=task_1_input["result"][5]
+
+**Note:** The array `S` is sorted in non-decreasing order: `S[0] <= S[1] <= ... <= S[5]`
+
+Please select k distinct pairs `i_1, i_2, ..., i_k` and maximize the following expression: `max(S[i_1], S[i_2], ..., S[i_k]) * 2 + A[i_1] + A[i_2] + ... + A[i_k]` (i.e., the sum of the selected A[i] values plus the maximum S[i] value multiplied by 2).
+Please compute the **maximum value of this expression** for each k = 1 to 6.
+
+Let salesman_fatigue_result_1 be a single list with the maximum value of this expression for each k = 1 to 6, in order.
+Output the result as task_1_out = {"result": salesman_fatigue_result_1}, replacing salesman_fatigue_result_1 with its calculated value.
+
+Task 2:
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_2 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 7.
+If rlve_input_2 has more than 6 elements, keep only the first 6 elements.
+You are given an array of 6 integers: rlve_input_2
+
+You will perform 2 operations in order. In each operation, you uniformly select a subarray (a contiguous segment of the array) at random from all 6 × (6 + 1) / 2 possible subarrays. Then, all elements in that subarray are changed to the **maximum** value within it.
+
+Please compute the expected value of each position in the array after all 2 operations. Since the expected value is a rational number with denominator (6 × (6 + 1) / 2)^2, output the **numerator** (i.e., the expected value multiplied by (6 × (6 + 1) / 2)^2), modulo 10000.
+
+Let random_range_max_expectation_result_2 be a single list with the scaled expected values (modulo 10000) for each position, in order.
+Output the result as task_2_out = {"result": random_range_max_expectation_result_2}, replacing random_range_max_expectation_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 49; then add 1 to it.
+If rlve_input_3 has more than 7 elements, keep only the first 7 elements.
+There are 7 items, and the i-th item has two attributes W[i] and L[i]. The arrays W and L are given as follows:
+W[1]=rlve_input_3[0] L[1]=23
+W[2]=rlve_input_3[1] L[2]=38
+W[3]=rlve_input_3[2] L[3]=8
+W[4]=rlve_input_3[3] L[4]=1
+W[5]=rlve_input_3[4] L[5]=26
+W[6]=rlve_input_3[5] L[6]=19
+W[7]=rlve_input_3[6] L[7]=5
+
+Partition all items into an arbitrary number of **disjoint non-empty sets**. For each set S, its cost is defined as: cost(S) = max(W[i] for i ∈ S) × max(L[i] for i ∈ S)
+Can you make the total cost, which is the sum of costs of all sets, as small as possible?
+
+Let land_acquisition_result_3 be the minimum possible total cost.
+Output the result as task_3_out = {"result": land_acquisition_result_3}, replacing land_acquisition_result_3 with its calculated value.
+
+======================================================================
+Prompt 19
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [6, 3, 2, 5, 2, 0]}.
+Task 1:
+You are given an array of 6 integers: task_1_input["result"]
+
+You will perform 2 operations in order. In each operation, you uniformly select a subarray (a contiguous segment of the array) at random from all 6 × (6 + 1) / 2 possible subarrays. Then, all elements in that subarray are changed to the **maximum** value within it.
+
+Please compute the expected value of each position in the array after all 2 operations. Since the expected value is a rational number with denominator (6 × (6 + 1) / 2)^2, output the **numerator** (i.e., the expected value multiplied by (6 × (6 + 1) / 2)^2), modulo 10000.
+
+Let random_range_max_expectation_result_1 be a single list with the scaled expected values (modulo 10000) for each position, in order.
+Output the result as task_1_out = {"result": random_range_max_expectation_result_1}, replacing random_range_max_expectation_result_1 with its calculated value.
+
+Task 2:
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_2 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 7.
+If rlve_input_2 has more than 6 elements, keep only the first 6 elements.
+You are given an array of 6 integers: rlve_input_2
+
+You will perform 5 operations in order. In each operation, you uniformly select a subarray (a contiguous segment of the array) at random from all 6 × (6 + 1) / 2 possible subarrays. Then, all elements in that subarray are changed to the **maximum** value within it.
+
+Please compute the expected value of each position in the array after all 5 operations. Since the expected value is a rational number with denominator (6 × (6 + 1) / 2)^5, output the **numerator** (i.e., the expected value multiplied by (6 × (6 + 1) / 2)^5), modulo 10000.
+
+Let random_range_max_expectation_result_2 be a single list with the scaled expected values (modulo 10000) for each position, in order.
+Output the result as task_2_out = {"result": random_range_max_expectation_result_2}, replacing random_range_max_expectation_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 8.
+If rlve_input_3 has more than 7 elements, keep only the first 7 elements.
+You are given an array A of 7 integers: A[0]=rlve_input_3[0] A[1]=rlve_input_3[1] A[2]=rlve_input_3[2] A[3]=rlve_input_3[3] A[4]=rlve_input_3[4] A[5]=rlve_input_3[5] A[6]=rlve_input_3[6]
+
+Initially, the entire array is one single block. Let S = 0. You need to perform the following operation exactly 4 times:
+- Choose a position `i` such that A[i] and A[i + 1] are still in the same block.
+- Split the block into two parts: the first ends at A[i], the second starts at A[i + 1].
+- Let `sum1` and `sum2` be the sums of the two blocks. Then, update S += sum1 × sum2.
+
+After 4 operations, you will have 4 + 1 blocks. Try your best to **maximize** the final value of S.
+
+Let max_different_group_pair_division_result_3 be the maximum possible final value of S.
+Output the result as task_3_out = {"result": max_different_group_pair_division_result_3}, replacing max_different_group_pair_division_result_3 with its calculated value.
+
+======================================================================
+Prompt 20
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [1, 1, 3, 5, 1, 4]}.
+Task 1:
+You are given 6 pairs of integers `(S[i], A[i])` for `0 <= i < 6`, provided as:
+S[0]=2 A[0]=task_1_input["result"][0]
+S[1]=3 A[1]=task_1_input["result"][1]
+S[2]=4 A[2]=task_1_input["result"][2]
+S[3]=7 A[3]=task_1_input["result"][3]
+S[4]=15 A[4]=task_1_input["result"][4]
+S[5]=16 A[5]=task_1_input["result"][5]
+
+**Note:** The array `S` is sorted in non-decreasing order: `S[0] <= S[1] <= ... <= S[5]`
+
+Please select k distinct pairs `i_1, i_2, ..., i_k` and maximize the following expression: `max(S[i_1], S[i_2], ..., S[i_k]) * 2 + A[i_1] + A[i_2] + ... + A[i_k]` (i.e., the sum of the selected A[i] values plus the maximum S[i] value multiplied by 2).
+Please compute the **maximum value of this expression** for each k = 1 to 6.
+
+Let salesman_fatigue_result_1 be a single list with the maximum value of this expression for each k = 1 to 6, in order.
+Output the result as task_1_out = {"result": salesman_fatigue_result_1}, replacing salesman_fatigue_result_1 with its calculated value.
+
+Task 2:
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_2 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 9.
+If rlve_input_2 has more than 8 elements, keep only the first 8 elements.
+You are given the following list of 8 numbers: rlve_input_2
+Please find the minimum value in each contiguous subarray of size 4 (there are 5 such subarrays in total).
+
+Let sliding_window_result_2 be a single list with those minimum values from the leftmost subarray to the rightmost, in order.
+Output the result as task_2_out = {"result": sliding_window_result_2}, replacing sliding_window_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 6; then add 1 to it.
+If rlve_input_3 has more than 6 elements, keep only the first 6 elements.
+You are given an array W of length 6: W[1]=rlve_input_3[0] W[2]=rlve_input_3[1] W[3]=rlve_input_3[2] W[4]=rlve_input_3[3] W[5]=rlve_input_3[4] W[6]=rlve_input_3[5]
+
+Please find a permutation P of 1 to 6 such that the following conditions are satisfied:
+- The element 1 has no constraint.
+- The element 2 has no constraint.
+- The element 2 must come before element 3.
+- The element 3 must come before element 4.
+- The element 4 must come before element 5.
+- The element 5 must come before element 6.
+
+Try your best to **maximize** the sum of W[P[i]] × i for all i from 1 to 6.
+
+Let max_tree_constrained_permutation_weight_result_3 be the maximum possible value of the sum of W[P[i]] × i for all i from 1 to 6.
+Output the result as task_3_out = {"result": max_tree_constrained_permutation_weight_result_3}, replacing max_tree_constrained_permutation_weight_result_3 with its calculated value.
+
+======================================================================
+Prompt 21
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": 6}.
+Task 1:
+You are given a grid of size 3 × 6. You may color some cells (and leave others uncolored) using 3 colors labeled from 0 to 2, such that:
+1. No two different colors appear in the same row or the same column.
+2. Color `i` is used exactly X[i] times. The array X is given as: X[0]=task_1_input["result"] // 3 + (1 if 0 < task_1_input["result"] % 3 else 0) X[1]=task_1_input["result"] // 3 + (1 if 1 < task_1_input["result"] % 3 else 0) X[2]=task_1_input["result"] // 3 + (1 if 2 < task_1_input["result"] % 3 else 0)
+
+Let grid_coloring_counting_result_1 be the number of valid colorings modulo 7924.
+Output the result as task_1_out = {"result": grid_coloring_counting_result_1}, replacing grid_coloring_counting_result_1 with its calculated value.
+
+Task 2:
+Let rlve_input_2 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 1458; then add 183 to it.
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `rlve_input_2` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_2 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_2_out = {"result": negative_base_result_2}, replacing negative_base_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3_list be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 6; then add 1 to it.
+If rlve_input_3_list has more than 36 elements, keep only the first 36 elements.
+Reshape list rlve_input_3_list into matrix rlve_input_3 of size 6 x 6 using row-major order, filling the top row first, then the second row, and so on.
+To achieve the required dimension for the reshape, you can append zeros to the end of list rlve_input_3_list or truncate it.
+You are given two matrices `A` and `B`, each of size 6 × 6:
+A[0][0]=rlve_input_3[0][0] A[0][1]=rlve_input_3[0][1] A[0][2]=rlve_input_3[0][2] A[0][3]=rlve_input_3[0][3] A[0][4]=rlve_input_3[0][4] A[0][5]=rlve_input_3[0][5]
+A[1][0]=rlve_input_3[1][0] A[1][1]=rlve_input_3[1][1] A[1][2]=rlve_input_3[1][2] A[1][3]=rlve_input_3[1][3] A[1][4]=rlve_input_3[1][4] A[1][5]=rlve_input_3[1][5]
+A[2][0]=rlve_input_3[2][0] A[2][1]=rlve_input_3[2][1] A[2][2]=rlve_input_3[2][2] A[2][3]=rlve_input_3[2][3] A[2][4]=rlve_input_3[2][4] A[2][5]=rlve_input_3[2][5]
+A[3][0]=rlve_input_3[3][0] A[3][1]=rlve_input_3[3][1] A[3][2]=rlve_input_3[3][2] A[3][3]=rlve_input_3[3][3] A[3][4]=rlve_input_3[3][4] A[3][5]=rlve_input_3[3][5]
+A[4][0]=rlve_input_3[4][0] A[4][1]=rlve_input_3[4][1] A[4][2]=rlve_input_3[4][2] A[4][3]=rlve_input_3[4][3] A[4][4]=rlve_input_3[4][4] A[4][5]=rlve_input_3[4][5]
+A[5][0]=rlve_input_3[5][0] A[5][1]=rlve_input_3[5][1] A[5][2]=rlve_input_3[5][2] A[5][3]=rlve_input_3[5][3] A[5][4]=rlve_input_3[5][4] A[5][5]=rlve_input_3[5][5]
+B[0][0]=6 B[0][1]=5 B[0][2]=5 B[0][3]=2 B[0][4]=5 B[0][5]=4
+B[1][0]=3 B[1][1]=2 B[1][2]=3 B[1][3]=2 B[1][4]=4 B[1][5]=1
+B[2][0]=2 B[2][1]=1 B[2][2]=5 B[2][3]=4 B[2][4]=5 B[2][5]=1
+B[3][0]=2 B[3][1]=6 B[3][2]=2 B[3][3]=4 B[3][4]=6 B[3][5]=1
+B[4][0]=6 B[4][1]=1 B[4][2]=3 B[4][3]=5 B[4][4]=3 B[4][5]=2
+B[5][0]=3 B[5][1]=1 B[5][2]=6 B[5][3]=4 B[5][4]=6 B[5][5]=1
+
+You need to find a permutation P of indices from 0 to 5 such that the value (sum of A[0][P[0]], A[1][P[1]], ..., A[5][P[5]]) multiplied by (sum of B[0][P[0]], B[1][P[1]], ..., B[5][P[5]]) is minimized.
+
+Let min_pair_sum_multiplication_permutation_result_3 be the minimum possible value of that product.
+Output the result as task_3_out = {"result": min_pair_sum_multiplication_permutation_result_3}, replacing min_pair_sum_multiplication_permutation_result_3 with its calculated value.
+
+======================================================================
+Prompt 22
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": 3}.
+Task 1:
+You are given a grid of size 5 × 2. You may color some cells (and leave others uncolored) using 2 colors labeled from 0 to 1, such that:
+1. No two different colors appear in the same row or the same column.
+2. Color `i` is used exactly X[i] times. The array X is given as: X[0]=task_1_input["result"] // 2 + (1 if 0 < task_1_input["result"] % 2 else 0) X[1]=task_1_input["result"] // 2 + (1 if 1 < task_1_input["result"] % 2 else 0)
+
+Let grid_coloring_counting_result_1 be the number of valid colorings modulo 1442.
+Output the result as task_1_out = {"result": grid_coloring_counting_result_1}, replacing grid_coloring_counting_result_1 with its calculated value.
+
+Task 2:
+Let rlve_input_2 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 1458; then add 183 to it.
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `rlve_input_2` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_2 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_2_out = {"result": negative_base_result_2}, replacing negative_base_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 10; then add 1 to it.
+If rlve_input_3 has more than 5 elements, keep only the first 5 elements.
+You are given three arrays X, Y, and T, each of length 5:
+X[0]=rlve_input_3[0] Y[0]=1 T[0]=4
+X[1]=rlve_input_3[1] Y[1]=10 T[1]=4
+X[2]=rlve_input_3[2] Y[2]=3 T[2]=4
+X[3]=rlve_input_3[3] Y[3]=2 T[3]=5
+X[4]=rlve_input_3[4] Y[4]=5 T[4]=2
+
+Please find an integer point (x, y) such that the following sum is minimized: sum over 0 <= i < 5 of max(|x - X[i]|, |y - Y[i]|) * T[i].
+
+Let min_sum_chebyshev_distance_result_3 be the minimum possible value of that sum.
+Output the result as task_3_out = {"result": min_sum_chebyshev_distance_result_3}, replacing min_sum_chebyshev_distance_result_3 with its calculated value.
+
+======================================================================
+Prompt 23
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [8, 9, 6, 4, 4, 4, 2]}.
+Task 1:
+You are given `6 + 1 = 7` pairs of integers: `(A[0], B[0])`, `(a[1], b[1])`, `(a[2], b[2])`, ..., `(a[6], b[6])`
+(A[0], B[0]) = (task_1_input["result"][0], 5)
+(a[1], b[1]) = (task_1_input["result"][1], 8)
+(a[2], b[2]) = (task_1_input["result"][2], 7)
+(a[3], b[3]) = (task_1_input["result"][3], 1)
+(a[4], b[4]) = (task_1_input["result"][4], 1)
+(a[5], b[5]) = (task_1_input["result"][5], 10)
+(a[6], b[6]) = (task_1_input["result"][6], 6)
+
+Your task is to **rearrange the 6 pairs** `(a[i], b[i])` for `1 ≤ i ≤ 6` in some order (there are `6!` possible permutations). After rearrangement, define the new sequence of `7` pairs as: `(A[0], B[0])`, `(A[1], B[1])`, ..., `(A[6], B[6])`, where `(A[i], B[i])` comes from the chosen permutation for `i ≥ 1`.
+
+Your goal is to **minimize** the following value: `max ( A[0] * A[1] * ... * A[i - 1] // B[i] | 1 ≤ i ≤ 6 )` (Note: `//` means **integer division**, i.e., rounded down just like in Python).
+That is, for each `i` from `1` to `6`, compute the product of all previous `A` values (`A[0]` to `A[i - 1]`) divided by `B[i]`, take the maximum of these, and find a permutation that minimizes this maximum.
+
+Let king_sorting_result_1 be the minimum possible value of that maximum.
+Output the result as task_1_out = {"result": king_sorting_result_1}, replacing king_sorting_result_1 with its calculated value.
+
+Task 2:
+Let rlve_input_2 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 1458; then add 183 to it.
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `rlve_input_2` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_2 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_2_out = {"result": negative_base_result_2}, replacing negative_base_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 10; then add 1 to it.
+If rlve_input_3 has more than 7 elements, keep only the first 7 elements.
+You are given an **undirected graph** with 7 vertices labeled from 0 to 6. The graph contains the following undirected edges:
+(3, 4)
+(1, 4)
+(0, 3)
+(3, 5)
+(1, 3)
+(4, 5)
+(2, 6)
+(1, 5)
+(4, 6)
+(1, 2)
+(0, 5)
+(3, 6)
+(0, 2)
+(0, 4)
+(2, 4)
+(2, 3)
+(5, 6)
+(1, 6)
+
+Each vertex has a cost, given as a list `C` of length 7, where `C[i]` is the cost of vertex i:
+C[0]=rlve_input_3[0]
+C[1]=rlve_input_3[1]
+C[2]=rlve_input_3[2]
+C[3]=rlve_input_3[3]
+C[4]=rlve_input_3[4]
+C[5]=rlve_input_3[5]
+C[6]=rlve_input_3[6]
+
+Your task is to select a set of distinct vertices x_1, x_2, ..., x_k (you determine k), such that every vertex is either selected or has at least one selected neighbor.
+Try your best to minimize the total cost: C[x_1] + C[x_2] + ... + C[x_k].
+
+Let minimum_dominating_set_result_3 be the minimum possible total cost.
+Output the result as task_3_out = {"result": minimum_dominating_set_result_3}, replacing minimum_dominating_set_result_3 with its calculated value.
+
+======================================================================
+Prompt 24
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [8, 3, 1, 1, 2, 4, 0, 5]}.
+Task 1:
+You are given the following list of 8 numbers: task_1_input["result"]
+Please find the minimum value in each contiguous subarray of size 4 (there are 5 such subarrays in total).
+
+Let sliding_window_result_1 be a single list with those minimum values from the leftmost subarray to the rightmost, in order.
+Output the result as task_1_out = {"result": sliding_window_result_1}, replacing sliding_window_result_1 with its calculated value.
+
+Task 2:
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_2 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 9.
+If rlve_input_2 has more than 8 elements, keep only the first 8 elements.
+You are given the following list of 8 numbers: rlve_input_2
+Please find the minimum value in each contiguous subarray of size 4 (there are 5 such subarrays in total).
+
+Let sliding_window_result_2 be a single list with those minimum values from the leftmost subarray to the rightmost, in order.
+Output the result as task_2_out = {"result": sliding_window_result_2}, replacing sliding_window_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 18; then add 1 to it.
+If rlve_input_3 has more than 8 elements, keep only the first 8 elements.
+You are given 8 intervals within [1, 6]. Each interval is defined as [L[i], R[i]] with an associated cost C[i]. The intervals are provided as:
+L[1]=1 R[1]=2 C[1]=rlve_input_3[0]
+L[2]=1 R[2]=6 C[2]=rlve_input_3[1]
+L[3]=2 R[3]=2 C[3]=rlve_input_3[2]
+L[4]=2 R[4]=3 C[4]=rlve_input_3[3]
+L[5]=5 R[5]=6 C[5]=rlve_input_3[4]
+L[6]=4 R[6]=4 C[6]=rlve_input_3[5]
+L[7]=3 R[7]=4 C[7]=rlve_input_3[6]
+L[8]=5 R[8]=5 C[8]=rlve_input_3[7]
+
+You can select each interval any number of times (including 0). For each point i in [1, 6], you must ensure it is covered by at least NEED[i] selected intervals, where the array NEED is given as:
+NEED[1]=6 NEED[2]=0 NEED[3]=3 NEED[4]=0 NEED[5]=3 NEED[6]=4
+
+Your goal is to minimize the **total cost** of the selected intervals while satisfying the above condition.
+
+Let minimum_interval_coverage_result_3 be the minimum possible total cost.
+Output the result as task_3_out = {"result": minimum_interval_coverage_result_3}, replacing minimum_interval_coverage_result_3 with its calculated value.
+
+======================================================================
+Prompt 25
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": 241}.
+Task 1:
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `task_1_input["result"]` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_1 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_1_out = {"result": negative_base_result_1}, replacing negative_base_result_1 with its calculated value.
+
+Task 2:
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_2 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 6; then add 1 to it.
+If rlve_input_2 has more than 6 elements, keep only the first 6 elements.
+Given an array A of length 6: A[0]=rlve_input_2[0] A[1]=rlve_input_2[1] A[2]=rlve_input_2[2] A[3]=rlve_input_2[3] A[4]=rlve_input_2[4] A[5]=rlve_input_2[5]
+
+Please find a (not necessarily contiguous) subsequence of length 5 (i.e., select 5 elements with increasing indices: 0 <= i1 < ... < i5 < 6) such that the resulting subsequence A[i1], ..., A[i5] is **lexicographically maximal**.
+
+Let maximum_lexicographical_order_subsequence_result_2 be a single list with the selected subsequence A[i1], ..., A[i5] in order.
+Output the result as task_2_out = {"result": maximum_lexicographical_order_subsequence_result_2}, replacing maximum_lexicographical_order_subsequence_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 11.
+If rlve_input_3 has more than 6 elements, keep only the first 6 elements.
+You are given a **tree** (i.e., a connected undirected graph with no cycles) with 6 + 1 = 7 vertices, labeled from `0` to `6`.
+
+`0` is the root of the tree. Each non-root vertex has a parent, and the edge connecting it with its parent has a weight. The edges are given as follows:
+`1`'s parent is `0` with weight `3`
+`2`'s parent is `0` with weight `3`
+`3`'s parent is `6` with weight `3`
+`4`'s parent is `2` with weight `8`
+`5`'s parent is `2` with weight `7`
+`6`'s parent is `5` with weight `3`
+
+Each non-root vertex also has a cost, given as a list `C` of length 6, where `C[i]` is the cost of vertex `i`:
+C[1]=rlve_input_3[0] C[2]=rlve_input_3[1] C[3]=rlve_input_3[2] C[4]=rlve_input_3[3] C[5]=rlve_input_3[4] C[6]=rlve_input_3[5]
+
+The root (vertex `0`) is already selected. Your task is to select exactly 3 **additional** non-root vertices. The total cost of the selection is defined as follows:
+- For every vertex `u`, let `D[u]` be the distance from `u` to its **nearest selected ancestor**, where a selected ancestor includes `0` or the vertex itself (if selected). The **distance** between two vertices is the sum of weights along the unique path between them.
+- The cost contributed by vertex `u` is `C[u] × D[u]` for all non-root verticies `u`.
+- Try your best to **minimize** the total cost.
+
+Let minimum_tree_weighted_dominating_ancestor_result_3 be the minimum possible total cost.
+Output the result as task_3_out = {"result": minimum_tree_weighted_dominating_ancestor_result_3}, replacing minimum_tree_weighted_dominating_ancestor_result_3 with its calculated value.
+
+======================================================================
+Prompt 26
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [6, 1, 4, 5, 5, 0]}.
+Task 1:
+You are given an array of 6 integers: task_1_input["result"]
+
+You will perform 2 operations in order. In each operation, you uniformly select a subarray (a contiguous segment of the array) at random from all 6 × (6 + 1) / 2 possible subarrays. Then, all elements in that subarray are changed to the **maximum** value within it.
+
+Please compute the expected value of each position in the array after all 2 operations. Since the expected value is a rational number with denominator (6 × (6 + 1) / 2)^2, output the **numerator** (i.e., the expected value multiplied by (6 × (6 + 1) / 2)^2), modulo 10000.
+
+Let random_range_max_expectation_result_1 be a single list with the scaled expected values (modulo 10000) for each position, in order.
+Output the result as task_1_out = {"result": random_range_max_expectation_result_1}, replacing random_range_max_expectation_result_1 with its calculated value.
+
+Task 2:
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_2 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 9.
+If rlve_input_2 has more than 8 elements, keep only the first 8 elements.
+You are given the following list of 8 numbers: rlve_input_2
+Please find the minimum value in each contiguous subarray of size 4 (there are 5 such subarrays in total).
+
+Let sliding_window_result_2 be a single list with those minimum values from the leftmost subarray to the rightmost, in order.
+Output the result as task_2_out = {"result": sliding_window_result_2}, replacing sliding_window_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 10; then add 1 to it.
+If rlve_input_3 has more than 7 elements, keep only the first 7 elements.
+You are given an **undirected graph** with 7 vertices labeled from 0 to 6. The graph contains the following undirected edges:
+(1, 2)
+(3, 4)
+(1, 6)
+(0, 5)
+(0, 3)
+(1, 5)
+(2, 4)
+(2, 5)
+(0, 2)
+(4, 5)
+(1, 4)
+(0, 1)
+(3, 6)
+(0, 6)
+(1, 3)
+(3, 5)
+(2, 3)
+(2, 6)
+
+Each vertex has a cost, given as a list `C` of length 7, where `C[i]` is the cost of vertex i:
+C[0]=rlve_input_3[0]
+C[1]=rlve_input_3[1]
+C[2]=rlve_input_3[2]
+C[3]=rlve_input_3[3]
+C[4]=rlve_input_3[4]
+C[5]=rlve_input_3[5]
+C[6]=rlve_input_3[6]
+
+Your task is to select a set of distinct vertices x_1, x_2, ..., x_k (you determine k), such that every edge in the graph has at least one endpoint in the selected set; that is, for every edge (u, v), at least one of u or v must be included.
+Try your best to minimize the total cost: C[x_1] + C[x_2] + ... + C[x_k].
+
+Let minimum_vertex_cover_result_3 be the minimum possible total cost.
+Output the result as task_3_out = {"result": minimum_vertex_cover_result_3}, replacing minimum_vertex_cover_result_3 with its calculated value.
+
+======================================================================
+Prompt 27
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [1, 1, 4, 2, 1]}.
+Task 1:
+There are 5 nodes, each associated with values A[i][1], A[i][2], and A[i][3]. For each node `i`, define: P[i][j] = A[i][j] / (A[i][1] + A[i][2] + A[i][3]) for j = 1, 2, 3. The values A are given as follows:
+A[0][1, 2, 3] = [task_1_input["result"][0], 2, 3]
+A[1][1, 2, 3] = [task_1_input["result"][1], 4, 5]
+A[2][1, 2, 3] = [task_1_input["result"][2], 2, 5]
+A[3][1, 2, 3] = [task_1_input["result"][3], 4, 4]
+A[4][1, 2, 3] = [task_1_input["result"][4], 2, 2]
+
+We define the following random process:
+1. For each node `i`, randomly assign W[i] = j with probability P[i][j] for j = 1, 2, 3.
+2. Starting from an empty set, repeatedly select a node `i` with probability proportional to W[i], and add it to the set (duplicates are allowed). Continue until all nodes are in the set.
+3. Let T[i] denote the first time node `i` is added to the set.
+
+You are also given a set of constraints (each of the form T[u] < T[v]) that correspond to the edges of an undirected tree:
+T[4] < T[0]
+T[4] < T[2]
+T[4] < T[3]
+T[0] < T[1]
+Please compute the total probability that all the above T[u] < T[v] conditions hold during the random process.
+
+Let money_charging_game_result_1 be that total probability modulo 998244353.
+Output the result as task_1_out = {"result": money_charging_game_result_1}, replacing money_charging_game_result_1 with its calculated value.
+
+Task 2:
+Let rlve_input_2 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 1458; then add 183 to it.
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `rlve_input_2` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_2 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_2_out = {"result": negative_base_result_2}, replacing negative_base_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 5; then add 1 to it.
+If rlve_input_3 has more than 5 elements, keep only the first 5 elements.
+There are 5 nodes, each associated with values A[i][1], A[i][2], and A[i][3]. For each node `i`, define: P[i][j] = A[i][j] / (A[i][1] + A[i][2] + A[i][3]) for j = 1, 2, 3. The values A are given as follows:
+A[0][1, 2, 3] = [rlve_input_3[0], 1, 2]
+A[1][1, 2, 3] = [rlve_input_3[1], 4, 2]
+A[2][1, 2, 3] = [rlve_input_3[2], 1, 3]
+A[3][1, 2, 3] = [rlve_input_3[3], 4, 2]
+A[4][1, 2, 3] = [rlve_input_3[4], 3, 1]
+
+We define the following random process:
+1. For each node `i`, randomly assign W[i] = j with probability P[i][j] for j = 1, 2, 3.
+2. Starting from an empty set, repeatedly select a node `i` with probability proportional to W[i], and add it to the set (duplicates are allowed). Continue until all nodes are in the set.
+3. Let T[i] denote the first time node `i` is added to the set.
+
+You are also given a set of constraints (each of the form T[u] < T[v]) that correspond to the edges of an undirected tree:
+T[0] < T[2]
+T[1] < T[0]
+T[4] < T[3]
+T[3] < T[0]
+Please compute the total probability that all the above T[u] < T[v] conditions hold during the random process.
+
+Let money_charging_game_result_3 be that total probability modulo 998244353.
+Output the result as task_3_out = {"result": money_charging_game_result_3}, replacing money_charging_game_result_3 with its calculated value.
+
+======================================================================
+Prompt 28
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": 1631}.
+Task 1:
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `task_1_input["result"]` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_1 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_1_out = {"result": negative_base_result_1}, replacing negative_base_result_1 with its calculated value.
+
+Task 2:
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_2 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 6; then add 1 to it.
+If rlve_input_2 has more than 6 elements, keep only the first 6 elements.
+You are given 6 pairs of integers `(S[i], A[i])` for `0 <= i < 6`, provided as:
+S[0]=2 A[0]=rlve_input_2[0]
+S[1]=5 A[1]=rlve_input_2[1]
+S[2]=7 A[2]=rlve_input_2[2]
+S[3]=7 A[3]=rlve_input_2[3]
+S[4]=14 A[4]=rlve_input_2[4]
+S[5]=18 A[5]=rlve_input_2[5]
+
+**Note:** The array `S` is sorted in non-decreasing order: `S[0] <= S[1] <= ... <= S[5]`
+
+Please select k distinct pairs `i_1, i_2, ..., i_k` and maximize the following expression: `max(S[i_1], S[i_2], ..., S[i_k]) * 2 + A[i_1] + A[i_2] + ... + A[i_k]` (i.e., the sum of the selected A[i] values plus the maximum S[i] value multiplied by 2).
+Please compute the **maximum value of this expression** for each k = 1 to 6.
+
+Let salesman_fatigue_result_2 be a single list with the maximum value of this expression for each k = 1 to 6, in order.
+Output the result as task_2_out = {"result": salesman_fatigue_result_2}, replacing salesman_fatigue_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 6; then add 1 to it.
+If rlve_input_3 has more than 6 elements, keep only the first 6 elements.
+You are given two arrays `T` and `D`, each containing 6 integers:
+T[1]=rlve_input_3[0] D[1]=6
+T[2]=rlve_input_3[1] D[2]=2
+T[3]=rlve_input_3[2] D[3]=4
+T[4]=rlve_input_3[3] D[4]=2
+T[5]=rlve_input_3[4] D[5]=6
+T[6]=rlve_input_3[5] D[6]=4
+
+Consider a permutation of 1 to 6, denoted as p[1], p[2], ..., p[6]:
+- Define S[i] as the sum of T[p[j]] for all 1 ≤ j < i (so S[1] = 0).
+- The objective is to minimize the total sum of S[i] * D[p[i]] for i from 1 to 6.
+
+Let protecting_flowers_result_3 be the minimum possible value of that total sum.
+Output the result as task_3_out = {"result": protecting_flowers_result_3}, replacing protecting_flowers_result_3 with its calculated value.
+
+======================================================================
+Prompt 29
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": 909}.
+Task 1:
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `task_1_input["result"]` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_1 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_1_out = {"result": negative_base_result_1}, replacing negative_base_result_1 with its calculated value.
+
+Task 2:
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_2 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 6; then add 1 to it.
+If rlve_input_2 has more than 6 elements, keep only the first 6 elements.
+You are given 6 pairs of integers `(S[i], A[i])` for `0 <= i < 6`, provided as:
+S[0]=2 A[0]=rlve_input_2[0]
+S[1]=6 A[1]=rlve_input_2[1]
+S[2]=7 A[2]=rlve_input_2[2]
+S[3]=7 A[3]=rlve_input_2[3]
+S[4]=9 A[4]=rlve_input_2[4]
+S[5]=11 A[5]=rlve_input_2[5]
+
+**Note:** The array `S` is sorted in non-decreasing order: `S[0] <= S[1] <= ... <= S[5]`
+
+Please select k distinct pairs `i_1, i_2, ..., i_k` and maximize the following expression: `max(S[i_1], S[i_2], ..., S[i_k]) * 2 + A[i_1] + A[i_2] + ... + A[i_k]` (i.e., the sum of the selected A[i] values plus the maximum S[i] value multiplied by 2).
+Please compute the **maximum value of this expression** for each k = 1 to 6.
+
+Let salesman_fatigue_result_2 be a single list with the maximum value of this expression for each k = 1 to 6, in order.
+Output the result as task_2_out = {"result": salesman_fatigue_result_2}, replacing salesman_fatigue_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 9; then add 1 to it.
+If rlve_input_3 has more than 5 elements, keep only the first 5 elements.
+Count the number of integer sequences A[0], A[1], ..., A[4] of length 5 such that:
+- For each A[i], it is either 0 or an integer in [L[i], R[i]]
+- At least one A[i] is greater than 0
+- All non-zero A[i] form a strictly increasing sequence in order (i.e., if A[i] > 0 and A[j] > 0 with i < j, then A[i] < A[j])
+
+The bounds L[i] and R[i] for each position are given as:
+L[0]=rlve_input_3[0] R[0]=25
+L[1]=rlve_input_3[1] R[1]=17
+L[2]=rlve_input_3[2] R[2]=9
+L[3]=rlve_input_3[3] R[3]=22
+L[4]=rlve_input_3[4] R[4]=12
+
+Let range_constrained_increasing_sequence_counting_result_3 be the number of such sequences modulo 1000000007.
+Output the result as task_3_out = {"result": range_constrained_increasing_sequence_counting_result_3}, replacing range_constrained_increasing_sequence_counting_result_3 with its calculated value.
+
+======================================================================
+Prompt 30
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": 13}.
+Task 1:
+You are given a grid of size 6 × 6. You may color some cells (and leave others uncolored) using 2 colors labeled from 0 to 1, such that:
+1. No two different colors appear in the same row or the same column.
+2. Color `i` is used exactly X[i] times. The array X is given as: X[0]=task_1_input["result"] // 2 + (1 if 0 < task_1_input["result"] % 2 else 0) X[1]=task_1_input["result"] // 2 + (1 if 1 < task_1_input["result"] % 2 else 0)
+
+Let grid_coloring_counting_result_1 be the number of valid colorings modulo 2217.
+Output the result as task_1_out = {"result": grid_coloring_counting_result_1}, replacing grid_coloring_counting_result_1 with its calculated value.
+
+Task 2:
+Let rlve_input_2 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 1458; then add 183 to it.
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `rlve_input_2` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_2 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_2_out = {"result": negative_base_result_2}, replacing negative_base_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 6; then add 1 to it.
+If rlve_input_3 has more than 6 elements, keep only the first 6 elements.
+Count the number of sequences A[1], A[2], ..., A[6] such that:
+- For each i (1 ≤ i ≤ 6), 1 ≤ A[i] ≤ R[i], where R is given as: R[1]=rlve_input_3[0], R[2]=rlve_input_3[1], R[3]=rlve_input_3[2], R[4]=rlve_input_3[3], R[5]=rlve_input_3[4], R[6]=rlve_input_3[5]
+- For each i (3 ≤ i ≤ 6):
+  - Let r = the minimum value among A[1], ..., A[i−2] that is ≥ A[i−1] (if none exists, r = +∞).
+  - Let l = the maximum value among A[1], ..., A[i−2] that is ≤ A[i−1] (if none exists, l = −∞).
+  - Then A[i] must satisfy l ≤ A[i] ≤ r.
+
+Let range_shrinking_sequence_counting_result_3 be the number of valid sequences modulo 155507.
+Output the result as task_3_out = {"result": range_shrinking_sequence_counting_result_3}, replacing range_shrinking_sequence_counting_result_3 with its calculated value.
+
+======================================================================
+Prompt 31
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": 885}.
+Task 1:
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `task_1_input["result"]` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_1 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_1_out = {"result": negative_base_result_1}, replacing negative_base_result_1 with its calculated value.
+
+Task 2:
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_2 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 31.
+If rlve_input_2 has more than 6 elements, keep only the first 6 elements.
+You are given the following list of numbers:
+rlve_input_2
+Please sort them in **ascending order**.
+
+Let sorting_result_2 be a single list with the sorted numbers in ascending order.
+Output the result as task_2_out = {"result": sorting_result_2}, replacing sorting_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 6; then add 1 to it.
+If rlve_input_3 has more than 6 elements, keep only the first 6 elements.
+You are given an array that repeats every 6 elements. The initial pattern is: rlve_input_3. This pattern repeats 8 times, creating a total array length of 48.
+
+For example, if the initial pattern is [1, 3, 2] and it repeats 2 times, the full array would be [1, 3, 2, 1, 3, 2].
+
+Find the length of the longest non-decreasing subsequence (not necessarily contiguous) in this repeated array.
+
+Let repeat_sequence_lnds_result_3 be the length of that longest non-decreasing subsequence.
+Output the result as task_3_out = {"result": repeat_sequence_lnds_result_3}, replacing repeat_sequence_lnds_result_3 with its calculated value.
+
+======================================================================
+Prompt 32
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": 577}.
+Task 1:
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `task_1_input["result"]` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_1 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_1_out = {"result": negative_base_result_1}, replacing negative_base_result_1 with its calculated value.
+
+Task 2:
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_2 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 9.
+If rlve_input_2 has more than 8 elements, keep only the first 8 elements.
+You are given the following list of 8 numbers: rlve_input_2
+Please find the minimum value in each contiguous subarray of size 4 (there are 5 such subarrays in total).
+
+Let sliding_window_result_2 be a single list with those minimum values from the leftmost subarray to the rightmost, in order.
+Output the result as task_2_out = {"result": sliding_window_result_2}, replacing sliding_window_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 6; then add 1 to it.
+If rlve_input_3 has more than 6 elements, keep only the first 6 elements.
+There are 6 items labeled from 0 to 5. Each item labeled `i` has an associated cost C[i]. The array C is: C[0]=rlve_input_3[0] C[1]=rlve_input_3[1] C[2]=rlve_input_3[2] C[3]=rlve_input_3[3] C[4]=rlve_input_3[4] C[5]=rlve_input_3[5]
+Initially, the items are arranged in the order A (this means the item at position 0 has label A[0], at position 1 has label A[1], etc): A[0]=0 A[1]=1 A[2]=3 A[3]=5 A[4]=2 A[5]=4
+You are required to rearrange the items into the target order B: B[0]=1 B[1]=3 B[2]=4 B[3]=5 B[4]=2 B[5]=0
+
+You may perform any number of swaps. Swapping the items labeled `i` and `j` incurs a cost of C[i] + C[j]. Please minimize the total cost of all swaps.
+
+Let slo_elephants_result_3 be the minimum possible total cost of all swaps.
+Output the result as task_3_out = {"result": slo_elephants_result_3}, replacing slo_elephants_result_3 with its calculated value.
+
+======================================================================
+Prompt 33
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [6, 8, 11, 4, 22, 11]}.
+Task 1:
+You are given the following list of numbers:
+task_1_input["result"]
+Please sort them in **ascending order**.
+
+Let sorting_result_1 be a single list with the sorted numbers in ascending order.
+Output the result as task_1_out = {"result": sorting_result_1}, replacing sorting_result_1 with its calculated value.
+
+Task 2:
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_2 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 6; then add 1 to it.
+If rlve_input_2 has more than 6 elements, keep only the first 6 elements.
+You are given 6 pairs of integers `(S[i], A[i])` for `0 <= i < 6`, provided as:
+S[0]=2 A[0]=rlve_input_2[0]
+S[1]=4 A[1]=rlve_input_2[1]
+S[2]=5 A[2]=rlve_input_2[2]
+S[3]=10 A[3]=rlve_input_2[3]
+S[4]=15 A[4]=rlve_input_2[4]
+S[5]=16 A[5]=rlve_input_2[5]
+
+**Note:** The array `S` is sorted in non-decreasing order: `S[0] <= S[1] <= ... <= S[5]`
+
+Please select k distinct pairs `i_1, i_2, ..., i_k` and maximize the following expression: `max(S[i_1], S[i_2], ..., S[i_k]) * 2 + A[i_1] + A[i_2] + ... + A[i_k]` (i.e., the sum of the selected A[i] values plus the maximum S[i] value multiplied by 2).
+Please compute the **maximum value of this expression** for each k = 1 to 6.
+
+Let salesman_fatigue_result_2 be a single list with the maximum value of this expression for each k = 1 to 6, in order.
+Output the result as task_2_out = {"result": salesman_fatigue_result_2}, replacing salesman_fatigue_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 7; then add 1 to it.
+If rlve_input_3 has more than 7 elements, keep only the first 7 elements.
+You are given a **directed graph** with 7 vertices, labeled from 0 to 6.
+
+The graph contains the following directed edges. Each edge is represented as a tuple (s, t), meaning there is a directed edge **from vertex s to vertex t**:
+(1, 4)
+(3, 0)
+(0, 5)
+(5, 0)
+(0, 4)
+(5, 3)
+
+Each vertex i has an associated cost c[i], given as follows:
+c[0]=rlve_input_3[0]
+c[1]=rlve_input_3[1]
+c[2]=rlve_input_3[2]
+c[3]=rlve_input_3[3]
+c[4]=rlve_input_3[4]
+c[5]=rlve_input_3[5]
+c[6]=rlve_input_3[6]
+
+Your task is to select a subset of vertices s_1, s_2, ..., s_k such that:
+- Every vertex in the graph is reachable (i.e., there exists a path ending at that vertex) starting from at least one of the selected vertices.
+- Your goal is to **minimize** the total cost of the selected vertices: c[s_1] + c[s_2] + ... + c[s_k].
+
+Let spy_network_result_3 be the minimum possible total cost.
+Output the result as task_3_out = {"result": spy_network_result_3}, replacing spy_network_result_3 with its calculated value.
+
+======================================================================
+Prompt 34
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": 6}.
+Task 1:
+You are given a grid of size 2 × 6. You may color some cells (and leave others uncolored) using 2 colors labeled from 0 to 1, such that:
+1. No two different colors appear in the same row or the same column.
+2. Color `i` is used exactly X[i] times. The array X is given as: X[0]=task_1_input["result"] // 2 + (1 if 0 < task_1_input["result"] % 2 else 0) X[1]=task_1_input["result"] // 2 + (1 if 1 < task_1_input["result"] % 2 else 0)
+
+Let grid_coloring_counting_result_1 be the number of valid colorings modulo 3008.
+Output the result as task_1_out = {"result": grid_coloring_counting_result_1}, replacing grid_coloring_counting_result_1 with its calculated value.
+
+Task 2:
+Let rlve_input_2 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 1458; then add 183 to it.
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `rlve_input_2` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_2 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_2_out = {"result": negative_base_result_2}, replacing negative_base_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 5; then add 1 to it.
+If rlve_input_3 has more than 5 elements, keep only the first 5 elements.
+There are 5 elements labeled from 0 to 4, and each element `x` has an associated value C[x]. C is: C[0] = rlve_input_3[0]; C[1] = rlve_input_3[1]; C[2] = rlve_input_3[2]; C[3] = rlve_input_3[3]; C[4] = rlve_input_3[4]
+You need to build an array A of length 7, where each A[i] is one of these elements (i.e., 0 ≤ A[i] < 5 for all 1 ≤ i ≤ 7). Each position i in A has a value defined as **C[A[i]] × T[i]**, where T[i] is determined as follows:
+- If there is no previous index j (0 ≤ j < i) such that A[j] = A[i], then T[i] = 0.
+- Otherwise, let j be the largest index (basically, closest to i) such that A[j] = A[i] (0 ≤ j < i), and set T[i] = i - j.
+
+Can you maximize the sum of all values **C[A[i]] × T[i]**?
+
+Let stunt_flying_result_3 be the maximum possible sum of all values C[A[i]] × T[i].
+Output the result as task_3_out = {"result": stunt_flying_result_3}, replacing stunt_flying_result_3 with its calculated value.
+
+======================================================================
+Prompt 35
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": 23}.
+Task 1:
+You are given a grid of size 4 × 6. You may color some cells (and leave others uncolored) using 1 colors labeled from 0 to 0, such that:
+1. No two different colors appear in the same row or the same column.
+2. Color `i` is used exactly X[i] times. The array X is given as: X[0]=task_1_input["result"] // 1 + (1 if 0 < task_1_input["result"] % 1 else 0)
+
+Let grid_coloring_counting_result_1 be the number of valid colorings modulo 3580.
+Output the result as task_1_out = {"result": grid_coloring_counting_result_1}, replacing grid_coloring_counting_result_1 with its calculated value.
+
+Task 2:
+Let rlve_input_2 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 1458; then add 183 to it.
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `rlve_input_2` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_2 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_2_out = {"result": negative_base_result_2}, replacing negative_base_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 7; then add 1 to it.
+If rlve_input_3 has more than 7 elements, keep only the first 7 elements.
+You are given 7 tasks, numbered from 1 to 7. Each task i (1 <= i <= 7) takes T[i] units of time to complete individually and has a cost coefficient F[i]. The values are given as:
+T[1]=rlve_input_3[0] F[1]=3
+T[2]=rlve_input_3[1] F[2]=2
+T[3]=rlve_input_3[2] F[3]=5
+T[4]=rlve_input_3[3] F[4]=6
+T[5]=rlve_input_3[4] F[5]=7
+T[6]=rlve_input_3[5] F[6]=3
+T[7]=rlve_input_3[6] F[7]=3
+
+You may divide these tasks (in order) into any number of **consecutive batches**. Let the total number of batches be k (k >= 1), and let end[1], end[2], ..., end[k] (1 <= end[1] < end[2] < ... < end[k] = 7) denote the last task index in each batch.
+- This means:
+    + Batch 1 contains tasks 1 to end[1]
+    + Batch 2 contains tasks end[1] + 1 to end[2]
+    + ...
+    + Batch k contains tasks end[k - 1] + 1 to end[k] (with end[k] = 7)
+
+- Before starting each batch, the machine must spend an additional 0 units of startup time.
+- The time to **complete** a batch is the sum of T[i] for all tasks in that batch.
+- Therefore, the **total completion time** of each task in a batch is the sum of the batch's startup time (0) and the total time of all tasks in that batch.
+- All tasks in a batch are considered to finish **simultaneously**, at the end of that batch.
+
+- Tasks are completed in the order defined by the batch division.
+- The cost of each task is equal to **the time when its batch finishes (after all previous batches, if any, have completed and the current batch has been processed), multiplied by F[i]**.
+- The **total cost** is the sum of the costs of all tasks.
+
+Try your best to find a batch division (end[1], end[2], ..., end[k]) that **minimizes the total cost**.
+
+Let task_arrangement_result_3 be the minimum possible total cost.
+Output the result as task_3_out = {"result": task_arrangement_result_3}, replacing task_arrangement_result_3 with its calculated value.
+
+======================================================================
+Prompt 36
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": 684}.
+Task 1:
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `task_1_input["result"]` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_1 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_1_out = {"result": negative_base_result_1}, replacing negative_base_result_1 with its calculated value.
+
+Task 2:
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_2 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 6.
+If rlve_input_2 has more than 5 elements, keep only the first 5 elements.
+You are given a sequence C: C[1]=rlve_input_2[0] C[2]=rlve_input_2[1] C[3]=rlve_input_2[2] C[4]=rlve_input_2[3] C[5]=rlve_input_2[4]
+
+Now, please determine two non-negative integer sequences X[1], ..., X[5] and Y[1], ..., Y[5] such that:
+- For 1 ≤ i ≤ 5, define: Pos[i] = (C[i] + 4 × X[i] + Y[i]) mod 6
+- The values Pos[1], ..., Pos[5] must be all distinct.
+- No Pos[i] can be equal to 1.
+- Among all valid solutions:
+  + First, minimize the lexicographical order of sequence Y.
+  + If multiple solutions have the same Y, then choose the one with the smallest lexicographical order of X.
+
+Let box_scheduling_result_2 be a single list with Pos[1], ..., Pos[5] in order.
+Output the result as task_2_out = {"result": box_scheduling_result_2}, replacing box_scheduling_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 7; then add 1 to it.
+If rlve_input_3 has more than 7 elements, keep only the first 7 elements.
+You are given a **tree** (i.e., a connected undirected graph with no cycles) with 7 vertices, labeled from `0` to `6`.
+
+Each vertex has a cost, given as a list `C` of length 7, where `C[i]` is the cost of vertex i:
+C[0]=rlve_input_3[0]
+C[1]=rlve_input_3[1]
+C[2]=rlve_input_3[2]
+C[3]=rlve_input_3[3]
+C[4]=rlve_input_3[4]
+C[5]=rlve_input_3[5]
+C[6]=rlve_input_3[6]
+
+The tree contains the following 7 - 1 = 6 undirected edges. Each edge is represented as a tuple `(u, v, w)`, meaning there is an undirected edge **connecting vertex `u` to vertex `v` with weight `w`:
+(5, 6, 4)
+(2, 5, 6)
+(1, 2, 4)
+(3, 5, 7)
+(4, 3, 6)
+(0, 1, 1)
+
+Your task is to select a single vertex `r` (where `r` is in the range 0 to 6).
+Try your best to **minimize** dist(0, r) * C[0] + dist(1, r) * C[1] + ... + dist(6, r) * C[6], where `dist(i, j)` is the distance between vertices i and j in the tree. The distance between two vertices is defined as the sum of the weights of the edges on the unique path connecting them (since the graph is a tree, there is exactly one unique path between any two vertices).
+
+Let tree_center_result_3 be the minimum possible value of that weighted sum.
+Output the result as task_3_out = {"result": tree_center_result_3}, replacing tree_center_result_3 with its calculated value.
+
+======================================================================
+Prompt 37
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": 267}.
+Task 1:
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `task_1_input["result"]` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_1 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_1_out = {"result": negative_base_result_1}, replacing negative_base_result_1 with its calculated value.
+
+Task 2:
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_2 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 9.
+If rlve_input_2 has more than 8 elements, keep only the first 8 elements.
+You are given the following list of 8 numbers: rlve_input_2
+Please find the minimum value in each contiguous subarray of size 4 (there are 5 such subarrays in total).
+
+Let sliding_window_result_2 be a single list with those minimum values from the leftmost subarray to the rightmost, in order.
+Output the result as task_2_out = {"result": sliding_window_result_2}, replacing sliding_window_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 19.
+If rlve_input_3 has more than 6 elements, keep only the first 6 elements.
+You are given 6 items labeled from `0` to `5`. Each item has a base value W[i] and a diminishing factor R[i]. The list of values and diminishing factors is given as:
+W[0]=rlve_input_3[0] R[0]=1
+W[1]=rlve_input_3[1] R[1]=1
+W[2]=rlve_input_3[2] R[2]=4
+W[3]=rlve_input_3[3] R[3]=5
+W[4]=rlve_input_3[4] R[4]=5
+W[5]=rlve_input_3[5] R[5]=6
+
+You must select a sequence of **distinct items** (the order matters). When selecting the i-th item:
+- Its effective value is W[i] minus the total of R[j] for all previously selected items j.
+- In other words, each item selected **after** i will lose R[i] from their gain due to the diminishing effect.
+
+Your goal is to select a sequence of items to **maximize the total gain**.
+
+Let value_diminishing_selection_result_3 be the maximum possible total gain.
+Output the result as task_3_out = {"result": value_diminishing_selection_result_3}, replacing value_diminishing_selection_result_3 with its calculated value.
+
+======================================================================
+Prompt 38
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": 2}.
+Task 1:
+You are given a grid of size 2 × 6. You may color some cells (and leave others uncolored) using 2 colors labeled from 0 to 1, such that:
+1. No two different colors appear in the same row or the same column.
+2. Color `i` is used exactly X[i] times. The array X is given as: X[0]=task_1_input["result"] // 2 + (1 if 0 < task_1_input["result"] % 2 else 0) X[1]=task_1_input["result"] // 2 + (1 if 1 < task_1_input["result"] % 2 else 0)
+
+Let grid_coloring_counting_result_1 be the number of valid colorings modulo 682.
+Output the result as task_1_out = {"result": grid_coloring_counting_result_1}, replacing grid_coloring_counting_result_1 with its calculated value.
+
+Task 2:
+Let rlve_input_2 be the result of preprocessing task_1_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 1458; then add 183 to it.
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `rlve_input_2` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_2 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_2_out = {"result": negative_base_result_2}, replacing negative_base_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 14; then add 1 to it.
+If rlve_input_3 has more than 7 elements, keep only the first 7 elements.
+You are given 7 factories arranged from top to bottom along a mountain, indexed from 0 to 6. Factory 0 is at the top and factory 6 is at the bottom.
+
+Each factory has
+- Distance from factory 0: D[0]=0 D[1]=1 D[2]=2 D[3]=6 D[4]=7 D[5]=12 D[6]=14
+- Number of products: P[0]=1 P[1]=2 P[2]=7 P[3]=7 P[4]=7 P[5]=2 P[6]=4
+- Cost to build a warehouse at that factory: C[0]=rlve_input_3[0] C[1]=rlve_input_3[1] C[2]=rlve_input_3[2] C[3]=rlve_input_3[3] C[4]=rlve_input_3[4] C[5]=rlve_input_3[5] C[6]=rlve_input_3[6]
+
+You can choose to build warehouses at any subset of factories.
+- A warehouse can store any number of products.
+- If a factory does not build a warehouse, all its products must be sent **downhill** to a factory with a warehouse (i.e., to a factory with a higher index). Transporting one product over one unit of distance costs 1.
+- The total cost is the sum of warehouse construction costs and product transportation costs. Try your best to minimize the total cost.
+
+Let warehouse_construction_result_3 be the minimum possible total cost.
+Output the result as task_3_out = {"result": warehouse_construction_result_3}, replacing warehouse_construction_result_3 with its calculated value.
+
+======================================================================
+Prompt 39
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [8, 4, 1, 0, 5, 2, 5, 8]}.
+Task 1:
+You are given the following list of 8 numbers: task_1_input["result"]
+Please find the minimum value in each contiguous subarray of size 4 (there are 5 such subarrays in total).
+
+Let sliding_window_result_1 be a single list with those minimum values from the leftmost subarray to the rightmost, in order.
+Output the result as task_1_out = {"result": sliding_window_result_1}, replacing sliding_window_result_1 with its calculated value.
+
+Task 2:
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_2 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 6.
+If rlve_input_2 has more than 5 elements, keep only the first 5 elements.
+You are given a sequence C: C[1]=rlve_input_2[0] C[2]=rlve_input_2[1] C[3]=rlve_input_2[2] C[4]=rlve_input_2[3] C[5]=rlve_input_2[4]
+
+Now, please determine two non-negative integer sequences X[1], ..., X[5] and Y[1], ..., Y[5] such that:
+- For 1 ≤ i ≤ 5, define: Pos[i] = (C[i] + 5 × X[i] + Y[i]) mod 6
+- The values Pos[1], ..., Pos[5] must be all distinct.
+- No Pos[i] can be equal to 3.
+- Among all valid solutions:
+  + First, minimize the lexicographical order of sequence Y.
+  + If multiple solutions have the same Y, then choose the one with the smallest lexicographical order of X.
+
+Let box_scheduling_result_2 be a single list with Pos[1], ..., Pos[5] in order.
+Output the result as task_2_out = {"result": box_scheduling_result_2}, replacing box_scheduling_result_2 with its calculated value.
+
+Task 3:
+Suppose task_2_out["result"] = [x_1, ..., x_n]. Let task_2_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_3 be the result of preprocessing task_2_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 5; then add 1 to it.
+If rlve_input_3 has more than 6 elements, keep only the first 6 elements.
+You are given a binary tree with 6 nodes, labeled from 0 to 5.
+The **in-order traversal** of the tree is: `0, 1, ..., 5` — that is, the in-order sequence is fixed in increasing order of node labels.
+
+Each node `i` has an associated score `d_i` (where `0 ≤ i < 6`), given as:
+d_0=rlve_input_3[0]
+d_1=rlve_input_3[1]
+d_2=rlve_input_3[2]
+d_3=rlve_input_3[3]
+d_4=rlve_input_3[4]
+d_5=rlve_input_3[5]
+
+The **score of a binary tree** is defined recursively as follows:
+- `score(tree) = score(left_subtree) × score(right_subtree) + d_i`, where `i` is the root of the current subtree.
+- If a subtree is **empty**, its score is defined to be `1`.
+- If a node is a **leaf**, its score is simply `d_i` (ignore its empty subtrees).
+
+Your task is to construct the binary tree that satisfies the above rules and has the **maximum possible score**.
+
+Let weighted_binary_tree_result_3 be the maximum possible score of the whole tree.
+Output the result as task_3_out = {"result": weighted_binary_tree_result_3}, replacing weighted_binary_tree_result_3 with its calculated value.
+
+======================================================================
+Prompt 40
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": 967}.
+Task 1:
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `task_1_input["result"]` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_1 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_1_out = {"result": negative_base_result_1}, replacing negative_base_result_1 with its calculated value.
+
+Task 2:
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_2 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 2; then add 1 to it.
+If rlve_input_2 has more than 4 elements, keep only the first 4 elements.
+Count the number of matrices A of size 2 × 4 (0-indexed) that satisfy the following conditions:
+1. Each element A[i][j] (0 ≤ i < 2, 0 ≤ j < 4) is an integer in the range [1, U[j]]. U is: U[0]=rlve_input_2[0] U[1]=rlve_input_2[1] U[2]=rlve_input_2[2] U[3]=rlve_input_2[3]
+2. For each column j (0 ≤ j < 4), there are exactly R[j] rows i (1 ≤ i < 2) such that A[i][j] > A[0][j]. R is: R[0]=0 R[1]=0 R[2]=0 R[3]=0
+3. There are exactly 1 rows i (1 ≤ i < 2) such that A[0][j] ≥ A[i][j] holds for **all** j (0 ≤ j < 4).
+
+Let grade_ranking_counting_result_2 be the number of such matrices modulo 998244353.
+Output the result as task_2_out = {"result": grade_ranking_counting_result_2}, replacing grade_ranking_counting_result_2 with its calculated value.
+
+Task 3:
+Let rlve_input_3 be the result of preprocessing task_2_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 1458; then add 183 to it.
+We can represent integers using a **negative base** system with base `-R`, where `R` is a positive integer greater than 1. In this system, the digits used are from `0` to `R - 1` (in decimal).
+For example, the decimal number `-15` can be represented as `110001` in base `-2`, since:
+1×(-2)^5 + 1×(-2)^4 + 0×(-2)^3 + 0×(-2)^2 + 0×(-2)^1 + 1×(-2)^0 = (-15).
+
+Your task is to convert the decimal number `rlve_input_3` into base `-3`, and determine its digits (in decimal) from most significant to least significant.
+
+Let negative_base_result_3 be a single list with those digits (in decimal) from most significant to least significant.
+Output the result as task_3_out = {"result": negative_base_result_3}, replacing negative_base_result_3 with its calculated value.
+
+======================================================================
+Prompt 41
+======================================================================
+Solve the following tasks. Output the result for each.
+
+Define task_1_input = {"result": [1, 4, 6, 6, 5, 4, 5, 2]}.
+Task 1:
+You are given a 2D integer matrix of size 4 x 2:
+task_1_input["result"][0] task_1_input["result"][1]
+task_1_input["result"][2] task_1_input["result"][3]
+task_1_input["result"][4] task_1_input["result"][5]
+task_1_input["result"][6] task_1_input["result"][7]
+
+Return all elements of the matrix in a clockwise spiral order, starting from the top-left corner. More precisely:
+- Start from the top-left corner and move right until you reach the right edge.
+- Then, move down until you reach the bottom-right corner.
+- Then, move left until you reach the bottom-left corner.
+- Then, move up until you reach the top-right corner.
+- Continue this inward spiral traversal until all elements have been visited exactly once.
+
+---
+
+**Example 1**
+
+You are given an integer matrix of size 3 x 3:
+1 2 3
+4 5 6
+7 8 9
+
+The spiral order is [1, 2, 3, 6, 9, 8, 7, 4, 5].
+
+**Example 2**
+
+You are given an integer matrix of size 3 x 4:
+1 2 3 4
+5 6 7 8
+9 10 11 12
+
+The spiral order is [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7].
+
+---
+
+Let spiral_matrix_result_1 be a single list with all 8 elements of the matrix in clockwise spiral order.
+Output the result as task_1_out = {"result": spiral_matrix_result_1}, replacing spiral_matrix_result_1 with its calculated value.
+
+Task 2:
+Suppose task_1_out["result"] = [x_1, ..., x_n]. Let task_1_out_fd = [n, s, x_1, ..., x_n], where s = x_1 + ... + x_n.
+Let rlve_input_2 be the result of preprocessing task_1_out_fd as follows - for every element, if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 6; then add 1 to it.
+If rlve_input_2 has more than 6 elements, keep only the first 6 elements.
+There are 6 items labeled from 0 to 5. Each item labeled `i` has an associated cost C[i]. The array C is: C[0]=rlve_input_2[0] C[1]=rlve_input_2[1] C[2]=rlve_input_2[2] C[3]=rlve_input_2[3] C[4]=rlve_input_2[4] C[5]=rlve_input_2[5]
+Initially, the items are arranged in the order A (this means the item at position 0 has label A[0], at position 1 has label A[1], etc): A[0]=3 A[1]=1 A[2]=0 A[3]=2 A[4]=4 A[5]=5
+You are required to rearrange the items into the target order B: B[0]=4 B[1]=1 B[2]=2 B[3]=3 B[4]=0 B[5]=5
+
+You may perform any number of swaps. Swapping the items labeled `i` and `j` incurs a cost of C[i] + C[j]. Please minimize the total cost of all swaps.
+
+Let slo_elephants_result_2 be the minimum possible total cost of all swaps.
+Output the result as task_2_out = {"result": slo_elephants_result_2}, replacing slo_elephants_result_2 with its calculated value.
+
+Task 3:
+Let rlve_input_3 be the result of preprocessing task_2_out["result"] as follows - if it is a float, convert it to an integer by rounding ties away from zero (0.5 to 1, -0.5 to -1); then replace it with the remainder of its absolute value modulo 29; then add 2 to it.
+You are given a grid of size 5 × 6. You may color some cells (and leave others uncolored) using 2 colors labeled from 0 to 1, such that:
+1. No two different colors appear in the same row or the same column.
+2. Color `i` is used exactly X[i] times. The array X is given as: X[0]=rlve_input_3 // 2 + (1 if 0 < rlve_input_3 % 2 else 0) X[1]=rlve_input_3 // 2 + (1 if 1 < rlve_input_3 % 2 else 0)
+
+Let grid_coloring_counting_result_3 be the number of valid colorings modulo 9364.
+Output the result as task_3_out = {"result": grid_coloring_counting_result_3}, replacing grid_coloring_counting_result_3 with its calculated value.

@@ -1,0 +1,12 @@
+# Install separately before submitting jobs. The existing calculator uses MCP v1.
+trl==1.11.0
+transformers==5.16.1
+accelerate==1.15.0
+deepspeed==0.19.6
+datasets>=4.7.0
+pyarrow
+mcp==1.30.0
+networkx
+sympy
+libcst
+tqdm

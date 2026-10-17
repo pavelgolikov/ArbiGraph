@@ -1,31 +1,152 @@
 import collections
+from copy import deepcopy
 import json
 import math
 from fractions import Fraction
 import sympy
 import random
 from typing import Any
-from tasks.adapters import (
-    AddScalarsAdapter,
-    ListToListAdapter,
-    ListToMatrixAdapter,
-    ListToPolynomialAdapter,
-    MatrixToListAdapter,
-    PolynomialToListAdapter,
-    ScalarToScalarAdapter,
-    SumListsAdapter,
-)
 from sympy.combinatorics.graycode import bin_to_gray
 from sympy.combinatorics import Permutation
+from tasks.arbigraph_tools import comparator, validate_limit
 
 
 LIST_LEN_MAX = 10
 SCALAR_MAX_MAG = 100
+MAX_BANK_DRAWS = 200
+
+# How this category's answers are compared, wherever two of them meet.
+COMPARATOR = "numeric"
+same_answer = comparator(COMPARATOR)
+
+# =============================================================================
+# Format conversions
+# =============================================================================
+
+class ListToMatrixAdapter:
+    def __init__(self, num_rows, num_cols):
+        self.num_rows = num_rows
+        self.num_cols = num_cols
+
+    def prompt(self, inp_list_name, matrix_name: str) -> str:
+        prompt = f"Reshape list {inp_list_name} into matrix {matrix_name} of size "
+        prompt += f"{self.num_rows} x {self.num_cols} using row-major order, "
+        prompt += "filling the top row first, then the second row, and so on.\n"
+        prompt += "To achieve the required dimension for the reshape, "
+        prompt += f"you can append zeros to the end of list {inp_list_name} or truncate it.\n"
+        return prompt
+
+    def compute(self, values):
+        total = self.num_rows * self.num_cols
+        if len(values) < total:
+            values = list(values) + [0] * (total - len(values))
+        elif len(values) > total:
+            values = list(values)[:total]
+
+        matrix = []
+        for row_index in range(self.num_rows):
+            matrix.append(values[row_index * self.num_cols : (row_index + 1) * self.num_cols])
+        return sympy.Matrix(matrix)
+
+
+class MatrixToListAdapter:
+    def prompt(self, matrix_name, out_var_name: str) -> str:
+        prompt = f"Convert matrix {matrix_name} into a list {out_var_name} "
+        prompt += "by concatenating matrix rows starting from the top row, then second row, etc...\n"
+        return prompt
+
+    def compute(self, matrix):
+        if isinstance(matrix, sympy.MatrixBase):
+            return list(matrix)
+        return [value for row in matrix for value in row]
+
+
+class ListToPolynomialAdapter:
+    def __init__(self, symbol=None):
+        self.symbol = sympy.Symbol("x") if symbol is None else sympy.sympify(symbol)
+
+    def prompt(self, inp_list_name, poly_name: str) -> str:
+        prompt = f"Let {poly_name}({self.symbol}) be a polynomial whose coefficients are the elements "
+        prompt += f"of the list {inp_list_name} in order, starting from the highest degree.\n"
+        return prompt
+
+    def compute(self, coefficients):
+        coefficients = list(coefficients)
+        if not coefficients:
+            coefficients = [0]
+        return sympy.Poly(coefficients, self.symbol)
+
+
+class PolynomialToListAdapter:
+    def __init__(self, symbol=None):
+        self.symbol = sympy.Symbol("x") if symbol is None else sympy.sympify(symbol)
+
+    def prompt(self, poly_name, out_var_name: str) -> str:
+        prompt = f"Convert {poly_name} into a list {out_var_name} by extracting its coefficients "
+        prompt += "starting from the highest degree to the constant term, \n"
+        prompt += "including zero coefficients for missing intermediate powers. "
+        prompt += "Omit leading zero coefficients. Represent the zero polynomial as [0].\n"
+        return prompt
+
+    def compute(self, polynomial):
+        if not isinstance(polynomial, sympy.Poly):
+            polynomial = sympy.Poly(polynomial, self.symbol)
+        coefficients = list(polynomial.all_coeffs())
+        return coefficients if coefficients else [0]
+
 
 # =============================================================================
 # Base Class
 # =============================================================================
 class MathTask:
+    power_of_two_input = False
+    input_min = None
+
+    @classmethod
+    def generate_inputs(cls, task_ind, input_names, scalar_max_mag, list_len_max, num_inputs, num_parents=1):
+        """Build a bank of task instances with fixed static data and distinct accepted answers."""
+        validate_limit(num_inputs, "num_inputs")
+        minimum = 1 - scalar_max_mag if cls.input_min is None else cls.input_min
+        maximum = scalar_max_mag - 1
+        if cls.input_min is not None:
+            maximum += cls.input_min
+        max_length = list_len_max
+        if cls.power_of_two_input:
+            max_length = 1 << (list_len_max - 1).bit_length()
+        lengths = [
+            length for length in range(1, max_length + 1)
+            if not cls.power_of_two_input or length & (length - 1) == 0
+        ]
+        bank = []
+        for _ in range(num_inputs):
+            for _ in range(MAX_BANK_DRAWS):
+                if cls.input_type == "list":
+                    length = len(bank[0].input_value) if bank else random.choice(lengths)
+                    value = [random.randint(minimum, maximum) for _ in range(length)]
+                else:
+                    value = random.randint(minimum, maximum)
+                try:
+                    if bank:
+                        instance = deepcopy(bank[0])
+                        instance.input_value = value
+                        instance.out = plain_value(instance.solution_generator())
+                    else:
+                        instance = cls(
+                            task_ind, input_names, value, scalar_max_mag, list_len_max, num_parents,
+                        )
+                    if instance.out is None or bad_output(instance.out):
+                        continue
+                    json.dumps(instance.out, allow_nan=False)
+                    if any(same_answer(instance.out, previous.out) for previous in bank):
+                        continue
+                except Exception:
+                    continue
+                bank.append(instance)
+                break
+            else:
+                raise ValueError(f"Could not generate {num_inputs} distinct accepted inputs for {cls.task_name}.")
+        return bank
+
     def __init__(self,
         task_ind,
         input_names,
@@ -74,8 +195,7 @@ class MatrixMulTask(MathTask):
     output_type = "list"
 
     def gen_params(self):
-        self.input_adapter = ListToListAdapter(self.scalar_max_mag, self.list_len_max, self.num_parents)
-        self.adapted_inp['matrix_1'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['matrix_1'] = self.input_value
         length = len(self.adapted_inp['matrix_1'])
         num_rows = int(math.floor(math.sqrt(length)))
         num_cols = int(math.ceil(length / num_rows))
@@ -86,16 +206,14 @@ class MatrixMulTask(MathTask):
         self.matrix_2 = _rand_matrix(num_cols, num_rows, -float(self.scalar_max_mag), float(self.scalar_max_mag))
 
     def solution_generator(self):
-        matrix_1 = self.matrix_adapter.compute(self.adapted_inp['matrix_1'])
+        matrix_1 = self.matrix_adapter.compute(self.input_value)
         matrix_2 = self.matrix_2
         out = self.output_adapter.compute(matrix_1 * matrix_2)
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"list_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += (
+        adapted_inp_name = self.input_names[0]
+        prompt = (
             f"Let L be max(1, the length of {adapted_inp_name}). Let r = max(1, floor(sqrt(L))). "
             f"Let c = ceil(L / r).\n"
         )
@@ -110,25 +228,20 @@ class MatrixMulTask(MathTask):
 
 
 class FWHTTask(MathTask):
+    power_of_two_input = True
     task_name = 'fwht'
     input_type = "list"
     output_type = "list"
 
     def solution_generator(self):
-        self.input_adapter = ListToListAdapter(
-            self.scalar_max_mag, self.list_len_max, self.num_parents, None, True, True
-        )
-        self.adapted_inp['seq'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['seq'] = self.input_value
         padded = self.adapted_inp['seq']
         out = list(sympy.discrete.transforms.fwht(padded))
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"list_{self.task_ind:d}"
-        seq_name = self.input_names[0]
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(seq_name, adapted_inp_name)
-        prompt += f"Let {adapted_inp_name} = [a_0, a_1, ..., a_{{N-1}}].\n"
+        adapted_inp_name = self.input_names[0]
+        prompt = f"Let {adapted_inp_name} = [a_0, a_1, ..., a_{{N-1}}].\n"
         prompt += (
             f"Compute the unnormalized Walsh-Hadamard transform in Sylvester order. That is, for each "
             f"j = 0, 1, ..., N-1, define\n"
@@ -143,16 +256,14 @@ class FWHTTask(MathTask):
 
 
 class NTTTask(MathTask):
+    power_of_two_input = True
     task_name = 'ntt'
     input_type = "list"
     output_type = "list"
 
     def gen_params(self):
-        self.input_adapter = ListToListAdapter(
-            self.scalar_max_mag, self.list_len_max, self.num_parents, None, True, True
-        )
-        self.adapted_inp['seq'] = self.input_adapter.compute(self.input_value)
-        N = len(self.adapted_inp['seq'])
+        self.adapted_inp['seq'] = self.input_value
+        N = 1 << (len(self.adapted_inp['seq']) - 1).bit_length()
         m = 1
         while True:
             p = m * N + 1
@@ -162,17 +273,14 @@ class NTTTask(MathTask):
             m += 1
 
     def solution_generator(self):
-        as_ints = self.adapted_inp['seq']
+        as_ints = self.input_value
         prime = int(self.prime)
         out = list(sympy.discrete.transforms.ntt(as_ints, prime))
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"list_{self.task_ind:d}"
-        seq_name = self.input_names[0]
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(seq_name, adapted_inp_name)
-        prompt += (
+        adapted_inp_name = self.input_names[0]
+        prompt = (
             f"Let {adapted_inp_name} = [a_0, a_1, ..., a_{{N-1}}]. Let p be the smallest prime number "
             f"of the form m*N + 1 for a positive integer m.\n"
         )
@@ -191,25 +299,20 @@ class NTTTask(MathTask):
 
 
 class SubsetZetaTransformTask(MathTask):
+    power_of_two_input = True
     task_name = 'subset_zeta_transform'
     input_type = "list"
     output_type = "list"
 
     def solution_generator(self):
-        self.input_adapter = ListToListAdapter(
-            self.scalar_max_mag, self.list_len_max, self.num_parents, None, True, True
-        )
-        self.adapted_inp['seq'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['seq'] = self.input_value
         padded = self.adapted_inp['seq']
         out = list(sympy.discrete.transforms.mobius_transform(padded))
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"list_{self.task_ind:d}"
-        seq_name = self.input_names[0]
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(seq_name, adapted_inp_name)
-        prompt += (
+        adapted_inp_name = self.input_names[0]
+        prompt = (
             f"Let {adapted_inp_name} be a sequence of length 2^m. Index its entries by bitmasks "
             f"S = 0, 1, ..., 2^m - 1.\n"
         )
@@ -229,10 +332,7 @@ class KroneckerProductTask(MathTask):
     output_type = "list"
 
     def gen_params(self):
-        self.input_adapter = ListToListAdapter(
-            self.scalar_max_mag, self.list_len_max, self.num_parents, None, False, True
-        )
-        self.adapted_inp['matrix_1'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['matrix_1'] = self.input_value
         length = len(self.adapted_inp['matrix_1'])
         r = int(math.floor(math.sqrt(length)))
         c = int(math.ceil(length / r))
@@ -243,19 +343,17 @@ class KroneckerProductTask(MathTask):
         self.matrix_2 = _rand_matrix(r, c, -float(self.scalar_max_mag), float(self.scalar_max_mag))
 
     def solution_generator(self):
-        inp_list = self.adapted_inp['matrix_1']
+        inp_list = self.input_value
         m1 = self.matrix_adapter.compute(inp_list)
         m2 = self.matrix_2
         out = self.output_adapter.compute(sympy.kronecker_product(m1, m2))
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"list_{self.task_ind:d}"
+        adapted_inp_name = self.input_names[0]
         m1_name = f"M1_{self.task_ind:d}"
         m2_name = f"M2_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += (
+        prompt = (
             f"Let L be max(1, the length of {adapted_inp_name}). Let r = max(1, floor(sqrt(L))). "
             f"Let c = ceil(L / r).\n"
         )
@@ -275,10 +373,7 @@ class InterpolateEvalTask(MathTask):
         self.eval_point = random.choice(range(-100, 100))
 
     def solution_generator(self):
-        self.input_adapter = ListToListAdapter(
-            self.scalar_max_mag, self.list_len_max, self.num_parents, None, False, True
-        )
-        self.adapted_inp['points'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['points'] = self.input_value
         points = self.adapted_inp['points']
         x = sympy.Symbol("x")
         points_dict = {i: val for i, val in enumerate(points)}
@@ -288,10 +383,8 @@ class InterpolateEvalTask(MathTask):
 
 
     def prompt_generator(self):
-        adapted_inp_name = f"points_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += (
+        adapted_inp_name = self.input_names[0]
+        prompt = (
             f"Let N be the length of {adapted_inp_name}. Construct the unique interpolating polynomial "
             f"through the points (i, {adapted_inp_name}[i]) for every integer i with 0 <= i < N.\n"
         )
@@ -301,22 +394,20 @@ class InterpolateEvalTask(MathTask):
 
 
 class SummatoryTotientTask(MathTask):
+    input_min = 30
     task_name = 'summatory_totient'
     input_type = "scalar"
     output_type = "scalar"
 
     def solution_generator(self):
-        self.input_adapter = ScalarToScalarAdapter(self.scalar_max_mag, True, True, 30)
-        self.adapted_inp['n'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['n'] = self.input_value
         n = self.adapted_inp['n']
         out = sum(int(sympy.totient(k)) for k in range(1, n + 1))
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"val_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += (
+        adapted_inp_name = self.input_names[0]
+        prompt = (
             f"For each integer k = 1, 2, ..., {adapted_inp_name}, compute Euler's totient function phi(k), "
             f"the number of integers m with 1 <= m <= k such that gcd(m, k) = 1.\n"
         )
@@ -326,22 +417,20 @@ class SummatoryTotientTask(MathTask):
 
 
 class DivisorSumTask(MathTask):
+    input_min = 1
     task_name = 'divisor_sum'
     input_type = "scalar"
     output_type = "scalar"
 
     def solution_generator(self):
-        self.input_adapter = ScalarToScalarAdapter(self.scalar_max_mag, True, True, 1)
-        self.adapted_inp['n'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['n'] = self.input_value
         conditioned = self.adapted_inp['n']
         out = sympy.divisor_sigma(conditioned, 1)
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"val_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += f"Compute the sum of all positive divisors of {adapted_inp_name}.\n"
+        adapted_inp_name = self.input_names[0]
+        prompt = f"Compute the sum of all positive divisors of {adapted_inp_name}.\n"
         prompt += f"Let {self.result_var_name} be the resulting value.\n"
         return prompt
 
@@ -352,23 +441,18 @@ class ConvolutionTask(MathTask):
     output_type = "list"
 
     def gen_params(self):
-        self.input_adapter = ListToListAdapter(
-            self.scalar_max_mag, self.list_len_max, self.num_parents, None, False, True
-        )
-        self.adapted_inp['seq'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['seq'] = self.input_value
         self.seq2 = [random.randint(-5, 5) for _ in range(len(self.adapted_inp['seq']))]
 
     def solution_generator(self):
-        seq = self.adapted_inp['seq']
+        seq = self.input_value
         seq2 = self.seq2
         out = list(sympy.discrete.convolutions.convolution(seq, seq2))
         return out + [0] * (len(seq) + len(seq2) - 1 - len(out))
 
     def prompt_generator(self):
-        adapted_inp_name = f"list_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += f"Define seq2_{self.task_ind:d} = {self.seq2}.\n"
+        adapted_inp_name = self.input_names[0]
+        prompt = f"Define seq2_{self.task_ind:d} = {self.seq2}.\n"
         prompt += f"Compute the linear discrete convolution of {adapted_inp_name} and seq2_{self.task_ind:d}.\n"
         prompt += f"Let {self.result_var_name} be the resulting sequence.\n"
         return prompt
@@ -380,16 +464,13 @@ class PolyRemainderTask(MathTask):
     output_type = "list"
 
     def gen_params(self):
-        self.input_adapter = ListToListAdapter(
-            self.scalar_max_mag, self.list_len_max, self.num_parents, None, False, True
-        )
         self.polynomial_adapter = ListToPolynomialAdapter()
         self.output_adapter = PolynomialToListAdapter()
-        self.adapted_inp['seq'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['seq'] = self.input_value
         self.seq2 = [random.randint(-5, 5) for _ in range(len(self.adapted_inp['seq']))]
 
     def solution_generator(self):
-        seq = self.adapted_inp['seq']
+        seq = self.input_value
         x = sympy.Symbol('x')
         P = self.polynomial_adapter.compute(seq)
         Q = sympy.Poly([1] + self.seq2, x)
@@ -397,12 +478,10 @@ class PolyRemainderTask(MathTask):
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"list_{self.task_ind:d}"
+        adapted_inp_name = self.input_names[0]
         x = sympy.Symbol('x')
         poly_2 = sympy.Poly([1] + self.seq2, x)
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += self.polynomial_adapter.prompt(adapted_inp_name, f"poly_1_{self.task_ind:d}")
+        prompt = self.polynomial_adapter.prompt(adapted_inp_name, f"poly_1_{self.task_ind:d}")
         prompt += f"Define poly_2_{self.task_ind:d} = {poly_2.as_expr()}.\n"
         prompt += (
             f"Compute the polynomial remainder of poly_1_{self.task_ind:d} divided by "
@@ -418,12 +497,9 @@ class PolyQuotientTask(MathTask):
     output_type = "list"
 
     def solution_generator(self):
-        self.input_adapter = ListToListAdapter(
-            self.scalar_max_mag, self.list_len_max, self.num_parents, None, False, True
-        )
         self.polynomial_adapter = ListToPolynomialAdapter()
         self.output_adapter = PolynomialToListAdapter()
-        self.adapted_inp['seq'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['seq'] = self.input_value
         seq = self.adapted_inp['seq']
         x = sympy.Symbol('x')
         P = self.polynomial_adapter.compute(seq)
@@ -433,10 +509,8 @@ class PolyQuotientTask(MathTask):
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"list_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += self.polynomial_adapter.prompt(adapted_inp_name, f"P_{self.task_ind:d}")
+        adapted_inp_name = self.input_names[0]
+        prompt = self.polynomial_adapter.prompt(adapted_inp_name, f"P_{self.task_ind:d}")
         prompt += (
             f"Compute the polynomial quotient when P_{self.task_ind:d}(x) is divided by the monic "
             f"polynomial x**2 + x + 1. Let poly_{self.result_var_name} be this polynomial.\n"
@@ -451,27 +525,22 @@ class MatrixPolynomialTask(MathTask):
     output_type = "list"
 
     def gen_params(self):
-        self.input_adapter = ListToListAdapter(
-            self.scalar_max_mag, self.list_len_max, self.num_parents, None, False, True
-        )
-        self.adapted_inp['matrix_1'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['matrix_1'] = self.input_value
         dim = int(math.ceil(math.sqrt(len(self.adapted_inp['matrix_1']))))
         self.num_rows = dim
         self.matrix_adapter = ListToMatrixAdapter(dim, dim)
         self.output_adapter = MatrixToListAdapter()
 
     def solution_generator(self):
-        seq = self.adapted_inp['matrix_1']
+        seq = self.input_value
         m = self.matrix_adapter.compute(seq)
         out = m**3 + m**2 + m
         out = self.output_adapter.compute(out)
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"list_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += f"Let L be max(1, the length of {adapted_inp_name}). Let k = ceil(sqrt(L)).\n"
+        adapted_inp_name = self.input_names[0]
+        prompt = f"Let L be max(1, the length of {adapted_inp_name}). Let k = ceil(sqrt(L)).\n"
         prompt += ListToMatrixAdapter("k", "k").prompt(adapted_inp_name, f"matrix_1_{self.task_ind:d}")
         prompt += (
             f"Compute the matrix polynomial matrix_1_{self.task_ind:d}**3 + "
@@ -488,19 +557,14 @@ class SortByDivisorCountTask(MathTask):
     output_type = "list"
 
     def solution_generator(self):
-        self.input_adapter = ListToListAdapter(
-            self.scalar_max_mag, self.list_len_max, self.num_parents, None, False, True
-        )
-        self.adapted_inp['seq'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['seq'] = self.input_value
         seq = self.adapted_inp['seq']
         out = sorted(seq, key=lambda x: sympy.ntheory.factor_.divisor_count(abs(x)) if x != 0 else 0)
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"list_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += (
+        adapted_inp_name = self.input_names[0]
+        prompt = (
             f"Sort {adapted_inp_name} based on the number of divisors of their absolute values in "
             f"ascending order. If an element is 0, treat its divisor count as 0. Maintain stable sorting "
             f"for ties.\n"
@@ -515,10 +579,7 @@ class MatrixFrobeniusSqTask(MathTask):
     output_type = "scalar"
 
     def solution_generator(self):
-        self.input_adapter = ListToListAdapter(
-            self.scalar_max_mag, self.list_len_max, self.num_parents, None, False, True
-        )
-        self.adapted_inp['seq'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['seq'] = self.input_value
         seq = self.adapted_inp['seq']
         k = math.isqrt(len(seq))
         self.matrix_adapter = ListToMatrixAdapter(k, k)
@@ -527,10 +588,8 @@ class MatrixFrobeniusSqTask(MathTask):
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"list_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += f"Let L be the length of {adapted_inp_name}. Let k = floor(sqrt(L)).\n"
+        adapted_inp_name = self.input_names[0]
+        prompt = f"Let L be the length of {adapted_inp_name}. Let k = floor(sqrt(L)).\n"
         prompt += ListToMatrixAdapter("k", "k").prompt(adapted_inp_name, f'mat_1_{self.task_ind:d}')
         prompt += f"Compute the Frobenius norm squared (sum of squares of all elements) of mat_1_{self.task_ind:d}.\n"
         prompt += f"Let {self.result_var_name} be the resulting value.\n"
@@ -543,10 +602,7 @@ class ConvexHullAreaTask(MathTask):
     output_type = "scalar"
 
     def solution_generator(self):
-        self.input_adapter = ListToListAdapter(
-            self.scalar_max_mag, self.list_len_max, self.num_parents, None, False, True
-        )
-        self.adapted_inp['seq'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['seq'] = self.input_value
         seq = self.adapted_inp['seq']
         pts = [sympy.geometry.Point(i, val) for i, val in enumerate(seq)]
         hull = sympy.geometry.convex_hull(*pts)
@@ -554,10 +610,8 @@ class ConvexHullAreaTask(MathTask):
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"list_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += (
+        adapted_inp_name = self.input_names[0]
+        prompt = (
             f"Consider {adapted_inp_name} as a sequence of y-coordinates with x-coordinates being their "
             f"indices (0, 1, 2, ...).\n"
         )
@@ -575,10 +629,7 @@ class MatrixNorm1Task(MathTask):
     output_type = "scalar"
 
     def solution_generator(self):
-        self.input_adapter = ListToListAdapter(
-            self.scalar_max_mag, self.list_len_max, self.num_parents, None, False, True
-        )
-        self.adapted_inp['seq'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['seq'] = self.input_value
         seq = self.adapted_inp['seq']
         k = math.isqrt(len(seq))
         self.matrix_adapter = ListToMatrixAdapter(k, k)
@@ -587,10 +638,8 @@ class MatrixNorm1Task(MathTask):
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"list_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += f"Let L be the length of {adapted_inp_name}. Let k = floor(sqrt(L)).\n"
+        adapted_inp_name = self.input_names[0]
+        prompt = f"Let L be the length of {adapted_inp_name}. Let k = floor(sqrt(L)).\n"
         prompt += ListToMatrixAdapter("k", "k").prompt(adapted_inp_name, f'matrix_1_{self.task_ind:d}')
         prompt += f"Compute the 1-norm of matrix_1_{self.task_ind:d} (the maximum absolute column sum).\n"
         prompt += f"Let {self.result_var_name} be the resulting value.\n"
@@ -603,10 +652,7 @@ class MatrixTraceCubeTask(MathTask):
     output_type = "scalar"
 
     def solution_generator(self):
-        self.input_adapter = ListToListAdapter(
-            self.scalar_max_mag, self.list_len_max, self.num_parents, None, False, True
-        )
-        self.adapted_inp['seq'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['seq'] = self.input_value
         seq = self.adapted_inp['seq']
         k = math.isqrt(len(seq))
         self.matrix_adapter = ListToMatrixAdapter(k, k)
@@ -615,10 +661,8 @@ class MatrixTraceCubeTask(MathTask):
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"list_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += f"Let L be the length of {adapted_inp_name}. Let k = floor(sqrt(L)).\n"
+        adapted_inp_name = self.input_names[0]
+        prompt = f"Let L be the length of {adapted_inp_name}. Let k = floor(sqrt(L)).\n"
         prompt += ListToMatrixAdapter("k", "k").prompt(adapted_inp_name, f'mat_1_{self.task_ind:d}')
         prompt += f"Compute the trace of mat_1_{self.task_ind:d}**3.\n"
         prompt += f"Let {self.result_var_name} be the resulting value.\n"
@@ -631,20 +675,15 @@ class PermutationInversionsTask(MathTask):
     output_type = "scalar"
 
     def solution_generator(self):
-        self.input_adapter = ListToListAdapter(
-            self.scalar_max_mag, self.list_len_max, self.num_parents, None, False, True
-        )
-        self.adapted_inp['seq'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['seq'] = self.input_value
         seq = self.adapted_inp['seq']
         indices = sorted(range(len(seq)), key=lambda x: seq[x])
         out = Permutation(indices).inversions()
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"list_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += (
+        adapted_inp_name = self.input_names[0]
+        prompt = (
             f"Let {adapted_inp_name} = [a_0, a_1, ..., a_{{N-1}}].\n"
             f"Sort the indices 0, 1, ..., N-1 in ascending order by the pair (a_i, i).\n"
         )
@@ -666,20 +705,15 @@ class PermutationOrderTask(MathTask):
     output_type = "scalar"
 
     def solution_generator(self):
-        self.input_adapter = ListToListAdapter(
-            self.scalar_max_mag, self.list_len_max, self.num_parents, None, False, True
-        )
-        self.adapted_inp['seq'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['seq'] = self.input_value
         seq = self.adapted_inp['seq']
         indices = sorted(range(len(seq)), key=lambda x: seq[x])
         out = Permutation(indices).order() if seq else 1
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"list_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += (
+        adapted_inp_name = self.input_names[0]
+        prompt = (
             f"Let {adapted_inp_name} = [a_0, a_1, ..., a_{{N-1}}].\n"
             f"Sort the indices 0, 1, ..., N-1 in ascending order by the pair (a_i, i).\n"
         )
@@ -706,11 +740,8 @@ class PolySquareFreeEvalTask(MathTask):
     output_type = "scalar"
 
     def solution_generator(self):
-        self.input_adapter = ListToListAdapter(
-            self.scalar_max_mag, self.list_len_max, self.num_parents, None, False, True
-        )
         self.polynomial_adapter = ListToPolynomialAdapter()
-        self.adapted_inp['seq'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['seq'] = self.input_value
         seq = self.adapted_inp['seq']
         x = sympy.Symbol('x')
         P = self.polynomial_adapter.compute(seq).set_domain(sympy.QQ)
@@ -729,10 +760,8 @@ class PolySquareFreeEvalTask(MathTask):
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"list_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += self.polynomial_adapter.prompt(adapted_inp_name, f'P_{self.task_ind:d}')
+        adapted_inp_name = self.input_names[0]
+        prompt = self.polynomial_adapter.prompt(adapted_inp_name, f'P_{self.task_ind:d}')
         prompt += (
             f"If P_{self.task_ind:d}(x) is the zero polynomial, define {self.result_var_name} = 0. For a nonzero "
             f"constant polynomial, use gcd(P_{self.task_ind:d}, P_{self.task_ind:d}') = 1.\n"
@@ -756,11 +785,8 @@ class PolyResultantFixedTask(MathTask):
     output_type = "scalar"
 
     def solution_generator(self):
-        self.input_adapter = ListToListAdapter(
-            self.scalar_max_mag, self.list_len_max, self.num_parents, None, False, True
-        )
         self.polynomial_adapter = ListToPolynomialAdapter()
-        self.adapted_inp['seq'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['seq'] = self.input_value
         seq = self.adapted_inp['seq']
         x = sympy.Symbol('x')
         P = self.polynomial_adapter.compute(seq)
@@ -769,25 +795,21 @@ class PolyResultantFixedTask(MathTask):
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"list_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += self.polynomial_adapter.prompt(adapted_inp_name, f'P_{self.task_ind:d}')
+        adapted_inp_name = self.input_names[0]
+        prompt = self.polynomial_adapter.prompt(adapted_inp_name, f'P_{self.task_ind:d}')
         prompt += f"Compute the resultant of P_{self.task_ind:d}(x) and the polynomial x**2 + x + 1.\n"
         prompt += f"Let {self.result_var_name} be the resulting value.\n"
         return prompt
 
 
 class PairwiseGcdSumTask(MathTask):
+    input_min = 0
     task_name = 'pairwise_gcd_sum'
     input_type = "list"
     output_type = "scalar"
 
     def solution_generator(self):
-        self.input_adapter = ListToListAdapter(
-            self.scalar_max_mag, self.list_len_max, self.num_parents, None, False, True, True
-        )
-        self.adapted_inp['seq'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['seq'] = self.input_value
         seq = self.adapted_inp['seq']
         if len(seq) < 2:
             out = 0
@@ -800,10 +822,8 @@ class PairwiseGcdSumTask(MathTask):
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"list_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += (
+        adapted_inp_name = self.input_names[0]
+        prompt = (
             f"For every pair of indices i, j with 0 <= i < j < len({adapted_inp_name}), compute "
             f"gcd(|{adapted_inp_name}[i]|, |{adapted_inp_name}[j]|). Use the convention "
             f"gcd(0, 0) = 0.\n"
@@ -814,22 +834,20 @@ class PairwiseGcdSumTask(MathTask):
 
 
 class PrimeOmegaSumTask(MathTask):
+    input_min = 2
     task_name = 'prime_omega_sum'
     input_type = "scalar"
     output_type = "scalar"
 
     def solution_generator(self):
-        self.input_adapter = ScalarToScalarAdapter(self.scalar_max_mag, True, True, 2)
-        self.adapted_inp['n'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['n'] = self.input_value
         n = self.adapted_inp['n']
         out = sum(sympy.factorint(i).__len__() for i in range(2, n + 1))
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"val_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += (
+        adapted_inp_name = self.input_names[0]
+        prompt = (
             f"For each integer i from 2 to {adapted_inp_name}, compute omega(i), the number of distinct "
             f"prime factors of i.\n"
         )
@@ -839,22 +857,20 @@ class PrimeOmegaSumTask(MathTask):
 
 
 class SumDivisorCountsTask(MathTask):
+    input_min = 1
     task_name = 'sum_divisor_counts'
     input_type = "scalar"
     output_type = "scalar"
 
     def solution_generator(self):
-        self.input_adapter = ScalarToScalarAdapter(self.scalar_max_mag, True, True, 1)
-        self.adapted_inp['n'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['n'] = self.input_value
         n = self.adapted_inp['n']
         out = sum(int(sympy.divisor_count(i)) for i in range(1, n + 1))
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"val_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += f"For each integer i from 1 to {adapted_inp_name}, compute the number of positive divisors of i.\n"
+        adapted_inp_name = self.input_names[0]
+        prompt = f"For each integer i from 1 to {adapted_inp_name}, compute the number of positive divisors of i.\n"
         prompt += f"Compute the sum of all these divisor counts.\n"
         prompt += f"Let {self.result_var_name} be the resulting sum.\n"
         return prompt
@@ -862,13 +878,13 @@ class SumDivisorCountsTask(MathTask):
 
 
 class PrimitiveRootCountTask(MathTask):
+    input_min = 1
     task_name = 'primitive_root_count'
     input_type = "scalar"
     output_type = "scalar"
 
     def solution_generator(self):
-        self.input_adapter = ScalarToScalarAdapter(self.scalar_max_mag, True, True, 1)
-        self.adapted_inp['n'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['n'] = self.input_value
         n = self.adapted_inp['n']
         p = sympy.prime(n)
         # The number of primitive roots modulo a prime p is phi(p - 1)
@@ -876,33 +892,29 @@ class PrimitiveRootCountTask(MathTask):
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"val_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += f"Find the {adapted_inp_name}-th prime number p.\n"
+        adapted_inp_name = self.input_names[0]
+        prompt = f"Find the {adapted_inp_name}-th prime number p.\n"
         prompt += f"Compute Euler's totient phi(p-1), which equals the count of primitive roots modulo p.\n"
         prompt += f"Let {self.result_var_name} be the resulting value.\n"
         return prompt
 
 
 class LegendreResidueWeightTask(MathTask):
+    input_min = 25
     task_name = 'legendre_residue_weight'
     input_type = "scalar"
     output_type = "scalar"
 
     def solution_generator(self):
-        self.input_adapter = ScalarToScalarAdapter(self.scalar_max_mag, True, True, 25)
-        self.adapted_inp['n'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['n'] = self.input_value
         n = self.adapted_inp['n']
         p = int(sympy.nextprime(n + 2))
         out = sum(a * (int(sympy.legendre_symbol(a, p)) + 1) for a in range(1, n + 1))
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"val_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += f"Let p be the smallest prime number strictly greater than {adapted_inp_name} + 2.\n"
+        adapted_inp_name = self.input_names[0]
+        prompt = f"Let p be the smallest prime number strictly greater than {adapted_inp_name} + 2.\n"
         prompt += (
             f"For each integer a = 1, 2, ..., {adapted_inp_name}, compute the Legendre symbol "
             f"Legendre(a, p). This value is 1 if there exists an integer x such that x**2 is congruent "
@@ -917,23 +929,21 @@ class LegendreResidueWeightTask(MathTask):
 
 
 class ScaledStirlingFirstKindTask(MathTask):
+    input_min = 0
     task_name = 'scaled_stirling_first_kind'
     input_type = "scalar"
     output_type = "scalar"
 
     def solution_generator(self):
-        self.input_adapter = ScalarToScalarAdapter(self.scalar_max_mag, True, True)
-        self.adapted_inp['n'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['n'] = self.input_value
         n = self.adapted_inp['n']
         m = math.isqrt(n) + 7
         out = 2 * sympy.binomial(m, 3) + 3 * sympy.binomial(m, 4)
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"val_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += f"Define m = floor(sqrt({adapted_inp_name})) + 7.\n"
+        adapted_inp_name = self.input_names[0]
+        prompt = f"Define m = floor(sqrt({adapted_inp_name})) + 7.\n"
         prompt += (
             f"Compute the unsigned Stirling number of the first kind c(m, m - 2), which counts the number "
             f"of permutations of m elements with exactly m - 2 disjoint cycles.\n"
@@ -943,64 +953,58 @@ class ScaledStirlingFirstKindTask(MathTask):
 
 
 class DivisorSigmaSquareTask(MathTask):
+    input_min = 1
     task_name = 'divisor_sigma_square'
     input_type = "scalar"
     output_type = "scalar"
 
     def solution_generator(self):
-        self.input_adapter = ScalarToScalarAdapter(self.scalar_max_mag, True, True, 1)
-        self.adapted_inp['n'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['n'] = self.input_value
         n = self.adapted_inp['n']
         out = int(sympy.divisor_sigma(n, 2))
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"val_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += f"Compute the sum of the squares of all positive divisors of {adapted_inp_name}.\n"
+        adapted_inp_name = self.input_names[0]
+        prompt = f"Compute the sum of the squares of all positive divisors of {adapted_inp_name}.\n"
         prompt += f"Let {self.result_var_name} be the resulting sum.\n"
         return prompt
 
 
 class MultiplicativeOrderTask(MathTask):
+    input_min = 1
     task_name = 'multiplicative_order'
     input_type = "scalar"
     output_type = "scalar"
 
     def solution_generator(self):
-        self.input_adapter = ScalarToScalarAdapter(self.scalar_max_mag, True, True, 1)
-        self.adapted_inp['n'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['n'] = self.input_value
         n = self.adapted_inp['n']
         out = sympy.ntheory.n_order(2, 2*n + 1)
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"val_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += f"Compute the multiplicative order of 2 modulo (2*{adapted_inp_name} + 1).\n"
+        adapted_inp_name = self.input_names[0]
+        prompt = f"Compute the multiplicative order of 2 modulo (2*{adapted_inp_name} + 1).\n"
         prompt += f"Let {self.result_var_name} be the resulting value.\n"
         return prompt
 
 
 class UnitaryDivisorSumTask(MathTask):
+    input_min = 1
     task_name = 'unitary_divisor_sum'
     input_type = "scalar"
     output_type = "scalar"
 
     def solution_generator(self):
-        self.input_adapter = ScalarToScalarAdapter(self.scalar_max_mag, True, True, 1)
-        self.adapted_inp['n'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['n'] = self.input_value
         n = self.adapted_inp['n']
         out = sympy.functions.combinatorial.numbers.udivisor_sigma(n, 1)
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"val_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += (
+        adapted_inp_name = self.input_names[0]
+        prompt = (
             f"Compute the sum of the unitary divisors of {adapted_inp_name} (divisors d where gcd(d, "
             f"{adapted_inp_name}/d) == 1).\n"
         )
@@ -1009,23 +1013,21 @@ class UnitaryDivisorSumTask(MathTask):
 
 
 class ModularMultiplicationSequenceTask(MathTask):
+    input_min = 1
     task_name = 'modular_multiplication_sequence'
     input_type = "scalar"
     output_type = "list"
 
     def solution_generator(self):
-        self.input_adapter = ScalarToScalarAdapter(self.scalar_max_mag, True, True, 1)
-        self.adapted_inp['n'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['n'] = self.input_value
         n = self.adapted_inp['n']
         p = sympy.prime(n)
         out = [int((i * n) % p) for i in range(1, n + 1)]
         return out
 
     def prompt_generator(self):
-        prompt = f"Task {self.task_ind:d}:\n"
-        adapted_inp_name = f"val_{self.task_ind:d}"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += (
+        adapted_inp_name = self.input_names[0]
+        prompt = (
             f"For each integer i from 1 to {adapted_inp_name}, compute (i * {adapted_inp_name}) modulo "
             f"the {adapted_inp_name}-th prime number.\n"
         )
@@ -1035,13 +1037,13 @@ class ModularMultiplicationSequenceTask(MathTask):
 
 
 class WeightedDivisorCountPrefixSequenceTask(MathTask):
+    input_min = 1
     task_name = 'weighted_divisor_count_prefix_sequence'
     input_type = "scalar"
     output_type = "list"
 
     def solution_generator(self):
-        self.input_adapter = ScalarToScalarAdapter(self.scalar_max_mag, True, True, 1)
-        self.adapted_inp['n'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['n'] = self.input_value
         n = self.adapted_inp['n']
         total = 0
         out = []
@@ -1051,10 +1053,8 @@ class WeightedDivisorCountPrefixSequenceTask(MathTask):
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"val_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += (
+        adapted_inp_name = self.input_names[0]
+        prompt = (
             f"For each integer i = 1, 2, ..., {adapted_inp_name}, define A_i to be the sum over "
             f"k = 1, 2, ..., i of k times the number of positive divisors of {adapted_inp_name} + k.\n"
         )
@@ -1068,22 +1068,20 @@ class WeightedDivisorCountPrefixSequenceTask(MathTask):
 
 
 class GrayCodeSequenceTask(MathTask):
+    input_min = 1
     task_name = 'gray_code_sequence'
     input_type = "scalar"
     output_type = "list"
 
     def solution_generator(self):
-        self.input_adapter = ScalarToScalarAdapter(self.scalar_max_mag, True, True, 1)
-        self.adapted_inp['n'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['n'] = self.input_value
         n = self.adapted_inp['n']
         out = [int(bin_to_gray(bin(i + n)[2:]), 2) for i in range(1, n + 1)]
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"val_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += (
+        adapted_inp_name = self.input_names[0]
+        prompt = (
             f"For each integer i from 1 to {adapted_inp_name}, let x = i + {adapted_inp_name}.\n"
             f"Compute the standard reflected binary Gray code of x, defined as gray(x) = x XOR "
             f"floor(x / 2), where XOR is bitwise exclusive OR.\n"
@@ -1097,22 +1095,20 @@ class GrayCodeSequenceTask(MathTask):
 
 
 class TotientShiftSequenceTask(MathTask):
+    input_min = 1
     task_name = 'totient_shift_sequence'
     input_type = "scalar"
     output_type = "list"
 
     def solution_generator(self):
-        self.input_adapter = ScalarToScalarAdapter(self.scalar_max_mag, True, True, 1)
-        self.adapted_inp['n'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['n'] = self.input_value
         n = self.adapted_inp['n']
         out = [int(sympy.totient(i + n)) for i in range(1, n + 1)]
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"val_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += (
+        adapted_inp_name = self.input_names[0]
+        prompt = (
             f"For each integer i from 1 to {adapted_inp_name}, compute Euler's totient function "
             f"phi(i + {adapted_inp_name}).\n"
         )
@@ -1121,22 +1117,20 @@ class TotientShiftSequenceTask(MathTask):
 
 
 class SmallestFactorQuadraticTask(MathTask):
+    input_min = 1
     task_name = 'smallest_factor_quadratic'
     input_type = "scalar"
     output_type = "list"
 
     def solution_generator(self):
-        self.input_adapter = ScalarToScalarAdapter(self.scalar_max_mag, True, True, 1)
-        self.adapted_inp['n'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['n'] = self.input_value
         n = self.adapted_inp['n']
         out = [int(min(sympy.factorint(i**2 + n).keys())) if (i**2 + n) > 1 else 1 for i in range(1, n + 1)]
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"val_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += (
+        adapted_inp_name = self.input_names[0]
+        prompt = (
             f"For each integer i from 1 to {adapted_inp_name}, compute the smallest prime factor of "
             f"i**2 + {adapted_inp_name}.\n"
         )
@@ -1145,22 +1139,20 @@ class SmallestFactorQuadraticTask(MathTask):
 
 
 class TotientProductSequenceTask(MathTask):
+    input_min = 1
     task_name = 'totient_product_sequence'
     input_type = "scalar"
     output_type = "list"
 
     def solution_generator(self):
-        self.input_adapter = ScalarToScalarAdapter(self.scalar_max_mag, True, True, 1)
-        self.adapted_inp['n'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['n'] = self.input_value
         n = self.adapted_inp['n']
         out = [int(sympy.totient(i * n)) for i in range(1, n + 1)]
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"val_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += (
+        adapted_inp_name = self.input_names[0]
+        prompt = (
             f"For each integer i from 1 to {adapted_inp_name}, compute Euler's totient function of "
             f"i * {adapted_inp_name}.\n"
         )
@@ -1169,22 +1161,20 @@ class TotientProductSequenceTask(MathTask):
 
 
 class PolygonDiagonalsSequenceTask(MathTask):
+    input_min = 3
     task_name = 'polygon_diagonals_sequence'
     input_type = "scalar"
     output_type = "list"
 
     def solution_generator(self):
-        self.input_adapter = ScalarToScalarAdapter(self.scalar_max_mag, True, True, 3)
-        self.adapted_inp['n'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['n'] = self.input_value
         n = self.adapted_inp['n']
         out = [int((i + n) * (i + n - 3) // 2) for i in range(1, n + 1)]
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"val_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += (
+        adapted_inp_name = self.input_names[0]
+        prompt = (
             f"For each integer i from 1 to {adapted_inp_name}, compute the number of diagonals in a "
             f"convex polygon with i + {adapted_inp_name} vertices.\n"
         )
@@ -1193,22 +1183,20 @@ class PolygonDiagonalsSequenceTask(MathTask):
 
 
 class PrimesBetweenSquaresTask(MathTask):
+    input_min = 1
     task_name = 'primes_between_squares'
     input_type = "scalar"
     output_type = "list"
 
     def solution_generator(self):
-        self.input_adapter = ScalarToScalarAdapter(self.scalar_max_mag, True, True, 1)
-        self.adapted_inp['n'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['n'] = self.input_value
         n = self.adapted_inp['n']
         out = list(sympy.primerange(n**2 + 1, (n+1)**2))
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"val_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += (
+        adapted_inp_name = self.input_names[0]
+        prompt = (
             f"List all prime numbers strictly between {adapted_inp_name}**2 and "
             f"({adapted_inp_name}+1)**2 in increasing order.\n"
         )
@@ -1217,13 +1205,13 @@ class PrimesBetweenSquaresTask(MathTask):
 
 
 class CentralBinomialPrimeValuationVectorTask(MathTask):
+    input_min = 30
     task_name = 'central_binomial_prime_valuation_vector'
     input_type = "scalar"
     output_type = "list"
 
     def solution_generator(self):
-        self.input_adapter = ScalarToScalarAdapter(self.scalar_max_mag, True, True, 30)
-        self.adapted_inp['n'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['n'] = self.input_value
         n = self.adapted_inp['n']
         out = []
         for p in sympy.primerange(2, 2*n + 1):
@@ -1237,10 +1225,8 @@ class CentralBinomialPrimeValuationVectorTask(MathTask):
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"val_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += f"For each prime number p with p <= 2*{adapted_inp_name}, define e_p as follows.\n"
+        adapted_inp_name = self.input_names[0]
+        prompt = f"For each prime number p with p <= 2*{adapted_inp_name}, define e_p as follows.\n"
         prompt += (
             f"For every positive integer j such that p**j <= 2*{adapted_inp_name}, compute "
             f"floor((2*{adapted_inp_name}) / p**j) - 2*floor({adapted_inp_name} / p**j), and let e_p "
@@ -1253,22 +1239,20 @@ class CentralBinomialPrimeValuationVectorTask(MathTask):
 
 
 class QuadraticResiduesPrimeTask(MathTask):
+    input_min = 1
     task_name = 'quadratic_residues_prime'
     input_type = "scalar"
     output_type = "list"
 
     def solution_generator(self):
-        self.input_adapter = ScalarToScalarAdapter(self.scalar_max_mag, True, True, 1)
-        self.adapted_inp['n'] = self.input_adapter.compute(self.input_value)
+        self.adapted_inp['n'] = self.input_value
         n = self.adapted_inp['n']
         out = sympy.ntheory.quadratic_residues(sympy.prime(n)) if n > 0 else []
         return out
 
     def prompt_generator(self):
-        adapted_inp_name = f"val_{self.task_ind:d}"
-        prompt = f"Task {self.task_ind:d}:\n"
-        prompt += self.input_adapter.prompt(self.input_names[0], adapted_inp_name)
-        prompt += (
+        adapted_inp_name = self.input_names[0]
+        prompt = (
             f"Let p be the {adapted_inp_name}-th prime number, using the convention that the 1st prime "
             f"is 2.\nFind all distinct residues r in {{0, 1, ..., p-1}} for which there exists an integer "
             f"x such that x^2 ≡ r mod p.\n"
@@ -1294,6 +1278,7 @@ def load_pool() -> list[dict[str, Any]]:
             "task_name": task_implementation.task_name,
             "input_type": task_implementation.input_type,
             "output_type": task_implementation.output_type,
+            "comparator": COMPARATOR,
             "task_implementation": task_implementation,
         }
         for task_id, task_implementation in enumerate(task_implementations)
@@ -1305,52 +1290,21 @@ def make_stage(
     task_number: int,
     input_names: list[str],
     _input: Any,
-) -> tuple[Any, str, list[str], Any]:
-    adapter_prompt = ""
+    get_input_attempts_per_task: int = 5,
+    with_bank: bool = False,
+) -> tuple[Any, str, list[str], Any, list[dict[str, Any]]]:
     num_parents = 0 if _input is None else len(input_names)
-    if _input is None:
-        if task["input_type"] == "list":
-            task_input = [random.randint(-SCALAR_MAX_MAG, SCALAR_MAX_MAG) for _ in range(LIST_LEN_MAX)]
-        else:
-            task_input = random.randint(-SCALAR_MAX_MAG, SCALAR_MAX_MAG)
-    else:
-        task_input = _input
-
-    references = [f'{input_name}["result"]' for input_name in input_names]
-    if len(input_names) > 1:
-        if task["input_type"] == "scalar":
-            adapter_name = f"val_{task_number:d}_join"
-            join_adapter = AddScalarsAdapter()
-        elif task["input_type"] == "list":
-            adapter_name = f"list_{task_number:d}_join"
-            join_adapter = SumListsAdapter()
-        else:
-            raise ValueError(f"Cannot join inputs for input_type={task['input_type']!r}.")
-        task_input = join_adapter.compute(task_input)
-        adapter_prompt = join_adapter.prompt(references, adapter_name)
-        references = [adapter_name]
-
-    task_instance = task["task_implementation"](
+    bank = task["task_implementation"].generate_inputs(
         task_number,
-        references,
-        task_input,
+        [f"task_{task_number}_input"],
         SCALAR_MAX_MAG,
         LIST_LEN_MAX,
+        get_input_attempts_per_task + 1 if (num_parents or with_bank) else 1,
         num_parents,
     )
-    prompt = task_instance.prompt.rstrip()
-    if adapter_prompt:
-        task_header, task_body = prompt.split("\n", 1)
-        prompt = f"{task_header}\n{adapter_prompt.rstrip()}\n{task_body}"
-
-    if bad_output(task_instance.out):
-        raise ValueError(f"math:{task['task_id']}:{task['task_name']} produced an unusable output.")
-
-    if _input is None:
-        input_json = json.dumps({"result": task_input}, ensure_ascii=True)
-        prompt = f"Define {input_names[0]} = {input_json}.\n{prompt}"
-
-    return task_instance.out, prompt, [], task_input
+    correct = bank[0]
+    wrong_inputs = [{"input": instance.input_value, "output": instance.out} for instance in bank[1:]]
+    return correct.out, correct.prompt.rstrip(), [], correct.input_value, wrong_inputs
 
 
 # =============================================================================

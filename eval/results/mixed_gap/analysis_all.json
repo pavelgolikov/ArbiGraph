@@ -1,0 +1,717 @@
+[
+  {
+    "model": "Qwen3.8-27B",
+    "topology": "eighteen_chain_target",
+    "pairs": 99,
+    "target": {
+      "difference_mixed_minus_pure": 0.09090909090909091,
+      "cluster_bootstrap_95": [
+        -0.050505050505050504,
+        0.23232323232323232
+      ]
+    },
+    "target_adjusted_for_solo_accuracy": {
+      "difference_mixed_minus_pure": 0.08004063666508236,
+      "cluster_bootstrap_95": [
+        -0.06105281261499166,
+        0.2230958443301179
+      ]
+    },
+    "retained_math_node_mean": {
+      "difference_mixed_minus_pure": 0.051627384960718295,
+      "cluster_bootstrap_95": [
+        -0.07182940516273849,
+        0.1728395061728395
+      ]
+    },
+    "pure_target_accuracy": 0.31313131313131315,
+    "mixed_target_accuracy": 0.40404040404040403,
+    "solo_predicted_pure": 0.7366375129750043,
+    "solo_predicted_mixed": 0.7475059672190129,
+    "solo_predicted_mixed_minus_pure": 0.010868454244008507,
+    "heldout_selected_task_rates": {
+      "rag": {
+        "25": 0.9666666666666667,
+        "68": 0.9666666666666667,
+        "184": 1
+      },
+      "rlve": {
+        "11": 1,
+        "13": 0.9333333333333333,
+        "21": 1,
+        "31": 1,
+        "38": 1
+      }
+    },
+    "mixed_rag_node_accuracy": 0.40404040404040403,
+    "mixed_rlve_node_accuracy": 0.4478114478114478,
+    "mixed_context_overflows": 0,
+    "mean_generated_tokens_pure": 67394.73737373737,
+    "mean_generated_tokens_mixed": 53903.84848484849
+  },
+  {
+    "model": "GPT-OSS-120B",
+    "topology": "eighteen_chain_target",
+    "pairs": 96,
+    "target": {
+      "difference_mixed_minus_pure": -0.28125,
+      "cluster_bootstrap_95": [
+        -0.40625,
+        -0.15625
+      ]
+    },
+    "target_adjusted_for_solo_accuracy": {
+      "difference_mixed_minus_pure": -0.22211314623415643,
+      "cluster_bootstrap_95": [
+        -0.34495840634732516,
+        -0.09867028769423873
+      ]
+    },
+    "retained_math_node_mean": {
+      "difference_mixed_minus_pure": -0.05671296296296296,
+      "cluster_bootstrap_95": [
+        -0.11689814814814814,
+        0.006944444444444443
+      ]
+    },
+    "pure_target_accuracy": 0.8541666666666666,
+    "mixed_target_accuracy": 0.5729166666666666,
+    "solo_predicted_pure": 0.8996474187999999,
+    "solo_predicted_mixed": 0.8405105650341563,
+    "solo_predicted_mixed_minus_pure": -0.059136853765843544,
+    "heldout_selected_task_rates": {
+      "rag": {
+        "25": 0.9333333333333333,
+        "68": 1,
+        "184": 0.9666666666666667
+      },
+      "rlve": {
+        "11": 1,
+        "13": 1,
+        "21": 1,
+        "31": 0.9666666666666667,
+        "38": 0.9
+      }
+    },
+    "mixed_rag_node_accuracy": 0.59375,
+    "mixed_rlve_node_accuracy": 0.7743055555555556,
+    "mixed_context_overflows": 0,
+    "mean_generated_tokens_pure": 32510.052083333332,
+    "mean_generated_tokens_mixed": 34697.114583333336
+  },
+  {
+    "model": "gemma-4-31B-it",
+    "topology": "eighteen_chain_target",
+    "pairs": 111,
+    "target": {
+      "difference_mixed_minus_pure": 0.08108108108108109,
+      "cluster_bootstrap_95": [
+        -0.05405405405405406,
+        0.21621621621621623
+      ]
+    },
+    "target_adjusted_for_solo_accuracy": {
+      "difference_mixed_minus_pure": 0.03694619877470552,
+      "cluster_bootstrap_95": [
+        -0.09659557040067274,
+        0.17379133053597592
+      ]
+    },
+    "retained_math_node_mean": {
+      "difference_mixed_minus_pure": 0.02602602602602603,
+      "cluster_bootstrap_95": [
+        -0.07207207207207207,
+        0.12712712712712712
+      ]
+    },
+    "pure_target_accuracy": 0.46846846846846846,
+    "mixed_target_accuracy": 0.5495495495495496,
+    "solo_predicted_pure": 0.9056261607206514,
+    "solo_predicted_mixed": 0.949761043027027,
+    "solo_predicted_mixed_minus_pure": 0.044134882306375633,
+    "heldout_selected_task_rates": {
+      "rag": {
+        "25": 1,
+        "68": 1,
+        "184": 1
+      },
+      "rlve": {
+        "11": 1,
+        "13": 1,
+        "21": 1,
+        "31": 1,
+        "38": 1
+      }
+    },
+    "mixed_rag_node_accuracy": 0.5585585585585585,
+    "mixed_rlve_node_accuracy": 0.6396396396396397,
+    "mixed_context_overflows": 0,
+    "mean_generated_tokens_pure": 29205.27927927928,
+    "mean_generated_tokens_mixed": 27928.288288288288
+  },
+  {
+    "model": "Qwen3.8-27B",
+    "topology": "eighteen_braid_target",
+    "pairs": 99,
+    "target": {
+      "difference_mixed_minus_pure": 0.1111111111111111,
+      "cluster_bootstrap_95": [
+        -0.020202020202020204,
+        0.24242424242424243
+      ]
+    },
+    "target_adjusted_for_solo_accuracy": {
+      "difference_mixed_minus_pure": 0.10024265686710257,
+      "cluster_bootstrap_95": [
+        -0.030378080143926144,
+        0.2295807518548226
+      ]
+    },
+    "retained_math_node_mean": {
+      "difference_mixed_minus_pure": 0.09876543209876543,
+      "cluster_bootstrap_95": [
+        0.02693602693602694,
+        0.16835016835016836
+      ]
+    },
+    "pure_target_accuracy": 0.3434343434343434,
+    "mixed_target_accuracy": 0.45454545454545453,
+    "solo_predicted_pure": 0.7366375129750043,
+    "solo_predicted_mixed": 0.7475059672190129,
+    "solo_predicted_mixed_minus_pure": 0.010868454244008507,
+    "heldout_selected_task_rates": {
+      "rag": {
+        "25": 0.9666666666666667,
+        "68": 0.9666666666666667,
+        "184": 1
+      },
+      "rlve": {
+        "11": 1,
+        "13": 0.9333333333333333,
+        "21": 1,
+        "31": 1,
+        "38": 1
+      }
+    },
+    "mixed_rag_node_accuracy": 0.6464646464646465,
+    "mixed_rlve_node_accuracy": 0.7138047138047138,
+    "mixed_context_overflows": 0,
+    "mean_generated_tokens_pure": 60268.555555555555,
+    "mean_generated_tokens_mixed": 47060.61616161616
+  },
+  {
+    "model": "GPT-OSS-120B",
+    "topology": "eighteen_braid_target",
+    "pairs": 96,
+    "target": {
+      "difference_mixed_minus_pure": -0.19791666666666666,
+      "cluster_bootstrap_95": [
+        -0.34375,
+        -0.052083333333333336
+      ]
+    },
+    "target_adjusted_for_solo_accuracy": {
+      "difference_mixed_minus_pure": -0.1387798129008231,
+      "cluster_bootstrap_95": [
+        -0.28346226295761323,
+        0.008305976802469079
+      ]
+    },
+    "retained_math_node_mean": {
+      "difference_mixed_minus_pure": -0.039351851851851846,
+      "cluster_bootstrap_95": [
+        -0.1087962962962963,
+        0.02893518518518519
+      ]
+    },
+    "pure_target_accuracy": 0.71875,
+    "mixed_target_accuracy": 0.5208333333333334,
+    "solo_predicted_pure": 0.8996474187999999,
+    "solo_predicted_mixed": 0.8405105650341563,
+    "solo_predicted_mixed_minus_pure": -0.059136853765843544,
+    "heldout_selected_task_rates": {
+      "rag": {
+        "25": 0.9333333333333333,
+        "68": 1,
+        "184": 0.9666666666666667
+      },
+      "rlve": {
+        "11": 1,
+        "13": 1,
+        "21": 1,
+        "31": 0.9666666666666667,
+        "38": 0.9
+      }
+    },
+    "mixed_rag_node_accuracy": 0.5833333333333334,
+    "mixed_rlve_node_accuracy": 0.8263888888888888,
+    "mixed_context_overflows": 0,
+    "mean_generated_tokens_pure": 32345.760416666668,
+    "mean_generated_tokens_mixed": 33272.96875
+  },
+  {
+    "model": "gemma-4-31B-it",
+    "topology": "eighteen_braid_target",
+    "pairs": 111,
+    "target": {
+      "difference_mixed_minus_pure": -0.009009009009009009,
+      "cluster_bootstrap_95": [
+        -0.15315315315315314,
+        0.13513513513513514
+      ]
+    },
+    "target_adjusted_for_solo_accuracy": {
+      "difference_mixed_minus_pure": -0.053143891315384564,
+      "cluster_bootstrap_95": [
+        -0.1979878781285017,
+        0.08633770535527009
+      ]
+    },
+    "retained_math_node_mean": {
+      "difference_mixed_minus_pure": -0.0020020020020020016,
+      "cluster_bootstrap_95": [
+        -0.04904904904904905,
+        0.04704704704704705
+      ]
+    },
+    "pure_target_accuracy": 0.4864864864864865,
+    "mixed_target_accuracy": 0.4774774774774775,
+    "solo_predicted_pure": 0.9056261607206514,
+    "solo_predicted_mixed": 0.949761043027027,
+    "solo_predicted_mixed_minus_pure": 0.044134882306375633,
+    "heldout_selected_task_rates": {
+      "rag": {
+        "25": 1,
+        "68": 1,
+        "184": 1
+      },
+      "rlve": {
+        "11": 1,
+        "13": 1,
+        "21": 1,
+        "31": 1,
+        "38": 1
+      }
+    },
+    "mixed_rag_node_accuracy": 0.6936936936936937,
+    "mixed_rlve_node_accuracy": 0.8018018018018018,
+    "mixed_context_overflows": 0,
+    "mean_generated_tokens_pure": 27662.882882882885,
+    "mean_generated_tokens_mixed": 26900.576576576575
+  },
+  {
+    "model": "Qwen3.8-27B",
+    "topology": "eighteen_fan_out_fan_in",
+    "pairs": 99,
+    "target": {
+      "difference_mixed_minus_pure": 0.010101010101010102,
+      "cluster_bootstrap_95": [
+        -0.1111111111111111,
+        0.12121212121212122
+      ]
+    },
+    "target_adjusted_for_solo_accuracy": {
+      "difference_mixed_minus_pure": -0.0007674441429984333,
+      "cluster_bootstrap_95": [
+        -0.116742323608737,
+        0.11456759442564905
+      ]
+    },
+    "retained_math_node_mean": {
+      "difference_mixed_minus_pure": -0.03254769921436588,
+      "cluster_bootstrap_95": [
+        -0.08866442199775533,
+        0.025813692480359147
+      ]
+    },
+    "pure_target_accuracy": 0.42424242424242425,
+    "mixed_target_accuracy": 0.43434343434343436,
+    "solo_predicted_pure": 0.7366375129750043,
+    "solo_predicted_mixed": 0.7475059672190129,
+    "solo_predicted_mixed_minus_pure": 0.010868454244008507,
+    "heldout_selected_task_rates": {
+      "rag": {
+        "25": 0.9666666666666667,
+        "68": 0.9666666666666667,
+        "184": 1
+      },
+      "rlve": {
+        "11": 1,
+        "13": 0.9333333333333333,
+        "21": 1,
+        "31": 1,
+        "38": 1
+      }
+    },
+    "mixed_rag_node_accuracy": 0.9090909090909091,
+    "mixed_rlve_node_accuracy": 0.8653198653198653,
+    "mixed_context_overflows": 0,
+    "mean_generated_tokens_pure": 53901.42424242424,
+    "mean_generated_tokens_mixed": 46840.606060606064
+  },
+  {
+    "model": "GPT-OSS-120B",
+    "topology": "eighteen_fan_out_fan_in",
+    "pairs": 96,
+    "target": {
+      "difference_mixed_minus_pure": -0.17708333333333334,
+      "cluster_bootstrap_95": [
+        -0.3020833333333333,
+        -0.041666666666666664
+      ]
+    },
+    "target_adjusted_for_solo_accuracy": {
+      "difference_mixed_minus_pure": -0.11794647956748977,
+      "cluster_bootstrap_95": [
+        -0.2426505454098766,
+        0.013582834722222175
+      ]
+    },
+    "retained_math_node_mean": {
+      "difference_mixed_minus_pure": -0.018518518518518517,
+      "cluster_bootstrap_95": [
+        -0.06828703703703703,
+        0.028935185185185185
+      ]
+    },
+    "pure_target_accuracy": 0.7395833333333334,
+    "mixed_target_accuracy": 0.5625,
+    "solo_predicted_pure": 0.8996474187999999,
+    "solo_predicted_mixed": 0.8405105650341563,
+    "solo_predicted_mixed_minus_pure": -0.059136853765843544,
+    "heldout_selected_task_rates": {
+      "rag": {
+        "25": 0.9333333333333333,
+        "68": 1,
+        "184": 0.9666666666666667
+      },
+      "rlve": {
+        "11": 1,
+        "13": 1,
+        "21": 1,
+        "31": 0.9666666666666667,
+        "38": 0.9
+      }
+    },
+    "mixed_rag_node_accuracy": 0.8125,
+    "mixed_rlve_node_accuracy": 0.9201388888888888,
+    "mixed_context_overflows": 0,
+    "mean_generated_tokens_pure": 33028.666666666664,
+    "mean_generated_tokens_mixed": 34208.625
+  },
+  {
+    "model": "gemma-4-31B-it",
+    "topology": "eighteen_fan_out_fan_in",
+    "pairs": 111,
+    "target": {
+      "difference_mixed_minus_pure": -0.009009009009009009,
+      "cluster_bootstrap_95": [
+        -0.12612612612612611,
+        0.11711711711711711
+      ]
+    },
+    "target_adjusted_for_solo_accuracy": {
+      "difference_mixed_minus_pure": -0.053143891315384564,
+      "cluster_bootstrap_95": [
+        -0.16987494899007816,
+        0.0701449185091651
+      ]
+    },
+    "retained_math_node_mean": {
+      "difference_mixed_minus_pure": -0.005005005005005005,
+      "cluster_bootstrap_95": [
+        -0.05905905905905906,
+        0.05105105105105105
+      ]
+    },
+    "pure_target_accuracy": 0.43243243243243246,
+    "mixed_target_accuracy": 0.42342342342342343,
+    "solo_predicted_pure": 0.9056261607206514,
+    "solo_predicted_mixed": 0.949761043027027,
+    "solo_predicted_mixed_minus_pure": 0.044134882306375633,
+    "heldout_selected_task_rates": {
+      "rag": {
+        "25": 1,
+        "68": 1,
+        "184": 1
+      },
+      "rlve": {
+        "11": 1,
+        "13": 1,
+        "21": 1,
+        "31": 1,
+        "38": 1
+      }
+    },
+    "mixed_rag_node_accuracy": 0.7387387387387387,
+    "mixed_rlve_node_accuracy": 0.9159159159159159,
+    "mixed_context_overflows": 0,
+    "mean_generated_tokens_pure": 28260.711711711712,
+    "mean_generated_tokens_mixed": 26721.585585585584
+  },
+  {
+    "pooled": {
+      "models": [
+        "Qwen3.8-27B",
+        "GPT-OSS-120B",
+        "gemma-4-31B-it"
+      ],
+      "topology": "eighteen_chain_target",
+      "weighting": "equal model weight",
+      "target": {
+        "difference_mixed_minus_pure": -0.03641994266994267,
+        "stratified_cluster_bootstrap_95": [
+          -0.11137842387842388,
+          0.040148102648102646
+        ]
+      },
+      "retained_math_node_mean": {
+        "difference_mixed_minus_pure": 0.006980149341260455,
+        "stratified_cluster_bootstrap_95": [
+          -0.050761304233526455,
+          0.06310666727333394
+        ]
+      },
+      "target_adjusted_for_solo_accuracy": {
+        "difference_mixed_minus_pure": -0.03504210359812285,
+        "stratified_cluster_bootstrap_95": [
+          -0.11071885854287099,
+          0.04116400173873876
+        ]
+      }
+    }
+  },
+  {
+    "pooled": {
+      "models": [
+        "Qwen3.8-27B",
+        "GPT-OSS-120B",
+        "gemma-4-31B-it"
+      ],
+      "topology": "eighteen_braid_target",
+      "weighting": "equal model weight",
+      "target": {
+        "difference_mixed_minus_pure": -0.03193818818818819,
+        "stratified_cluster_bootstrap_95": [
+          -0.11211779961779961,
+          0.04747076622076623
+        ]
+      },
+      "retained_math_node_mean": {
+        "difference_mixed_minus_pure": 0.01913719274830386,
+        "stratified_cluster_bootstrap_95": [
+          -0.017514989737211956,
+          0.05509549953994398
+        ]
+      },
+      "target_adjusted_for_solo_accuracy": {
+        "difference_mixed_minus_pure": -0.03056034911636837,
+        "stratified_cluster_bootstrap_95": [
+          -0.11105467116825389,
+          0.0492808287603668
+        ]
+      }
+    }
+  },
+  {
+    "pooled": {
+      "models": [
+        "Qwen3.8-27B",
+        "GPT-OSS-120B",
+        "gemma-4-31B-it"
+      ],
+      "topology": "eighteen_fan_out_fan_in",
+      "weighting": "equal model weight",
+      "target": {
+        "difference_mixed_minus_pure": -0.058663777413777415,
+        "stratified_cluster_bootstrap_95": [
+          -0.12677450177450178,
+          0.011989261989261991
+        ]
+      },
+      "retained_math_node_mean": {
+        "difference_mixed_minus_pure": -0.018690407579296468,
+        "stratified_cluster_bootstrap_95": [
+          -0.05033347741681075,
+          0.012208862903307348
+        ]
+      },
+      "target_adjusted_for_solo_accuracy": {
+        "difference_mixed_minus_pure": -0.05728593834195759,
+        "stratified_cluster_bootstrap_95": [
+          -0.12525141386320635,
+          0.013229193135371926
+        ]
+      }
+    }
+  },
+  {
+    "pooled_across_topologies": {
+      "models": [
+        "Qwen3.8-27B",
+        "GPT-OSS-120B",
+        "gemma-4-31B-it"
+      ],
+      "topologies": [
+        "eighteen_chain_target",
+        "eighteen_braid_target",
+        "eighteen_fan_out_fan_in"
+      ],
+      "weighting": "equal model and topology weight",
+      "cluster": "target task within model, including all topology repeats",
+      "target": {
+        "difference_mixed_minus_pure": -0.04234063609063609,
+        "stratified_cluster_bootstrap_95": [
+          -0.08729373312706645,
+          0.002670283920283919
+        ]
+      },
+      "retained_math_node_mean": {
+        "difference_mixed_minus_pure": 0.00247564483675595,
+        "stratified_cluster_bootstrap_95": [
+          -0.023691726238022532,
+          0.02887030549067586
+        ]
+      },
+      "target_adjusted_for_solo_accuracy": {
+        "difference_mixed_minus_pure": -0.04096279701881626,
+        "stratified_cluster_bootstrap_95": [
+          -0.08575976675619182,
+          0.0049362406966811335
+        ]
+      }
+    }
+  },
+  {
+    "topology_contrast": {
+      "model": "Qwen3.8-27B",
+      "reference": "eighteen_chain_target",
+      "other": "eighteen_braid_target",
+      "meaning": "mixed-minus-pure effect in other minus reference",
+      "target": {
+        "difference_other_minus_reference": 0.020202020202020204,
+        "cluster_bootstrap_95": [
+          -0.18181818181818182,
+          0.21212121212121213
+        ]
+      },
+      "target_adjusted_for_solo_accuracy": {
+        "difference_other_minus_reference": 0.020202020202020207,
+        "cluster_bootstrap_95": [
+          -0.18181818181818182,
+          0.21212121212121213
+        ]
+      }
+    }
+  },
+  {
+    "topology_contrast": {
+      "model": "Qwen3.8-27B",
+      "reference": "eighteen_chain_target",
+      "other": "eighteen_fan_out_fan_in",
+      "meaning": "mixed-minus-pure effect in other minus reference",
+      "target": {
+        "difference_other_minus_reference": -0.08080808080808081,
+        "cluster_bootstrap_95": [
+          -0.2828282828282828,
+          0.1111111111111111
+        ]
+      },
+      "target_adjusted_for_solo_accuracy": {
+        "difference_other_minus_reference": -0.0808080808080808,
+        "cluster_bootstrap_95": [
+          -0.2828282828282828,
+          0.11111111111111112
+        ]
+      }
+    }
+  },
+  {
+    "topology_contrast": {
+      "model": "GPT-OSS-120B",
+      "reference": "eighteen_chain_target",
+      "other": "eighteen_braid_target",
+      "meaning": "mixed-minus-pure effect in other minus reference",
+      "target": {
+        "difference_other_minus_reference": 0.08333333333333333,
+        "cluster_bootstrap_95": [
+          -0.0625,
+          0.23958333333333334
+        ]
+      },
+      "target_adjusted_for_solo_accuracy": {
+        "difference_other_minus_reference": 0.08333333333333333,
+        "cluster_bootstrap_95": [
+          -0.0625,
+          0.23958333333333331
+        ]
+      }
+    }
+  },
+  {
+    "topology_contrast": {
+      "model": "GPT-OSS-120B",
+      "reference": "eighteen_chain_target",
+      "other": "eighteen_fan_out_fan_in",
+      "meaning": "mixed-minus-pure effect in other minus reference",
+      "target": {
+        "difference_other_minus_reference": 0.10416666666666667,
+        "cluster_bootstrap_95": [
+          -0.07291666666666667,
+          0.28125
+        ]
+      },
+      "target_adjusted_for_solo_accuracy": {
+        "difference_other_minus_reference": 0.10416666666666666,
+        "cluster_bootstrap_95": [
+          -0.07291666666666667,
+          0.28125
+        ]
+      }
+    }
+  },
+  {
+    "topology_contrast": {
+      "model": "gemma-4-31B-it",
+      "reference": "eighteen_chain_target",
+      "other": "eighteen_braid_target",
+      "meaning": "mixed-minus-pure effect in other minus reference",
+      "target": {
+        "difference_other_minus_reference": -0.09009009009009009,
+        "cluster_bootstrap_95": [
+          -0.27927927927927926,
+          0.0990990990990991
+        ]
+      },
+      "target_adjusted_for_solo_accuracy": {
+        "difference_other_minus_reference": -0.09009009009009009,
+        "cluster_bootstrap_95": [
+          -0.27927927927927926,
+          0.0990990990990991
+        ]
+      }
+    }
+  },
+  {
+    "topology_contrast": {
+      "model": "gemma-4-31B-it",
+      "reference": "eighteen_chain_target",
+      "other": "eighteen_fan_out_fan_in",
+      "meaning": "mixed-minus-pure effect in other minus reference",
+      "target": {
+        "difference_other_minus_reference": -0.09009009009009009,
+        "cluster_bootstrap_95": [
+          -0.2702702702702703,
+          0.0990990990990991
+        ]
+      },
+      "target_adjusted_for_solo_accuracy": {
+        "difference_other_minus_reference": -0.09009009009009009,
+        "cluster_bootstrap_95": [
+          -0.2702702702702703,
+          0.0990990990990991
+        ]
+      }
+    }
+  }
+]

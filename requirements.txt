@@ -1,11 +1,20 @@
-# Dataset generation (source/)
-fracturedjson
+# Dataset generation (source/, generate/)
 libcst
 networkx
 sympy
 tqdm
 
-# Evaluation harness (eval/) — only needed to run models against a generated
-# dataset. The calculator tool server needs these; vLLM is installed separately.
+# Evaluation harness (eval/). Install vLLM separately for local runs.
+httpx
 mcp
 pydantic
+python-dotenv
+transformers
+ujson
+
+# Analysis and plots (eval/)
+matplotlib
+numpy
+scipy
+
+# RLVR training has its own list: rlvr/full_train/requirements.txt
